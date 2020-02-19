@@ -41,8 +41,8 @@ public class InfoApiTest {
      *          if the Api call fails
      */
     @Test
-    public void infoGetUsingGETTest() throws ApiException {
-        OncoKBInfo response = api.infoGetUsingGET();
+    public void infoGetUsingGET1Test() throws ApiException {
+        OncoKBInfo response = api.infoGetUsingGET1();
 
         // TODO: test validations
     }

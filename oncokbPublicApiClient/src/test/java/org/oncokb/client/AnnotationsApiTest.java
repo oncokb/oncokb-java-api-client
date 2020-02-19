@@ -46,12 +46,13 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateCopyNumberAlterationsGetUsingGETTest() throws ApiException {
+    public void annotateCopyNumberAlterationsGetUsingGET1Test() throws ApiException {
         String copyNameAlterationType = null;
         String hugoSymbol = null;
         Integer entrezGeneId = null;
         String tumorType = null;
-        IndicatorQueryResp response = api.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType);
+        String evidenceType = null;
+        IndicatorQueryResp response = api.annotateCopyNumberAlterationsGetUsingGET1(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType);
 
         // TODO: test validations
     }
@@ -65,9 +66,9 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateCopyNumberAlterationsPostUsingPOSTTest() throws ApiException {
+    public void annotateCopyNumberAlterationsPostUsingPOST1Test() throws ApiException {
         List<AnnotateCopyNumberAlterationQuery> body = null;
-        List<IndicatorQueryResp> response = api.annotateCopyNumberAlterationsPostUsingPOST(body);
+        List<IndicatorQueryResp> response = api.annotateCopyNumberAlterationsPostUsingPOST1(body);
 
         // TODO: test validations
     }
@@ -81,10 +82,11 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateMutationsByGenomicChangeGetUsingGETTest() throws ApiException {
+    public void annotateMutationsByGenomicChangeGetUsingGET1Test() throws ApiException {
         String genomicLocation = null;
         String tumorType = null;
-        IndicatorQueryResp response = api.annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, tumorType);
+        String evidenceType = null;
+        IndicatorQueryResp response = api.annotateMutationsByGenomicChangeGetUsingGET1(genomicLocation, tumorType, evidenceType);
 
         // TODO: test validations
     }
@@ -98,9 +100,9 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateMutationsByGenomicChangePostUsingPOSTTest() throws ApiException {
+    public void annotateMutationsByGenomicChangePostUsingPOST1Test() throws ApiException {
         List<AnnotateMutationByGenomicChangeQuery> body = null;
-        List<IndicatorQueryResp> response = api.annotateMutationsByGenomicChangePostUsingPOST(body);
+        List<IndicatorQueryResp> response = api.annotateMutationsByGenomicChangePostUsingPOST1(body);
 
         // TODO: test validations
     }
@@ -114,10 +116,11 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateMutationsByHGVSgGetUsingGETTest() throws ApiException {
+    public void annotateMutationsByHGVSgGetUsingGET1Test() throws ApiException {
         String hgvsg = null;
         String tumorType = null;
-        IndicatorQueryResp response = api.annotateMutationsByHGVSgGetUsingGET(hgvsg, tumorType);
+        String evidenceType = null;
+        IndicatorQueryResp response = api.annotateMutationsByHGVSgGetUsingGET1(hgvsg, tumorType, evidenceType);
 
         // TODO: test validations
     }
@@ -131,9 +134,9 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateMutationsByHGVSgPostUsingPOSTTest() throws ApiException {
+    public void annotateMutationsByHGVSgPostUsingPOST1Test() throws ApiException {
         List<AnnotateMutationByHGVSgQuery> body = null;
-        List<IndicatorQueryResp> response = api.annotateMutationsByHGVSgPostUsingPOST(body);
+        List<IndicatorQueryResp> response = api.annotateMutationsByHGVSgPostUsingPOST1(body);
 
         // TODO: test validations
     }
@@ -147,7 +150,7 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateMutationsByProteinChangeGetUsingGETTest() throws ApiException {
+    public void annotateMutationsByProteinChangeGetUsingGET1Test() throws ApiException {
         String hugoSymbol = null;
         Integer entrezGeneId = null;
         String alteration = null;
@@ -155,7 +158,8 @@ public class AnnotationsApiTest {
         Integer proteinStart = null;
         Integer proteinEnd = null;
         String tumorType = null;
-        IndicatorQueryResp response = api.annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType);
+        String evidenceType = null;
+        IndicatorQueryResp response = api.annotateMutationsByProteinChangeGetUsingGET1(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType);
 
         // TODO: test validations
     }
@@ -169,9 +173,9 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateMutationsByProteinChangePostUsingPOSTTest() throws ApiException {
+    public void annotateMutationsByProteinChangePostUsingPOST1Test() throws ApiException {
         List<AnnotateMutationByProteinChangeQuery> body = null;
-        List<IndicatorQueryResp> response = api.annotateMutationsByProteinChangePostUsingPOST(body);
+        List<IndicatorQueryResp> response = api.annotateMutationsByProteinChangePostUsingPOST1(body);
 
         // TODO: test validations
     }
@@ -185,7 +189,7 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateStructuralVariantsGetUsingGETTest() throws ApiException {
+    public void annotateStructuralVariantsGetUsingGET1Test() throws ApiException {
         String structuralVariantType = null;
         Boolean isFunctionalFusion = null;
         String hugoSymbolA = null;
@@ -193,7 +197,8 @@ public class AnnotationsApiTest {
         String hugoSymbolB = null;
         Integer entrezGeneIdB = null;
         String tumorType = null;
-        IndicatorQueryResp response = api.annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType);
+        String evidenceType = null;
+        IndicatorQueryResp response = api.annotateStructuralVariantsGetUsingGET1(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType);
 
         // TODO: test validations
     }
@@ -207,9 +212,9 @@ public class AnnotationsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void annotateStructuralVariantsPostUsingPOSTTest() throws ApiException {
+    public void annotateStructuralVariantsPostUsingPOST1Test() throws ApiException {
         List<AnnotateStructuralVariantQuery> body = null;
-        List<IndicatorQueryResp> response = api.annotateStructuralVariantsPostUsingPOST(body);
+        List<IndicatorQueryResp> response = api.annotateStructuralVariantsPostUsingPOST1(body);
 
         // TODO: test validations
     }

@@ -54,13 +54,13 @@ public class LevelsApi {
     }
 
     /**
-     * Build call for levelsGetUsingGET
+     * Build call for levelsGetUsingGET1
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call levelsGetUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call levelsGetUsingGET1Call(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -102,10 +102,10 @@ public class LevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call levelsGetUsingGETValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call levelsGetUsingGET1ValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = levelsGetUsingGETCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = levelsGetUsingGET1Call(progressListener, progressRequestListener);
         return call;
 
     }
@@ -116,8 +116,8 @@ public class LevelsApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object levelsGetUsingGET() throws ApiException {
-        ApiResponse<Object> resp = levelsGetUsingGETWithHttpInfo();
+    public Object levelsGetUsingGET1() throws ApiException {
+        ApiResponse<Object> resp = levelsGetUsingGET1WithHttpInfo();
         return resp.getData();
     }
 
@@ -127,8 +127,8 @@ public class LevelsApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> levelsGetUsingGETWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = levelsGetUsingGETValidateBeforeCall(null, null);
+    public ApiResponse<Object> levelsGetUsingGET1WithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = levelsGetUsingGET1ValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -140,7 +140,7 @@ public class LevelsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call levelsGetUsingGETAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call levelsGetUsingGET1Async(final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -161,19 +161,19 @@ public class LevelsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = levelsGetUsingGETValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = levelsGetUsingGET1ValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for levelsResistanceGetUsingGET
+     * Build call for levelsResistanceGetUsingGET1
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call levelsResistanceGetUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call levelsResistanceGetUsingGET1Call(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -215,10 +215,10 @@ public class LevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call levelsResistanceGetUsingGETValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call levelsResistanceGetUsingGET1ValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = levelsResistanceGetUsingGETCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = levelsResistanceGetUsingGET1Call(progressListener, progressRequestListener);
         return call;
 
     }
@@ -229,8 +229,8 @@ public class LevelsApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object levelsResistanceGetUsingGET() throws ApiException {
-        ApiResponse<Object> resp = levelsResistanceGetUsingGETWithHttpInfo();
+    public Object levelsResistanceGetUsingGET1() throws ApiException {
+        ApiResponse<Object> resp = levelsResistanceGetUsingGET1WithHttpInfo();
         return resp.getData();
     }
 
@@ -240,8 +240,8 @@ public class LevelsApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> levelsResistanceGetUsingGETWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = levelsResistanceGetUsingGETValidateBeforeCall(null, null);
+    public ApiResponse<Object> levelsResistanceGetUsingGET1WithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = levelsResistanceGetUsingGET1ValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -253,7 +253,7 @@ public class LevelsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call levelsResistanceGetUsingGETAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call levelsResistanceGetUsingGET1Async(final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -274,19 +274,19 @@ public class LevelsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = levelsResistanceGetUsingGETValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = levelsResistanceGetUsingGET1ValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for levelsSensitiveGetUsingGET
+     * Build call for levelsSensitiveGetUsingGET1
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call levelsSensitiveGetUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call levelsSensitiveGetUsingGET1Call(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -328,10 +328,10 @@ public class LevelsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call levelsSensitiveGetUsingGETValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call levelsSensitiveGetUsingGET1ValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = levelsSensitiveGetUsingGETCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = levelsSensitiveGetUsingGET1Call(progressListener, progressRequestListener);
         return call;
 
     }
@@ -342,8 +342,8 @@ public class LevelsApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object levelsSensitiveGetUsingGET() throws ApiException {
-        ApiResponse<Object> resp = levelsSensitiveGetUsingGETWithHttpInfo();
+    public Object levelsSensitiveGetUsingGET1() throws ApiException {
+        ApiResponse<Object> resp = levelsSensitiveGetUsingGET1WithHttpInfo();
         return resp.getData();
     }
 
@@ -353,8 +353,8 @@ public class LevelsApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> levelsSensitiveGetUsingGETWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = levelsSensitiveGetUsingGETValidateBeforeCall(null, null);
+    public ApiResponse<Object> levelsSensitiveGetUsingGET1WithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = levelsSensitiveGetUsingGET1ValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -366,7 +366,7 @@ public class LevelsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call levelsSensitiveGetUsingGETAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call levelsSensitiveGetUsingGET1Async(final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -387,7 +387,7 @@ public class LevelsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = levelsSensitiveGetUsingGETValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = levelsSensitiveGetUsingGET1ValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

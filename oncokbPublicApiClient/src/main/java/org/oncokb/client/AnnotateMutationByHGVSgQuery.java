@@ -23,12 +23,92 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * AnnotateMutationByHGVSgQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-06T11:50:02.938-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-19T16:53:14.717-05:00")
 public class AnnotateMutationByHGVSgQuery {
+  /**
+   * Gets or Sets evidenceTypes
+   */
+  @JsonAdapter(EvidenceTypesEnum.Adapter.class)
+  public enum EvidenceTypesEnum {
+    GENE_SUMMARY("GENE_SUMMARY"),
+    
+    MUTATION_SUMMARY("MUTATION_SUMMARY"),
+    
+    TUMOR_TYPE_SUMMARY("TUMOR_TYPE_SUMMARY"),
+    
+    GENE_TUMOR_TYPE_SUMMARY("GENE_TUMOR_TYPE_SUMMARY"),
+    
+    PROGNOSTIC_SUMMARY("PROGNOSTIC_SUMMARY"),
+    
+    DIAGNOSTIC_SUMMARY("DIAGNOSTIC_SUMMARY"),
+    
+    GENE_BACKGROUND("GENE_BACKGROUND"),
+    
+    ONCOGENIC("ONCOGENIC"),
+    
+    MUTATION_EFFECT("MUTATION_EFFECT"),
+    
+    VUS("VUS"),
+    
+    PROGNOSTIC_IMPLICATION("PROGNOSTIC_IMPLICATION"),
+    
+    DIAGNOSTIC_IMPLICATION("DIAGNOSTIC_IMPLICATION"),
+    
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY("STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY"),
+    
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE("STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE"),
+    
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY("INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY"),
+    
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE("INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE");
+
+    private String value;
+
+    EvidenceTypesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EvidenceTypesEnum fromValue(String text) {
+      for (EvidenceTypesEnum b : EvidenceTypesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EvidenceTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EvidenceTypesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EvidenceTypesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EvidenceTypesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("evidenceTypes")
+  private List<EvidenceTypesEnum> evidenceTypes = null;
+
   @SerializedName("hgvsg")
   private String hgvsg = null;
 
@@ -37,6 +117,32 @@ public class AnnotateMutationByHGVSgQuery {
 
   @SerializedName("tumorType")
   private String tumorType = null;
+
+  public AnnotateMutationByHGVSgQuery evidenceTypes(List<EvidenceTypesEnum> evidenceTypes) {
+    this.evidenceTypes = evidenceTypes;
+    return this;
+  }
+
+  public AnnotateMutationByHGVSgQuery addEvidenceTypesItem(EvidenceTypesEnum evidenceTypesItem) {
+    if (this.evidenceTypes == null) {
+      this.evidenceTypes = new ArrayList<EvidenceTypesEnum>();
+    }
+    this.evidenceTypes.add(evidenceTypesItem);
+    return this;
+  }
+
+   /**
+   * Get evidenceTypes
+   * @return evidenceTypes
+  **/
+  @ApiModelProperty(value = "")
+  public List<EvidenceTypesEnum> getEvidenceTypes() {
+    return evidenceTypes;
+  }
+
+  public void setEvidenceTypes(List<EvidenceTypesEnum> evidenceTypes) {
+    this.evidenceTypes = evidenceTypes;
+  }
 
   public AnnotateMutationByHGVSgQuery hgvsg(String hgvsg) {
     this.hgvsg = hgvsg;
@@ -102,14 +208,15 @@ public class AnnotateMutationByHGVSgQuery {
       return false;
     }
     AnnotateMutationByHGVSgQuery annotateMutationByHGVSgQuery = (AnnotateMutationByHGVSgQuery) o;
-    return Objects.equals(this.hgvsg, annotateMutationByHGVSgQuery.hgvsg) &&
+    return Objects.equals(this.evidenceTypes, annotateMutationByHGVSgQuery.evidenceTypes) &&
+        Objects.equals(this.hgvsg, annotateMutationByHGVSgQuery.hgvsg) &&
         Objects.equals(this.id, annotateMutationByHGVSgQuery.id) &&
         Objects.equals(this.tumorType, annotateMutationByHGVSgQuery.tumorType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hgvsg, id, tumorType);
+    return Objects.hash(evidenceTypes, hgvsg, id, tumorType);
   }
 
 
@@ -118,6 +225,7 @@ public class AnnotateMutationByHGVSgQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnnotateMutationByHGVSgQuery {\n");
     
+    sb.append("    evidenceTypes: ").append(toIndentedString(evidenceTypes)).append("\n");
     sb.append("    hgvsg: ").append(toIndentedString(hgvsg)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tumorType: ").append(toIndentedString(tumorType)).append("\n");

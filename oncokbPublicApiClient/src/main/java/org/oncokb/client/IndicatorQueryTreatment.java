@@ -27,17 +27,24 @@ import java.util.ArrayList;
 import java.util.List;
 import org.oncokb.client.ArticleAbstract;
 import org.oncokb.client.Drug;
+import org.oncokb.client.TumorType;
 
 /**
  * IndicatorQueryTreatment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-06T11:50:02.938-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-19T16:53:14.717-05:00")
 public class IndicatorQueryTreatment {
   @SerializedName("abstracts")
   private List<ArticleAbstract> abstracts = null;
 
+  @SerializedName("alterations")
+  private List<String> alterations = null;
+
   @SerializedName("approvedIndications")
   private List<String> approvedIndications = null;
+
+  @SerializedName("description")
+  private String description = null;
 
   @SerializedName("drugs")
   private List<Drug> drugs = null;
@@ -127,6 +134,9 @@ public class IndicatorQueryTreatment {
   @SerializedName("level")
   private LevelEnum level = null;
 
+  @SerializedName("levelAssociatedCancerType")
+  private TumorType levelAssociatedCancerType = null;
+
   @SerializedName("pmids")
   private List<String> pmids = null;
 
@@ -156,6 +166,32 @@ public class IndicatorQueryTreatment {
     this.abstracts = abstracts;
   }
 
+  public IndicatorQueryTreatment alterations(List<String> alterations) {
+    this.alterations = alterations;
+    return this;
+  }
+
+  public IndicatorQueryTreatment addAlterationsItem(String alterationsItem) {
+    if (this.alterations == null) {
+      this.alterations = new ArrayList<String>();
+    }
+    this.alterations.add(alterationsItem);
+    return this;
+  }
+
+   /**
+   * Get alterations
+   * @return alterations
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getAlterations() {
+    return alterations;
+  }
+
+  public void setAlterations(List<String> alterations) {
+    this.alterations = alterations;
+  }
+
   public IndicatorQueryTreatment approvedIndications(List<String> approvedIndications) {
     this.approvedIndications = approvedIndications;
     return this;
@@ -180,6 +216,24 @@ public class IndicatorQueryTreatment {
 
   public void setApprovedIndications(List<String> approvedIndications) {
     this.approvedIndications = approvedIndications;
+  }
+
+  public IndicatorQueryTreatment description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public IndicatorQueryTreatment drugs(List<Drug> drugs) {
@@ -244,6 +298,24 @@ public class IndicatorQueryTreatment {
     this.level = level;
   }
 
+  public IndicatorQueryTreatment levelAssociatedCancerType(TumorType levelAssociatedCancerType) {
+    this.levelAssociatedCancerType = levelAssociatedCancerType;
+    return this;
+  }
+
+   /**
+   * Get levelAssociatedCancerType
+   * @return levelAssociatedCancerType
+  **/
+  @ApiModelProperty(value = "")
+  public TumorType getLevelAssociatedCancerType() {
+    return levelAssociatedCancerType;
+  }
+
+  public void setLevelAssociatedCancerType(TumorType levelAssociatedCancerType) {
+    this.levelAssociatedCancerType = levelAssociatedCancerType;
+  }
+
   public IndicatorQueryTreatment pmids(List<String> pmids) {
     this.pmids = pmids;
     return this;
@@ -281,16 +353,19 @@ public class IndicatorQueryTreatment {
     }
     IndicatorQueryTreatment indicatorQueryTreatment = (IndicatorQueryTreatment) o;
     return Objects.equals(this.abstracts, indicatorQueryTreatment.abstracts) &&
+        Objects.equals(this.alterations, indicatorQueryTreatment.alterations) &&
         Objects.equals(this.approvedIndications, indicatorQueryTreatment.approvedIndications) &&
+        Objects.equals(this.description, indicatorQueryTreatment.description) &&
         Objects.equals(this.drugs, indicatorQueryTreatment.drugs) &&
         Objects.equals(this.fdaApproved, indicatorQueryTreatment.fdaApproved) &&
         Objects.equals(this.level, indicatorQueryTreatment.level) &&
+        Objects.equals(this.levelAssociatedCancerType, indicatorQueryTreatment.levelAssociatedCancerType) &&
         Objects.equals(this.pmids, indicatorQueryTreatment.pmids);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abstracts, approvedIndications, drugs, fdaApproved, level, pmids);
+    return Objects.hash(abstracts, alterations, approvedIndications, description, drugs, fdaApproved, level, levelAssociatedCancerType, pmids);
   }
 
 
@@ -300,10 +375,13 @@ public class IndicatorQueryTreatment {
     sb.append("class IndicatorQueryTreatment {\n");
     
     sb.append("    abstracts: ").append(toIndentedString(abstracts)).append("\n");
+    sb.append("    alterations: ").append(toIndentedString(alterations)).append("\n");
     sb.append("    approvedIndications: ").append(toIndentedString(approvedIndications)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    drugs: ").append(toIndentedString(drugs)).append("\n");
     sb.append("    fdaApproved: ").append(toIndentedString(fdaApproved)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    levelAssociatedCancerType: ").append(toIndentedString(levelAssociatedCancerType)).append("\n");
     sb.append("    pmids: ").append(toIndentedString(pmids)).append("\n");
     sb.append("}");
     return sb.toString();

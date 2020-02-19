@@ -4,13 +4,13 @@ All URIs are relative to *https://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**utilsCancerGeneListGetUsingGET**](CancerGenesApi.md#utilsCancerGeneListGetUsingGET) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
-[**utilsCancerGeneListTxtGetUsingGET**](CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
+[**utilsCancerGeneListGetUsingGET1**](CancerGenesApi.md#utilsCancerGeneListGetUsingGET1) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
+[**utilsCancerGeneListTxtGetUsingGET1**](CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET1) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
 
 
-<a name="utilsCancerGeneListGetUsingGET"></a>
-# **utilsCancerGeneListGetUsingGET**
-> List&lt;CancerGene&gt; utilsCancerGeneListGetUsingGET(version)
+<a name="utilsCancerGeneListGetUsingGET1"></a>
+# **utilsCancerGeneListGetUsingGET1**
+> List&lt;CancerGene&gt; utilsCancerGeneListGetUsingGET1(version)
 
 utilsCancerGeneListGet
 
@@ -26,10 +26,10 @@ Get cancer gene list
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
 try {
-    List<CancerGene> result = apiInstance.utilsCancerGeneListGetUsingGET(version);
+    List<CancerGene> result = apiInstance.utilsCancerGeneListGetUsingGET1(version);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListGetUsingGET");
+    System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -53,9 +53,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="utilsCancerGeneListTxtGetUsingGET"></a>
-# **utilsCancerGeneListTxtGetUsingGET**
-> String utilsCancerGeneListTxtGetUsingGET(version)
+<a name="utilsCancerGeneListTxtGetUsingGET1"></a>
+# **utilsCancerGeneListTxtGetUsingGET1**
+> String utilsCancerGeneListTxtGetUsingGET1(version)
 
 utilsCancerGeneListTxtGet
 
@@ -71,10 +71,10 @@ Get cancer gene list in text file.
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
 try {
-    String result = apiInstance.utilsCancerGeneListTxtGetUsingGET(version);
+    String result = apiInstance.utilsCancerGeneListTxtGetUsingGET1(version);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListTxtGetUsingGET");
+    System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListTxtGetUsingGET1");
     e.printStackTrace();
 }
 ```

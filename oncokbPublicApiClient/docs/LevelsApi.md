@@ -4,14 +4,14 @@ All URIs are relative to *https://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**levelsGetUsingGET**](LevelsApi.md#levelsGetUsingGET) | **GET** /levels | levelsGet
-[**levelsResistanceGetUsingGET**](LevelsApi.md#levelsResistanceGetUsingGET) | **GET** /levels/resistance | levelsResistanceGet
-[**levelsSensitiveGetUsingGET**](LevelsApi.md#levelsSensitiveGetUsingGET) | **GET** /levels/sensitive | levelsSensitiveGet
+[**levelsGetUsingGET1**](LevelsApi.md#levelsGetUsingGET1) | **GET** /levels | levelsGet
+[**levelsResistanceGetUsingGET1**](LevelsApi.md#levelsResistanceGetUsingGET1) | **GET** /levels/resistance | levelsResistanceGet
+[**levelsSensitiveGetUsingGET1**](LevelsApi.md#levelsSensitiveGetUsingGET1) | **GET** /levels/sensitive | levelsSensitiveGet
 
 
-<a name="levelsGetUsingGET"></a>
-# **levelsGetUsingGET**
-> Object levelsGetUsingGET()
+<a name="levelsGetUsingGET1"></a>
+# **levelsGetUsingGET1**
+> Object levelsGetUsingGET1()
 
 levelsGet
 
@@ -26,10 +26,10 @@ Get all levels.
 
 LevelsApi apiInstance = new LevelsApi();
 try {
-    Object result = apiInstance.levelsGetUsingGET();
+    Object result = apiInstance.levelsGetUsingGET1();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LevelsApi#levelsGetUsingGET");
+    System.err.println("Exception when calling LevelsApi#levelsGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -50,9 +50,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="levelsResistanceGetUsingGET"></a>
-# **levelsResistanceGetUsingGET**
-> Object levelsResistanceGetUsingGET()
+<a name="levelsResistanceGetUsingGET1"></a>
+# **levelsResistanceGetUsingGET1**
+> Object levelsResistanceGetUsingGET1()
 
 levelsResistanceGet
 
@@ -67,10 +67,10 @@ Get all resistance levels.
 
 LevelsApi apiInstance = new LevelsApi();
 try {
-    Object result = apiInstance.levelsResistanceGetUsingGET();
+    Object result = apiInstance.levelsResistanceGetUsingGET1();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LevelsApi#levelsResistanceGetUsingGET");
+    System.err.println("Exception when calling LevelsApi#levelsResistanceGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -91,9 +91,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="levelsSensitiveGetUsingGET"></a>
-# **levelsSensitiveGetUsingGET**
-> Object levelsSensitiveGetUsingGET()
+<a name="levelsSensitiveGetUsingGET1"></a>
+# **levelsSensitiveGetUsingGET1**
+> Object levelsSensitiveGetUsingGET1()
 
 levelsSensitiveGet
 
@@ -108,10 +108,10 @@ Get all sensitive levels.
 
 LevelsApi apiInstance = new LevelsApi();
 try {
-    Object result = apiInstance.levelsSensitiveGetUsingGET();
+    Object result = apiInstance.levelsSensitiveGetUsingGET1();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LevelsApi#levelsSensitiveGetUsingGET");
+    System.err.println("Exception when calling LevelsApi#levelsSensitiveGetUsingGET1");
     e.printStackTrace();
 }
 ```

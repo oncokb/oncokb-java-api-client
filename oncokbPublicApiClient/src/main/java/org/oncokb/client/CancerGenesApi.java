@@ -55,14 +55,14 @@ public class CancerGenesApi {
     }
 
     /**
-     * Build call for utilsCancerGeneListGetUsingGET
+     * Build call for utilsCancerGeneListGetUsingGET1
      * @param version version (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call utilsCancerGeneListGetUsingGETCall(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call utilsCancerGeneListGetUsingGET1Call(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -106,10 +106,10 @@ public class CancerGenesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call utilsCancerGeneListGetUsingGETValidateBeforeCall(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call utilsCancerGeneListGetUsingGET1ValidateBeforeCall(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = utilsCancerGeneListGetUsingGETCall(version, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = utilsCancerGeneListGetUsingGET1Call(version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -121,8 +121,8 @@ public class CancerGenesApi {
      * @return List&lt;CancerGene&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<CancerGene> utilsCancerGeneListGetUsingGET(String version) throws ApiException {
-        ApiResponse<List<CancerGene>> resp = utilsCancerGeneListGetUsingGETWithHttpInfo(version);
+    public List<CancerGene> utilsCancerGeneListGetUsingGET1(String version) throws ApiException {
+        ApiResponse<List<CancerGene>> resp = utilsCancerGeneListGetUsingGET1WithHttpInfo(version);
         return resp.getData();
     }
 
@@ -133,8 +133,8 @@ public class CancerGenesApi {
      * @return ApiResponse&lt;List&lt;CancerGene&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<CancerGene>> utilsCancerGeneListGetUsingGETWithHttpInfo(String version) throws ApiException {
-        com.squareup.okhttp.Call call = utilsCancerGeneListGetUsingGETValidateBeforeCall(version, null, null);
+    public ApiResponse<List<CancerGene>> utilsCancerGeneListGetUsingGET1WithHttpInfo(String version) throws ApiException {
+        com.squareup.okhttp.Call call = utilsCancerGeneListGetUsingGET1ValidateBeforeCall(version, null, null);
         Type localVarReturnType = new TypeToken<List<CancerGene>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -147,7 +147,7 @@ public class CancerGenesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call utilsCancerGeneListGetUsingGETAsync(String version, final ApiCallback<List<CancerGene>> callback) throws ApiException {
+    public com.squareup.okhttp.Call utilsCancerGeneListGetUsingGET1Async(String version, final ApiCallback<List<CancerGene>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -168,20 +168,20 @@ public class CancerGenesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = utilsCancerGeneListGetUsingGETValidateBeforeCall(version, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = utilsCancerGeneListGetUsingGET1ValidateBeforeCall(version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<CancerGene>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for utilsCancerGeneListTxtGetUsingGET
+     * Build call for utilsCancerGeneListTxtGetUsingGET1
      * @param version version (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call utilsCancerGeneListTxtGetUsingGETCall(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call utilsCancerGeneListTxtGetUsingGET1Call(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -225,10 +225,10 @@ public class CancerGenesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call utilsCancerGeneListTxtGetUsingGETValidateBeforeCall(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call utilsCancerGeneListTxtGetUsingGET1ValidateBeforeCall(String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = utilsCancerGeneListTxtGetUsingGETCall(version, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = utilsCancerGeneListTxtGetUsingGET1Call(version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -240,8 +240,8 @@ public class CancerGenesApi {
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String utilsCancerGeneListTxtGetUsingGET(String version) throws ApiException {
-        ApiResponse<String> resp = utilsCancerGeneListTxtGetUsingGETWithHttpInfo(version);
+    public String utilsCancerGeneListTxtGetUsingGET1(String version) throws ApiException {
+        ApiResponse<String> resp = utilsCancerGeneListTxtGetUsingGET1WithHttpInfo(version);
         return resp.getData();
     }
 
@@ -252,8 +252,8 @@ public class CancerGenesApi {
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> utilsCancerGeneListTxtGetUsingGETWithHttpInfo(String version) throws ApiException {
-        com.squareup.okhttp.Call call = utilsCancerGeneListTxtGetUsingGETValidateBeforeCall(version, null, null);
+    public ApiResponse<String> utilsCancerGeneListTxtGetUsingGET1WithHttpInfo(String version) throws ApiException {
+        com.squareup.okhttp.Call call = utilsCancerGeneListTxtGetUsingGET1ValidateBeforeCall(version, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -266,7 +266,7 @@ public class CancerGenesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call utilsCancerGeneListTxtGetUsingGETAsync(String version, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call utilsCancerGeneListTxtGetUsingGET1Async(String version, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -287,7 +287,7 @@ public class CancerGenesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = utilsCancerGeneListTxtGetUsingGETValidateBeforeCall(version, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = utilsCancerGeneListTxtGetUsingGET1ValidateBeforeCall(version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

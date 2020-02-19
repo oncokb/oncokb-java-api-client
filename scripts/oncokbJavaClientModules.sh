@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ONCOKB_PUBLIC_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Public%20APIs}
-ONCOKB_PREMIUM_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Public%20APIs%20for%20Premium%20Users}
+ONCOKB_PRIVATE_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Private%20APIs}
 SWAGGER_CODEGEN_CLI_JAR="swagger-codegen-cli.jar"
 
 # switch to the script directory
@@ -14,8 +14,8 @@ fi
 
 # remove the modules if available (otherwise some legacy methods in the test will not get removed)
 rm -rf ../oncokbPublicApiClient
-rm -rf ../oncokbPremiumApiClient
+rm -rf ../oncokbPrivateApiClient
 
 # generate java modules (see config json files for more details)
 java -jar ${SWAGGER_CODEGEN_CLI_JAR} generate -i ${ONCOKB_PUBLIC_DOCS} -l java -c oncokbPublicApiClientConfig.json -o ../oncokbPublicApiClient
-java -jar ${SWAGGER_CODEGEN_CLI_JAR} generate -i ${ONCOKB_PREMIUM_DOCS} -l java -c oncokbPremiumApiClientConfig.json -o ../oncokbPremiumApiClient
+java -jar ${SWAGGER_CODEGEN_CLI_JAR} generate -i ${ONCOKB_PRIVATE_DOCS} -l java -c oncokbPrivateApiClientConfig.json -o ../oncokbPrivateApiClient
