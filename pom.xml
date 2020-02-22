@@ -11,7 +11,7 @@
 
   <modules>
     <module>oncokbPublicApiClient</module>
-    <module>oncokbPremiumApiClient</module>
+    <module>oncokbPrivateApiClient</module>
   </modules>
 
   <properties>

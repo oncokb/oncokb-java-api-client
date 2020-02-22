@@ -55,13 +55,13 @@ public class InfoApi {
     }
 
     /**
-     * Build call for infoGetUsingGET
+     * Build call for infoGetUsingGET1
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call infoGetUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call infoGetUsingGET1Call(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -103,10 +103,10 @@ public class InfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call infoGetUsingGETValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call infoGetUsingGET1ValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = infoGetUsingGETCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = infoGetUsingGET1Call(progressListener, progressRequestListener);
         return call;
 
     }
@@ -117,8 +117,8 @@ public class InfoApi {
      * @return OncoKBInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OncoKBInfo infoGetUsingGET() throws ApiException {
-        ApiResponse<OncoKBInfo> resp = infoGetUsingGETWithHttpInfo();
+    public OncoKBInfo infoGetUsingGET1() throws ApiException {
+        ApiResponse<OncoKBInfo> resp = infoGetUsingGET1WithHttpInfo();
         return resp.getData();
     }
 
@@ -128,8 +128,8 @@ public class InfoApi {
      * @return ApiResponse&lt;OncoKBInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OncoKBInfo> infoGetUsingGETWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = infoGetUsingGETValidateBeforeCall(null, null);
+    public ApiResponse<OncoKBInfo> infoGetUsingGET1WithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = infoGetUsingGET1ValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<OncoKBInfo>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -141,7 +141,7 @@ public class InfoApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call infoGetUsingGETAsync(final ApiCallback<OncoKBInfo> callback) throws ApiException {
+    public com.squareup.okhttp.Call infoGetUsingGET1Async(final ApiCallback<OncoKBInfo> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -162,7 +162,7 @@ public class InfoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = infoGetUsingGETValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = infoGetUsingGET1ValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OncoKBInfo>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

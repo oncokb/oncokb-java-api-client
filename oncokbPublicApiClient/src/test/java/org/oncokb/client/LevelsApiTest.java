@@ -40,8 +40,8 @@ public class LevelsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void levelsGetUsingGETTest() throws ApiException {
-        Object response = api.levelsGetUsingGET();
+    public void levelsGetUsingGET1Test() throws ApiException {
+        Object response = api.levelsGetUsingGET1();
 
         // TODO: test validations
     }
@@ -55,8 +55,8 @@ public class LevelsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void levelsResistanceGetUsingGETTest() throws ApiException {
-        Object response = api.levelsResistanceGetUsingGET();
+    public void levelsResistanceGetUsingGET1Test() throws ApiException {
+        Object response = api.levelsResistanceGetUsingGET1();
 
         // TODO: test validations
     }
@@ -70,8 +70,8 @@ public class LevelsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void levelsSensitiveGetUsingGETTest() throws ApiException {
-        Object response = api.levelsSensitiveGetUsingGET();
+    public void levelsSensitiveGetUsingGET1Test() throws ApiException {
+        Object response = api.levelsSensitiveGetUsingGET1();
 
         // TODO: test validations
     }

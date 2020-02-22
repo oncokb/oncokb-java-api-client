@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Drug
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-06T11:50:02.938-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-19T16:53:14.717-05:00")
 public class Drug {
   @SerializedName("drugName")
   private String drugName = null;

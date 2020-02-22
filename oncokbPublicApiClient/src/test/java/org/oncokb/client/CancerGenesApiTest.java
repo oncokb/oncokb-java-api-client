@@ -41,9 +41,9 @@ public class CancerGenesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void utilsCancerGeneListGetUsingGETTest() throws ApiException {
+    public void utilsCancerGeneListGetUsingGET1Test() throws ApiException {
         String version = null;
-        List<CancerGene> response = api.utilsCancerGeneListGetUsingGET(version);
+        List<CancerGene> response = api.utilsCancerGeneListGetUsingGET1(version);
 
         // TODO: test validations
     }
@@ -57,9 +57,9 @@ public class CancerGenesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void utilsCancerGeneListTxtGetUsingGETTest() throws ApiException {
+    public void utilsCancerGeneListTxtGetUsingGET1Test() throws ApiException {
         String version = null;
-        String response = api.utilsCancerGeneListTxtGetUsingGET(version);
+        String response = api.utilsCancerGeneListTxtGetUsingGET1(version);
 
         // TODO: test validations
     }

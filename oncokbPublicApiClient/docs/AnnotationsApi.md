@@ -4,21 +4,21 @@ All URIs are relative to *https://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**annotateCopyNumberAlterationsGetUsingGET**](AnnotationsApi.md#annotateCopyNumberAlterationsGetUsingGET) | **GET** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsGet
-[**annotateCopyNumberAlterationsPostUsingPOST**](AnnotationsApi.md#annotateCopyNumberAlterationsPostUsingPOST) | **POST** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsPost
-[**annotateMutationsByGenomicChangeGetUsingGET**](AnnotationsApi.md#annotateMutationsByGenomicChangeGetUsingGET) | **GET** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangeGet
-[**annotateMutationsByGenomicChangePostUsingPOST**](AnnotationsApi.md#annotateMutationsByGenomicChangePostUsingPOST) | **POST** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangePost
-[**annotateMutationsByHGVSgGetUsingGET**](AnnotationsApi.md#annotateMutationsByHGVSgGetUsingGET) | **GET** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgGet
-[**annotateMutationsByHGVSgPostUsingPOST**](AnnotationsApi.md#annotateMutationsByHGVSgPostUsingPOST) | **POST** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgPost
-[**annotateMutationsByProteinChangeGetUsingGET**](AnnotationsApi.md#annotateMutationsByProteinChangeGetUsingGET) | **GET** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangeGet
-[**annotateMutationsByProteinChangePostUsingPOST**](AnnotationsApi.md#annotateMutationsByProteinChangePostUsingPOST) | **POST** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangePost
-[**annotateStructuralVariantsGetUsingGET**](AnnotationsApi.md#annotateStructuralVariantsGetUsingGET) | **GET** /annotate/structuralVariants | annotateStructuralVariantsGet
-[**annotateStructuralVariantsPostUsingPOST**](AnnotationsApi.md#annotateStructuralVariantsPostUsingPOST) | **POST** /annotate/structuralVariants | annotateStructuralVariantsPost
+[**annotateCopyNumberAlterationsGetUsingGET1**](AnnotationsApi.md#annotateCopyNumberAlterationsGetUsingGET1) | **GET** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsGet
+[**annotateCopyNumberAlterationsPostUsingPOST1**](AnnotationsApi.md#annotateCopyNumberAlterationsPostUsingPOST1) | **POST** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsPost
+[**annotateMutationsByGenomicChangeGetUsingGET1**](AnnotationsApi.md#annotateMutationsByGenomicChangeGetUsingGET1) | **GET** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangeGet
+[**annotateMutationsByGenomicChangePostUsingPOST1**](AnnotationsApi.md#annotateMutationsByGenomicChangePostUsingPOST1) | **POST** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangePost
+[**annotateMutationsByHGVSgGetUsingGET1**](AnnotationsApi.md#annotateMutationsByHGVSgGetUsingGET1) | **GET** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgGet
+[**annotateMutationsByHGVSgPostUsingPOST1**](AnnotationsApi.md#annotateMutationsByHGVSgPostUsingPOST1) | **POST** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgPost
+[**annotateMutationsByProteinChangeGetUsingGET1**](AnnotationsApi.md#annotateMutationsByProteinChangeGetUsingGET1) | **GET** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangeGet
+[**annotateMutationsByProteinChangePostUsingPOST1**](AnnotationsApi.md#annotateMutationsByProteinChangePostUsingPOST1) | **POST** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangePost
+[**annotateStructuralVariantsGetUsingGET1**](AnnotationsApi.md#annotateStructuralVariantsGetUsingGET1) | **GET** /annotate/structuralVariants | annotateStructuralVariantsGet
+[**annotateStructuralVariantsPostUsingPOST1**](AnnotationsApi.md#annotateStructuralVariantsPostUsingPOST1) | **POST** /annotate/structuralVariants | annotateStructuralVariantsPost
 
 
-<a name="annotateCopyNumberAlterationsGetUsingGET"></a>
-# **annotateCopyNumberAlterationsGetUsingGET**
-> IndicatorQueryResp annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType)
+<a name="annotateCopyNumberAlterationsGetUsingGET1"></a>
+# **annotateCopyNumberAlterationsGetUsingGET1**
+> IndicatorQueryResp annotateCopyNumberAlterationsGetUsingGET1(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType)
 
 annotateCopyNumberAlterationsGet
 
@@ -36,11 +36,12 @@ String copyNameAlterationType = "copyNameAlterationType_example"; // String | Co
 String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
 Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
 String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType);
+    IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET1(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET");
+    System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -53,6 +54,7 @@ Name | Type | Description  | Notes
  **hugoSymbol** | **String**| The gene symbol used in Human Genome Organisation. Example: BRAF | [optional]
  **entrezGeneId** | **Integer**| The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 | [optional]
  **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
 
@@ -67,9 +69,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateCopyNumberAlterationsPostUsingPOST"></a>
-# **annotateCopyNumberAlterationsPostUsingPOST**
-> List&lt;IndicatorQueryResp&gt; annotateCopyNumberAlterationsPostUsingPOST(body)
+<a name="annotateCopyNumberAlterationsPostUsingPOST1"></a>
+# **annotateCopyNumberAlterationsPostUsingPOST1**
+> List&lt;IndicatorQueryResp&gt; annotateCopyNumberAlterationsPostUsingPOST1(body)
 
 annotateCopyNumberAlterationsPost
 
@@ -85,10 +87,10 @@ Annotate copy number alterations.
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateCopyNumberAlterationQuery> body = Arrays.asList(new AnnotateCopyNumberAlterationQuery()); // List<AnnotateCopyNumberAlterationQuery> | List of queries. Please see swagger.json for request body format.
 try {
-    List<IndicatorQueryResp> result = apiInstance.annotateCopyNumberAlterationsPostUsingPOST(body);
+    List<IndicatorQueryResp> result = apiInstance.annotateCopyNumberAlterationsPostUsingPOST1(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsPostUsingPOST");
+    System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsPostUsingPOST1");
     e.printStackTrace();
 }
 ```
@@ -112,9 +114,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateMutationsByGenomicChangeGetUsingGET"></a>
-# **annotateMutationsByGenomicChangeGetUsingGET**
-> IndicatorQueryResp annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, tumorType)
+<a name="annotateMutationsByGenomicChangeGetUsingGET1"></a>
+# **annotateMutationsByGenomicChangeGetUsingGET1**
+> IndicatorQueryResp annotateMutationsByGenomicChangeGetUsingGET1(genomicLocation, tumorType, evidenceType)
 
 annotateMutationsByGenomicChangeGet
 
@@ -130,11 +132,12 @@ Annotate mutation by genomic change.
 AnnotationsApi apiInstance = new AnnotationsApi();
 String genomicLocation = "genomicLocation_example"; // String | Genomic location. Example: 7,140453136,140453136,A,T
 String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, tumorType);
+    IndicatorQueryResp result = apiInstance.annotateMutationsByGenomicChangeGetUsingGET1(genomicLocation, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangeGetUsingGET");
+    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangeGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -145,6 +148,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **genomicLocation** | **String**| Genomic location. Example: 7,140453136,140453136,A,T |
  **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
 
@@ -159,9 +163,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateMutationsByGenomicChangePostUsingPOST"></a>
-# **annotateMutationsByGenomicChangePostUsingPOST**
-> List&lt;IndicatorQueryResp&gt; annotateMutationsByGenomicChangePostUsingPOST(body)
+<a name="annotateMutationsByGenomicChangePostUsingPOST1"></a>
+# **annotateMutationsByGenomicChangePostUsingPOST1**
+> List&lt;IndicatorQueryResp&gt; annotateMutationsByGenomicChangePostUsingPOST1(body)
 
 annotateMutationsByGenomicChangePost
 
@@ -177,10 +181,10 @@ Annotate mutations by genomic change.
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateMutationByGenomicChangeQuery> body = Arrays.asList(new AnnotateMutationByGenomicChangeQuery()); // List<AnnotateMutationByGenomicChangeQuery> | List of queries. Please see swagger.json for request body format.
 try {
-    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByGenomicChangePostUsingPOST(body);
+    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByGenomicChangePostUsingPOST1(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangePostUsingPOST");
+    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangePostUsingPOST1");
     e.printStackTrace();
 }
 ```
@@ -204,9 +208,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateMutationsByHGVSgGetUsingGET"></a>
-# **annotateMutationsByHGVSgGetUsingGET**
-> IndicatorQueryResp annotateMutationsByHGVSgGetUsingGET(hgvsg, tumorType)
+<a name="annotateMutationsByHGVSgGetUsingGET1"></a>
+# **annotateMutationsByHGVSgGetUsingGET1**
+> IndicatorQueryResp annotateMutationsByHGVSgGetUsingGET1(hgvsg, tumorType, evidenceType)
 
 annotateMutationsByHGVSgGet
 
@@ -222,11 +226,12 @@ Annotate mutation by HGVSg.
 AnnotationsApi apiInstance = new AnnotationsApi();
 String hgvsg = "hgvsg_example"; // String | HGVS genomic format. Example: 7:g.140453136A>T
 String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByHGVSgGetUsingGET(hgvsg, tumorType);
+    IndicatorQueryResp result = apiInstance.annotateMutationsByHGVSgGetUsingGET1(hgvsg, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgGetUsingGET");
+    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -237,6 +242,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hgvsg** | **String**| HGVS genomic format. Example: 7:g.140453136A&gt;T |
  **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
 
@@ -251,9 +257,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateMutationsByHGVSgPostUsingPOST"></a>
-# **annotateMutationsByHGVSgPostUsingPOST**
-> List&lt;IndicatorQueryResp&gt; annotateMutationsByHGVSgPostUsingPOST(body)
+<a name="annotateMutationsByHGVSgPostUsingPOST1"></a>
+# **annotateMutationsByHGVSgPostUsingPOST1**
+> List&lt;IndicatorQueryResp&gt; annotateMutationsByHGVSgPostUsingPOST1(body)
 
 annotateMutationsByHGVSgPost
 
@@ -269,10 +275,10 @@ Annotate mutations by genomic change.
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateMutationByHGVSgQuery> body = Arrays.asList(new AnnotateMutationByHGVSgQuery()); // List<AnnotateMutationByHGVSgQuery> | List of queries. Please see swagger.json for request body format.
 try {
-    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByHGVSgPostUsingPOST(body);
+    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByHGVSgPostUsingPOST1(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgPostUsingPOST");
+    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgPostUsingPOST1");
     e.printStackTrace();
 }
 ```
@@ -296,9 +302,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateMutationsByProteinChangeGetUsingGET"></a>
-# **annotateMutationsByProteinChangeGetUsingGET**
-> IndicatorQueryResp annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType)
+<a name="annotateMutationsByProteinChangeGetUsingGET1"></a>
+# **annotateMutationsByProteinChangeGetUsingGET1**
+> IndicatorQueryResp annotateMutationsByProteinChangeGetUsingGET1(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType)
 
 annotateMutationsByProteinChangeGet
 
@@ -319,11 +325,12 @@ String consequence = "consequence_example"; // String | Consequence. Exacmple: m
 Integer proteinStart = 56; // Integer | Protein Start. Example: 600
 Integer proteinEnd = 56; // Integer | Protein End. Example: 600
 String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType);
+    IndicatorQueryResp result = apiInstance.annotateMutationsByProteinChangeGetUsingGET1(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangeGetUsingGET");
+    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangeGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -339,6 +346,7 @@ Name | Type | Description  | Notes
  **proteinStart** | **Integer**| Protein Start. Example: 600 | [optional]
  **proteinEnd** | **Integer**| Protein End. Example: 600 | [optional]
  **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
 
@@ -353,9 +361,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateMutationsByProteinChangePostUsingPOST"></a>
-# **annotateMutationsByProteinChangePostUsingPOST**
-> List&lt;IndicatorQueryResp&gt; annotateMutationsByProteinChangePostUsingPOST(body)
+<a name="annotateMutationsByProteinChangePostUsingPOST1"></a>
+# **annotateMutationsByProteinChangePostUsingPOST1**
+> List&lt;IndicatorQueryResp&gt; annotateMutationsByProteinChangePostUsingPOST1(body)
 
 annotateMutationsByProteinChangePost
 
@@ -371,10 +379,10 @@ Annotate mutations by protein change.
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateMutationByProteinChangeQuery> body = Arrays.asList(new AnnotateMutationByProteinChangeQuery()); // List<AnnotateMutationByProteinChangeQuery> | List of queries. Please see swagger.json for request body format.
 try {
-    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByProteinChangePostUsingPOST(body);
+    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByProteinChangePostUsingPOST1(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangePostUsingPOST");
+    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangePostUsingPOST1");
     e.printStackTrace();
 }
 ```
@@ -398,9 +406,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateStructuralVariantsGetUsingGET"></a>
-# **annotateStructuralVariantsGetUsingGET**
-> IndicatorQueryResp annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType)
+<a name="annotateStructuralVariantsGetUsingGET1"></a>
+# **annotateStructuralVariantsGetUsingGET1**
+> IndicatorQueryResp annotateStructuralVariantsGetUsingGET1(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType)
 
 annotateStructuralVariantsGet
 
@@ -421,11 +429,12 @@ Integer entrezGeneIdA = 56; // Integer | The entrez gene ID A. (Higher priority 
 String hugoSymbolB = "hugoSymbolB_example"; // String | The gene symbol B used in Human Genome Organisation.Example: BCR 
 Integer entrezGeneIdB = 56; // Integer | The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613
 String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType);
+    IndicatorQueryResp result = apiInstance.annotateStructuralVariantsGetUsingGET1(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsGetUsingGET");
+    System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsGetUsingGET1");
     e.printStackTrace();
 }
 ```
@@ -441,6 +450,7 @@ Name | Type | Description  | Notes
  **hugoSymbolB** | **String**| The gene symbol B used in Human Genome Organisation.Example: BCR  | [optional]
  **entrezGeneIdB** | **Integer**| The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613 | [optional]
  **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
 
@@ -455,9 +465,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="annotateStructuralVariantsPostUsingPOST"></a>
-# **annotateStructuralVariantsPostUsingPOST**
-> List&lt;IndicatorQueryResp&gt; annotateStructuralVariantsPostUsingPOST(body)
+<a name="annotateStructuralVariantsPostUsingPOST1"></a>
+# **annotateStructuralVariantsPostUsingPOST1**
+> List&lt;IndicatorQueryResp&gt; annotateStructuralVariantsPostUsingPOST1(body)
 
 annotateStructuralVariantsPost
 
@@ -473,10 +483,10 @@ Annotate structural variants.
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateStructuralVariantQuery> body = Arrays.asList(new AnnotateStructuralVariantQuery()); // List<AnnotateStructuralVariantQuery> | List of queries. Please see swagger.json for request body format.
 try {
-    List<IndicatorQueryResp> result = apiInstance.annotateStructuralVariantsPostUsingPOST(body);
+    List<IndicatorQueryResp> result = apiInstance.annotateStructuralVariantsPostUsingPOST1(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsPostUsingPOST");
+    System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsPostUsingPOST1");
     e.printStackTrace();
 }
 ```

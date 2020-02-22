@@ -23,13 +23,93 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.oncokb.client.QueryGene;
 
 /**
  * AnnotateStructuralVariantQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-06T11:50:02.938-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-19T16:53:14.717-05:00")
 public class AnnotateStructuralVariantQuery {
+  /**
+   * Gets or Sets evidenceTypes
+   */
+  @JsonAdapter(EvidenceTypesEnum.Adapter.class)
+  public enum EvidenceTypesEnum {
+    GENE_SUMMARY("GENE_SUMMARY"),
+    
+    MUTATION_SUMMARY("MUTATION_SUMMARY"),
+    
+    TUMOR_TYPE_SUMMARY("TUMOR_TYPE_SUMMARY"),
+    
+    GENE_TUMOR_TYPE_SUMMARY("GENE_TUMOR_TYPE_SUMMARY"),
+    
+    PROGNOSTIC_SUMMARY("PROGNOSTIC_SUMMARY"),
+    
+    DIAGNOSTIC_SUMMARY("DIAGNOSTIC_SUMMARY"),
+    
+    GENE_BACKGROUND("GENE_BACKGROUND"),
+    
+    ONCOGENIC("ONCOGENIC"),
+    
+    MUTATION_EFFECT("MUTATION_EFFECT"),
+    
+    VUS("VUS"),
+    
+    PROGNOSTIC_IMPLICATION("PROGNOSTIC_IMPLICATION"),
+    
+    DIAGNOSTIC_IMPLICATION("DIAGNOSTIC_IMPLICATION"),
+    
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY("STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY"),
+    
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE("STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE"),
+    
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY("INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY"),
+    
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE("INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE");
+
+    private String value;
+
+    EvidenceTypesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EvidenceTypesEnum fromValue(String text) {
+      for (EvidenceTypesEnum b : EvidenceTypesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EvidenceTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EvidenceTypesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EvidenceTypesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EvidenceTypesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("evidenceTypes")
+  private List<EvidenceTypesEnum> evidenceTypes = null;
+
   @SerializedName("functionalFusion")
   private Boolean functionalFusion = null;
 
@@ -104,6 +184,32 @@ public class AnnotateStructuralVariantQuery {
 
   @SerializedName("tumorType")
   private String tumorType = null;
+
+  public AnnotateStructuralVariantQuery evidenceTypes(List<EvidenceTypesEnum> evidenceTypes) {
+    this.evidenceTypes = evidenceTypes;
+    return this;
+  }
+
+  public AnnotateStructuralVariantQuery addEvidenceTypesItem(EvidenceTypesEnum evidenceTypesItem) {
+    if (this.evidenceTypes == null) {
+      this.evidenceTypes = new ArrayList<EvidenceTypesEnum>();
+    }
+    this.evidenceTypes.add(evidenceTypesItem);
+    return this;
+  }
+
+   /**
+   * Get evidenceTypes
+   * @return evidenceTypes
+  **/
+  @ApiModelProperty(value = "")
+  public List<EvidenceTypesEnum> getEvidenceTypes() {
+    return evidenceTypes;
+  }
+
+  public void setEvidenceTypes(List<EvidenceTypesEnum> evidenceTypes) {
+    this.evidenceTypes = evidenceTypes;
+  }
 
   public AnnotateStructuralVariantQuery functionalFusion(Boolean functionalFusion) {
     this.functionalFusion = functionalFusion;
@@ -223,7 +329,8 @@ public class AnnotateStructuralVariantQuery {
       return false;
     }
     AnnotateStructuralVariantQuery annotateStructuralVariantQuery = (AnnotateStructuralVariantQuery) o;
-    return Objects.equals(this.functionalFusion, annotateStructuralVariantQuery.functionalFusion) &&
+    return Objects.equals(this.evidenceTypes, annotateStructuralVariantQuery.evidenceTypes) &&
+        Objects.equals(this.functionalFusion, annotateStructuralVariantQuery.functionalFusion) &&
         Objects.equals(this.geneA, annotateStructuralVariantQuery.geneA) &&
         Objects.equals(this.geneB, annotateStructuralVariantQuery.geneB) &&
         Objects.equals(this.id, annotateStructuralVariantQuery.id) &&
@@ -233,7 +340,7 @@ public class AnnotateStructuralVariantQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionalFusion, geneA, geneB, id, structuralVariantType, tumorType);
+    return Objects.hash(evidenceTypes, functionalFusion, geneA, geneB, id, structuralVariantType, tumorType);
   }
 
 
@@ -242,6 +349,7 @@ public class AnnotateStructuralVariantQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnnotateStructuralVariantQuery {\n");
     
+    sb.append("    evidenceTypes: ").append(toIndentedString(evidenceTypes)).append("\n");
     sb.append("    functionalFusion: ").append(toIndentedString(functionalFusion)).append("\n");
     sb.append("    geneA: ").append(toIndentedString(geneA)).append("\n");
     sb.append("    geneB: ").append(toIndentedString(geneB)).append("\n");

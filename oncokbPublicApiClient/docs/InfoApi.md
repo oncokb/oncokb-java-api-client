@@ -4,12 +4,12 @@ All URIs are relative to *https://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**infoGetUsingGET**](InfoApi.md#infoGetUsingGET) | **GET** /info | infoGet
+[**infoGetUsingGET1**](InfoApi.md#infoGetUsingGET1) | **GET** /info | infoGet
 
 
-<a name="infoGetUsingGET"></a>
-# **infoGetUsingGET**
-> OncoKBInfo infoGetUsingGET()
+<a name="infoGetUsingGET1"></a>
+# **infoGetUsingGET1**
+> OncoKBInfo infoGetUsingGET1()
 
 infoGet
 
@@ -22,10 +22,10 @@ infoGet
 
 InfoApi apiInstance = new InfoApi();
 try {
-    OncoKBInfo result = apiInstance.infoGetUsingGET();
+    OncoKBInfo result = apiInstance.infoGetUsingGET1();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling InfoApi#infoGetUsingGET");
+    System.err.println("Exception when calling InfoApi#infoGetUsingGET1");
     e.printStackTrace();
 }
 ```

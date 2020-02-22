@@ -23,12 +23,92 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * AnnotateMutationByGenomicChangeQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-06T11:50:02.938-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-19T16:53:14.717-05:00")
 public class AnnotateMutationByGenomicChangeQuery {
+  /**
+   * Gets or Sets evidenceTypes
+   */
+  @JsonAdapter(EvidenceTypesEnum.Adapter.class)
+  public enum EvidenceTypesEnum {
+    GENE_SUMMARY("GENE_SUMMARY"),
+    
+    MUTATION_SUMMARY("MUTATION_SUMMARY"),
+    
+    TUMOR_TYPE_SUMMARY("TUMOR_TYPE_SUMMARY"),
+    
+    GENE_TUMOR_TYPE_SUMMARY("GENE_TUMOR_TYPE_SUMMARY"),
+    
+    PROGNOSTIC_SUMMARY("PROGNOSTIC_SUMMARY"),
+    
+    DIAGNOSTIC_SUMMARY("DIAGNOSTIC_SUMMARY"),
+    
+    GENE_BACKGROUND("GENE_BACKGROUND"),
+    
+    ONCOGENIC("ONCOGENIC"),
+    
+    MUTATION_EFFECT("MUTATION_EFFECT"),
+    
+    VUS("VUS"),
+    
+    PROGNOSTIC_IMPLICATION("PROGNOSTIC_IMPLICATION"),
+    
+    DIAGNOSTIC_IMPLICATION("DIAGNOSTIC_IMPLICATION"),
+    
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY("STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY"),
+    
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE("STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE"),
+    
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY("INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY"),
+    
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE("INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE");
+
+    private String value;
+
+    EvidenceTypesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EvidenceTypesEnum fromValue(String text) {
+      for (EvidenceTypesEnum b : EvidenceTypesEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EvidenceTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EvidenceTypesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EvidenceTypesEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EvidenceTypesEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("evidenceTypes")
+  private List<EvidenceTypesEnum> evidenceTypes = null;
+
   @SerializedName("genomicLocation")
   private String genomicLocation = null;
 
@@ -37,6 +117,32 @@ public class AnnotateMutationByGenomicChangeQuery {
 
   @SerializedName("tumorType")
   private String tumorType = null;
+
+  public AnnotateMutationByGenomicChangeQuery evidenceTypes(List<EvidenceTypesEnum> evidenceTypes) {
+    this.evidenceTypes = evidenceTypes;
+    return this;
+  }
+
+  public AnnotateMutationByGenomicChangeQuery addEvidenceTypesItem(EvidenceTypesEnum evidenceTypesItem) {
+    if (this.evidenceTypes == null) {
+      this.evidenceTypes = new ArrayList<EvidenceTypesEnum>();
+    }
+    this.evidenceTypes.add(evidenceTypesItem);
+    return this;
+  }
+
+   /**
+   * Get evidenceTypes
+   * @return evidenceTypes
+  **/
+  @ApiModelProperty(value = "")
+  public List<EvidenceTypesEnum> getEvidenceTypes() {
+    return evidenceTypes;
+  }
+
+  public void setEvidenceTypes(List<EvidenceTypesEnum> evidenceTypes) {
+    this.evidenceTypes = evidenceTypes;
+  }
 
   public AnnotateMutationByGenomicChangeQuery genomicLocation(String genomicLocation) {
     this.genomicLocation = genomicLocation;
@@ -102,14 +208,15 @@ public class AnnotateMutationByGenomicChangeQuery {
       return false;
     }
     AnnotateMutationByGenomicChangeQuery annotateMutationByGenomicChangeQuery = (AnnotateMutationByGenomicChangeQuery) o;
-    return Objects.equals(this.genomicLocation, annotateMutationByGenomicChangeQuery.genomicLocation) &&
+    return Objects.equals(this.evidenceTypes, annotateMutationByGenomicChangeQuery.evidenceTypes) &&
+        Objects.equals(this.genomicLocation, annotateMutationByGenomicChangeQuery.genomicLocation) &&
         Objects.equals(this.id, annotateMutationByGenomicChangeQuery.id) &&
         Objects.equals(this.tumorType, annotateMutationByGenomicChangeQuery.tumorType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(genomicLocation, id, tumorType);
+    return Objects.hash(evidenceTypes, genomicLocation, id, tumorType);
   }
 
 
@@ -118,6 +225,7 @@ public class AnnotateMutationByGenomicChangeQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnnotateMutationByGenomicChangeQuery {\n");
     
+    sb.append("    evidenceTypes: ").append(toIndentedString(evidenceTypes)).append("\n");
     sb.append("    genomicLocation: ").append(toIndentedString(genomicLocation)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tumorType: ").append(toIndentedString(tumorType)).append("\n");

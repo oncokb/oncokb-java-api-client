@@ -60,17 +60,18 @@ public class AnnotationsApi {
     }
 
     /**
-     * Build call for annotateCopyNumberAlterationsGetUsingGET
+     * Build call for annotateCopyNumberAlterationsGetUsingGET1
      * @param copyNameAlterationType Copy number alteration type (required)
      * @param hugoSymbol The gene symbol used in Human Genome Organisation. Example: BRAF (optional)
      * @param entrezGeneId The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateCopyNumberAlterationsGetUsingGETCall(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateCopyNumberAlterationsGetUsingGET1Call(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -86,6 +87,8 @@ public class AnnotationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("copyNameAlterationType", copyNameAlterationType));
         if (tumorType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("tumorType", tumorType));
+        if (evidenceType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evidenceType", evidenceType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -120,15 +123,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateCopyNumberAlterationsGetUsingGETValidateBeforeCall(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateCopyNumberAlterationsGetUsingGET1ValidateBeforeCall(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'copyNameAlterationType' is set
         if (copyNameAlterationType == null) {
-            throw new ApiException("Missing the required parameter 'copyNameAlterationType' when calling annotateCopyNumberAlterationsGetUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'copyNameAlterationType' when calling annotateCopyNumberAlterationsGetUsingGET1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsGetUsingGETCall(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsGetUsingGET1Call(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType, progressListener, progressRequestListener);
         return call;
 
     }
@@ -140,11 +143,12 @@ public class AnnotationsApi {
      * @param hugoSymbol The gene symbol used in Human Genome Organisation. Example: BRAF (optional)
      * @param entrezGeneId The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return IndicatorQueryResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public IndicatorQueryResp annotateCopyNumberAlterationsGetUsingGET(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType) throws ApiException {
-        ApiResponse<IndicatorQueryResp> resp = annotateCopyNumberAlterationsGetUsingGETWithHttpInfo(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType);
+    public IndicatorQueryResp annotateCopyNumberAlterationsGetUsingGET1(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, String evidenceType) throws ApiException {
+        ApiResponse<IndicatorQueryResp> resp = annotateCopyNumberAlterationsGetUsingGET1WithHttpInfo(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType);
         return resp.getData();
     }
 
@@ -155,11 +159,12 @@ public class AnnotationsApi {
      * @param hugoSymbol The gene symbol used in Human Genome Organisation. Example: BRAF (optional)
      * @param entrezGeneId The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return ApiResponse&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<IndicatorQueryResp> annotateCopyNumberAlterationsGetUsingGETWithHttpInfo(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType) throws ApiException {
-        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsGetUsingGETValidateBeforeCall(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, null, null);
+    public ApiResponse<IndicatorQueryResp> annotateCopyNumberAlterationsGetUsingGET1WithHttpInfo(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, String evidenceType) throws ApiException {
+        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsGetUsingGET1ValidateBeforeCall(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType, null, null);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -171,11 +176,12 @@ public class AnnotationsApi {
      * @param hugoSymbol The gene symbol used in Human Genome Organisation. Example: BRAF (optional)
      * @param entrezGeneId The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateCopyNumberAlterationsGetUsingGETAsync(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateCopyNumberAlterationsGetUsingGET1Async(String copyNameAlterationType, String hugoSymbol, Integer entrezGeneId, String tumorType, String evidenceType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -196,20 +202,20 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsGetUsingGETValidateBeforeCall(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsGetUsingGET1ValidateBeforeCall(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateCopyNumberAlterationsPostUsingPOST
+     * Build call for annotateCopyNumberAlterationsPostUsingPOST1
      * @param body List of queries. Please see swagger.json for request body format. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateCopyNumberAlterationsPostUsingPOSTCall(List<AnnotateCopyNumberAlterationQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateCopyNumberAlterationsPostUsingPOST1Call(List<AnnotateCopyNumberAlterationQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -251,15 +257,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateCopyNumberAlterationsPostUsingPOSTValidateBeforeCall(List<AnnotateCopyNumberAlterationQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateCopyNumberAlterationsPostUsingPOST1ValidateBeforeCall(List<AnnotateCopyNumberAlterationQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling annotateCopyNumberAlterationsPostUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling annotateCopyNumberAlterationsPostUsingPOST1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsPostUsingPOSTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsPostUsingPOST1Call(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -271,8 +277,8 @@ public class AnnotationsApi {
      * @return List&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<IndicatorQueryResp> annotateCopyNumberAlterationsPostUsingPOST(List<AnnotateCopyNumberAlterationQuery> body) throws ApiException {
-        ApiResponse<List<IndicatorQueryResp>> resp = annotateCopyNumberAlterationsPostUsingPOSTWithHttpInfo(body);
+    public List<IndicatorQueryResp> annotateCopyNumberAlterationsPostUsingPOST1(List<AnnotateCopyNumberAlterationQuery> body) throws ApiException {
+        ApiResponse<List<IndicatorQueryResp>> resp = annotateCopyNumberAlterationsPostUsingPOST1WithHttpInfo(body);
         return resp.getData();
     }
 
@@ -283,8 +289,8 @@ public class AnnotationsApi {
      * @return ApiResponse&lt;List&lt;IndicatorQueryResp&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<IndicatorQueryResp>> annotateCopyNumberAlterationsPostUsingPOSTWithHttpInfo(List<AnnotateCopyNumberAlterationQuery> body) throws ApiException {
-        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsPostUsingPOSTValidateBeforeCall(body, null, null);
+    public ApiResponse<List<IndicatorQueryResp>> annotateCopyNumberAlterationsPostUsingPOST1WithHttpInfo(List<AnnotateCopyNumberAlterationQuery> body) throws ApiException {
+        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsPostUsingPOST1ValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -297,7 +303,7 @@ public class AnnotationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateCopyNumberAlterationsPostUsingPOSTAsync(List<AnnotateCopyNumberAlterationQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateCopyNumberAlterationsPostUsingPOST1Async(List<AnnotateCopyNumberAlterationQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -318,21 +324,22 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsPostUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateCopyNumberAlterationsPostUsingPOST1ValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateMutationsByGenomicChangeGetUsingGET
+     * Build call for annotateMutationsByGenomicChangeGetUsingGET1
      * @param genomicLocation Genomic location. Example: 7,140453136,140453136,A,T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByGenomicChangeGetUsingGETCall(String genomicLocation, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByGenomicChangeGetUsingGET1Call(String genomicLocation, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -344,6 +351,8 @@ public class AnnotationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("genomicLocation", genomicLocation));
         if (tumorType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("tumorType", tumorType));
+        if (evidenceType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evidenceType", evidenceType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -378,15 +387,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateMutationsByGenomicChangeGetUsingGETValidateBeforeCall(String genomicLocation, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateMutationsByGenomicChangeGetUsingGET1ValidateBeforeCall(String genomicLocation, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'genomicLocation' is set
         if (genomicLocation == null) {
-            throw new ApiException("Missing the required parameter 'genomicLocation' when calling annotateMutationsByGenomicChangeGetUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'genomicLocation' when calling annotateMutationsByGenomicChangeGetUsingGET1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangeGetUsingGETCall(genomicLocation, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangeGetUsingGET1Call(genomicLocation, tumorType, evidenceType, progressListener, progressRequestListener);
         return call;
 
     }
@@ -396,11 +405,12 @@ public class AnnotationsApi {
      * Annotate mutation by genomic change.
      * @param genomicLocation Genomic location. Example: 7,140453136,140453136,A,T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return IndicatorQueryResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public IndicatorQueryResp annotateMutationsByGenomicChangeGetUsingGET(String genomicLocation, String tumorType) throws ApiException {
-        ApiResponse<IndicatorQueryResp> resp = annotateMutationsByGenomicChangeGetUsingGETWithHttpInfo(genomicLocation, tumorType);
+    public IndicatorQueryResp annotateMutationsByGenomicChangeGetUsingGET1(String genomicLocation, String tumorType, String evidenceType) throws ApiException {
+        ApiResponse<IndicatorQueryResp> resp = annotateMutationsByGenomicChangeGetUsingGET1WithHttpInfo(genomicLocation, tumorType, evidenceType);
         return resp.getData();
     }
 
@@ -409,11 +419,12 @@ public class AnnotationsApi {
      * Annotate mutation by genomic change.
      * @param genomicLocation Genomic location. Example: 7,140453136,140453136,A,T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return ApiResponse&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<IndicatorQueryResp> annotateMutationsByGenomicChangeGetUsingGETWithHttpInfo(String genomicLocation, String tumorType) throws ApiException {
-        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangeGetUsingGETValidateBeforeCall(genomicLocation, tumorType, null, null);
+    public ApiResponse<IndicatorQueryResp> annotateMutationsByGenomicChangeGetUsingGET1WithHttpInfo(String genomicLocation, String tumorType, String evidenceType) throws ApiException {
+        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangeGetUsingGET1ValidateBeforeCall(genomicLocation, tumorType, evidenceType, null, null);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -423,11 +434,12 @@ public class AnnotationsApi {
      * Annotate mutation by genomic change.
      * @param genomicLocation Genomic location. Example: 7,140453136,140453136,A,T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByGenomicChangeGetUsingGETAsync(String genomicLocation, String tumorType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByGenomicChangeGetUsingGET1Async(String genomicLocation, String tumorType, String evidenceType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -448,20 +460,20 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangeGetUsingGETValidateBeforeCall(genomicLocation, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangeGetUsingGET1ValidateBeforeCall(genomicLocation, tumorType, evidenceType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateMutationsByGenomicChangePostUsingPOST
+     * Build call for annotateMutationsByGenomicChangePostUsingPOST1
      * @param body List of queries. Please see swagger.json for request body format. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByGenomicChangePostUsingPOSTCall(List<AnnotateMutationByGenomicChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByGenomicChangePostUsingPOST1Call(List<AnnotateMutationByGenomicChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -503,15 +515,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateMutationsByGenomicChangePostUsingPOSTValidateBeforeCall(List<AnnotateMutationByGenomicChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateMutationsByGenomicChangePostUsingPOST1ValidateBeforeCall(List<AnnotateMutationByGenomicChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling annotateMutationsByGenomicChangePostUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling annotateMutationsByGenomicChangePostUsingPOST1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangePostUsingPOSTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangePostUsingPOST1Call(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -523,8 +535,8 @@ public class AnnotationsApi {
      * @return List&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<IndicatorQueryResp> annotateMutationsByGenomicChangePostUsingPOST(List<AnnotateMutationByGenomicChangeQuery> body) throws ApiException {
-        ApiResponse<List<IndicatorQueryResp>> resp = annotateMutationsByGenomicChangePostUsingPOSTWithHttpInfo(body);
+    public List<IndicatorQueryResp> annotateMutationsByGenomicChangePostUsingPOST1(List<AnnotateMutationByGenomicChangeQuery> body) throws ApiException {
+        ApiResponse<List<IndicatorQueryResp>> resp = annotateMutationsByGenomicChangePostUsingPOST1WithHttpInfo(body);
         return resp.getData();
     }
 
@@ -535,8 +547,8 @@ public class AnnotationsApi {
      * @return ApiResponse&lt;List&lt;IndicatorQueryResp&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<IndicatorQueryResp>> annotateMutationsByGenomicChangePostUsingPOSTWithHttpInfo(List<AnnotateMutationByGenomicChangeQuery> body) throws ApiException {
-        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangePostUsingPOSTValidateBeforeCall(body, null, null);
+    public ApiResponse<List<IndicatorQueryResp>> annotateMutationsByGenomicChangePostUsingPOST1WithHttpInfo(List<AnnotateMutationByGenomicChangeQuery> body) throws ApiException {
+        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangePostUsingPOST1ValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -549,7 +561,7 @@ public class AnnotationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByGenomicChangePostUsingPOSTAsync(List<AnnotateMutationByGenomicChangeQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByGenomicChangePostUsingPOST1Async(List<AnnotateMutationByGenomicChangeQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -570,21 +582,22 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangePostUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByGenomicChangePostUsingPOST1ValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateMutationsByHGVSgGetUsingGET
+     * Build call for annotateMutationsByHGVSgGetUsingGET1
      * @param hgvsg HGVS genomic format. Example: 7:g.140453136A&gt;T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByHGVSgGetUsingGETCall(String hgvsg, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByHGVSgGetUsingGET1Call(String hgvsg, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -596,6 +609,8 @@ public class AnnotationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("hgvsg", hgvsg));
         if (tumorType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("tumorType", tumorType));
+        if (evidenceType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evidenceType", evidenceType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -630,15 +645,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateMutationsByHGVSgGetUsingGETValidateBeforeCall(String hgvsg, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateMutationsByHGVSgGetUsingGET1ValidateBeforeCall(String hgvsg, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'hgvsg' is set
         if (hgvsg == null) {
-            throw new ApiException("Missing the required parameter 'hgvsg' when calling annotateMutationsByHGVSgGetUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'hgvsg' when calling annotateMutationsByHGVSgGetUsingGET1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateMutationsByHGVSgGetUsingGETCall(hgvsg, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByHGVSgGetUsingGET1Call(hgvsg, tumorType, evidenceType, progressListener, progressRequestListener);
         return call;
 
     }
@@ -648,11 +663,12 @@ public class AnnotationsApi {
      * Annotate mutation by HGVSg.
      * @param hgvsg HGVS genomic format. Example: 7:g.140453136A&gt;T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return IndicatorQueryResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public IndicatorQueryResp annotateMutationsByHGVSgGetUsingGET(String hgvsg, String tumorType) throws ApiException {
-        ApiResponse<IndicatorQueryResp> resp = annotateMutationsByHGVSgGetUsingGETWithHttpInfo(hgvsg, tumorType);
+    public IndicatorQueryResp annotateMutationsByHGVSgGetUsingGET1(String hgvsg, String tumorType, String evidenceType) throws ApiException {
+        ApiResponse<IndicatorQueryResp> resp = annotateMutationsByHGVSgGetUsingGET1WithHttpInfo(hgvsg, tumorType, evidenceType);
         return resp.getData();
     }
 
@@ -661,11 +677,12 @@ public class AnnotationsApi {
      * Annotate mutation by HGVSg.
      * @param hgvsg HGVS genomic format. Example: 7:g.140453136A&gt;T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return ApiResponse&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<IndicatorQueryResp> annotateMutationsByHGVSgGetUsingGETWithHttpInfo(String hgvsg, String tumorType) throws ApiException {
-        com.squareup.okhttp.Call call = annotateMutationsByHGVSgGetUsingGETValidateBeforeCall(hgvsg, tumorType, null, null);
+    public ApiResponse<IndicatorQueryResp> annotateMutationsByHGVSgGetUsingGET1WithHttpInfo(String hgvsg, String tumorType, String evidenceType) throws ApiException {
+        com.squareup.okhttp.Call call = annotateMutationsByHGVSgGetUsingGET1ValidateBeforeCall(hgvsg, tumorType, evidenceType, null, null);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -675,11 +692,12 @@ public class AnnotationsApi {
      * Annotate mutation by HGVSg.
      * @param hgvsg HGVS genomic format. Example: 7:g.140453136A&gt;T (required)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByHGVSgGetUsingGETAsync(String hgvsg, String tumorType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByHGVSgGetUsingGET1Async(String hgvsg, String tumorType, String evidenceType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -700,20 +718,20 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateMutationsByHGVSgGetUsingGETValidateBeforeCall(hgvsg, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByHGVSgGetUsingGET1ValidateBeforeCall(hgvsg, tumorType, evidenceType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateMutationsByHGVSgPostUsingPOST
+     * Build call for annotateMutationsByHGVSgPostUsingPOST1
      * @param body List of queries. Please see swagger.json for request body format. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByHGVSgPostUsingPOSTCall(List<AnnotateMutationByHGVSgQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByHGVSgPostUsingPOST1Call(List<AnnotateMutationByHGVSgQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -755,15 +773,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateMutationsByHGVSgPostUsingPOSTValidateBeforeCall(List<AnnotateMutationByHGVSgQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateMutationsByHGVSgPostUsingPOST1ValidateBeforeCall(List<AnnotateMutationByHGVSgQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling annotateMutationsByHGVSgPostUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling annotateMutationsByHGVSgPostUsingPOST1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateMutationsByHGVSgPostUsingPOSTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByHGVSgPostUsingPOST1Call(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -775,8 +793,8 @@ public class AnnotationsApi {
      * @return List&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<IndicatorQueryResp> annotateMutationsByHGVSgPostUsingPOST(List<AnnotateMutationByHGVSgQuery> body) throws ApiException {
-        ApiResponse<List<IndicatorQueryResp>> resp = annotateMutationsByHGVSgPostUsingPOSTWithHttpInfo(body);
+    public List<IndicatorQueryResp> annotateMutationsByHGVSgPostUsingPOST1(List<AnnotateMutationByHGVSgQuery> body) throws ApiException {
+        ApiResponse<List<IndicatorQueryResp>> resp = annotateMutationsByHGVSgPostUsingPOST1WithHttpInfo(body);
         return resp.getData();
     }
 
@@ -787,8 +805,8 @@ public class AnnotationsApi {
      * @return ApiResponse&lt;List&lt;IndicatorQueryResp&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<IndicatorQueryResp>> annotateMutationsByHGVSgPostUsingPOSTWithHttpInfo(List<AnnotateMutationByHGVSgQuery> body) throws ApiException {
-        com.squareup.okhttp.Call call = annotateMutationsByHGVSgPostUsingPOSTValidateBeforeCall(body, null, null);
+    public ApiResponse<List<IndicatorQueryResp>> annotateMutationsByHGVSgPostUsingPOST1WithHttpInfo(List<AnnotateMutationByHGVSgQuery> body) throws ApiException {
+        com.squareup.okhttp.Call call = annotateMutationsByHGVSgPostUsingPOST1ValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -801,7 +819,7 @@ public class AnnotationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByHGVSgPostUsingPOSTAsync(List<AnnotateMutationByHGVSgQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByHGVSgPostUsingPOST1Async(List<AnnotateMutationByHGVSgQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -822,13 +840,13 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateMutationsByHGVSgPostUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByHGVSgPostUsingPOST1ValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateMutationsByProteinChangeGetUsingGET
+     * Build call for annotateMutationsByProteinChangeGetUsingGET1
      * @param hugoSymbol The gene symbol used in Human Genome Organisation. Example: BRAF (optional)
      * @param entrezGeneId The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 (optional)
      * @param alteration Protein Change. Example: V600E (optional)
@@ -836,12 +854,13 @@ public class AnnotationsApi {
      * @param proteinStart Protein Start. Example: 600 (optional)
      * @param proteinEnd Protein End. Example: 600 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByProteinChangeGetUsingGETCall(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByProteinChangeGetUsingGET1Call(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -863,6 +882,8 @@ public class AnnotationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("proteinEnd", proteinEnd));
         if (tumorType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("tumorType", tumorType));
+        if (evidenceType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evidenceType", evidenceType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -897,10 +918,10 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateMutationsByProteinChangeGetUsingGETValidateBeforeCall(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateMutationsByProteinChangeGetUsingGET1ValidateBeforeCall(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = annotateMutationsByProteinChangeGetUsingGETCall(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByProteinChangeGetUsingGET1Call(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType, progressListener, progressRequestListener);
         return call;
 
     }
@@ -915,11 +936,12 @@ public class AnnotationsApi {
      * @param proteinStart Protein Start. Example: 600 (optional)
      * @param proteinEnd Protein End. Example: 600 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return IndicatorQueryResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public IndicatorQueryResp annotateMutationsByProteinChangeGetUsingGET(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType) throws ApiException {
-        ApiResponse<IndicatorQueryResp> resp = annotateMutationsByProteinChangeGetUsingGETWithHttpInfo(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType);
+    public IndicatorQueryResp annotateMutationsByProteinChangeGetUsingGET1(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, String evidenceType) throws ApiException {
+        ApiResponse<IndicatorQueryResp> resp = annotateMutationsByProteinChangeGetUsingGET1WithHttpInfo(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType);
         return resp.getData();
     }
 
@@ -933,11 +955,12 @@ public class AnnotationsApi {
      * @param proteinStart Protein Start. Example: 600 (optional)
      * @param proteinEnd Protein End. Example: 600 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return ApiResponse&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<IndicatorQueryResp> annotateMutationsByProteinChangeGetUsingGETWithHttpInfo(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType) throws ApiException {
-        com.squareup.okhttp.Call call = annotateMutationsByProteinChangeGetUsingGETValidateBeforeCall(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, null, null);
+    public ApiResponse<IndicatorQueryResp> annotateMutationsByProteinChangeGetUsingGET1WithHttpInfo(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, String evidenceType) throws ApiException {
+        com.squareup.okhttp.Call call = annotateMutationsByProteinChangeGetUsingGET1ValidateBeforeCall(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType, null, null);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -952,11 +975,12 @@ public class AnnotationsApi {
      * @param proteinStart Protein Start. Example: 600 (optional)
      * @param proteinEnd Protein End. Example: 600 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByProteinChangeGetUsingGETAsync(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByProteinChangeGetUsingGET1Async(String hugoSymbol, Integer entrezGeneId, String alteration, String consequence, Integer proteinStart, Integer proteinEnd, String tumorType, String evidenceType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -977,20 +1001,20 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateMutationsByProteinChangeGetUsingGETValidateBeforeCall(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByProteinChangeGetUsingGET1ValidateBeforeCall(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateMutationsByProteinChangePostUsingPOST
+     * Build call for annotateMutationsByProteinChangePostUsingPOST1
      * @param body List of queries. Please see swagger.json for request body format. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByProteinChangePostUsingPOSTCall(List<AnnotateMutationByProteinChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByProteinChangePostUsingPOST1Call(List<AnnotateMutationByProteinChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1032,15 +1056,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateMutationsByProteinChangePostUsingPOSTValidateBeforeCall(List<AnnotateMutationByProteinChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateMutationsByProteinChangePostUsingPOST1ValidateBeforeCall(List<AnnotateMutationByProteinChangeQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling annotateMutationsByProteinChangePostUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling annotateMutationsByProteinChangePostUsingPOST1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateMutationsByProteinChangePostUsingPOSTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByProteinChangePostUsingPOST1Call(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1052,8 +1076,8 @@ public class AnnotationsApi {
      * @return List&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<IndicatorQueryResp> annotateMutationsByProteinChangePostUsingPOST(List<AnnotateMutationByProteinChangeQuery> body) throws ApiException {
-        ApiResponse<List<IndicatorQueryResp>> resp = annotateMutationsByProteinChangePostUsingPOSTWithHttpInfo(body);
+    public List<IndicatorQueryResp> annotateMutationsByProteinChangePostUsingPOST1(List<AnnotateMutationByProteinChangeQuery> body) throws ApiException {
+        ApiResponse<List<IndicatorQueryResp>> resp = annotateMutationsByProteinChangePostUsingPOST1WithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1064,8 +1088,8 @@ public class AnnotationsApi {
      * @return ApiResponse&lt;List&lt;IndicatorQueryResp&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<IndicatorQueryResp>> annotateMutationsByProteinChangePostUsingPOSTWithHttpInfo(List<AnnotateMutationByProteinChangeQuery> body) throws ApiException {
-        com.squareup.okhttp.Call call = annotateMutationsByProteinChangePostUsingPOSTValidateBeforeCall(body, null, null);
+    public ApiResponse<List<IndicatorQueryResp>> annotateMutationsByProteinChangePostUsingPOST1WithHttpInfo(List<AnnotateMutationByProteinChangeQuery> body) throws ApiException {
+        com.squareup.okhttp.Call call = annotateMutationsByProteinChangePostUsingPOST1ValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1078,7 +1102,7 @@ public class AnnotationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateMutationsByProteinChangePostUsingPOSTAsync(List<AnnotateMutationByProteinChangeQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateMutationsByProteinChangePostUsingPOST1Async(List<AnnotateMutationByProteinChangeQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1099,13 +1123,13 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateMutationsByProteinChangePostUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateMutationsByProteinChangePostUsingPOST1ValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateStructuralVariantsGetUsingGET
+     * Build call for annotateStructuralVariantsGetUsingGET1
      * @param structuralVariantType Structural variant type (required)
      * @param isFunctionalFusion Whether is functional fusion (required)
      * @param hugoSymbolA The gene symbol A used in Human Genome Organisation. Example: ABL1 (optional)
@@ -1113,12 +1137,13 @@ public class AnnotationsApi {
      * @param hugoSymbolB The gene symbol B used in Human Genome Organisation.Example: BCR  (optional)
      * @param entrezGeneIdB The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateStructuralVariantsGetUsingGETCall(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateStructuralVariantsGetUsingGET1Call(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1140,6 +1165,8 @@ public class AnnotationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("isFunctionalFusion", isFunctionalFusion));
         if (tumorType != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("tumorType", tumorType));
+        if (evidenceType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evidenceType", evidenceType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1174,20 +1201,20 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateStructuralVariantsGetUsingGETValidateBeforeCall(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateStructuralVariantsGetUsingGET1ValidateBeforeCall(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, String evidenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'structuralVariantType' is set
         if (structuralVariantType == null) {
-            throw new ApiException("Missing the required parameter 'structuralVariantType' when calling annotateStructuralVariantsGetUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'structuralVariantType' when calling annotateStructuralVariantsGetUsingGET1(Async)");
         }
         
         // verify the required parameter 'isFunctionalFusion' is set
         if (isFunctionalFusion == null) {
-            throw new ApiException("Missing the required parameter 'isFunctionalFusion' when calling annotateStructuralVariantsGetUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'isFunctionalFusion' when calling annotateStructuralVariantsGetUsingGET1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateStructuralVariantsGetUsingGETCall(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateStructuralVariantsGetUsingGET1Call(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1202,11 +1229,12 @@ public class AnnotationsApi {
      * @param hugoSymbolB The gene symbol B used in Human Genome Organisation.Example: BCR  (optional)
      * @param entrezGeneIdB The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return IndicatorQueryResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public IndicatorQueryResp annotateStructuralVariantsGetUsingGET(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType) throws ApiException {
-        ApiResponse<IndicatorQueryResp> resp = annotateStructuralVariantsGetUsingGETWithHttpInfo(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType);
+    public IndicatorQueryResp annotateStructuralVariantsGetUsingGET1(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, String evidenceType) throws ApiException {
+        ApiResponse<IndicatorQueryResp> resp = annotateStructuralVariantsGetUsingGET1WithHttpInfo(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType);
         return resp.getData();
     }
 
@@ -1220,11 +1248,12 @@ public class AnnotationsApi {
      * @param hugoSymbolB The gene symbol B used in Human Genome Organisation.Example: BCR  (optional)
      * @param entrezGeneIdB The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @return ApiResponse&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<IndicatorQueryResp> annotateStructuralVariantsGetUsingGETWithHttpInfo(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType) throws ApiException {
-        com.squareup.okhttp.Call call = annotateStructuralVariantsGetUsingGETValidateBeforeCall(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, null, null);
+    public ApiResponse<IndicatorQueryResp> annotateStructuralVariantsGetUsingGET1WithHttpInfo(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, String evidenceType) throws ApiException {
+        com.squareup.okhttp.Call call = annotateStructuralVariantsGetUsingGET1ValidateBeforeCall(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType, null, null);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1239,11 +1268,12 @@ public class AnnotationsApi {
      * @param hugoSymbolB The gene symbol B used in Human Genome Organisation.Example: BCR  (optional)
      * @param entrezGeneIdB The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613 (optional)
      * @param tumorType OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma (optional)
+     * @param evidenceType Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateStructuralVariantsGetUsingGETAsync(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateStructuralVariantsGetUsingGET1Async(String structuralVariantType, Boolean isFunctionalFusion, String hugoSymbolA, Integer entrezGeneIdA, String hugoSymbolB, Integer entrezGeneIdB, String tumorType, String evidenceType, final ApiCallback<IndicatorQueryResp> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1264,20 +1294,20 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateStructuralVariantsGetUsingGETValidateBeforeCall(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateStructuralVariantsGetUsingGET1ValidateBeforeCall(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<IndicatorQueryResp>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for annotateStructuralVariantsPostUsingPOST
+     * Build call for annotateStructuralVariantsPostUsingPOST1
      * @param body List of queries. Please see swagger.json for request body format. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call annotateStructuralVariantsPostUsingPOSTCall(List<AnnotateStructuralVariantQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call annotateStructuralVariantsPostUsingPOST1Call(List<AnnotateStructuralVariantQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1319,15 +1349,15 @@ public class AnnotationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call annotateStructuralVariantsPostUsingPOSTValidateBeforeCall(List<AnnotateStructuralVariantQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call annotateStructuralVariantsPostUsingPOST1ValidateBeforeCall(List<AnnotateStructuralVariantQuery> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling annotateStructuralVariantsPostUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling annotateStructuralVariantsPostUsingPOST1(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = annotateStructuralVariantsPostUsingPOSTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateStructuralVariantsPostUsingPOST1Call(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1339,8 +1369,8 @@ public class AnnotationsApi {
      * @return List&lt;IndicatorQueryResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<IndicatorQueryResp> annotateStructuralVariantsPostUsingPOST(List<AnnotateStructuralVariantQuery> body) throws ApiException {
-        ApiResponse<List<IndicatorQueryResp>> resp = annotateStructuralVariantsPostUsingPOSTWithHttpInfo(body);
+    public List<IndicatorQueryResp> annotateStructuralVariantsPostUsingPOST1(List<AnnotateStructuralVariantQuery> body) throws ApiException {
+        ApiResponse<List<IndicatorQueryResp>> resp = annotateStructuralVariantsPostUsingPOST1WithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1351,8 +1381,8 @@ public class AnnotationsApi {
      * @return ApiResponse&lt;List&lt;IndicatorQueryResp&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<IndicatorQueryResp>> annotateStructuralVariantsPostUsingPOSTWithHttpInfo(List<AnnotateStructuralVariantQuery> body) throws ApiException {
-        com.squareup.okhttp.Call call = annotateStructuralVariantsPostUsingPOSTValidateBeforeCall(body, null, null);
+    public ApiResponse<List<IndicatorQueryResp>> annotateStructuralVariantsPostUsingPOST1WithHttpInfo(List<AnnotateStructuralVariantQuery> body) throws ApiException {
+        com.squareup.okhttp.Call call = annotateStructuralVariantsPostUsingPOST1ValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1365,7 +1395,7 @@ public class AnnotationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call annotateStructuralVariantsPostUsingPOSTAsync(List<AnnotateStructuralVariantQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
+    public com.squareup.okhttp.Call annotateStructuralVariantsPostUsingPOST1Async(List<AnnotateStructuralVariantQuery> body, final ApiCallback<List<IndicatorQueryResp>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1386,7 +1416,7 @@ public class AnnotationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = annotateStructuralVariantsPostUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = annotateStructuralVariantsPostUsingPOST1ValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<IndicatorQueryResp>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

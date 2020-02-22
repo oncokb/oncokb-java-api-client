@@ -2,7 +2,7 @@
 
 OncoKB APIs
 - API version: v1.0.0
-  - Build date: 2020-02-06T11:50:02.938-05:00
+  - Build date: 2020-02-19T16:53:14.717-05:00
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 
@@ -90,11 +90,12 @@ public class AnnotationsApiExample {
         String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
         Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
         String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+        String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
         try {
-            IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType);
+            IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET1(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET");
+            System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET1");
             e.printStackTrace();
         }
     }
@@ -108,22 +109,22 @@ All URIs are relative to *https://oncokb-core:8888/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AnnotationsApi* | [**annotateCopyNumberAlterationsGetUsingGET**](docs/AnnotationsApi.md#annotateCopyNumberAlterationsGetUsingGET) | **GET** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsGet
-*AnnotationsApi* | [**annotateCopyNumberAlterationsPostUsingPOST**](docs/AnnotationsApi.md#annotateCopyNumberAlterationsPostUsingPOST) | **POST** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsPost
-*AnnotationsApi* | [**annotateMutationsByGenomicChangeGetUsingGET**](docs/AnnotationsApi.md#annotateMutationsByGenomicChangeGetUsingGET) | **GET** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangeGet
-*AnnotationsApi* | [**annotateMutationsByGenomicChangePostUsingPOST**](docs/AnnotationsApi.md#annotateMutationsByGenomicChangePostUsingPOST) | **POST** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangePost
-*AnnotationsApi* | [**annotateMutationsByHGVSgGetUsingGET**](docs/AnnotationsApi.md#annotateMutationsByHGVSgGetUsingGET) | **GET** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgGet
-*AnnotationsApi* | [**annotateMutationsByHGVSgPostUsingPOST**](docs/AnnotationsApi.md#annotateMutationsByHGVSgPostUsingPOST) | **POST** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgPost
-*AnnotationsApi* | [**annotateMutationsByProteinChangeGetUsingGET**](docs/AnnotationsApi.md#annotateMutationsByProteinChangeGetUsingGET) | **GET** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangeGet
-*AnnotationsApi* | [**annotateMutationsByProteinChangePostUsingPOST**](docs/AnnotationsApi.md#annotateMutationsByProteinChangePostUsingPOST) | **POST** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangePost
-*AnnotationsApi* | [**annotateStructuralVariantsGetUsingGET**](docs/AnnotationsApi.md#annotateStructuralVariantsGetUsingGET) | **GET** /annotate/structuralVariants | annotateStructuralVariantsGet
-*AnnotationsApi* | [**annotateStructuralVariantsPostUsingPOST**](docs/AnnotationsApi.md#annotateStructuralVariantsPostUsingPOST) | **POST** /annotate/structuralVariants | annotateStructuralVariantsPost
-*CancerGenesApi* | [**utilsCancerGeneListGetUsingGET**](docs/CancerGenesApi.md#utilsCancerGeneListGetUsingGET) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
-*CancerGenesApi* | [**utilsCancerGeneListTxtGetUsingGET**](docs/CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
-*InfoApi* | [**infoGetUsingGET**](docs/InfoApi.md#infoGetUsingGET) | **GET** /info | infoGet
-*LevelsApi* | [**levelsGetUsingGET**](docs/LevelsApi.md#levelsGetUsingGET) | **GET** /levels | levelsGet
-*LevelsApi* | [**levelsResistanceGetUsingGET**](docs/LevelsApi.md#levelsResistanceGetUsingGET) | **GET** /levels/resistance | levelsResistanceGet
-*LevelsApi* | [**levelsSensitiveGetUsingGET**](docs/LevelsApi.md#levelsSensitiveGetUsingGET) | **GET** /levels/sensitive | levelsSensitiveGet
+*AnnotationsApi* | [**annotateCopyNumberAlterationsGetUsingGET1**](docs/AnnotationsApi.md#annotateCopyNumberAlterationsGetUsingGET1) | **GET** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsGet
+*AnnotationsApi* | [**annotateCopyNumberAlterationsPostUsingPOST1**](docs/AnnotationsApi.md#annotateCopyNumberAlterationsPostUsingPOST1) | **POST** /annotate/copyNumberAlterations | annotateCopyNumberAlterationsPost
+*AnnotationsApi* | [**annotateMutationsByGenomicChangeGetUsingGET1**](docs/AnnotationsApi.md#annotateMutationsByGenomicChangeGetUsingGET1) | **GET** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangeGet
+*AnnotationsApi* | [**annotateMutationsByGenomicChangePostUsingPOST1**](docs/AnnotationsApi.md#annotateMutationsByGenomicChangePostUsingPOST1) | **POST** /annotate/mutations/byGenomicChange | annotateMutationsByGenomicChangePost
+*AnnotationsApi* | [**annotateMutationsByHGVSgGetUsingGET1**](docs/AnnotationsApi.md#annotateMutationsByHGVSgGetUsingGET1) | **GET** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgGet
+*AnnotationsApi* | [**annotateMutationsByHGVSgPostUsingPOST1**](docs/AnnotationsApi.md#annotateMutationsByHGVSgPostUsingPOST1) | **POST** /annotate/mutations/byHGVSg | annotateMutationsByHGVSgPost
+*AnnotationsApi* | [**annotateMutationsByProteinChangeGetUsingGET1**](docs/AnnotationsApi.md#annotateMutationsByProteinChangeGetUsingGET1) | **GET** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangeGet
+*AnnotationsApi* | [**annotateMutationsByProteinChangePostUsingPOST1**](docs/AnnotationsApi.md#annotateMutationsByProteinChangePostUsingPOST1) | **POST** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangePost
+*AnnotationsApi* | [**annotateStructuralVariantsGetUsingGET1**](docs/AnnotationsApi.md#annotateStructuralVariantsGetUsingGET1) | **GET** /annotate/structuralVariants | annotateStructuralVariantsGet
+*AnnotationsApi* | [**annotateStructuralVariantsPostUsingPOST1**](docs/AnnotationsApi.md#annotateStructuralVariantsPostUsingPOST1) | **POST** /annotate/structuralVariants | annotateStructuralVariantsPost
+*CancerGenesApi* | [**utilsCancerGeneListGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListGetUsingGET1) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
+*CancerGenesApi* | [**utilsCancerGeneListTxtGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET1) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
+*InfoApi* | [**infoGetUsingGET1**](docs/InfoApi.md#infoGetUsingGET1) | **GET** /info | infoGet
+*LevelsApi* | [**levelsGetUsingGET1**](docs/LevelsApi.md#levelsGetUsingGET1) | **GET** /levels | levelsGet
+*LevelsApi* | [**levelsResistanceGetUsingGET1**](docs/LevelsApi.md#levelsResistanceGetUsingGET1) | **GET** /levels/resistance | levelsResistanceGet
+*LevelsApi* | [**levelsSensitiveGetUsingGET1**](docs/LevelsApi.md#levelsSensitiveGetUsingGET1) | **GET** /levels/sensitive | levelsSensitiveGet
 
 
 ## Documentation for Models
