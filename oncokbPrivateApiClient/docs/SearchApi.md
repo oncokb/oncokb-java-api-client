@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="searchGetUsingGET"></a>
 # **searchGetUsingGET**
-> IndicatorQueryResp searchGetUsingGET(id, hugoSymbol, entrezGeneId, variant, variantType, svType, consequence, proteinStart, proteinEnd, tumorType, source, levels, highestLevelOnly, queryType, evidenceType, hgvs, fields)
+> IndicatorQueryResp searchGetUsingGET(id, hugoSymbol, entrezGeneId, variant, variantType, svType, consequence, proteinStart, proteinEnd, tumorType, levels, highestLevelOnly, queryType, evidenceType, hgvs, fields)
 
 searchGet
 
@@ -34,7 +34,6 @@ String consequence = "consequence_example"; // String | Consequence
 Integer proteinStart = 56; // Integer | Protein Start
 Integer proteinEnd = 56; // Integer | Protein End
 String tumorType = "tumorType_example"; // String | Tumor type name. OncoTree code is supported.
-String source = "oncotree"; // String | Tumor type source. OncoTree tumor types are the default setting. We may have customized version, like Quest.
 String levels = "levels_example"; // String | Level of evidences.
 Boolean highestLevelOnly = false; // Boolean | Only show treatments of highest level
 String queryType = "regular"; // String | Query type. There maybe slight differences between different query types. Currently support web or regular.
@@ -42,7 +41,7 @@ String evidenceType = "evidenceType_example"; // String | Evidence type.
 String hgvs = "hgvs_example"; // String | HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination
 String fields = "fields_example"; // String | The fields to be returned.
 try {
-    IndicatorQueryResp result = apiInstance.searchGetUsingGET(id, hugoSymbol, entrezGeneId, variant, variantType, svType, consequence, proteinStart, proteinEnd, tumorType, source, levels, highestLevelOnly, queryType, evidenceType, hgvs, fields);
+    IndicatorQueryResp result = apiInstance.searchGetUsingGET(id, hugoSymbol, entrezGeneId, variant, variantType, svType, consequence, proteinStart, proteinEnd, tumorType, levels, highestLevelOnly, queryType, evidenceType, hgvs, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SearchApi#searchGetUsingGET");
@@ -64,7 +63,6 @@ Name | Type | Description  | Notes
  **proteinStart** | **Integer**| Protein Start | [optional]
  **proteinEnd** | **Integer**| Protein End | [optional]
  **tumorType** | **String**| Tumor type name. OncoTree code is supported. | [optional]
- **source** | **String**| Tumor type source. OncoTree tumor types are the default setting. We may have customized version, like Quest. | [optional] [default to oncotree]
  **levels** | **String**| Level of evidences. | [optional]
  **highestLevelOnly** | **Boolean**| Only show treatments of highest level | [optional] [default to false]
  **queryType** | **String**| Query type. There maybe slight differences between different query types. Currently support web or regular. | [optional] [default to regular]

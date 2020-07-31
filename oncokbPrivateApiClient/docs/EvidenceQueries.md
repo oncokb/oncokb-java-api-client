@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **highestLevelOnly** | **Boolean** |  |  [optional]
 **levels** | [**List&lt;LevelsEnum&gt;**](#List&lt;LevelsEnum&gt;) |  |  [optional]
 **queries** | [**List&lt;Query&gt;**](Query.md) |  |  [optional]
-**source** | **String** |  |  [optional]
 
 
 <a name="List<LevelsEnum>"></a>

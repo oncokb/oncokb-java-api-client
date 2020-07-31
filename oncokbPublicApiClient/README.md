@@ -1,8 +1,8 @@
 # oncokbPublicApiClient
 
 OncoKB APIs
-- API version: v1.0.0
-  - Build date: 2020-02-19T16:53:14.717-05:00
+- API version: v1.1.0
+  - Build date: 2020-07-31T16:43:04.888-04:00
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 
@@ -119,6 +119,8 @@ Class | Method | HTTP request | Description
 *AnnotationsApi* | [**annotateMutationsByProteinChangePostUsingPOST1**](docs/AnnotationsApi.md#annotateMutationsByProteinChangePostUsingPOST1) | **POST** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangePost
 *AnnotationsApi* | [**annotateStructuralVariantsGetUsingGET1**](docs/AnnotationsApi.md#annotateStructuralVariantsGetUsingGET1) | **GET** /annotate/structuralVariants | annotateStructuralVariantsGet
 *AnnotationsApi* | [**annotateStructuralVariantsPostUsingPOST1**](docs/AnnotationsApi.md#annotateStructuralVariantsPostUsingPOST1) | **POST** /annotate/structuralVariants | annotateStructuralVariantsPost
+*CancerGenesApi* | [**utilsAllCuratedGenesGetUsingGET1**](docs/CancerGenesApi.md#utilsAllCuratedGenesGetUsingGET1) | **GET** /utils/allCuratedGenes | utilsAllCuratedGenesGet
+*CancerGenesApi* | [**utilsAllCuratedGenesTxtGetUsingGET1**](docs/CancerGenesApi.md#utilsAllCuratedGenesTxtGetUsingGET1) | **GET** /utils/allCuratedGenes.txt | utilsAllCuratedGenesTxtGet
 *CancerGenesApi* | [**utilsCancerGeneListGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListGetUsingGET1) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
 *CancerGenesApi* | [**utilsCancerGeneListTxtGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET1) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
 *InfoApi* | [**infoGetUsingGET1**](docs/InfoApi.md#infoGetUsingGET1) | **GET** /info | infoGet
@@ -137,6 +139,7 @@ Class | Method | HTTP request | Description
  - [ArticleAbstract](docs/ArticleAbstract.md)
  - [CancerGene](docs/CancerGene.md)
  - [Citations](docs/Citations.md)
+ - [CuratedGene](docs/CuratedGene.md)
  - [Drug](docs/Drug.md)
  - [Implication](docs/Implication.md)
  - [IndicatorQueryResp](docs/IndicatorQueryResp.md)

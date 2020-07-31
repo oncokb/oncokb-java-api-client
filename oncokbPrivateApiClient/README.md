@@ -1,8 +1,8 @@
 # oncokbPrivateApiClient
 
 OncoKB Private APIs
-- API version: v1.0.0
-  - Build date: 2020-02-19T16:53:16.620-05:00
+- API version: v1.1.0
+  - Build date: 2020-07-31T16:43:06.631-04:00
 
 These endpoints are for private use only.
 
@@ -139,8 +139,6 @@ Class | Method | HTTP request | Description
 *GenesApi* | [**genesEntrezGeneIdVariantsGetUsingGET**](docs/GenesApi.md#genesEntrezGeneIdVariantsGetUsingGET) | **GET** /genes/{entrezGeneId}/variants | genesEntrezGeneIdVariantsGet
 *GenesApi* | [**genesGetUsingGET**](docs/GenesApi.md#genesGetUsingGET) | **GET** /genes | genesGet
 *GenesApi* | [**genesLookupGetUsingGET**](docs/GenesApi.md#genesLookupGetUsingGET) | **GET** /genes/lookup | genesLookupGet
-*GenesApi* | [**utilsAllCuratedGenesGetUsingGET**](docs/GenesApi.md#utilsAllCuratedGenesGetUsingGET) | **GET** /utils/allCuratedGenes | utilsAllCuratedGenesGet
-*GenesApi* | [**utilsAllCuratedGenesTxtGetUsingGET**](docs/GenesApi.md#utilsAllCuratedGenesTxtGetUsingGET) | **GET** /utils/allCuratedGenes.txt | utilsAllCuratedGenesTxtGet
 *GenesetsApi* | [**genesetsGetUsingGET**](docs/GenesetsApi.md#genesetsGetUsingGET) | **GET** /genesets | genesetsGet
 *GenesetsApi* | [**genesetsUuidGetUsingGET**](docs/GenesetsApi.md#genesetsUuidGetUsingGET) | **GET** /genesets/{uuid} | genesetsUuidGet
 *InfoApi* | [**infoGetUsingGET**](docs/InfoApi.md#infoGetUsingGET) | **GET** /info | infoGet
