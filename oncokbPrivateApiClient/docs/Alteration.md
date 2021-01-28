@@ -11,7 +11,16 @@ Name | Type | Description | Notes
 **proteinEnd** | **Integer** |  |  [optional]
 **proteinStart** | **Integer** |  |  [optional]
 **refResidues** | **String** |  |  [optional]
+**referenceGenomes** | [**List&lt;ReferenceGenomesEnum&gt;**](#List&lt;ReferenceGenomesEnum&gt;) |  |  [optional]
 **variantResidues** | **String** |  |  [optional]
+
+
+<a name="List<ReferenceGenomesEnum>"></a>
+## Enum: List&lt;ReferenceGenomesEnum&gt;
+Name | Value
+---- | -----
+GRCH37 | &quot;GRCh37&quot;
+GRCH38 | &quot;GRCh38&quot;
 
 
 

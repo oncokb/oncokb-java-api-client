@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="annotateCopyNumberAlterationsGetUsingGET"></a>
 # **annotateCopyNumberAlterationsGetUsingGET**
-> IndicatorQueryResp annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType)
+> IndicatorQueryResp annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, referenceGenome, tumorType, evidenceType)
 
 annotateCopyNumberAlterationsGet
 
@@ -35,10 +35,11 @@ AnnotationsApi apiInstance = new AnnotationsApi();
 String copyNameAlterationType = "copyNameAlterationType_example"; // String | Copy number alteration type
 String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
 Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
 String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType);
+    IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, referenceGenome, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET");
@@ -53,7 +54,8 @@ Name | Type | Description  | Notes
  **copyNameAlterationType** | **String**| Copy number alteration type | [enum: AMPLIFICATION, DELETION, GAIN, LOSS]
  **hugoSymbol** | **String**| The gene symbol used in Human Genome Organisation. Example: BRAF | [optional]
  **entrezGeneId** | **Integer**| The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 | [optional]
- **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
+ **tumorType** | **String**| OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
  **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
@@ -116,7 +118,7 @@ No authorization required
 
 <a name="annotateMutationsByGenomicChangeGetUsingGET"></a>
 # **annotateMutationsByGenomicChangeGetUsingGET**
-> IndicatorQueryResp annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, tumorType, evidenceType)
+> IndicatorQueryResp annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, referenceGenome, tumorType, evidenceType)
 
 annotateMutationsByGenomicChangeGet
 
@@ -131,10 +133,11 @@ Annotate mutation by genomic change.
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 String genomicLocation = "genomicLocation_example"; // String | Genomic location. Example: 7,140453136,140453136,A,T
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
 String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, tumorType, evidenceType);
+    IndicatorQueryResp result = apiInstance.annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, referenceGenome, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangeGetUsingGET");
@@ -147,7 +150,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **genomicLocation** | **String**| Genomic location. Example: 7,140453136,140453136,A,T |
- **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
+ **tumorType** | **String**| OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
  **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
@@ -210,7 +214,7 @@ No authorization required
 
 <a name="annotateMutationsByHGVSgGetUsingGET"></a>
 # **annotateMutationsByHGVSgGetUsingGET**
-> IndicatorQueryResp annotateMutationsByHGVSgGetUsingGET(hgvsg, tumorType, evidenceType)
+> IndicatorQueryResp annotateMutationsByHGVSgGetUsingGET(hgvsg, referenceGenome, tumorType, evidenceType)
 
 annotateMutationsByHGVSgGet
 
@@ -225,10 +229,11 @@ Annotate mutation by HGVSg.
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 String hgvsg = "hgvsg_example"; // String | HGVS genomic format. Example: 7:g.140453136A>T
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
 String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByHGVSgGetUsingGET(hgvsg, tumorType, evidenceType);
+    IndicatorQueryResp result = apiInstance.annotateMutationsByHGVSgGetUsingGET(hgvsg, referenceGenome, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgGetUsingGET");
@@ -241,7 +246,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hgvsg** | **String**| HGVS genomic format. Example: 7:g.140453136A&gt;T |
- **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
+ **tumorType** | **String**| OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
  **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
@@ -304,7 +310,7 @@ No authorization required
 
 <a name="annotateMutationsByProteinChangeGetUsingGET"></a>
 # **annotateMutationsByProteinChangeGetUsingGET**
-> IndicatorQueryResp annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType)
+> IndicatorQueryResp annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, referenceGenome, consequence, proteinStart, proteinEnd, tumorType, evidenceType)
 
 annotateMutationsByProteinChangeGet
 
@@ -321,13 +327,14 @@ AnnotationsApi apiInstance = new AnnotationsApi();
 String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
 Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
 String alteration = "alteration_example"; // String | Protein Change. Example: V600E
+String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
 String consequence = "consequence_example"; // String | Consequence. Exacmple: missense_variant
 Integer proteinStart = 56; // Integer | Protein Start. Example: 600
 Integer proteinEnd = 56; // Integer | Protein End. Example: 600
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
 String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, consequence, proteinStart, proteinEnd, tumorType, evidenceType);
+    IndicatorQueryResp result = apiInstance.annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, referenceGenome, consequence, proteinStart, proteinEnd, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangeGetUsingGET");
@@ -342,10 +349,11 @@ Name | Type | Description  | Notes
  **hugoSymbol** | **String**| The gene symbol used in Human Genome Organisation. Example: BRAF | [optional]
  **entrezGeneId** | **Integer**| The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 | [optional]
  **alteration** | **String**| Protein Change. Example: V600E | [optional]
+ **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
  **consequence** | **String**| Consequence. Exacmple: missense_variant | [optional] [enum: feature_truncation, frameshift_variant, inframe_deletion, inframe_insertion, start_lost, missense_variant, splice_region_variant, stop_gained, synonymous_variant]
  **proteinStart** | **Integer**| Protein Start. Example: 600 | [optional]
  **proteinEnd** | **Integer**| Protein End. Example: 600 | [optional]
- **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **tumorType** | **String**| OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
  **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type
@@ -408,7 +416,7 @@ No authorization required
 
 <a name="annotateStructuralVariantsGetUsingGET"></a>
 # **annotateStructuralVariantsGetUsingGET**
-> IndicatorQueryResp annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType)
+> IndicatorQueryResp annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, referenceGenome, tumorType, evidenceType)
 
 annotateStructuralVariantsGet
 
@@ -428,10 +436,11 @@ String hugoSymbolA = "hugoSymbolA_example"; // String | The gene symbol A used i
 Integer entrezGeneIdA = 56; // Integer | The entrez gene ID A. (Higher priority than hugoSymbolA) Example: 25
 String hugoSymbolB = "hugoSymbolB_example"; // String | The gene symbol B used in Human Genome Organisation.Example: BCR 
 Integer entrezGeneIdB = 56; // Integer | The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
 String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
 try {
-    IndicatorQueryResp result = apiInstance.annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, tumorType, evidenceType);
+    IndicatorQueryResp result = apiInstance.annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, referenceGenome, tumorType, evidenceType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsGetUsingGET");
@@ -449,7 +458,8 @@ Name | Type | Description  | Notes
  **entrezGeneIdA** | **Integer**| The entrez gene ID A. (Higher priority than hugoSymbolA) Example: 25 | [optional]
  **hugoSymbolB** | **String**| The gene symbol B used in Human Genome Organisation.Example: BCR  | [optional]
  **entrezGeneIdB** | **Integer**| The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613 | [optional]
- **tumorType** | **String**| OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
+ **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
+ **tumorType** | **String**| OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]
  **evidenceType** | **String**| Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use &#39;,&#39; as separator. | [optional]
 
 ### Return type

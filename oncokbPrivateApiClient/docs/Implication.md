@@ -4,9 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**abstracts** | [**List&lt;ArticleAbstract&gt;**](ArticleAbstract.md) |  |  [optional]
 **alterations** | **List&lt;String&gt;** |  |  [optional]
 **description** | **String** |  |  [optional]
 **levelOfEvidence** | [**LevelOfEvidenceEnum**](#LevelOfEvidenceEnum) |  |  [optional]
+**pmids** | **List&lt;String&gt;** |  |  [optional]
 **tumorType** | [**TumorType**](TumorType.md) |  |  [optional]
 
 

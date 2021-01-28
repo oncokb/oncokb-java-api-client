@@ -240,7 +240,7 @@ No authorization required
 
 <a name="variantsLookupGetUsingGET"></a>
 # **variantsLookupGetUsingGET**
-> List&lt;Alteration&gt; variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, fields)
+> List&lt;Alteration&gt; variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, referenceGenome, fields)
 
 variantsLookupGet
 
@@ -262,9 +262,10 @@ String consequence = "consequence_example"; // String | consequence
 Integer proteinStart = 56; // Integer | proteinStart
 Integer proteinEnd = 56; // Integer | proteinEnd
 String hgvs = "hgvs_example"; // String | HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination
+String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
 String fields = "fields_example"; // String | The fields to be returned.
 try {
-    List<Alteration> result = apiInstance.variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, fields);
+    List<Alteration> result = apiInstance.variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, referenceGenome, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling VariantsApi#variantsLookupGetUsingGET");
@@ -284,6 +285,7 @@ Name | Type | Description  | Notes
  **proteinStart** | **Integer**| proteinStart | [optional]
  **proteinEnd** | **Integer**| proteinEnd | [optional]
  **hgvs** | **String**| HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination | [optional]
+ **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
  **fields** | **String**| The fields to be returned. | [optional]
 
 ### Return type

@@ -1,8 +1,8 @@
 # oncokbPublicApiClient
 
 OncoKB APIs
-- API version: v1.0.0
-  - Build date: 2020-02-19T16:53:14.717-05:00
+- API version: v1.2.1
+  - Build date: 2021-01-27T19:08:12.791-05:00
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 
@@ -89,10 +89,11 @@ public class AnnotationsApiExample {
         String copyNameAlterationType = "copyNameAlterationType_example"; // String | Copy number alteration type
         String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
         Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
-        String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+        String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
         String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
         try {
-            IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET1(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType);
+            IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET1(copyNameAlterationType, hugoSymbol, entrezGeneId, referenceGenome, tumorType, evidenceType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET1");
@@ -119,6 +120,8 @@ Class | Method | HTTP request | Description
 *AnnotationsApi* | [**annotateMutationsByProteinChangePostUsingPOST1**](docs/AnnotationsApi.md#annotateMutationsByProteinChangePostUsingPOST1) | **POST** /annotate/mutations/byProteinChange | annotateMutationsByProteinChangePost
 *AnnotationsApi* | [**annotateStructuralVariantsGetUsingGET1**](docs/AnnotationsApi.md#annotateStructuralVariantsGetUsingGET1) | **GET** /annotate/structuralVariants | annotateStructuralVariantsGet
 *AnnotationsApi* | [**annotateStructuralVariantsPostUsingPOST1**](docs/AnnotationsApi.md#annotateStructuralVariantsPostUsingPOST1) | **POST** /annotate/structuralVariants | annotateStructuralVariantsPost
+*CancerGenesApi* | [**utilsAllCuratedGenesGetUsingGET1**](docs/CancerGenesApi.md#utilsAllCuratedGenesGetUsingGET1) | **GET** /utils/allCuratedGenes | utilsAllCuratedGenesGet
+*CancerGenesApi* | [**utilsAllCuratedGenesTxtGetUsingGET1**](docs/CancerGenesApi.md#utilsAllCuratedGenesTxtGetUsingGET1) | **GET** /utils/allCuratedGenes.txt | utilsAllCuratedGenesTxtGet
 *CancerGenesApi* | [**utilsCancerGeneListGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListGetUsingGET1) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
 *CancerGenesApi* | [**utilsCancerGeneListTxtGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET1) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
 *InfoApi* | [**infoGetUsingGET1**](docs/InfoApi.md#infoGetUsingGET1) | **GET** /info | infoGet
@@ -137,6 +140,7 @@ Class | Method | HTTP request | Description
  - [ArticleAbstract](docs/ArticleAbstract.md)
  - [CancerGene](docs/CancerGene.md)
  - [Citations](docs/Citations.md)
+ - [CuratedGene](docs/CuratedGene.md)
  - [Drug](docs/Drug.md)
  - [Implication](docs/Implication.md)
  - [IndicatorQueryResp](docs/IndicatorQueryResp.md)

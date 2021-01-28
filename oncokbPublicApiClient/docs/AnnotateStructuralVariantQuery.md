@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **geneA** | [**QueryGene**](QueryGene.md) |  |  [optional]
 **geneB** | [**QueryGene**](QueryGene.md) |  |  [optional]
 **id** | **String** |  |  [optional]
+**referenceGenome** | [**ReferenceGenomeEnum**](#ReferenceGenomeEnum) |  |  [optional]
 **structuralVariantType** | [**StructuralVariantTypeEnum**](#StructuralVariantTypeEnum) |  |  [optional]
 **tumorType** | **String** |  |  [optional]
 
@@ -33,6 +34,14 @@ STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY | &quot;STANDARD_THERAPEU
 STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE | &quot;STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE&quot;
 INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY | &quot;INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY&quot;
 INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE | &quot;INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE&quot;
+
+
+<a name="ReferenceGenomeEnum"></a>
+## Enum: ReferenceGenomeEnum
+Name | Value
+---- | -----
+GRCH37 | &quot;GRCh37&quot;
+GRCH38 | &quot;GRCh38&quot;
 
 
 <a name="StructuralVariantTypeEnum"></a>

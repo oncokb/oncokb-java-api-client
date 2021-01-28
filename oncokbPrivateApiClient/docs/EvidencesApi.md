@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="evidencesLookupGetUsingGET"></a>
 # **evidencesLookupGetUsingGET**
-> List&lt;Evidence&gt; evidencesLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, tumorType, consequence, proteinStart, proteinEnd, source, highestLevelOnly, levelOfEvidence, evidenceTypes, fields)
+> List&lt;Evidence&gt; evidencesLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, tumorType, consequence, proteinStart, proteinEnd, highestLevelOnly, levelOfEvidence, evidenceTypes, fields)
 
 evidencesLookupGet
 
@@ -33,13 +33,12 @@ String tumorType = "tumorType_example"; // String | Tumor type name. OncoTree co
 String consequence = "consequence_example"; // String | Consequence. Possible value: feature_truncation, frameshift_variant, inframe_deletion, inframe_insertion, start_lost, missense_variant, splice_region_variant, stop_gained, synonymous_variant
 String proteinStart = "proteinStart_example"; // String | Protein Start.
 String proteinEnd = "proteinEnd_example"; // String | Protein End.
-String source = "oncotree"; // String | Tumor type source. OncoTree tumor types are the default setting. We may have customized version, like Quest.
 Boolean highestLevelOnly = false; // Boolean | Only show highest level evidences
 String levelOfEvidence = "levelOfEvidence_example"; // String | Separate by comma. LEVEL_1, LEVEL_2A, LEVEL_2B, LEVEL_3A, LEVEL_3B, LEVEL_4, LEVEL_R1, LEVEL_R2, LEVEL_R3
 String evidenceTypes = "evidenceTypes_example"; // String | Separate by comma. Evidence type includes GENE_SUMMARY, GENE_BACKGROUND, MUTATION_SUMMARY, ONCOGENIC, MUTATION_EFFECT, VUS, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, TUMOR_TYPE_SUMMARY, DIAGNOSTIC_SUMMARY, PROGNOSTIC_SUMMARY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
 String fields = "fields_example"; // String | The fields to be returned.
 try {
-    List<Evidence> result = apiInstance.evidencesLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, tumorType, consequence, proteinStart, proteinEnd, source, highestLevelOnly, levelOfEvidence, evidenceTypes, fields);
+    List<Evidence> result = apiInstance.evidencesLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, tumorType, consequence, proteinStart, proteinEnd, highestLevelOnly, levelOfEvidence, evidenceTypes, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EvidencesApi#evidencesLookupGetUsingGET");
@@ -58,7 +57,6 @@ Name | Type | Description  | Notes
  **consequence** | **String**| Consequence. Possible value: feature_truncation, frameshift_variant, inframe_deletion, inframe_insertion, start_lost, missense_variant, splice_region_variant, stop_gained, synonymous_variant | [optional]
  **proteinStart** | **String**| Protein Start. | [optional]
  **proteinEnd** | **String**| Protein End. | [optional]
- **source** | **String**| Tumor type source. OncoTree tumor types are the default setting. We may have customized version, like Quest. | [optional] [default to oncotree]
  **highestLevelOnly** | **Boolean**| Only show highest level evidences | [optional] [default to false]
  **levelOfEvidence** | **String**| Separate by comma. LEVEL_1, LEVEL_2A, LEVEL_2B, LEVEL_3A, LEVEL_3B, LEVEL_4, LEVEL_R1, LEVEL_R2, LEVEL_R3 | [optional]
  **evidenceTypes** | **String**| Separate by comma. Evidence type includes GENE_SUMMARY, GENE_BACKGROUND, MUTATION_SUMMARY, ONCOGENIC, MUTATION_EFFECT, VUS, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, TUMOR_TYPE_SUMMARY, DIAGNOSTIC_SUMMARY, PROGNOSTIC_SUMMARY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE | [optional]

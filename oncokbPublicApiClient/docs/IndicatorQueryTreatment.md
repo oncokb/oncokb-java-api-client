@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **approvedIndications** | **List&lt;String&gt;** |  |  [optional]
 **description** | **String** |  |  [optional]
 **drugs** | [**List&lt;Drug&gt;**](Drug.md) |  |  [optional]
-**fdaApproved** | **Boolean** |  |  [optional]
 **level** | [**LevelEnum**](#LevelEnum) |  |  [optional]
 **levelAssociatedCancerType** | [**TumorType**](TumorType.md) |  |  [optional]
 **pmids** | **List&lt;String&gt;** |  |  [optional]

@@ -1,8 +1,8 @@
 # oncokbPrivateApiClient
 
 OncoKB Private APIs
-- API version: v1.0.0
-  - Build date: 2020-02-19T16:53:16.620-05:00
+- API version: v1.2.1
+  - Build date: 2021-01-27T19:08:14.306-05:00
 
 These endpoints are for private use only.
 
@@ -89,10 +89,11 @@ public class AnnotationsApiExample {
         String copyNameAlterationType = "copyNameAlterationType_example"; // String | Copy number alteration type
         String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
         Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
-        String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.mskcc.org) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+        String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
         String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
         try {
-            IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, tumorType, evidenceType);
+            IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, referenceGenome, tumorType, evidenceType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET");
@@ -139,8 +140,6 @@ Class | Method | HTTP request | Description
 *GenesApi* | [**genesEntrezGeneIdVariantsGetUsingGET**](docs/GenesApi.md#genesEntrezGeneIdVariantsGetUsingGET) | **GET** /genes/{entrezGeneId}/variants | genesEntrezGeneIdVariantsGet
 *GenesApi* | [**genesGetUsingGET**](docs/GenesApi.md#genesGetUsingGET) | **GET** /genes | genesGet
 *GenesApi* | [**genesLookupGetUsingGET**](docs/GenesApi.md#genesLookupGetUsingGET) | **GET** /genes/lookup | genesLookupGet
-*GenesApi* | [**utilsAllCuratedGenesGetUsingGET**](docs/GenesApi.md#utilsAllCuratedGenesGetUsingGET) | **GET** /utils/allCuratedGenes | utilsAllCuratedGenesGet
-*GenesApi* | [**utilsAllCuratedGenesTxtGetUsingGET**](docs/GenesApi.md#utilsAllCuratedGenesTxtGetUsingGET) | **GET** /utils/allCuratedGenes.txt | utilsAllCuratedGenesTxtGet
 *GenesetsApi* | [**genesetsGetUsingGET**](docs/GenesetsApi.md#genesetsGetUsingGET) | **GET** /genesets | genesetsGet
 *GenesetsApi* | [**genesetsUuidGetUsingGET**](docs/GenesetsApi.md#genesetsUuidGetUsingGET) | **GET** /genesets/{uuid} | genesetsUuidGet
 *InfoApi* | [**infoGetUsingGET**](docs/InfoApi.md#infoGetUsingGET) | **GET** /info | infoGet
@@ -149,6 +148,8 @@ Class | Method | HTTP request | Description
 *LevelsApi* | [**levelsSensitiveGetUsingGET**](docs/LevelsApi.md#levelsSensitiveGetUsingGET) | **GET** /levels/sensitive | levelsSensitiveGet
 *SearchApi* | [**searchGetUsingGET**](docs/SearchApi.md#searchGetUsingGET) | **GET** /search | searchGet
 *SearchApi* | [**searchPostUsingPOST**](docs/SearchApi.md#searchPostUsingPOST) | **POST** /search | searchPost
+*TrialsApi* | [**trialsGetByCancerTypesUsingPOST**](docs/TrialsApi.md#trialsGetByCancerTypesUsingPOST) | **POST** /trials/cancerTypes | Return a list of trials using cancer types
+*TrialsApi* | [**trialsMatchingGetUsingGET**](docs/TrialsApi.md#trialsMatchingGetUsingGET) | **GET** /trials | Return a list of trials using OncoTree Code and/or treatment
 *VariantsApi* | [**utilsAllActionableVariantsGetUsingGET**](docs/VariantsApi.md#utilsAllActionableVariantsGetUsingGET) | **GET** /utils/allActionableVariants | utilsAllActionableVariantsGet
 *VariantsApi* | [**utilsAllActionableVariantsTxtGetUsingGET**](docs/VariantsApi.md#utilsAllActionableVariantsTxtGetUsingGET) | **GET** /utils/allActionableVariants.txt | utilsAllActionableVariantsTxtGet
 *VariantsApi* | [**utilsAllAnnotatedVariantsGetUsingGET**](docs/VariantsApi.md#utilsAllAnnotatedVariantsGetUsingGET) | **GET** /utils/allAnnotatedVariants | utilsAllAnnotatedVariantsGet
@@ -168,9 +169,11 @@ Class | Method | HTTP request | Description
  - [AnnotateMutationByProteinChangeQuery](docs/AnnotateMutationByProteinChangeQuery.md)
  - [AnnotateStructuralVariantQuery](docs/AnnotateStructuralVariantQuery.md)
  - [AnnotatedVariant](docs/AnnotatedVariant.md)
+ - [Arms](docs/Arms.md)
  - [Article](docs/Article.md)
  - [ArticleAbstract](docs/ArticleAbstract.md)
  - [CancerGene](docs/CancerGene.md)
+ - [CancerTypesQuery](docs/CancerTypesQuery.md)
  - [Citations](docs/Citations.md)
  - [CuratedGene](docs/CuratedGene.md)
  - [Drug](docs/Drug.md)
@@ -193,6 +196,7 @@ Class | Method | HTTP request | Description
  - [Treatment](docs/Treatment.md)
  - [TreatmentDrug](docs/TreatmentDrug.md)
  - [TreatmentDrugId](docs/TreatmentDrugId.md)
+ - [Trial](docs/Trial.md)
  - [TumorType](docs/TumorType.md)
  - [VariantConsequence](docs/VariantConsequence.md)
  - [VariantSearchQuery](docs/VariantSearchQuery.md)
