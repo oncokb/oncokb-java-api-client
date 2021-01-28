@@ -1,6 +1,6 @@
 # AnnotationsApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *https://localhost:8080/oncokb-curate/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ONCOKB_PUBLIC_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Public%20APIs}
-ONCOKB_PRIVATE_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Private%20APIs}
+ONCOKB_PUBLIC_DOCS=${1:-http://localhost:8080/oncokb-curate/api/v1/v2/api-docs?group=Public%20APIs}
+ONCOKB_PRIVATE_DOCS=${1:-http://localhost:8080/oncokb-curate/api/v1/v2/api-docs?group=Private%20APIs}
 SWAGGER_CODEGEN_CLI_JAR="swagger-codegen-cli.jar"
 
 # switch to the script directory

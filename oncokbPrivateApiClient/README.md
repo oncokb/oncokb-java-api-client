@@ -2,7 +2,7 @@
 
 OncoKB Private APIs
 - API version: v1.2.1
-  - Build date: 2021-01-27T22:27:50.153-05:00
+  - Build date: 2021-01-28T15:48:42.155-05:00
 
 These endpoints are for private use only.
 
@@ -106,7 +106,7 @@ public class AnnotationsApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *https://localhost:8080/oncokb-curate/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

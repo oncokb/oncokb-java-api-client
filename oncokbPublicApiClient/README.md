@@ -2,7 +2,6 @@
 
 OncoKB APIs
 - API version: v1.2.1
-  - Build date: 2021-01-27T22:27:48.680-05:00
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 
@@ -84,7 +83,14 @@ import java.util.*;
 public class AnnotationsApiExample {
 
     public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
+        // Configure API key authorization: Bearer
+        ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+        Bearer.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer.setApiKeyPrefix("Token");
+
         AnnotationsApi apiInstance = new AnnotationsApi();
         String copyNameAlterationType = "copyNameAlterationType_example"; // String | Copy number alteration type
         String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
@@ -106,7 +112,7 @@ public class AnnotationsApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *https://localhost:8080/oncokb-curate/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -157,8 +163,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### Bearer
+
+- **Type**: API key
+- **API key parameter name**: Bearer
+- **Location**: HTTP header
+
 
 ## Recommendation
 

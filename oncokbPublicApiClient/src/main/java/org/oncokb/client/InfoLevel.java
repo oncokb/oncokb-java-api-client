@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InfoLevel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-27T22:27:48.680-05:00")
+
 public class InfoLevel {
   @SerializedName("colorHex")
   private String colorHex = null;
