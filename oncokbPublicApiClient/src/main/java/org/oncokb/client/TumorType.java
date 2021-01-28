@@ -33,7 +33,7 @@ import org.oncokb.client.TumorType;
  * OncoTree Detailed Cancer Type
  */
 @ApiModel(description = "OncoTree Detailed Cancer Type")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-27T19:08:12.791-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-27T22:27:48.680-05:00")
 public class TumorType {
   @SerializedName("children")
   private Map<String, TumorType> children = null;

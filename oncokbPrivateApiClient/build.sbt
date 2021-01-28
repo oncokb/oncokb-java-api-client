@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "org.oncokb.client",
     name := "oncokbPrivateApiClient",
-    version := "1.1.1-SNAPSHOT",
+    version := "1.2.1-SNAPSHOT",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

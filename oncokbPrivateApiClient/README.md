@@ -2,7 +2,7 @@
 
 OncoKB Private APIs
 - API version: v1.2.1
-  - Build date: 2021-01-27T19:08:14.306-05:00
+  - Build date: 2021-01-27T22:27:50.153-05:00
 
 These endpoints are for private use only.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.oncokb.client</groupId>
   <artifactId>oncokbPrivateApiClient</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.2.1-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.oncokb.client:oncokbPrivateApiClient:1.1.1-SNAPSHOT"
+compile "org.oncokb.client:oncokbPrivateApiClient:1.2.1-SNAPSHOT"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/oncokbPrivateApiClient-1.1.1-SNAPSHOT.jar`
+* `target/oncokbPrivateApiClient-1.2.1-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

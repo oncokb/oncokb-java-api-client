@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * VariantConsequence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-27T19:08:14.306-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-27T22:27:50.153-05:00")
 public class VariantConsequence {
   @SerializedName("description")
   private String description = null;

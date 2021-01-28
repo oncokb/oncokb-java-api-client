@@ -2,7 +2,7 @@
 
 OncoKB APIs
 - API version: v1.2.1
-  - Build date: 2021-01-27T19:08:12.791-05:00
+  - Build date: 2021-01-27T22:27:48.680-05:00
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.oncokb.client</groupId>
   <artifactId>oncokbPublicApiClient</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.2.1-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.oncokb.client:oncokbPublicApiClient:1.1.1-SNAPSHOT"
+compile "org.oncokb.client:oncokbPublicApiClient:1.2.1-SNAPSHOT"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/oncokbPublicApiClient-1.1.1-SNAPSHOT.jar`
+* `target/oncokbPublicApiClient-1.2.1-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
