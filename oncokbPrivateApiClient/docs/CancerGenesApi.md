@@ -33,11 +33,11 @@ Get All Actionable Variants.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 
@@ -88,11 +88,11 @@ Get All Actionable Variants in text file.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 
@@ -143,11 +143,11 @@ Get All Annotated Variants.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 
@@ -198,11 +198,11 @@ Get All Annotated Variants in text file.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 
@@ -253,11 +253,11 @@ Get list of genes OncoKB curated
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 
@@ -308,11 +308,11 @@ Get list of genes OncoKB curated in text file.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 
@@ -363,11 +363,11 @@ Get cancer gene list
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 
@@ -418,11 +418,11 @@ Get cancer gene list in text file.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
-apiKey.setApiKey("YOUR API KEY");
+// Configure API key authorization: authorization
+ApiKeyAuth authorization = (ApiKeyAuth) defaultClient.getAuthentication("authorization");
+authorization.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//authorization.setApiKeyPrefix("Token");
 
 CancerGenesApi apiInstance = new CancerGenesApi();
 String version = "version_example"; // String | version
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[authorization](../README.md#authorization)
 
 ### HTTP request headers
 

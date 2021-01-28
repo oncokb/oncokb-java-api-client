@@ -98,7 +98,7 @@ public class InfoApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apiKey" };
+        String[] localVarAuthNames = new String[] { "authorization" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
