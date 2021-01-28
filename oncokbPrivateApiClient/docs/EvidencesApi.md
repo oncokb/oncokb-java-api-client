@@ -21,9 +21,19 @@ Search evidences. Multi-queries are supported.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.EvidencesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 EvidencesApi apiInstance = new EvidencesApi();
 Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -68,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -86,9 +96,19 @@ Search evidences.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.EvidencesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 EvidencesApi apiInstance = new EvidencesApi();
 EvidenceQueries body = new EvidenceQueries(); // EvidenceQueries | List of queries. Please see swagger.json for request body format. Please use JSON string.
@@ -115,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -133,9 +153,19 @@ Get specific evidence.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.EvidencesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 EvidencesApi apiInstance = new EvidencesApi();
 String uuid = "uuid_example"; // String | Unique identifier.
@@ -162,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -180,9 +210,19 @@ Get specific evidences.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.EvidencesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 EvidencesApi apiInstance = new EvidencesApi();
 List<String> uuids = Arrays.asList(new List<String>()); // List<String> | Unique identifier list.
@@ -209,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

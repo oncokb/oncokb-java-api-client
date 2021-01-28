@@ -30,7 +30,7 @@ import org.oncokb.client.Gene;
 /**
  * Geneset
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-28T15:48:42.155-05:00")
+
 public class Geneset {
   @SerializedName("genes")
   private List<Gene> genes = null;

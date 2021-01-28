@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Article
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-28T15:48:42.155-05:00")
+
 public class Article {
   @SerializedName("abstract")
   private String _abstract = null;

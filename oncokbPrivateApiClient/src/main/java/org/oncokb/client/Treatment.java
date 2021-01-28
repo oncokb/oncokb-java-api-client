@@ -30,7 +30,7 @@ import org.oncokb.client.TreatmentDrug;
 /**
  * Treatment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-28T15:48:42.155-05:00")
+
 public class Treatment {
   @SerializedName("approvedIndications")
   private List<String> approvedIndications = null;

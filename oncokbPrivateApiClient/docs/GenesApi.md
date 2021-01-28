@@ -22,9 +22,19 @@ Get list of evidences for specific gene.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.GenesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 GenesApi apiInstance = new GenesApi();
 Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -51,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -69,9 +79,19 @@ Get specific gene information.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.GenesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 GenesApi apiInstance = new GenesApi();
 Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -98,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -116,9 +136,19 @@ Get list of variants for specific gene.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.GenesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 GenesApi apiInstance = new GenesApi();
 Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -145,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -163,9 +193,19 @@ Get list of currently curated genes.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.GenesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 GenesApi apiInstance = new GenesApi();
 String fields = "fields_example"; // String | The fields to be returned.
@@ -190,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -208,9 +248,19 @@ Search gene.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.GenesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 GenesApi apiInstance = new GenesApi();
 String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. (Deprecated, use query instead)
@@ -241,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

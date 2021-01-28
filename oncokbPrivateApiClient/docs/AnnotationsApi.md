@@ -27,9 +27,19 @@ Annotate copy number alteration.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 String copyNameAlterationType = "copyNameAlterationType_example"; // String | Copy number alteration type
@@ -64,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -82,9 +92,19 @@ Annotate copy number alterations.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateCopyNumberAlterationQuery> body = Arrays.asList(new AnnotateCopyNumberAlterationQuery()); // List<AnnotateCopyNumberAlterationQuery> | List of queries. Please see swagger.json for request body format.
@@ -109,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -127,9 +147,19 @@ Annotate mutation by genomic change.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 String genomicLocation = "genomicLocation_example"; // String | Genomic location. Example: 7,140453136,140453136,A,T
@@ -160,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -178,9 +208,19 @@ Annotate mutations by genomic change.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateMutationByGenomicChangeQuery> body = Arrays.asList(new AnnotateMutationByGenomicChangeQuery()); // List<AnnotateMutationByGenomicChangeQuery> | List of queries. Please see swagger.json for request body format.
@@ -205,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -223,9 +263,19 @@ Annotate mutation by HGVSg.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 String hgvsg = "hgvsg_example"; // String | HGVS genomic format. Example: 7:g.140453136A>T
@@ -256,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -274,9 +324,19 @@ Annotate mutations by genomic change.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateMutationByHGVSgQuery> body = Arrays.asList(new AnnotateMutationByHGVSgQuery()); // List<AnnotateMutationByHGVSgQuery> | List of queries. Please see swagger.json for request body format.
@@ -301,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -319,9 +379,19 @@ Annotate mutation by protein change.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
@@ -362,7 +432,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -380,9 +450,19 @@ Annotate mutations by protein change.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateMutationByProteinChangeQuery> body = Arrays.asList(new AnnotateMutationByProteinChangeQuery()); // List<AnnotateMutationByProteinChangeQuery> | List of queries. Please see swagger.json for request body format.
@@ -407,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -425,9 +505,19 @@ Annotate structural variant.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 String structuralVariantType = "structuralVariantType_example"; // String | Structural variant type
@@ -468,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -486,9 +576,19 @@ Annotate structural variants.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.AnnotationsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 AnnotationsApi apiInstance = new AnnotationsApi();
 List<AnnotateStructuralVariantQuery> body = Arrays.asList(new AnnotateStructuralVariantQuery()); // List<AnnotateStructuralVariantQuery> | List of queries. Please see swagger.json for request body format.
@@ -513,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

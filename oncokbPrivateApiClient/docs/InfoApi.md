@@ -16,9 +16,19 @@ infoGet
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.InfoApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 InfoApi apiInstance = new InfoApi();
 try {
@@ -39,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

@@ -32,7 +32,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GeneEvidence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-28T15:48:42.155-05:00")
+
 public class GeneEvidence {
   @SerializedName("articles")
   private List<Article> articles = null;

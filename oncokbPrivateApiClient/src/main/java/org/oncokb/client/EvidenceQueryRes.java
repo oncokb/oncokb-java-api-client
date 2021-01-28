@@ -34,7 +34,7 @@ import org.oncokb.client.TumorType;
 /**
  * EvidenceQueryRes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-28T15:48:42.155-05:00")
+
 public class EvidenceQueryRes {
   @SerializedName("alleles")
   private List<Alteration> alleles = null;

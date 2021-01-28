@@ -24,9 +24,19 @@ Get All Actionable Variants.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.VariantsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 VariantsApi apiInstance = new VariantsApi();
 String version = "version_example"; // String | version
@@ -51,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -69,9 +79,19 @@ Get All Actionable Variants in text file.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.VariantsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 VariantsApi apiInstance = new VariantsApi();
 String version = "version_example"; // String | version
@@ -96,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -114,9 +134,19 @@ Get All Annotated Variants.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.VariantsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 VariantsApi apiInstance = new VariantsApi();
 String version = "version_example"; // String | version
@@ -141,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -159,9 +189,19 @@ Get All Annotated Variants in text file.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.VariantsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 VariantsApi apiInstance = new VariantsApi();
 String version = "version_example"; // String | version
@@ -186,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -204,9 +244,19 @@ Get all annotated variants.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.VariantsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 VariantsApi apiInstance = new VariantsApi();
 String fields = "fields_example"; // String | The fields to be returned.
@@ -231,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -249,9 +299,19 @@ Search for variants.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.VariantsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 VariantsApi apiInstance = new VariantsApi();
 Integer entrezGeneId = 56; // Integer | The entrez gene ID. entrezGeneId is prioritize than hugoSymbol if both parameters have been defined
@@ -294,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -312,9 +372,19 @@ Search for variants.
 ### Example
 ```java
 // Import classes:
+//import org.oncokb.ApiClient;
 //import org.oncokb.ApiException;
+//import org.oncokb.Configuration;
+//import org.oncokb.auth.*;
 //import org.oncokb.client.VariantsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: Bearer
+ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
+Bearer.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.setApiKeyPrefix("Token");
 
 VariantsApi apiInstance = new VariantsApi();
 List<VariantSearchQuery> body = Arrays.asList(new VariantSearchQuery()); // List<VariantSearchQuery> | List of queries.
@@ -341,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

@@ -18,7 +18,7 @@ import org.oncokb.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-28T15:48:42.155-05:00")
+
 public class OAuth implements Authentication {
   private String accessToken;
 
