@@ -97,7 +97,7 @@ public class ClassificationApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "Bearer" };
+        String[] localVarAuthNames = new String[] { "apiKey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

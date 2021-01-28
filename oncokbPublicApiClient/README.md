@@ -85,11 +85,11 @@ public class AnnotationsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: Bearer
-        ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-        Bearer.setApiKey("YOUR API KEY");
+        // Configure API key authorization: apiKey
+        ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+        apiKey.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer.setApiKeyPrefix("Token");
+        //apiKey.setApiKeyPrefix("Token");
 
         AnnotationsApi apiInstance = new AnnotationsApi();
         String copyNameAlterationType = "copyNameAlterationType_example"; // String | Copy number alteration type
@@ -164,10 +164,10 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### Bearer
+### apiKey
 
 - **Type**: API key
-- **API key parameter name**: Bearer
+- **API key parameter name**: apiKey
 - **Location**: HTTP header
 
 

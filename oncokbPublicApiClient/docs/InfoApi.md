@@ -24,11 +24,11 @@ infoGet
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: Bearer
-ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-Bearer.setApiKey("YOUR API KEY");
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 InfoApi apiInstance = new InfoApi();
 try {
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+[apiKey](../README.md#apiKey)
 
 ### HTTP request headers
 
