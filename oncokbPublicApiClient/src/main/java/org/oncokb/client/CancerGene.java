@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CancerGene
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-18T14:57:27.770-05:00")
+
 public class CancerGene {
   @SerializedName("entrezGeneId")
   private Integer entrezGeneId = null;

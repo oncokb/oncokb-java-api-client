@@ -13,7 +13,7 @@
 
 package org.oncokb;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-18T14:57:27.770-05:00")
+
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

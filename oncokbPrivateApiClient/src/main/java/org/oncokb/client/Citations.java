@@ -30,7 +30,7 @@ import org.oncokb.client.ArticleAbstract;
 /**
  * Citations
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-18T14:57:30.206-05:00")
+
 public class Citations {
   @SerializedName("abstracts")
   private List<ArticleAbstract> abstracts = null;

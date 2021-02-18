@@ -33,7 +33,7 @@ import org.oncokb.client.Query;
 /**
  * IndicatorQueryResp
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-18T14:57:30.206-05:00")
+
 public class IndicatorQueryResp {
   @SerializedName("alleleExist")
   private Boolean alleleExist = null;

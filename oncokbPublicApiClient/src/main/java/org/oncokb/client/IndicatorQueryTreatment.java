@@ -32,7 +32,7 @@ import org.oncokb.client.TumorType;
 /**
  * IndicatorQueryTreatment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-18T14:57:27.770-05:00")
+
 public class IndicatorQueryTreatment {
   @SerializedName("abstracts")
   private List<ArticleAbstract> abstracts = null;

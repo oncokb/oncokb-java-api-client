@@ -30,7 +30,7 @@ import org.oncokb.client.QueryGene;
 /**
  * AnnotateStructuralVariantQuery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-02-18T14:57:30.206-05:00")
+
 public class AnnotateStructuralVariantQuery {
   /**
    * Gets or Sets evidenceTypes
