@@ -4,5 +4,6 @@
     "groupId":"org.oncokb.client",
     "artifactId":"oncokbPublicApiClient",
     "artifactName":"OncoKB Public API Client",
-    "artifactVersion":"1.2.1-SNAPSHOT"
+    "artifactVersion":"1.2.1-SNAPSHOT",
+    "hideGenerationTimestamp" : "true"
   }

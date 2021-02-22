@@ -31,7 +31,7 @@ import org.oncokb.client.Version;
 /**
  * OncoKBInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-01-27T22:27:50.153-05:00")
+
 public class OncoKBInfo {
   @SerializedName("apiVersion")
   private String apiVersion = null;

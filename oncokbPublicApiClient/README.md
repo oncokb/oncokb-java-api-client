@@ -2,7 +2,6 @@
 
 OncoKB APIs
 - API version: v1.2.1
-  - Build date: 2021-01-27T22:27:48.680-05:00
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 

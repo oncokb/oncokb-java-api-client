@@ -2,7 +2,6 @@
 
 OncoKB Private APIs
 - API version: v1.2.1
-  - Build date: 2021-01-27T22:27:50.153-05:00
 
 These endpoints are for private use only.
 
