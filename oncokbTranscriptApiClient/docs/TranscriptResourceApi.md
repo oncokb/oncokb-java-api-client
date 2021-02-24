@@ -20,11 +20,11 @@ createTranscript
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiClient;
-//import org.oncokb.ApiException;
-//import org.oncokb.Configuration;
-//import org.oncokb.auth.*;
-//import org.oncokb.client.TranscriptResourceApi;
+//import org.oncokb.oncokb_transcript.ApiClient;
+//import org.oncokb.oncokb_transcript.ApiException;
+//import org.oncokb.oncokb_transcript.Configuration;
+//import org.oncokb.oncokb_transcript.auth.*;
+//import org.oncokb.oncokb_transcript.client.TranscriptResourceApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -68,11 +68,11 @@ deleteTranscript
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiClient;
-//import org.oncokb.ApiException;
-//import org.oncokb.Configuration;
-//import org.oncokb.auth.*;
-//import org.oncokb.client.TranscriptResourceApi;
+//import org.oncokb.oncokb_transcript.ApiClient;
+//import org.oncokb.oncokb_transcript.ApiException;
+//import org.oncokb.oncokb_transcript.Configuration;
+//import org.oncokb.oncokb_transcript.auth.*;
+//import org.oncokb.oncokb_transcript.client.TranscriptResourceApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -115,11 +115,11 @@ getAllTranscripts
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiClient;
-//import org.oncokb.ApiException;
-//import org.oncokb.Configuration;
-//import org.oncokb.auth.*;
-//import org.oncokb.client.TranscriptResourceApi;
+//import org.oncokb.oncokb_transcript.ApiClient;
+//import org.oncokb.oncokb_transcript.ApiException;
+//import org.oncokb.oncokb_transcript.Configuration;
+//import org.oncokb.oncokb_transcript.auth.*;
+//import org.oncokb.oncokb_transcript.client.TranscriptResourceApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -159,11 +159,11 @@ getTranscript
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiClient;
-//import org.oncokb.ApiException;
-//import org.oncokb.Configuration;
-//import org.oncokb.auth.*;
-//import org.oncokb.client.TranscriptResourceApi;
+//import org.oncokb.oncokb_transcript.ApiClient;
+//import org.oncokb.oncokb_transcript.ApiException;
+//import org.oncokb.oncokb_transcript.Configuration;
+//import org.oncokb.oncokb_transcript.auth.*;
+//import org.oncokb.oncokb_transcript.client.TranscriptResourceApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -207,11 +207,11 @@ partialUpdateTranscript
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiClient;
-//import org.oncokb.ApiException;
-//import org.oncokb.Configuration;
-//import org.oncokb.auth.*;
-//import org.oncokb.client.TranscriptResourceApi;
+//import org.oncokb.oncokb_transcript.ApiClient;
+//import org.oncokb.oncokb_transcript.ApiException;
+//import org.oncokb.oncokb_transcript.Configuration;
+//import org.oncokb.oncokb_transcript.auth.*;
+//import org.oncokb.oncokb_transcript.client.TranscriptResourceApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -255,11 +255,11 @@ updateTranscript
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiClient;
-//import org.oncokb.ApiException;
-//import org.oncokb.Configuration;
-//import org.oncokb.auth.*;
-//import org.oncokb.client.TranscriptResourceApi;
+//import org.oncokb.oncokb_transcript.ApiClient;
+//import org.oncokb.oncokb_transcript.ApiException;
+//import org.oncokb.oncokb_transcript.Configuration;
+//import org.oncokb.oncokb_transcript.auth.*;
+//import org.oncokb.oncokb_transcript.client.TranscriptResourceApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

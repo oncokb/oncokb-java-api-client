@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "org.oncokb.client",
+    organization := "org.oncokb.oncokb-transcript.client",
     name := "oncokbTranscriptApiClient",
     version := "0.0.1-SNAPSHOT",
     scalaVersion := "2.11.4",

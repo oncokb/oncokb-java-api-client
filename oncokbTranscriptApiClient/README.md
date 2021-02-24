@@ -37,7 +37,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.oncokb.client</groupId>
+  <groupId>org.oncokb.oncokb-transcript.client</groupId>
   <artifactId>oncokbTranscriptApiClient</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <scope>compile</scope>
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.oncokb.client:oncokbTranscriptApiClient:0.0.1-SNAPSHOT"
+compile "org.oncokb.oncokb-transcript.client:oncokbTranscriptApiClient:0.0.1-SNAPSHOT"
 ```
 
 ### Others
@@ -70,10 +70,10 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-import org.oncokb.*;
-import org.oncokb.auth.*;
-import org.oncokb.client.*;
-import org.oncokb.client.AccountResourceApi;
+import org.oncokb.oncokb_transcript.*;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.client.*;
+import org.oncokb.oncokb_transcript.client.AccountResourceApi;
 
 import java.io.File;
 import java.util.*;

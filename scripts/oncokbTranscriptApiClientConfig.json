@@ -1,7 +1,7 @@
 {
-    "apiPackage":"org.oncokb.client",
-    "modelPackage":"org.oncokb.client",
-    "groupId":"org.oncokb.client",
+    "apiPackage":"org.oncokb.oncokb-transcript.client",
+    "modelPackage":"org.oncokb.oncokb-transcript.client",
+    "groupId":"org.oncokb.oncokb-transcript.client",
     "artifactId":"oncokbTranscriptApiClient",
     "artifactName":"OncoKB Transcript API Client",
     "artifactVersion":"0.0.1-SNAPSHOT",
