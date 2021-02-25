@@ -153,7 +153,7 @@ This endpoint does not need any parameter.
 
 <a name="getAllSequencesUsingGET1"></a>
 # **getAllSequencesUsingGET1**
-> List&lt;Sequence&gt; getAllSequencesUsingGET1(referenceGenome, usageSource)
+> List&lt;Sequence&gt; getAllSequencesUsingGET1(referenceGenome, usageSource, hugoSymbol)
 
 getAllSequences
 
@@ -172,8 +172,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 SequenceResourceApi apiInstance = new SequenceResourceApi();
 String referenceGenome = "referenceGenome_example"; // String | referenceGenome
 String usageSource = "usageSource_example"; // String | usageSource
+String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
 try {
-    List<Sequence> result = apiInstance.getAllSequencesUsingGET1(referenceGenome, usageSource);
+    List<Sequence> result = apiInstance.getAllSequencesUsingGET1(referenceGenome, usageSource, hugoSymbol);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SequenceResourceApi#getAllSequencesUsingGET1");
@@ -187,6 +188,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
  **usageSource** | **String**| usageSource | [enum: ONCOKB]
+ **hugoSymbol** | **String**| hugoSymbol | [optional]
 
 ### Return type
 
