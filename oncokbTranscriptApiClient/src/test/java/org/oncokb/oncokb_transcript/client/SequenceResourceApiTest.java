@@ -86,7 +86,8 @@ public class SequenceResourceApiTest {
     public void getAllSequencesUsingGET1Test() throws ApiException {
         String referenceGenome = null;
         String usageSource = null;
-        List<Sequence> response = api.getAllSequencesUsingGET1(referenceGenome, usageSource);
+        String hugoSymbol = null;
+        List<Sequence> response = api.getAllSequencesUsingGET1(referenceGenome, usageSource, hugoSymbol);
 
         // TODO: test validations
     }

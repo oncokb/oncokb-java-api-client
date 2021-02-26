@@ -414,12 +414,13 @@ public class SequenceResourceApi {
      * Build call for getAllSequencesUsingGET1
      * @param referenceGenome referenceGenome (required)
      * @param usageSource usageSource (required)
+     * @param hugoSymbol hugoSymbol (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAllSequencesUsingGET1Call(String referenceGenome, String usageSource, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAllSequencesUsingGET1Call(String referenceGenome, String usageSource, String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -431,6 +432,8 @@ public class SequenceResourceApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("referenceGenome", referenceGenome));
         if (usageSource != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("usageSource", usageSource));
+        if (hugoSymbol != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("hugoSymbol", hugoSymbol));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -465,7 +468,7 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllSequencesUsingGET1ValidateBeforeCall(String referenceGenome, String usageSource, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAllSequencesUsingGET1ValidateBeforeCall(String referenceGenome, String usageSource, String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'referenceGenome' is set
         if (referenceGenome == null) {
             throw new ApiException("Missing the required parameter 'referenceGenome' when calling getAllSequencesUsingGET1(Async)");
@@ -475,7 +478,7 @@ public class SequenceResourceApi {
             throw new ApiException("Missing the required parameter 'usageSource' when calling getAllSequencesUsingGET1(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAllSequencesUsingGET1Call(referenceGenome, usageSource, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllSequencesUsingGET1Call(referenceGenome, usageSource, hugoSymbol, progressListener, progressRequestListener);
         return call;
 
         
@@ -489,11 +492,12 @@ public class SequenceResourceApi {
      * 
      * @param referenceGenome referenceGenome (required)
      * @param usageSource usageSource (required)
+     * @param hugoSymbol hugoSymbol (optional)
      * @return List&lt;Sequence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Sequence> getAllSequencesUsingGET1(String referenceGenome, String usageSource) throws ApiException {
-        ApiResponse<List<Sequence>> resp = getAllSequencesUsingGET1WithHttpInfo(referenceGenome, usageSource);
+    public List<Sequence> getAllSequencesUsingGET1(String referenceGenome, String usageSource, String hugoSymbol) throws ApiException {
+        ApiResponse<List<Sequence>> resp = getAllSequencesUsingGET1WithHttpInfo(referenceGenome, usageSource, hugoSymbol);
         return resp.getData();
     }
 
@@ -502,11 +506,12 @@ public class SequenceResourceApi {
      * 
      * @param referenceGenome referenceGenome (required)
      * @param usageSource usageSource (required)
+     * @param hugoSymbol hugoSymbol (optional)
      * @return ApiResponse&lt;List&lt;Sequence&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Sequence>> getAllSequencesUsingGET1WithHttpInfo(String referenceGenome, String usageSource) throws ApiException {
-        com.squareup.okhttp.Call call = getAllSequencesUsingGET1ValidateBeforeCall(referenceGenome, usageSource, null, null);
+    public ApiResponse<List<Sequence>> getAllSequencesUsingGET1WithHttpInfo(String referenceGenome, String usageSource, String hugoSymbol) throws ApiException {
+        com.squareup.okhttp.Call call = getAllSequencesUsingGET1ValidateBeforeCall(referenceGenome, usageSource, hugoSymbol, null, null);
         Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -516,11 +521,12 @@ public class SequenceResourceApi {
      * 
      * @param referenceGenome referenceGenome (required)
      * @param usageSource usageSource (required)
+     * @param hugoSymbol hugoSymbol (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllSequencesUsingGET1Async(String referenceGenome, String usageSource, final ApiCallback<List<Sequence>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAllSequencesUsingGET1Async(String referenceGenome, String usageSource, String hugoSymbol, final ApiCallback<List<Sequence>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -541,7 +547,7 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllSequencesUsingGET1ValidateBeforeCall(referenceGenome, usageSource, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getAllSequencesUsingGET1ValidateBeforeCall(referenceGenome, usageSource, hugoSymbol, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
