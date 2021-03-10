@@ -67,7 +67,7 @@ public class TranscriptUsage {
 
       @Override
       public SourceEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        Object value = jsonReader.nextString();
         return SourceEnum.fromValue(String.valueOf(value));
       }
     }

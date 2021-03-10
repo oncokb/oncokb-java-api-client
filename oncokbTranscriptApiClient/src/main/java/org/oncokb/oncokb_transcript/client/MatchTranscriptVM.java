@@ -65,7 +65,7 @@ public class MatchTranscriptVM {
 
       @Override
       public TargetReferenceGenomeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        Object value = jsonReader.nextString();
         return TargetReferenceGenomeEnum.fromValue(String.valueOf(value));
       }
     }
