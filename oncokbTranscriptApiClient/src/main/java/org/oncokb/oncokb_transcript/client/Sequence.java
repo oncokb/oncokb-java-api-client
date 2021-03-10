@@ -71,7 +71,7 @@ public class Sequence {
 
       @Override
       public SequenceTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        Object value = jsonReader.nextString();
         return SequenceTypeEnum.fromValue(String.valueOf(value));
       }
     }

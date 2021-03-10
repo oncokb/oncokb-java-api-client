@@ -64,7 +64,7 @@ public class TranscriptPairVM {
 
       @Override
       public ReferenceGenomeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        Object value = jsonReader.nextString();
         return ReferenceGenomeEnum.fromValue(String.valueOf(value));
       }
     }
