@@ -1,7 +1,7 @@
 # oncokbPrivateApiClient
 
 OncoKB Private APIs
-- API version: v1.2.1
+- API version: v1.2.2
 
 These endpoints are for private use only.
 

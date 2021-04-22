@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**background** | **String** |  |  [optional]
 **entrezGeneId** | **Integer** |  |  [optional]
 **grch37Isoform** | **String** |  |  [optional]
 **grch37RefSeq** | **String** |  |  [optional]

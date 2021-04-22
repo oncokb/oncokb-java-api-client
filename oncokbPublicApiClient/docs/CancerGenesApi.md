@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="utilsAllCuratedGenesGetUsingGET1"></a>
 # **utilsAllCuratedGenesGetUsingGET1**
-> List&lt;CuratedGene&gt; utilsAllCuratedGenesGetUsingGET1(version)
+> List&lt;CuratedGene&gt; utilsAllCuratedGenesGetUsingGET1(version, includeEvidence)
 
 utilsAllCuratedGenesGet
 
@@ -26,9 +26,10 @@ Get list of genes OncoKB curated
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
+Boolean includeEvidence = true; // Boolean | Include gene summary and background
 try {
-    List<CuratedGene> result = apiInstance.utilsAllCuratedGenesGetUsingGET1(version);
+    List<CuratedGene> result = apiInstance.utilsAllCuratedGenesGetUsingGET1(version, includeEvidence);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesGetUsingGET1");
@@ -40,7 +41,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
+ **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true]
 
 ### Return type
 
@@ -57,7 +59,7 @@ No authorization required
 
 <a name="utilsAllCuratedGenesTxtGetUsingGET1"></a>
 # **utilsAllCuratedGenesTxtGetUsingGET1**
-> String utilsAllCuratedGenesTxtGetUsingGET1(version)
+> String utilsAllCuratedGenesTxtGetUsingGET1(version, includeEvidence)
 
 utilsAllCuratedGenesTxtGet
 
@@ -71,9 +73,10 @@ Get list of genes OncoKB curated in text file.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
+Boolean includeEvidence = true; // Boolean | Include gene summary and background
 try {
-    String result = apiInstance.utilsAllCuratedGenesTxtGetUsingGET1(version);
+    String result = apiInstance.utilsAllCuratedGenesTxtGetUsingGET1(version, includeEvidence);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesTxtGetUsingGET1");
@@ -85,7 +88,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
+ **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true]
 
 ### Return type
 
@@ -116,7 +120,7 @@ Get cancer gene list
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     List<CancerGene> result = apiInstance.utilsCancerGeneListGetUsingGET1(version);
     System.out.println(result);
@@ -130,7 +134,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -161,7 +165,7 @@ Get cancer gene list in text file.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     String result = apiInstance.utilsCancerGeneListTxtGetUsingGET1(version);
     System.out.println(result);
@@ -175,7 +179,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 

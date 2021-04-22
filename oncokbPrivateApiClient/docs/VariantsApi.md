@@ -29,7 +29,7 @@ Get All Actionable Variants.
 
 
 VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     List<ActionableGene> result = apiInstance.utilsAllActionableVariantsGetUsingGET(version);
     System.out.println(result);
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -74,7 +74,7 @@ Get All Actionable Variants in text file.
 
 
 VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     String result = apiInstance.utilsAllActionableVariantsTxtGetUsingGET(version);
     System.out.println(result);
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -119,7 +119,7 @@ Get All Annotated Variants.
 
 
 VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     List<AnnotatedVariant> result = apiInstance.utilsAllAnnotatedVariantsGetUsingGET(version);
     System.out.println(result);
@@ -133,7 +133,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -164,7 +164,7 @@ Get All Annotated Variants in text file.
 
 
 VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     String result = apiInstance.utilsAllAnnotatedVariantsTxtGetUsingGET(version);
     System.out.println(result);
@@ -178,7 +178,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 

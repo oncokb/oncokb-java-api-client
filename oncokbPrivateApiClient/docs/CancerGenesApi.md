@@ -30,7 +30,7 @@ Get All Actionable Variants.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     List<ActionableGene> result = apiInstance.utilsAllActionableVariantsGetUsingGET(version);
     System.out.println(result);
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -75,7 +75,7 @@ Get All Actionable Variants in text file.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     String result = apiInstance.utilsAllActionableVariantsTxtGetUsingGET(version);
     System.out.println(result);
@@ -89,7 +89,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -120,7 +120,7 @@ Get All Annotated Variants.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     List<AnnotatedVariant> result = apiInstance.utilsAllAnnotatedVariantsGetUsingGET(version);
     System.out.println(result);
@@ -134,7 +134,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -165,7 +165,7 @@ Get All Annotated Variants in text file.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     String result = apiInstance.utilsAllAnnotatedVariantsTxtGetUsingGET(version);
     System.out.println(result);
@@ -179,7 +179,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -196,7 +196,7 @@ No authorization required
 
 <a name="utilsAllCuratedGenesGetUsingGET"></a>
 # **utilsAllCuratedGenesGetUsingGET**
-> List&lt;CuratedGene&gt; utilsAllCuratedGenesGetUsingGET(version)
+> List&lt;CuratedGene&gt; utilsAllCuratedGenesGetUsingGET(version, includeEvidence)
 
 utilsAllCuratedGenesGet
 
@@ -210,9 +210,10 @@ Get list of genes OncoKB curated
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
+Boolean includeEvidence = true; // Boolean | Include gene summary and background
 try {
-    List<CuratedGene> result = apiInstance.utilsAllCuratedGenesGetUsingGET(version);
+    List<CuratedGene> result = apiInstance.utilsAllCuratedGenesGetUsingGET(version, includeEvidence);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesGetUsingGET");
@@ -224,7 +225,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
+ **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true]
 
 ### Return type
 
@@ -241,7 +243,7 @@ No authorization required
 
 <a name="utilsAllCuratedGenesTxtGetUsingGET"></a>
 # **utilsAllCuratedGenesTxtGetUsingGET**
-> String utilsAllCuratedGenesTxtGetUsingGET(version)
+> String utilsAllCuratedGenesTxtGetUsingGET(version, includeEvidence)
 
 utilsAllCuratedGenesTxtGet
 
@@ -255,9 +257,10 @@ Get list of genes OncoKB curated in text file.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
+Boolean includeEvidence = true; // Boolean | Include gene summary and background
 try {
-    String result = apiInstance.utilsAllCuratedGenesTxtGetUsingGET(version);
+    String result = apiInstance.utilsAllCuratedGenesTxtGetUsingGET(version, includeEvidence);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesTxtGetUsingGET");
@@ -269,7 +272,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
+ **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true]
 
 ### Return type
 
@@ -300,7 +304,7 @@ Get cancer gene list
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     List<CancerGene> result = apiInstance.utilsCancerGeneListGetUsingGET(version);
     System.out.println(result);
@@ -314,7 +318,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 
@@ -345,7 +349,7 @@ Get cancer gene list in text file.
 
 
 CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | version
+String version = "version_example"; // String | The data version
 try {
     String result = apiInstance.utilsCancerGeneListTxtGetUsingGET(version);
     System.out.println(result);
@@ -359,7 +363,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **version** | **String**| version | [optional]
+ **version** | **String**| The data version | [optional]
 
 ### Return type
 

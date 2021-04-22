@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **alterations** | [**List&lt;Alteration&gt;**](Alteration.md) |  |  [optional]
 **evidences** | [**List&lt;Evidence&gt;**](Evidence.md) |  |  [optional]
 **exactMatchedAlteration** | [**Alteration**](Alteration.md) |  |  [optional]
+**exactMatchedTumorType** | [**TumorType**](TumorType.md) |  |  [optional]
 **gene** | [**Gene**](Gene.md) |  |  [optional]
 **id** | **String** |  |  [optional]
 **levelOfEvidences** | [**List&lt;LevelOfEvidencesEnum&gt;**](#List&lt;LevelOfEvidencesEnum&gt;) |  |  [optional]
