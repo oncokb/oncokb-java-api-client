@@ -1,6 +1,6 @@
 # TranscriptResourceApi
 
-All URIs are relative to *https://transcript.oncokb.org:443*
+All URIs are relative to *http://localhost:9090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**deleteTranscriptUsingDELETE**](TranscriptResourceApi.md#deleteTranscriptUsingDELETE) | **DELETE** /api/transcripts/{id} | deleteTranscript
 [**getAllTranscriptsUsingGET**](TranscriptResourceApi.md#getAllTranscriptsUsingGET) | **GET** /api/transcripts | getAllTranscripts
 [**getTranscriptUsingGET2**](TranscriptResourceApi.md#getTranscriptUsingGET2) | **GET** /api/transcripts/{id} | getTranscript
-[**partialUpdateTranscriptUsingPATCH**](TranscriptResourceApi.md#partialUpdateTranscriptUsingPATCH) | **PATCH** /api/transcripts | partialUpdateTranscript
-[**updateTranscriptUsingPUT**](TranscriptResourceApi.md#updateTranscriptUsingPUT) | **PUT** /api/transcripts | updateTranscript
+[**partialUpdateTranscriptUsingPATCH**](TranscriptResourceApi.md#partialUpdateTranscriptUsingPATCH) | **PATCH** /api/transcripts/{id} | partialUpdateTranscript
+[**updateTranscriptUsingPUT**](TranscriptResourceApi.md#updateTranscriptUsingPUT) | **PUT** /api/transcripts/{id} | updateTranscript
 
 <a name="createTranscriptUsingPOST"></a>
 # **createTranscriptUsingPOST**
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 <a name="partialUpdateTranscriptUsingPATCH"></a>
 # **partialUpdateTranscriptUsingPATCH**
-> Transcript partialUpdateTranscriptUsingPATCH(body)
+> Transcript partialUpdateTranscriptUsingPATCH(id, body)
 
 partialUpdateTranscript
 
@@ -217,9 +217,10 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 TranscriptResourceApi apiInstance = new TranscriptResourceApi();
+Long id = 789L; // Long | id
 Transcript body = new Transcript(); // Transcript | 
 try {
-    Transcript result = apiInstance.partialUpdateTranscriptUsingPATCH(body);
+    Transcript result = apiInstance.partialUpdateTranscriptUsingPATCH(id, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TranscriptResourceApi#partialUpdateTranscriptUsingPATCH");
@@ -231,6 +232,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **Long**| id |
  **body** | [**Transcript**](Transcript.md)|  | [optional]
 
 ### Return type
@@ -248,7 +250,7 @@ Name | Type | Description  | Notes
 
 <a name="updateTranscriptUsingPUT"></a>
 # **updateTranscriptUsingPUT**
-> Transcript updateTranscriptUsingPUT(body)
+> Transcript updateTranscriptUsingPUT(id, body)
 
 updateTranscript
 
@@ -265,9 +267,10 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 TranscriptResourceApi apiInstance = new TranscriptResourceApi();
+Long id = 789L; // Long | id
 Transcript body = new Transcript(); // Transcript | 
 try {
-    Transcript result = apiInstance.updateTranscriptUsingPUT(body);
+    Transcript result = apiInstance.updateTranscriptUsingPUT(id, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TranscriptResourceApi#updateTranscriptUsingPUT");
@@ -279,6 +282,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **Long**| id |
  **body** | [**Transcript**](Transcript.md)|  | [optional]
 
 ### Return type

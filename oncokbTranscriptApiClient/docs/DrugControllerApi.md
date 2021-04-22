@@ -1,16 +1,16 @@
-# AccountResourceApi
+# DrugControllerApi
 
 All URIs are relative to *http://localhost:9090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAccountUsingGET**](AccountResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
+[**compareTranscriptUsingPOST**](DrugControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/update-ncit | compareTranscript
 
-<a name="getAccountUsingGET"></a>
-# **getAccountUsingGET**
-> UserVM getAccountUsingGET()
+<a name="compareTranscriptUsingPOST"></a>
+# **compareTranscriptUsingPOST**
+> compareTranscriptUsingPOST()
 
-getAccount
+compareTranscript
 
 ### Example
 ```java
@@ -19,17 +19,16 @@ getAccount
 //import org.oncokb.oncokb_transcript.ApiException;
 //import org.oncokb.oncokb_transcript.Configuration;
 //import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.AccountResourceApi;
+//import org.oncokb.oncokb_transcript.client.DrugControllerApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
-AccountResourceApi apiInstance = new AccountResourceApi();
+DrugControllerApi apiInstance = new DrugControllerApi();
 try {
-    UserVM result = apiInstance.getAccountUsingGET();
-    System.out.println(result);
+    apiInstance.compareTranscriptUsingPOST();
 } catch (ApiException e) {
-    System.err.println("Exception when calling AccountResourceApi#getAccountUsingGET");
+    System.err.println("Exception when calling DrugControllerApi#compareTranscriptUsingPOST");
     e.printStackTrace();
 }
 ```
@@ -39,7 +38,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserVM**](UserVM.md)
+null (empty response body)
 
 ### Authorization
 
@@ -48,5 +47,5 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Accept**: Not defined
 

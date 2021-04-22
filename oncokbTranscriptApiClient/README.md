@@ -98,20 +98,21 @@ public class AccountResourceApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://transcript.oncokb.org:443*
+All URIs are relative to *http://localhost:9090*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountResourceApi* | [**getAccountUsingGET**](docs/AccountResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
+*DrugControllerApi* | [**compareTranscriptUsingPOST**](docs/DrugControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/update-ncit | compareTranscript
 *SequenceResourceApi* | [**createSequenceUsingPOST**](docs/SequenceResourceApi.md#createSequenceUsingPOST) | **POST** /api/sequences | createSequence
 *SequenceResourceApi* | [**deleteSequenceUsingDELETE**](docs/SequenceResourceApi.md#deleteSequenceUsingDELETE) | **DELETE** /api/sequences/{id} | deleteSequence
 *SequenceResourceApi* | [**getAllSequencesUsingGET**](docs/SequenceResourceApi.md#getAllSequencesUsingGET) | **GET** /api/sequences | getAllSequences
 *SequenceResourceApi* | [**getAllSequencesUsingGET1**](docs/SequenceResourceApi.md#getAllSequencesUsingGET1) | **GET** /api/sequences-by-usage-source | getAllSequences
 *SequenceResourceApi* | [**getSequenceUsingGET**](docs/SequenceResourceApi.md#getSequenceUsingGET) | **GET** /api/sequences/{id} | getSequence
-*SequenceResourceApi* | [**partialUpdateSequenceUsingPATCH**](docs/SequenceResourceApi.md#partialUpdateSequenceUsingPATCH) | **PATCH** /api/sequences | partialUpdateSequence
-*SequenceResourceApi* | [**updateSequenceUsingPUT**](docs/SequenceResourceApi.md#updateSequenceUsingPUT) | **PUT** /api/sequences | updateSequence
+*SequenceResourceApi* | [**partialUpdateSequenceUsingPATCH**](docs/SequenceResourceApi.md#partialUpdateSequenceUsingPATCH) | **PATCH** /api/sequences/{id} | partialUpdateSequence
+*SequenceResourceApi* | [**updateSequenceUsingPUT**](docs/SequenceResourceApi.md#updateSequenceUsingPUT) | **PUT** /api/sequences/{id} | updateSequence
 *TranscriptControllerApi* | [**compareEnsemblTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareEnsemblTranscriptUsingPOST) | **POST** /api/compare-ensembl-transcript | compareEnsemblTranscript
-*TranscriptControllerApi* | [**compareTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
+*TranscriptControllerApi* | [**compareTranscriptUsingPOST1**](docs/TranscriptControllerApi.md#compareTranscriptUsingPOST1) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
 *TranscriptControllerApi* | [**findGrch38VariantUsingGET**](docs/TranscriptControllerApi.md#findGrch38VariantUsingGET) | **GET** /api/find-grch38-variant | findGrch38Variant
 *TranscriptControllerApi* | [**getAlignmentsUsingPOST**](docs/TranscriptControllerApi.md#getAlignmentsUsingPOST) | **POST** /api/get-alignments/{hugoSymbol} | getAlignments
 *TranscriptControllerApi* | [**getTranscriptUsingGET**](docs/TranscriptControllerApi.md#getTranscriptUsingGET) | **GET** /api/get-sequence | getTranscript
@@ -123,8 +124,8 @@ Class | Method | HTTP request | Description
 *TranscriptResourceApi* | [**deleteTranscriptUsingDELETE**](docs/TranscriptResourceApi.md#deleteTranscriptUsingDELETE) | **DELETE** /api/transcripts/{id} | deleteTranscript
 *TranscriptResourceApi* | [**getAllTranscriptsUsingGET**](docs/TranscriptResourceApi.md#getAllTranscriptsUsingGET) | **GET** /api/transcripts | getAllTranscripts
 *TranscriptResourceApi* | [**getTranscriptUsingGET2**](docs/TranscriptResourceApi.md#getTranscriptUsingGET2) | **GET** /api/transcripts/{id} | getTranscript
-*TranscriptResourceApi* | [**partialUpdateTranscriptUsingPATCH**](docs/TranscriptResourceApi.md#partialUpdateTranscriptUsingPATCH) | **PATCH** /api/transcripts | partialUpdateTranscript
-*TranscriptResourceApi* | [**updateTranscriptUsingPUT**](docs/TranscriptResourceApi.md#updateTranscriptUsingPUT) | **PUT** /api/transcripts | updateTranscript
+*TranscriptResourceApi* | [**partialUpdateTranscriptUsingPATCH**](docs/TranscriptResourceApi.md#partialUpdateTranscriptUsingPATCH) | **PATCH** /api/transcripts/{id} | partialUpdateTranscript
+*TranscriptResourceApi* | [**updateTranscriptUsingPUT**](docs/TranscriptResourceApi.md#updateTranscriptUsingPUT) | **PUT** /api/transcripts/{id} | updateTranscript
 
 ## Documentation for Models
 

@@ -679,17 +679,19 @@ public class SequenceResourceApi {
     }
     /**
      * Build call for partialUpdateSequenceUsingPATCH
+     * @param id id (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHCall(Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/sequences";
+        String localVarPath = "/api/sequences/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -727,9 +729,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHValidateBeforeCall(Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHValidateBeforeCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling partialUpdateSequenceUsingPATCH(Async)");
+        }
         
-        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -741,24 +747,26 @@ public class SequenceResourceApi {
     /**
      * partialUpdateSequence
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return Sequence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Sequence partialUpdateSequenceUsingPATCH(Sequence body) throws ApiException {
-        ApiResponse<Sequence> resp = partialUpdateSequenceUsingPATCHWithHttpInfo(body);
+    public Sequence partialUpdateSequenceUsingPATCH(Long id, Sequence body) throws ApiException {
+        ApiResponse<Sequence> resp = partialUpdateSequenceUsingPATCHWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
      * partialUpdateSequence
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Sequence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Sequence> partialUpdateSequenceUsingPATCHWithHttpInfo(Sequence body) throws ApiException {
-        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHValidateBeforeCall(body, null, null);
+    public ApiResponse<Sequence> partialUpdateSequenceUsingPATCHWithHttpInfo(Long id, Sequence body) throws ApiException {
+        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -766,12 +774,13 @@ public class SequenceResourceApi {
     /**
      * partialUpdateSequence (asynchronously)
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHAsync(Sequence body, final ApiCallback<Sequence> callback) throws ApiException {
+    public com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHAsync(Long id, Sequence body, final ApiCallback<Sequence> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -792,24 +801,26 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for updateSequenceUsingPUT
+     * @param id id (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateSequenceUsingPUTCall(Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateSequenceUsingPUTCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/sequences";
+        String localVarPath = "/api/sequences/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -847,9 +858,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateSequenceUsingPUTValidateBeforeCall(Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateSequenceUsingPUTValidateBeforeCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling updateSequenceUsingPUT(Async)");
+        }
         
-        com.squareup.okhttp.Call call = updateSequenceUsingPUTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateSequenceUsingPUTCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -861,24 +876,26 @@ public class SequenceResourceApi {
     /**
      * updateSequence
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return Sequence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Sequence updateSequenceUsingPUT(Sequence body) throws ApiException {
-        ApiResponse<Sequence> resp = updateSequenceUsingPUTWithHttpInfo(body);
+    public Sequence updateSequenceUsingPUT(Long id, Sequence body) throws ApiException {
+        ApiResponse<Sequence> resp = updateSequenceUsingPUTWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
      * updateSequence
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Sequence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Sequence> updateSequenceUsingPUTWithHttpInfo(Sequence body) throws ApiException {
-        com.squareup.okhttp.Call call = updateSequenceUsingPUTValidateBeforeCall(body, null, null);
+    public ApiResponse<Sequence> updateSequenceUsingPUTWithHttpInfo(Long id, Sequence body) throws ApiException {
+        com.squareup.okhttp.Call call = updateSequenceUsingPUTValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -886,12 +903,13 @@ public class SequenceResourceApi {
     /**
      * updateSequence (asynchronously)
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateSequenceUsingPUTAsync(Sequence body, final ApiCallback<Sequence> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateSequenceUsingPUTAsync(Long id, Sequence body, final ApiCallback<Sequence> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -912,7 +930,7 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateSequenceUsingPUTValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateSequenceUsingPUTValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

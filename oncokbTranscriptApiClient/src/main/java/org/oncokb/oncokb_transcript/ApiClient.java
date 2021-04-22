@@ -53,7 +53,7 @@ import org.oncokb.oncokb_transcript.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "https://transcript.oncokb.org:443";
+    private String basePath = "http://localhost:9090";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -107,7 +107,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://transcript.oncokb.org:443
+     * @param basePath Base path of the URL (e.g http://localhost:9090
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

@@ -116,8 +116,9 @@ public class SequenceResourceApiTest {
      */
     @Test
     public void partialUpdateSequenceUsingPATCHTest() throws ApiException {
+        Long id = null;
         Sequence body = null;
-        Sequence response = api.partialUpdateSequenceUsingPATCH(body);
+        Sequence response = api.partialUpdateSequenceUsingPATCH(id, body);
 
         // TODO: test validations
     }
@@ -131,8 +132,9 @@ public class SequenceResourceApiTest {
      */
     @Test
     public void updateSequenceUsingPUTTest() throws ApiException {
+        Long id = null;
         Sequence body = null;
-        Sequence response = api.updateSequenceUsingPUT(body);
+        Sequence response = api.updateSequenceUsingPUT(id, body);
 
         // TODO: test validations
     }

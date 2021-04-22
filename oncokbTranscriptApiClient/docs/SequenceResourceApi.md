@@ -1,6 +1,6 @@
 # SequenceResourceApi
 
-All URIs are relative to *https://transcript.oncokb.org:443*
+All URIs are relative to *http://localhost:9090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**getAllSequencesUsingGET**](SequenceResourceApi.md#getAllSequencesUsingGET) | **GET** /api/sequences | getAllSequences
 [**getAllSequencesUsingGET1**](SequenceResourceApi.md#getAllSequencesUsingGET1) | **GET** /api/sequences-by-usage-source | getAllSequences
 [**getSequenceUsingGET**](SequenceResourceApi.md#getSequenceUsingGET) | **GET** /api/sequences/{id} | getSequence
-[**partialUpdateSequenceUsingPATCH**](SequenceResourceApi.md#partialUpdateSequenceUsingPATCH) | **PATCH** /api/sequences | partialUpdateSequence
-[**updateSequenceUsingPUT**](SequenceResourceApi.md#updateSequenceUsingPUT) | **PUT** /api/sequences | updateSequence
+[**partialUpdateSequenceUsingPATCH**](SequenceResourceApi.md#partialUpdateSequenceUsingPATCH) | **PATCH** /api/sequences/{id} | partialUpdateSequence
+[**updateSequenceUsingPUT**](SequenceResourceApi.md#updateSequenceUsingPUT) | **PUT** /api/sequences/{id} | updateSequence
 
 <a name="createSequenceUsingPOST"></a>
 # **createSequenceUsingPOST**
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 <a name="partialUpdateSequenceUsingPATCH"></a>
 # **partialUpdateSequenceUsingPATCH**
-> Sequence partialUpdateSequenceUsingPATCH(body)
+> Sequence partialUpdateSequenceUsingPATCH(id, body)
 
 partialUpdateSequence
 
@@ -270,9 +270,10 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 SequenceResourceApi apiInstance = new SequenceResourceApi();
+Long id = 789L; // Long | id
 Sequence body = new Sequence(); // Sequence | 
 try {
-    Sequence result = apiInstance.partialUpdateSequenceUsingPATCH(body);
+    Sequence result = apiInstance.partialUpdateSequenceUsingPATCH(id, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SequenceResourceApi#partialUpdateSequenceUsingPATCH");
@@ -284,6 +285,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **Long**| id |
  **body** | [**Sequence**](Sequence.md)|  | [optional]
 
 ### Return type
@@ -301,7 +303,7 @@ Name | Type | Description  | Notes
 
 <a name="updateSequenceUsingPUT"></a>
 # **updateSequenceUsingPUT**
-> Sequence updateSequenceUsingPUT(body)
+> Sequence updateSequenceUsingPUT(id, body)
 
 updateSequence
 
@@ -318,9 +320,10 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 SequenceResourceApi apiInstance = new SequenceResourceApi();
+Long id = 789L; // Long | id
 Sequence body = new Sequence(); // Sequence | 
 try {
-    Sequence result = apiInstance.updateSequenceUsingPUT(body);
+    Sequence result = apiInstance.updateSequenceUsingPUT(id, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SequenceResourceApi#updateSequenceUsingPUT");
@@ -332,6 +335,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **Long**| id |
  **body** | [**Sequence**](Sequence.md)|  | [optional]
 
 ### Return type
