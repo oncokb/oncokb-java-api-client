@@ -33,9 +33,6 @@ public class Drug {
   @SerializedName("code")
   private String code = null;
 
-  @SerializedName("drugSynonyms")
-  private List<DrugSynonym> drugSynonyms = null;
-
   @SerializedName("id")
   private Long id = null;
 
@@ -44,6 +41,9 @@ public class Drug {
 
   @SerializedName("semanticType")
   private String semanticType = null;
+
+  @SerializedName("synonyms")
+  private List<DrugSynonym> synonyms = null;
 
   public Drug code(String code) {
     this.code = code;
@@ -61,32 +61,6 @@ public class Drug {
 
   public void setCode(String code) {
     this.code = code;
-  }
-
-  public Drug drugSynonyms(List<DrugSynonym> drugSynonyms) {
-    this.drugSynonyms = drugSynonyms;
-    return this;
-  }
-
-  public Drug addDrugSynonymsItem(DrugSynonym drugSynonymsItem) {
-    if (this.drugSynonyms == null) {
-      this.drugSynonyms = new ArrayList<DrugSynonym>();
-    }
-    this.drugSynonyms.add(drugSynonymsItem);
-    return this;
-  }
-
-   /**
-   * Get drugSynonyms
-   * @return drugSynonyms
-  **/
-  @Schema(description = "")
-  public List<DrugSynonym> getDrugSynonyms() {
-    return drugSynonyms;
-  }
-
-  public void setDrugSynonyms(List<DrugSynonym> drugSynonyms) {
-    this.drugSynonyms = drugSynonyms;
   }
 
   public Drug id(Long id) {
@@ -143,6 +117,32 @@ public class Drug {
     this.semanticType = semanticType;
   }
 
+  public Drug synonyms(List<DrugSynonym> synonyms) {
+    this.synonyms = synonyms;
+    return this;
+  }
+
+  public Drug addSynonymsItem(DrugSynonym synonymsItem) {
+    if (this.synonyms == null) {
+      this.synonyms = new ArrayList<DrugSynonym>();
+    }
+    this.synonyms.add(synonymsItem);
+    return this;
+  }
+
+   /**
+   * Get synonyms
+   * @return synonyms
+  **/
+  @Schema(description = "")
+  public List<DrugSynonym> getSynonyms() {
+    return synonyms;
+  }
+
+  public void setSynonyms(List<DrugSynonym> synonyms) {
+    this.synonyms = synonyms;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -154,15 +154,15 @@ public class Drug {
     }
     Drug drug = (Drug) o;
     return Objects.equals(this.code, drug.code) &&
-        Objects.equals(this.drugSynonyms, drug.drugSynonyms) &&
         Objects.equals(this.id, drug.id) &&
         Objects.equals(this.name, drug.name) &&
-        Objects.equals(this.semanticType, drug.semanticType);
+        Objects.equals(this.semanticType, drug.semanticType) &&
+        Objects.equals(this.synonyms, drug.synonyms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, drugSynonyms, id, name, semanticType);
+    return Objects.hash(code, id, name, semanticType, synonyms);
   }
 
 
@@ -172,10 +172,10 @@ public class Drug {
     sb.append("class Drug {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    drugSynonyms: ").append(toIndentedString(drugSynonyms)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    semanticType: ").append(toIndentedString(semanticType)).append("\n");
+    sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
     sb.append("}");
     return sb.toString();
   }
