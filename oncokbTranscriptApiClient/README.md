@@ -104,6 +104,14 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountResourceApi* | [**getAccountUsingGET**](docs/AccountResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
 *DrugControllerApi* | [**compareTranscriptUsingPOST**](docs/DrugControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/update-ncit | compareTranscript
+*DrugResourceApi* | [**createDrugUsingPOST**](docs/DrugResourceApi.md#createDrugUsingPOST) | **POST** /api/drugs | createDrug
+*DrugResourceApi* | [**deleteDrugUsingDELETE**](docs/DrugResourceApi.md#deleteDrugUsingDELETE) | **DELETE** /api/drugs/{id} | deleteDrug
+*DrugResourceApi* | [**findDrugByCodeUsingGET**](docs/DrugResourceApi.md#findDrugByCodeUsingGET) | **GET** /api/drugs/search-by-code/{code} | findDrugByCode
+*DrugResourceApi* | [**findDrugsUsingGET**](docs/DrugResourceApi.md#findDrugsUsingGET) | **GET** /api/drugs/search/{query} | findDrugs
+*DrugResourceApi* | [**getAllDrugsUsingGET**](docs/DrugResourceApi.md#getAllDrugsUsingGET) | **GET** /api/drugs | getAllDrugs
+*DrugResourceApi* | [**getDrugUsingGET**](docs/DrugResourceApi.md#getDrugUsingGET) | **GET** /api/drugs/{id} | getDrug
+*DrugResourceApi* | [**partialUpdateDrugUsingPATCH**](docs/DrugResourceApi.md#partialUpdateDrugUsingPATCH) | **PATCH** /api/drugs/{id} | partialUpdateDrug
+*DrugResourceApi* | [**updateDrugUsingPUT**](docs/DrugResourceApi.md#updateDrugUsingPUT) | **PUT** /api/drugs/{id} | updateDrug
 *SequenceResourceApi* | [**createSequenceUsingPOST**](docs/SequenceResourceApi.md#createSequenceUsingPOST) | **POST** /api/sequences | createSequence
 *SequenceResourceApi* | [**deleteSequenceUsingDELETE**](docs/SequenceResourceApi.md#deleteSequenceUsingDELETE) | **DELETE** /api/sequences/{id} | deleteSequence
 *SequenceResourceApi* | [**getAllSequencesUsingGET**](docs/SequenceResourceApi.md#getAllSequencesUsingGET) | **GET** /api/sequences | getAllSequences
@@ -130,6 +138,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AllReferenceTranscriptSuggestionVM](docs/AllReferenceTranscriptSuggestionVM.md)
+ - [Drug](docs/Drug.md)
+ - [DrugSynonym](docs/DrugSynonym.md)
  - [EnrichedAlignmentResult](docs/EnrichedAlignmentResult.md)
  - [EnsemblTranscript](docs/EnsemblTranscript.md)
  - [Exon](docs/Exon.md)
