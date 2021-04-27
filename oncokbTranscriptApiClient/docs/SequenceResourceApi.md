@@ -1,6 +1,6 @@
 # SequenceResourceApi
 
-All URIs are relative to *http://localhost:9090*
+All URIs are relative to *https://transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
