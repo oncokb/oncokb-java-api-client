@@ -26,7 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.oncokb.oncokb_transcript.client.Sequence;
+import org.oncokb.oncokb_transcript.client.Drug;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -34,14 +34,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SequenceResourceApi {
+public class DrugResourceApi {
     private ApiClient apiClient;
 
-    public SequenceResourceApi() {
+    public DrugResourceApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public SequenceResourceApi(ApiClient apiClient) {
+    public DrugResourceApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -54,18 +54,18 @@ public class SequenceResourceApi {
     }
 
     /**
-     * Build call for createSequenceUsingPOST
+     * Build call for createDrugUsingPOST
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createSequenceUsingPOSTCall(Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createDrugUsingPOSTCall(Drug body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/sequences";
+        String localVarPath = "/api/drugs";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -103,9 +103,9 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createSequenceUsingPOSTValidateBeforeCall(Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createDrugUsingPOSTValidateBeforeCall(Drug body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = createSequenceUsingPOSTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createDrugUsingPOSTCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -115,39 +115,39 @@ public class SequenceResourceApi {
     }
 
     /**
-     * createSequence
+     * createDrug
      * 
      * @param body  (optional)
-     * @return Sequence
+     * @return Drug
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Sequence createSequenceUsingPOST(Sequence body) throws ApiException {
-        ApiResponse<Sequence> resp = createSequenceUsingPOSTWithHttpInfo(body);
+    public Drug createDrugUsingPOST(Drug body) throws ApiException {
+        ApiResponse<Drug> resp = createDrugUsingPOSTWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
-     * createSequence
+     * createDrug
      * 
      * @param body  (optional)
-     * @return ApiResponse&lt;Sequence&gt;
+     * @return ApiResponse&lt;Drug&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Sequence> createSequenceUsingPOSTWithHttpInfo(Sequence body) throws ApiException {
-        com.squareup.okhttp.Call call = createSequenceUsingPOSTValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+    public ApiResponse<Drug> createDrugUsingPOSTWithHttpInfo(Drug body) throws ApiException {
+        com.squareup.okhttp.Call call = createDrugUsingPOSTValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * createSequence (asynchronously)
+     * createDrug (asynchronously)
      * 
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createSequenceUsingPOSTAsync(Sequence body, final ApiCallback<Sequence> callback) throws ApiException {
+    public com.squareup.okhttp.Call createDrugUsingPOSTAsync(Drug body, final ApiCallback<Drug> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -168,24 +168,24 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createSequenceUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+        com.squareup.okhttp.Call call = createDrugUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for deleteSequenceUsingDELETE
+     * Build call for deleteDrugUsingDELETE
      * @param id id (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteSequenceUsingDELETECall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteDrugUsingDELETECall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/sequences/{id}"
+        String localVarPath = "/api/drugs/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -224,13 +224,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteSequenceUsingDELETEValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteDrugUsingDELETEValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling deleteSequenceUsingDELETE(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling deleteDrugUsingDELETE(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteSequenceUsingDELETECall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteDrugUsingDELETECall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -240,36 +240,36 @@ public class SequenceResourceApi {
     }
 
     /**
-     * deleteSequence
+     * deleteDrug
      * 
      * @param id id (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteSequenceUsingDELETE(Long id) throws ApiException {
-        deleteSequenceUsingDELETEWithHttpInfo(id);
+    public void deleteDrugUsingDELETE(Long id) throws ApiException {
+        deleteDrugUsingDELETEWithHttpInfo(id);
     }
 
     /**
-     * deleteSequence
+     * deleteDrug
      * 
      * @param id id (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteSequenceUsingDELETEWithHttpInfo(Long id) throws ApiException {
-        com.squareup.okhttp.Call call = deleteSequenceUsingDELETEValidateBeforeCall(id, null, null);
+    public ApiResponse<Void> deleteDrugUsingDELETEWithHttpInfo(Long id) throws ApiException {
+        com.squareup.okhttp.Call call = deleteDrugUsingDELETEValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
     /**
-     * deleteSequence (asynchronously)
+     * deleteDrug (asynchronously)
      * 
      * @param id id (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteSequenceUsingDELETEAsync(Long id, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteDrugUsingDELETEAsync(Long id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -290,22 +290,24 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteSequenceUsingDELETEValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteDrugUsingDELETEValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for getAllSequencesUsingGET
+     * Build call for findDrugByCodeUsingGET
+     * @param code code (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAllSequencesUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call findDrugByCodeUsingGETCall(String code, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/sequences";
+        String localVarPath = "/api/drugs/search-by-code/{code}"
+            .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(code.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -343,9 +345,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllSequencesUsingGETValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call findDrugByCodeUsingGETValidateBeforeCall(String code, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'code' is set
+        if (code == null) {
+            throw new ApiException("Missing the required parameter 'code' when calling findDrugByCodeUsingGET(Async)");
+        }
         
-        com.squareup.okhttp.Call call = getAllSequencesUsingGETCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findDrugByCodeUsingGETCall(code, progressListener, progressRequestListener);
         return call;
 
         
@@ -355,36 +361,39 @@ public class SequenceResourceApi {
     }
 
     /**
-     * getAllSequences
+     * findDrugByCode
      * 
-     * @return List&lt;Sequence&gt;
+     * @param code code (required)
+     * @return Drug
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Sequence> getAllSequencesUsingGET() throws ApiException {
-        ApiResponse<List<Sequence>> resp = getAllSequencesUsingGETWithHttpInfo();
+    public Drug findDrugByCodeUsingGET(String code) throws ApiException {
+        ApiResponse<Drug> resp = findDrugByCodeUsingGETWithHttpInfo(code);
         return resp.getData();
     }
 
     /**
-     * getAllSequences
+     * findDrugByCode
      * 
-     * @return ApiResponse&lt;List&lt;Sequence&gt;&gt;
+     * @param code code (required)
+     * @return ApiResponse&lt;Drug&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Sequence>> getAllSequencesUsingGETWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAllSequencesUsingGETValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
+    public ApiResponse<Drug> findDrugByCodeUsingGETWithHttpInfo(String code) throws ApiException {
+        com.squareup.okhttp.Call call = findDrugByCodeUsingGETValidateBeforeCall(code, null, null);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * getAllSequences (asynchronously)
+     * findDrugByCode (asynchronously)
      * 
+     * @param code code (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllSequencesUsingGETAsync(final ApiCallback<List<Sequence>> callback) throws ApiException {
+    public com.squareup.okhttp.Call findDrugByCodeUsingGETAsync(String code, final ApiCallback<Drug> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -405,35 +414,28 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllSequencesUsingGETValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
+        com.squareup.okhttp.Call call = findDrugByCodeUsingGETValidateBeforeCall(code, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getAllSequencesUsingGET1
-     * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
+     * Build call for findDrugsUsingGET
+     * @param query query (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAllSequencesUsingGET1Call(String referenceGenome, String usageSource, String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call findDrugsUsingGETCall(String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/sequences-by-usage-source";
+        String localVarPath = "/api/drugs/search/{query}"
+            .replaceAll("\\{" + "query" + "\\}", apiClient.escapeString(query.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (referenceGenome != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("referenceGenome", referenceGenome));
-        if (usageSource != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("usageSource", usageSource));
-        if (hugoSymbol != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("hugoSymbol", hugoSymbol));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -468,17 +470,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAllSequencesUsingGET1ValidateBeforeCall(String referenceGenome, String usageSource, String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'referenceGenome' is set
-        if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling getAllSequencesUsingGET1(Async)");
-        }
-        // verify the required parameter 'usageSource' is set
-        if (usageSource == null) {
-            throw new ApiException("Missing the required parameter 'usageSource' when calling getAllSequencesUsingGET1(Async)");
+    private com.squareup.okhttp.Call findDrugsUsingGETValidateBeforeCall(String query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling findDrugsUsingGET(Async)");
         }
         
-        com.squareup.okhttp.Call call = getAllSequencesUsingGET1Call(referenceGenome, usageSource, hugoSymbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findDrugsUsingGETCall(query, progressListener, progressRequestListener);
         return call;
 
         
@@ -488,45 +486,39 @@ public class SequenceResourceApi {
     }
 
     /**
-     * getAllSequences
+     * findDrugs
      * 
-     * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
-     * @return List&lt;Sequence&gt;
+     * @param query query (required)
+     * @return List&lt;Drug&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Sequence> getAllSequencesUsingGET1(String referenceGenome, String usageSource, String hugoSymbol) throws ApiException {
-        ApiResponse<List<Sequence>> resp = getAllSequencesUsingGET1WithHttpInfo(referenceGenome, usageSource, hugoSymbol);
+    public List<Drug> findDrugsUsingGET(String query) throws ApiException {
+        ApiResponse<List<Drug>> resp = findDrugsUsingGETWithHttpInfo(query);
         return resp.getData();
     }
 
     /**
-     * getAllSequences
+     * findDrugs
      * 
-     * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
-     * @return ApiResponse&lt;List&lt;Sequence&gt;&gt;
+     * @param query query (required)
+     * @return ApiResponse&lt;List&lt;Drug&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Sequence>> getAllSequencesUsingGET1WithHttpInfo(String referenceGenome, String usageSource, String hugoSymbol) throws ApiException {
-        com.squareup.okhttp.Call call = getAllSequencesUsingGET1ValidateBeforeCall(referenceGenome, usageSource, hugoSymbol, null, null);
-        Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
+    public ApiResponse<List<Drug>> findDrugsUsingGETWithHttpInfo(String query) throws ApiException {
+        com.squareup.okhttp.Call call = findDrugsUsingGETValidateBeforeCall(query, null, null);
+        Type localVarReturnType = new TypeToken<List<Drug>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * getAllSequences (asynchronously)
+     * findDrugs (asynchronously)
      * 
-     * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
+     * @param query query (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAllSequencesUsingGET1Async(String referenceGenome, String usageSource, String hugoSymbol, final ApiCallback<List<Sequence>> callback) throws ApiException {
+    public com.squareup.okhttp.Call findDrugsUsingGETAsync(String query, final ApiCallback<List<Drug>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -547,24 +539,140 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAllSequencesUsingGET1ValidateBeforeCall(referenceGenome, usageSource, hugoSymbol, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
+        com.squareup.okhttp.Call call = findDrugsUsingGETValidateBeforeCall(query, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Drug>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getSequenceUsingGET
+     * Build call for getAllDrugsUsingGET
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAllDrugsUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/api/drugs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Authorization" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAllDrugsUsingGETValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        com.squareup.okhttp.Call call = getAllDrugsUsingGETCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * getAllDrugs
+     * 
+     * @return List&lt;Drug&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Drug> getAllDrugsUsingGET() throws ApiException {
+        ApiResponse<List<Drug>> resp = getAllDrugsUsingGETWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * getAllDrugs
+     * 
+     * @return ApiResponse&lt;List&lt;Drug&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Drug>> getAllDrugsUsingGETWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getAllDrugsUsingGETValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<List<Drug>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * getAllDrugs (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAllDrugsUsingGETAsync(final ApiCallback<List<Drug>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAllDrugsUsingGETValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Drug>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getDrugUsingGET
      * @param id id (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSequenceUsingGETCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getDrugUsingGETCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/sequences/{id}"
+        String localVarPath = "/api/drugs/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -603,13 +711,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSequenceUsingGETValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDrugUsingGETValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getSequenceUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling getDrugUsingGET(Async)");
         }
         
-        com.squareup.okhttp.Call call = getSequenceUsingGETCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getDrugUsingGETCall(id, progressListener, progressRequestListener);
         return call;
 
         
@@ -619,39 +727,39 @@ public class SequenceResourceApi {
     }
 
     /**
-     * getSequence
+     * getDrug
      * 
      * @param id id (required)
-     * @return Sequence
+     * @return Drug
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Sequence getSequenceUsingGET(Long id) throws ApiException {
-        ApiResponse<Sequence> resp = getSequenceUsingGETWithHttpInfo(id);
+    public Drug getDrugUsingGET(Long id) throws ApiException {
+        ApiResponse<Drug> resp = getDrugUsingGETWithHttpInfo(id);
         return resp.getData();
     }
 
     /**
-     * getSequence
+     * getDrug
      * 
      * @param id id (required)
-     * @return ApiResponse&lt;Sequence&gt;
+     * @return ApiResponse&lt;Drug&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Sequence> getSequenceUsingGETWithHttpInfo(Long id) throws ApiException {
-        com.squareup.okhttp.Call call = getSequenceUsingGETValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+    public ApiResponse<Drug> getDrugUsingGETWithHttpInfo(Long id) throws ApiException {
+        com.squareup.okhttp.Call call = getDrugUsingGETValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * getSequence (asynchronously)
+     * getDrug (asynchronously)
      * 
      * @param id id (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSequenceUsingGETAsync(Long id, final ApiCallback<Sequence> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDrugUsingGETAsync(Long id, final ApiCallback<Drug> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -672,13 +780,13 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSequenceUsingGETValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+        com.squareup.okhttp.Call call = getDrugUsingGETValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for partialUpdateSequenceUsingPATCH
+     * Build call for partialUpdateDrugUsingPATCH
      * @param id id (required)
      * @param body  (optional)
      * @param progressListener Progress listener
@@ -686,11 +794,11 @@ public class SequenceResourceApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call partialUpdateDrugUsingPATCHCall(Long id, Drug body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/sequences/{id}"
+        String localVarPath = "/api/drugs/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -729,13 +837,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHValidateBeforeCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call partialUpdateDrugUsingPATCHValidateBeforeCall(Long id, Drug body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling partialUpdateSequenceUsingPATCH(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling partialUpdateDrugUsingPATCH(Async)");
         }
         
-        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHCall(id, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = partialUpdateDrugUsingPATCHCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -745,34 +853,34 @@ public class SequenceResourceApi {
     }
 
     /**
-     * partialUpdateSequence
+     * partialUpdateDrug
      * 
      * @param id id (required)
      * @param body  (optional)
-     * @return Sequence
+     * @return Drug
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Sequence partialUpdateSequenceUsingPATCH(Long id, Sequence body) throws ApiException {
-        ApiResponse<Sequence> resp = partialUpdateSequenceUsingPATCHWithHttpInfo(id, body);
+    public Drug partialUpdateDrugUsingPATCH(Long id, Drug body) throws ApiException {
+        ApiResponse<Drug> resp = partialUpdateDrugUsingPATCHWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
-     * partialUpdateSequence
+     * partialUpdateDrug
      * 
      * @param id id (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;Sequence&gt;
+     * @return ApiResponse&lt;Drug&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Sequence> partialUpdateSequenceUsingPATCHWithHttpInfo(Long id, Sequence body) throws ApiException {
-        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+    public ApiResponse<Drug> partialUpdateDrugUsingPATCHWithHttpInfo(Long id, Drug body) throws ApiException {
+        com.squareup.okhttp.Call call = partialUpdateDrugUsingPATCHValidateBeforeCall(id, body, null, null);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * partialUpdateSequence (asynchronously)
+     * partialUpdateDrug (asynchronously)
      * 
      * @param id id (required)
      * @param body  (optional)
@@ -780,7 +888,7 @@ public class SequenceResourceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call partialUpdateSequenceUsingPATCHAsync(Long id, Sequence body, final ApiCallback<Sequence> callback) throws ApiException {
+    public com.squareup.okhttp.Call partialUpdateDrugUsingPATCHAsync(Long id, Drug body, final ApiCallback<Drug> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -801,13 +909,13 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = partialUpdateSequenceUsingPATCHValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+        com.squareup.okhttp.Call call = partialUpdateDrugUsingPATCHValidateBeforeCall(id, body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for updateSequenceUsingPUT
+     * Build call for updateDrugUsingPUT
      * @param id id (required)
      * @param body  (optional)
      * @param progressListener Progress listener
@@ -815,11 +923,11 @@ public class SequenceResourceApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateSequenceUsingPUTCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateDrugUsingPUTCall(Long id, Drug body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/sequences/{id}"
+        String localVarPath = "/api/drugs/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -858,13 +966,13 @@ public class SequenceResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateSequenceUsingPUTValidateBeforeCall(Long id, Sequence body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateDrugUsingPUTValidateBeforeCall(Long id, Drug body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling updateSequenceUsingPUT(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling updateDrugUsingPUT(Async)");
         }
         
-        com.squareup.okhttp.Call call = updateSequenceUsingPUTCall(id, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateDrugUsingPUTCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -874,34 +982,34 @@ public class SequenceResourceApi {
     }
 
     /**
-     * updateSequence
+     * updateDrug
      * 
      * @param id id (required)
      * @param body  (optional)
-     * @return Sequence
+     * @return Drug
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Sequence updateSequenceUsingPUT(Long id, Sequence body) throws ApiException {
-        ApiResponse<Sequence> resp = updateSequenceUsingPUTWithHttpInfo(id, body);
+    public Drug updateDrugUsingPUT(Long id, Drug body) throws ApiException {
+        ApiResponse<Drug> resp = updateDrugUsingPUTWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
-     * updateSequence
+     * updateDrug
      * 
      * @param id id (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;Sequence&gt;
+     * @return ApiResponse&lt;Drug&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Sequence> updateSequenceUsingPUTWithHttpInfo(Long id, Sequence body) throws ApiException {
-        com.squareup.okhttp.Call call = updateSequenceUsingPUTValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+    public ApiResponse<Drug> updateDrugUsingPUTWithHttpInfo(Long id, Drug body) throws ApiException {
+        com.squareup.okhttp.Call call = updateDrugUsingPUTValidateBeforeCall(id, body, null, null);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * updateSequence (asynchronously)
+     * updateDrug (asynchronously)
      * 
      * @param id id (required)
      * @param body  (optional)
@@ -909,7 +1017,7 @@ public class SequenceResourceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateSequenceUsingPUTAsync(Long id, Sequence body, final ApiCallback<Sequence> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateDrugUsingPUTAsync(Long id, Drug body, final ApiCallback<Drug> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -930,8 +1038,8 @@ public class SequenceResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateSequenceUsingPUTValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+        com.squareup.okhttp.Call call = updateDrugUsingPUTValidateBeforeCall(id, body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Drug>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -61,10 +61,10 @@ public class TranscriptControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void compareTranscriptUsingPOSTTest() throws ApiException {
+    public void compareTranscriptUsingPOST1Test() throws ApiException {
         String hugoSymbol = null;
         TranscriptComparisonVM body = null;
-        TranscriptComparisonResultVM response = api.compareTranscriptUsingPOST(hugoSymbol, body);
+        TranscriptComparisonResultVM response = api.compareTranscriptUsingPOST1(hugoSymbol, body);
 
         // TODO: test validations
     }

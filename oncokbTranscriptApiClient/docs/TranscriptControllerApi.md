@@ -5,7 +5,7 @@ All URIs are relative to *https://transcript.oncokb.org:443*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**compareEnsemblTranscriptUsingPOST**](TranscriptControllerApi.md#compareEnsemblTranscriptUsingPOST) | **POST** /api/compare-ensembl-transcript | compareEnsemblTranscript
-[**compareTranscriptUsingPOST**](TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
+[**compareTranscriptUsingPOST1**](TranscriptControllerApi.md#compareTranscriptUsingPOST1) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
 [**findGrch38VariantUsingGET**](TranscriptControllerApi.md#findGrch38VariantUsingGET) | **GET** /api/find-grch38-variant | findGrch38Variant
 [**getAlignmentsUsingPOST**](TranscriptControllerApi.md#getAlignmentsUsingPOST) | **POST** /api/get-alignments/{hugoSymbol} | getAlignments
 [**getTranscriptUsingGET**](TranscriptControllerApi.md#getTranscriptUsingGET) | **GET** /api/get-sequence | getTranscript
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="compareTranscriptUsingPOST"></a>
-# **compareTranscriptUsingPOST**
-> TranscriptComparisonResultVM compareTranscriptUsingPOST(hugoSymbol, body)
+<a name="compareTranscriptUsingPOST1"></a>
+# **compareTranscriptUsingPOST1**
+> TranscriptComparisonResultVM compareTranscriptUsingPOST1(hugoSymbol, body)
 
 compareTranscript
 
@@ -84,10 +84,10 @@ TranscriptControllerApi apiInstance = new TranscriptControllerApi();
 String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
 TranscriptComparisonVM body = new TranscriptComparisonVM(); // TranscriptComparisonVM | 
 try {
-    TranscriptComparisonResultVM result = apiInstance.compareTranscriptUsingPOST(hugoSymbol, body);
+    TranscriptComparisonResultVM result = apiInstance.compareTranscriptUsingPOST1(hugoSymbol, body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#compareTranscriptUsingPOST");
+    System.err.println("Exception when calling TranscriptControllerApi#compareTranscriptUsingPOST1");
     e.printStackTrace();
 }
 ```

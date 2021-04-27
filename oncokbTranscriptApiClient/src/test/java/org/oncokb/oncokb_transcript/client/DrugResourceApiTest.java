@@ -13,7 +13,7 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.ApiException;
-import org.oncokb.oncokb_transcript.client.Sequence;
+import org.oncokb.oncokb_transcript.client.Drug;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -23,15 +23,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for SequenceResourceApi
+ * API tests for DrugResourceApi
  */
 @Ignore
-public class SequenceResourceApiTest {
+public class DrugResourceApiTest {
 
-    private final SequenceResourceApi api = new SequenceResourceApi();
+    private final DrugResourceApi api = new DrugResourceApi();
 
     /**
-     * createSequence
+     * createDrug
      *
      * 
      *
@@ -39,14 +39,14 @@ public class SequenceResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void createSequenceUsingPOSTTest() throws ApiException {
-        Sequence body = null;
-        Sequence response = api.createSequenceUsingPOST(body);
+    public void createDrugUsingPOSTTest() throws ApiException {
+        Drug body = null;
+        Drug response = api.createDrugUsingPOST(body);
 
         // TODO: test validations
     }
     /**
-     * deleteSequence
+     * deleteDrug
      *
      * 
      *
@@ -54,14 +54,14 @@ public class SequenceResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void deleteSequenceUsingDELETETest() throws ApiException {
+    public void deleteDrugUsingDELETETest() throws ApiException {
         Long id = null;
-        api.deleteSequenceUsingDELETE(id);
+        api.deleteDrugUsingDELETE(id);
 
         // TODO: test validations
     }
     /**
-     * getAllSequences
+     * findDrugByCode
      *
      * 
      *
@@ -69,13 +69,14 @@ public class SequenceResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getAllSequencesUsingGETTest() throws ApiException {
-        List<Sequence> response = api.getAllSequencesUsingGET();
+    public void findDrugByCodeUsingGETTest() throws ApiException {
+        String code = null;
+        Drug response = api.findDrugByCodeUsingGET(code);
 
         // TODO: test validations
     }
     /**
-     * getAllSequences
+     * findDrugs
      *
      * 
      *
@@ -83,16 +84,14 @@ public class SequenceResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getAllSequencesUsingGET1Test() throws ApiException {
-        String referenceGenome = null;
-        String usageSource = null;
-        String hugoSymbol = null;
-        List<Sequence> response = api.getAllSequencesUsingGET1(referenceGenome, usageSource, hugoSymbol);
+    public void findDrugsUsingGETTest() throws ApiException {
+        String query = null;
+        List<Drug> response = api.findDrugsUsingGET(query);
 
         // TODO: test validations
     }
     /**
-     * getSequence
+     * getAllDrugs
      *
      * 
      *
@@ -100,14 +99,28 @@ public class SequenceResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getSequenceUsingGETTest() throws ApiException {
+    public void getAllDrugsUsingGETTest() throws ApiException {
+        List<Drug> response = api.getAllDrugsUsingGET();
+
+        // TODO: test validations
+    }
+    /**
+     * getDrug
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDrugUsingGETTest() throws ApiException {
         Long id = null;
-        Sequence response = api.getSequenceUsingGET(id);
+        Drug response = api.getDrugUsingGET(id);
 
         // TODO: test validations
     }
     /**
-     * partialUpdateSequence
+     * partialUpdateDrug
      *
      * 
      *
@@ -115,15 +128,15 @@ public class SequenceResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void partialUpdateSequenceUsingPATCHTest() throws ApiException {
+    public void partialUpdateDrugUsingPATCHTest() throws ApiException {
         Long id = null;
-        Sequence body = null;
-        Sequence response = api.partialUpdateSequenceUsingPATCH(id, body);
+        Drug body = null;
+        Drug response = api.partialUpdateDrugUsingPATCH(id, body);
 
         // TODO: test validations
     }
     /**
-     * updateSequence
+     * updateDrug
      *
      * 
      *
@@ -131,10 +144,10 @@ public class SequenceResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void updateSequenceUsingPUTTest() throws ApiException {
+    public void updateDrugUsingPUTTest() throws ApiException {
         Long id = null;
-        Sequence body = null;
-        Sequence response = api.updateSequenceUsingPUT(id, body);
+        Drug body = null;
+        Drug response = api.updateDrugUsingPUT(id, body);
 
         // TODO: test validations
     }

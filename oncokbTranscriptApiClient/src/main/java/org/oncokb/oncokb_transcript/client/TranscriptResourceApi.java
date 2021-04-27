@@ -537,17 +537,19 @@ public class TranscriptResourceApi {
     }
     /**
      * Build call for partialUpdateTranscriptUsingPATCH
+     * @param id id (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call partialUpdateTranscriptUsingPATCHCall(Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call partialUpdateTranscriptUsingPATCHCall(Long id, Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/transcripts";
+        String localVarPath = "/api/transcripts/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -585,9 +587,13 @@ public class TranscriptResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call partialUpdateTranscriptUsingPATCHValidateBeforeCall(Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call partialUpdateTranscriptUsingPATCHValidateBeforeCall(Long id, Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling partialUpdateTranscriptUsingPATCH(Async)");
+        }
         
-        com.squareup.okhttp.Call call = partialUpdateTranscriptUsingPATCHCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = partialUpdateTranscriptUsingPATCHCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -599,24 +605,26 @@ public class TranscriptResourceApi {
     /**
      * partialUpdateTranscript
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return Transcript
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Transcript partialUpdateTranscriptUsingPATCH(Transcript body) throws ApiException {
-        ApiResponse<Transcript> resp = partialUpdateTranscriptUsingPATCHWithHttpInfo(body);
+    public Transcript partialUpdateTranscriptUsingPATCH(Long id, Transcript body) throws ApiException {
+        ApiResponse<Transcript> resp = partialUpdateTranscriptUsingPATCHWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
      * partialUpdateTranscript
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Transcript&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Transcript> partialUpdateTranscriptUsingPATCHWithHttpInfo(Transcript body) throws ApiException {
-        com.squareup.okhttp.Call call = partialUpdateTranscriptUsingPATCHValidateBeforeCall(body, null, null);
+    public ApiResponse<Transcript> partialUpdateTranscriptUsingPATCHWithHttpInfo(Long id, Transcript body) throws ApiException {
+        com.squareup.okhttp.Call call = partialUpdateTranscriptUsingPATCHValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Transcript>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -624,12 +632,13 @@ public class TranscriptResourceApi {
     /**
      * partialUpdateTranscript (asynchronously)
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call partialUpdateTranscriptUsingPATCHAsync(Transcript body, final ApiCallback<Transcript> callback) throws ApiException {
+    public com.squareup.okhttp.Call partialUpdateTranscriptUsingPATCHAsync(Long id, Transcript body, final ApiCallback<Transcript> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -650,24 +659,26 @@ public class TranscriptResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = partialUpdateTranscriptUsingPATCHValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = partialUpdateTranscriptUsingPATCHValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Transcript>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for updateTranscriptUsingPUT
+     * @param id id (required)
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateTranscriptUsingPUTCall(Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateTranscriptUsingPUTCall(Long id, Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/transcripts";
+        String localVarPath = "/api/transcripts/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -705,9 +716,13 @@ public class TranscriptResourceApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTranscriptUsingPUTValidateBeforeCall(Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTranscriptUsingPUTValidateBeforeCall(Long id, Transcript body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling updateTranscriptUsingPUT(Async)");
+        }
         
-        com.squareup.okhttp.Call call = updateTranscriptUsingPUTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateTranscriptUsingPUTCall(id, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -719,24 +734,26 @@ public class TranscriptResourceApi {
     /**
      * updateTranscript
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return Transcript
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Transcript updateTranscriptUsingPUT(Transcript body) throws ApiException {
-        ApiResponse<Transcript> resp = updateTranscriptUsingPUTWithHttpInfo(body);
+    public Transcript updateTranscriptUsingPUT(Long id, Transcript body) throws ApiException {
+        ApiResponse<Transcript> resp = updateTranscriptUsingPUTWithHttpInfo(id, body);
         return resp.getData();
     }
 
     /**
      * updateTranscript
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Transcript&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Transcript> updateTranscriptUsingPUTWithHttpInfo(Transcript body) throws ApiException {
-        com.squareup.okhttp.Call call = updateTranscriptUsingPUTValidateBeforeCall(body, null, null);
+    public ApiResponse<Transcript> updateTranscriptUsingPUTWithHttpInfo(Long id, Transcript body) throws ApiException {
+        com.squareup.okhttp.Call call = updateTranscriptUsingPUTValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Transcript>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -744,12 +761,13 @@ public class TranscriptResourceApi {
     /**
      * updateTranscript (asynchronously)
      * 
+     * @param id id (required)
      * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateTranscriptUsingPUTAsync(Transcript body, final ApiCallback<Transcript> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateTranscriptUsingPUTAsync(Long id, Transcript body, final ApiCallback<Transcript> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -770,7 +788,7 @@ public class TranscriptResourceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateTranscriptUsingPUTValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateTranscriptUsingPUTValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Transcript>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

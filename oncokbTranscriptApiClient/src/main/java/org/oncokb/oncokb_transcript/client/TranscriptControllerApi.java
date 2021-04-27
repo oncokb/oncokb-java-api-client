@@ -181,7 +181,7 @@ public class TranscriptControllerApi {
         return call;
     }
     /**
-     * Build call for compareTranscriptUsingPOST
+     * Build call for compareTranscriptUsingPOST1
      * @param hugoSymbol hugoSymbol (required)
      * @param body  (optional)
      * @param progressListener Progress listener
@@ -189,7 +189,7 @@ public class TranscriptControllerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call compareTranscriptUsingPOSTCall(String hugoSymbol, TranscriptComparisonVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call compareTranscriptUsingPOST1Call(String hugoSymbol, TranscriptComparisonVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -232,13 +232,13 @@ public class TranscriptControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call compareTranscriptUsingPOSTValidateBeforeCall(String hugoSymbol, TranscriptComparisonVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call compareTranscriptUsingPOST1ValidateBeforeCall(String hugoSymbol, TranscriptComparisonVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'hugoSymbol' is set
         if (hugoSymbol == null) {
-            throw new ApiException("Missing the required parameter 'hugoSymbol' when calling compareTranscriptUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'hugoSymbol' when calling compareTranscriptUsingPOST1(Async)");
         }
         
-        com.squareup.okhttp.Call call = compareTranscriptUsingPOSTCall(hugoSymbol, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = compareTranscriptUsingPOST1Call(hugoSymbol, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -255,8 +255,8 @@ public class TranscriptControllerApi {
      * @return TranscriptComparisonResultVM
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TranscriptComparisonResultVM compareTranscriptUsingPOST(String hugoSymbol, TranscriptComparisonVM body) throws ApiException {
-        ApiResponse<TranscriptComparisonResultVM> resp = compareTranscriptUsingPOSTWithHttpInfo(hugoSymbol, body);
+    public TranscriptComparisonResultVM compareTranscriptUsingPOST1(String hugoSymbol, TranscriptComparisonVM body) throws ApiException {
+        ApiResponse<TranscriptComparisonResultVM> resp = compareTranscriptUsingPOST1WithHttpInfo(hugoSymbol, body);
         return resp.getData();
     }
 
@@ -268,8 +268,8 @@ public class TranscriptControllerApi {
      * @return ApiResponse&lt;TranscriptComparisonResultVM&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TranscriptComparisonResultVM> compareTranscriptUsingPOSTWithHttpInfo(String hugoSymbol, TranscriptComparisonVM body) throws ApiException {
-        com.squareup.okhttp.Call call = compareTranscriptUsingPOSTValidateBeforeCall(hugoSymbol, body, null, null);
+    public ApiResponse<TranscriptComparisonResultVM> compareTranscriptUsingPOST1WithHttpInfo(String hugoSymbol, TranscriptComparisonVM body) throws ApiException {
+        com.squareup.okhttp.Call call = compareTranscriptUsingPOST1ValidateBeforeCall(hugoSymbol, body, null, null);
         Type localVarReturnType = new TypeToken<TranscriptComparisonResultVM>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -283,7 +283,7 @@ public class TranscriptControllerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call compareTranscriptUsingPOSTAsync(String hugoSymbol, TranscriptComparisonVM body, final ApiCallback<TranscriptComparisonResultVM> callback) throws ApiException {
+    public com.squareup.okhttp.Call compareTranscriptUsingPOST1Async(String hugoSymbol, TranscriptComparisonVM body, final ApiCallback<TranscriptComparisonResultVM> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -304,7 +304,7 @@ public class TranscriptControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = compareTranscriptUsingPOSTValidateBeforeCall(hugoSymbol, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = compareTranscriptUsingPOST1ValidateBeforeCall(hugoSymbol, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TranscriptComparisonResultVM>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

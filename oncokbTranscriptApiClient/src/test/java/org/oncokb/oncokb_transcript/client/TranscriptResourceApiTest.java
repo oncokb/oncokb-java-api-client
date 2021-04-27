@@ -99,8 +99,9 @@ public class TranscriptResourceApiTest {
      */
     @Test
     public void partialUpdateTranscriptUsingPATCHTest() throws ApiException {
+        Long id = null;
         Transcript body = null;
-        Transcript response = api.partialUpdateTranscriptUsingPATCH(body);
+        Transcript response = api.partialUpdateTranscriptUsingPATCH(id, body);
 
         // TODO: test validations
     }
@@ -114,8 +115,9 @@ public class TranscriptResourceApiTest {
      */
     @Test
     public void updateTranscriptUsingPUTTest() throws ApiException {
+        Long id = null;
         Transcript body = null;
-        Transcript response = api.updateTranscriptUsingPUT(body);
+        Transcript response = api.updateTranscriptUsingPUT(id, body);
 
         // TODO: test validations
     }
