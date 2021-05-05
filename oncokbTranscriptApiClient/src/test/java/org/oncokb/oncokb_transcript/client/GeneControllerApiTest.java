@@ -45,4 +45,19 @@ public class GeneControllerApiTest {
 
         // TODO: test validations
     }
+    /**
+     * findGenesBySymbols
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findGenesBySymbolsUsingPOSTTest() throws ApiException {
+        List<String> body = null;
+        List<Gene> response = api.findGenesBySymbolsUsingPOST(body);
+
+        // TODO: test validations
+    }
 }

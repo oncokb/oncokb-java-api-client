@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *DrugResourceApi* | [**partialUpdateDrugUsingPATCH**](docs/DrugResourceApi.md#partialUpdateDrugUsingPATCH) | **PATCH** /api/drugs/{id} | partialUpdateDrug
 *DrugResourceApi* | [**updateDrugUsingPUT**](docs/DrugResourceApi.md#updateDrugUsingPUT) | **PUT** /api/drugs/{id} | updateDrug
 *GeneControllerApi* | [**findGeneBySymbolUsingGET**](docs/GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene/{symbol} | findGeneBySymbol
+*GeneControllerApi* | [**findGenesBySymbolsUsingPOST**](docs/GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-gene | findGenesBySymbols
 *PipelineControllerApi* | [**updateNcitUsingPOST**](docs/PipelineControllerApi.md#updateNcitUsingPOST) | **POST** /api/pipeline/update-ncit | updateNcit
 *PipelineControllerApi* | [**updatePortalGeneUsingPOST**](docs/PipelineControllerApi.md#updatePortalGeneUsingPOST) | **POST** /api/pipeline/update-gene | updatePortalGene
 *SequenceResourceApi* | [**createSequenceUsingPOST**](docs/SequenceResourceApi.md#createSequenceUsingPOST) | **POST** /api/sequences | createSequence
