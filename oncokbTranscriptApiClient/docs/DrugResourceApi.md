@@ -1,6 +1,6 @@
 # DrugResourceApi
 
-All URIs are relative to *https://transcript.oncokb.org:443*
+All URIs are relative to *http://localhost:9090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -1,16 +1,16 @@
-# AccountResourceApi
+# GeneControllerApi
 
 All URIs are relative to *http://localhost:9090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAccountUsingGET**](AccountResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
+[**getGeneUsingGET**](GeneControllerApi.md#getGeneUsingGET) | **GET** /api/find-gene/{symbol} | getGene
 
-<a name="getAccountUsingGET"></a>
-# **getAccountUsingGET**
-> UserVM getAccountUsingGET()
+<a name="getGeneUsingGET"></a>
+# **getGeneUsingGET**
+> Gene getGeneUsingGET(symbol)
 
-getAccount
+getGene
 
 ### Example
 ```java
@@ -19,27 +19,31 @@ getAccount
 //import org.oncokb.oncokb_transcript.ApiException;
 //import org.oncokb.oncokb_transcript.Configuration;
 //import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.AccountResourceApi;
+//import org.oncokb.oncokb_transcript.client.GeneControllerApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
-AccountResourceApi apiInstance = new AccountResourceApi();
+GeneControllerApi apiInstance = new GeneControllerApi();
+String symbol = "symbol_example"; // String | symbol
 try {
-    UserVM result = apiInstance.getAccountUsingGET();
+    Gene result = apiInstance.getGeneUsingGET(symbol);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AccountResourceApi#getAccountUsingGET");
+    System.err.println("Exception when calling GeneControllerApi#getGeneUsingGET");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **String**| symbol |
 
 ### Return type
 
-[**UserVM**](UserVM.md)
+[**Gene**](Gene.md)
 
 ### Authorization
 

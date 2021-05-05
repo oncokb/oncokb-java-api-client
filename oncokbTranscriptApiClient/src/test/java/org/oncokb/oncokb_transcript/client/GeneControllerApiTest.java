@@ -13,6 +13,7 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.client.Gene;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -22,15 +23,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for DrugControllerApi
+ * API tests for GeneControllerApi
  */
 @Ignore
-public class DrugControllerApiTest {
+public class GeneControllerApiTest {
 
-    private final DrugControllerApi api = new DrugControllerApi();
+    private final GeneControllerApi api = new GeneControllerApi();
 
     /**
-     * compareTranscript
+     * getGene
      *
      * 
      *
@@ -38,8 +39,9 @@ public class DrugControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void compareTranscriptUsingPOSTTest() throws ApiException {
-        api.compareTranscriptUsingPOST();
+    public void getGeneUsingGETTest() throws ApiException {
+        String symbol = null;
+        Gene response = api.getGeneUsingGET(symbol);
 
         // TODO: test validations
     }

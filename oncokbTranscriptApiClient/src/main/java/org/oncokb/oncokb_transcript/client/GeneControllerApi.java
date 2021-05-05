@@ -26,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.oncokb.oncokb_transcript.client.Gene;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -33,14 +34,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DrugControllerApi {
+public class GeneControllerApi {
     private ApiClient apiClient;
 
-    public DrugControllerApi() {
+    public GeneControllerApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public DrugControllerApi(ApiClient apiClient) {
+    public GeneControllerApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -53,17 +54,19 @@ public class DrugControllerApi {
     }
 
     /**
-     * Build call for compareTranscriptUsingPOST
+     * Build call for getGeneUsingGET
+     * @param symbol symbol (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call compareTranscriptUsingPOSTCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getGeneUsingGETCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/update-ncit";
+        String localVarPath = "/api/find-gene/{symbol}"
+            .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -73,7 +76,7 @@ public class DrugControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -97,13 +100,17 @@ public class DrugControllerApi {
         }
 
         String[] localVarAuthNames = new String[] { "Authorization" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call compareTranscriptUsingPOSTValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getGeneUsingGETValidateBeforeCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'symbol' is set
+        if (symbol == null) {
+            throw new ApiException("Missing the required parameter 'symbol' when calling getGeneUsingGET(Async)");
+        }
         
-        com.squareup.okhttp.Call call = compareTranscriptUsingPOSTCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getGeneUsingGETCall(symbol, progressListener, progressRequestListener);
         return call;
 
         
@@ -113,33 +120,39 @@ public class DrugControllerApi {
     }
 
     /**
-     * compareTranscript
+     * getGene
      * 
+     * @param symbol symbol (required)
+     * @return Gene
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void compareTranscriptUsingPOST() throws ApiException {
-        compareTranscriptUsingPOSTWithHttpInfo();
+    public Gene getGeneUsingGET(String symbol) throws ApiException {
+        ApiResponse<Gene> resp = getGeneUsingGETWithHttpInfo(symbol);
+        return resp.getData();
     }
 
     /**
-     * compareTranscript
+     * getGene
      * 
-     * @return ApiResponse&lt;Void&gt;
+     * @param symbol symbol (required)
+     * @return ApiResponse&lt;Gene&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> compareTranscriptUsingPOSTWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = compareTranscriptUsingPOSTValidateBeforeCall(null, null);
-        return apiClient.execute(call);
+    public ApiResponse<Gene> getGeneUsingGETWithHttpInfo(String symbol) throws ApiException {
+        com.squareup.okhttp.Call call = getGeneUsingGETValidateBeforeCall(symbol, null, null);
+        Type localVarReturnType = new TypeToken<Gene>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * compareTranscript (asynchronously)
+     * getGene (asynchronously)
      * 
+     * @param symbol symbol (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call compareTranscriptUsingPOSTAsync(final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getGeneUsingGETAsync(String symbol, final ApiCallback<Gene> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -160,8 +173,9 @@ public class DrugControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = compareTranscriptUsingPOSTValidateBeforeCall(progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        com.squareup.okhttp.Call call = getGeneUsingGETValidateBeforeCall(symbol, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Gene>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
 }
