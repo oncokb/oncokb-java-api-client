@@ -111,7 +111,7 @@ Class | Method | HTTP request | Description
 *DrugResourceApi* | [**getDrugUsingGET**](docs/DrugResourceApi.md#getDrugUsingGET) | **GET** /api/drugs/{id} | getDrug
 *DrugResourceApi* | [**partialUpdateDrugUsingPATCH**](docs/DrugResourceApi.md#partialUpdateDrugUsingPATCH) | **PATCH** /api/drugs/{id} | partialUpdateDrug
 *DrugResourceApi* | [**updateDrugUsingPUT**](docs/DrugResourceApi.md#updateDrugUsingPUT) | **PUT** /api/drugs/{id} | updateDrug
-*GeneControllerApi* | [**getGeneUsingGET**](docs/GeneControllerApi.md#getGeneUsingGET) | **GET** /api/find-gene/{symbol} | getGene
+*GeneControllerApi* | [**findGeneBySymbolUsingGET**](docs/GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene/{symbol} | findGeneBySymbol
 *PipelineControllerApi* | [**updateNcitUsingPOST**](docs/PipelineControllerApi.md#updateNcitUsingPOST) | **POST** /api/pipeline/update-ncit | updateNcit
 *PipelineControllerApi* | [**updatePortalGeneUsingPOST**](docs/PipelineControllerApi.md#updatePortalGeneUsingPOST) | **POST** /api/pipeline/update-gene | updatePortalGene
 *SequenceResourceApi* | [**createSequenceUsingPOST**](docs/SequenceResourceApi.md#createSequenceUsingPOST) | **POST** /api/sequences | createSequence

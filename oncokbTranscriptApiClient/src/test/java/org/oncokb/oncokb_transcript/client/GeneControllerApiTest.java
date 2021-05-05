@@ -31,7 +31,7 @@ public class GeneControllerApiTest {
     private final GeneControllerApi api = new GeneControllerApi();
 
     /**
-     * getGene
+     * findGeneBySymbol
      *
      * 
      *
@@ -39,9 +39,9 @@ public class GeneControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getGeneUsingGETTest() throws ApiException {
+    public void findGeneBySymbolUsingGETTest() throws ApiException {
         String symbol = null;
-        Gene response = api.getGeneUsingGET(symbol);
+        Gene response = api.findGeneBySymbolUsingGET(symbol);
 
         // TODO: test validations
     }

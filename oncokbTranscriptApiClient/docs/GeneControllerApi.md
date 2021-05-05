@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:9090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getGeneUsingGET**](GeneControllerApi.md#getGeneUsingGET) | **GET** /api/find-gene/{symbol} | getGene
+[**findGeneBySymbolUsingGET**](GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene/{symbol} | findGeneBySymbol
 
-<a name="getGeneUsingGET"></a>
-# **getGeneUsingGET**
-> Gene getGeneUsingGET(symbol)
+<a name="findGeneBySymbolUsingGET"></a>
+# **findGeneBySymbolUsingGET**
+> Gene findGeneBySymbolUsingGET(symbol)
 
-getGene
+findGeneBySymbol
 
 ### Example
 ```java
@@ -27,10 +27,10 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 GeneControllerApi apiInstance = new GeneControllerApi();
 String symbol = "symbol_example"; // String | symbol
 try {
-    Gene result = apiInstance.getGeneUsingGET(symbol);
+    Gene result = apiInstance.findGeneBySymbolUsingGET(symbol);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling GeneControllerApi#getGeneUsingGET");
+    System.err.println("Exception when calling GeneControllerApi#findGeneBySymbolUsingGET");
     e.printStackTrace();
 }
 ```

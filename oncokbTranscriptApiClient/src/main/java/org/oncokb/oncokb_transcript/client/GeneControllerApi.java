@@ -54,14 +54,14 @@ public class GeneControllerApi {
     }
 
     /**
-     * Build call for getGeneUsingGET
+     * Build call for findGeneBySymbolUsingGET
      * @param symbol symbol (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getGeneUsingGETCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call findGeneBySymbolUsingGETCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -104,13 +104,13 @@ public class GeneControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getGeneUsingGETValidateBeforeCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call findGeneBySymbolUsingGETValidateBeforeCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
-            throw new ApiException("Missing the required parameter 'symbol' when calling getGeneUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'symbol' when calling findGeneBySymbolUsingGET(Async)");
         }
         
-        com.squareup.okhttp.Call call = getGeneUsingGETCall(symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findGeneBySymbolUsingGETCall(symbol, progressListener, progressRequestListener);
         return call;
 
         
@@ -120,39 +120,39 @@ public class GeneControllerApi {
     }
 
     /**
-     * getGene
+     * findGeneBySymbol
      * 
      * @param symbol symbol (required)
      * @return Gene
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Gene getGeneUsingGET(String symbol) throws ApiException {
-        ApiResponse<Gene> resp = getGeneUsingGETWithHttpInfo(symbol);
+    public Gene findGeneBySymbolUsingGET(String symbol) throws ApiException {
+        ApiResponse<Gene> resp = findGeneBySymbolUsingGETWithHttpInfo(symbol);
         return resp.getData();
     }
 
     /**
-     * getGene
+     * findGeneBySymbol
      * 
      * @param symbol symbol (required)
      * @return ApiResponse&lt;Gene&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Gene> getGeneUsingGETWithHttpInfo(String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = getGeneUsingGETValidateBeforeCall(symbol, null, null);
+    public ApiResponse<Gene> findGeneBySymbolUsingGETWithHttpInfo(String symbol) throws ApiException {
+        com.squareup.okhttp.Call call = findGeneBySymbolUsingGETValidateBeforeCall(symbol, null, null);
         Type localVarReturnType = new TypeToken<Gene>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * getGene (asynchronously)
+     * findGeneBySymbol (asynchronously)
      * 
      * @param symbol symbol (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getGeneUsingGETAsync(String symbol, final ApiCallback<Gene> callback) throws ApiException {
+    public com.squareup.okhttp.Call findGeneBySymbolUsingGETAsync(String symbol, final ApiCallback<Gene> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,7 +173,7 @@ public class GeneControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getGeneUsingGETValidateBeforeCall(symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findGeneBySymbolUsingGETValidateBeforeCall(symbol, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Gene>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
