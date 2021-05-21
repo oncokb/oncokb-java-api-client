@@ -22,15 +22,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for DrugControllerApi
+ * API tests for PipelineControllerApi
  */
 @Ignore
-public class DrugControllerApiTest {
+public class PipelineControllerApiTest {
 
-    private final DrugControllerApi api = new DrugControllerApi();
+    private final PipelineControllerApi api = new PipelineControllerApi();
 
     /**
-     * compareTranscript
+     * updateNcit
      *
      * 
      *
@@ -38,8 +38,22 @@ public class DrugControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void compareTranscriptUsingPOSTTest() throws ApiException {
-        api.compareTranscriptUsingPOST();
+    public void updateNcitUsingPOSTTest() throws ApiException {
+        api.updateNcitUsingPOST();
+
+        // TODO: test validations
+    }
+    /**
+     * updatePortalGene
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updatePortalGeneUsingPOSTTest() throws ApiException {
+        api.updatePortalGeneUsingPOST();
 
         // TODO: test validations
     }

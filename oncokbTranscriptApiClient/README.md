@@ -103,7 +103,6 @@ All URIs are relative to *https://transcript.oncokb.org:443*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountResourceApi* | [**getAccountUsingGET**](docs/AccountResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
-*DrugControllerApi* | [**compareTranscriptUsingPOST**](docs/DrugControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/update-ncit | compareTranscript
 *DrugResourceApi* | [**createDrugUsingPOST**](docs/DrugResourceApi.md#createDrugUsingPOST) | **POST** /api/drugs | createDrug
 *DrugResourceApi* | [**deleteDrugUsingDELETE**](docs/DrugResourceApi.md#deleteDrugUsingDELETE) | **DELETE** /api/drugs/{id} | deleteDrug
 *DrugResourceApi* | [**findDrugByCodeUsingGET**](docs/DrugResourceApi.md#findDrugByCodeUsingGET) | **GET** /api/drugs/search-by-code/{code} | findDrugByCode
@@ -112,6 +111,10 @@ Class | Method | HTTP request | Description
 *DrugResourceApi* | [**getDrugUsingGET**](docs/DrugResourceApi.md#getDrugUsingGET) | **GET** /api/drugs/{id} | getDrug
 *DrugResourceApi* | [**partialUpdateDrugUsingPATCH**](docs/DrugResourceApi.md#partialUpdateDrugUsingPATCH) | **PATCH** /api/drugs/{id} | partialUpdateDrug
 *DrugResourceApi* | [**updateDrugUsingPUT**](docs/DrugResourceApi.md#updateDrugUsingPUT) | **PUT** /api/drugs/{id} | updateDrug
+*GeneControllerApi* | [**findGeneBySymbolUsingGET**](docs/GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene/{symbol} | findGeneBySymbol
+*GeneControllerApi* | [**findGenesBySymbolsUsingPOST**](docs/GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-gene | findGenesBySymbols
+*PipelineControllerApi* | [**updateNcitUsingPOST**](docs/PipelineControllerApi.md#updateNcitUsingPOST) | **POST** /api/pipeline/update-ncit | updateNcit
+*PipelineControllerApi* | [**updatePortalGeneUsingPOST**](docs/PipelineControllerApi.md#updatePortalGeneUsingPOST) | **POST** /api/pipeline/update-gene | updatePortalGene
 *SequenceResourceApi* | [**createSequenceUsingPOST**](docs/SequenceResourceApi.md#createSequenceUsingPOST) | **POST** /api/sequences | createSequence
 *SequenceResourceApi* | [**deleteSequenceUsingDELETE**](docs/SequenceResourceApi.md#deleteSequenceUsingDELETE) | **DELETE** /api/sequences/{id} | deleteSequence
 *SequenceResourceApi* | [**getAllSequencesUsingGET**](docs/SequenceResourceApi.md#getAllSequencesUsingGET) | **GET** /api/sequences | getAllSequences
@@ -120,7 +123,7 @@ Class | Method | HTTP request | Description
 *SequenceResourceApi* | [**partialUpdateSequenceUsingPATCH**](docs/SequenceResourceApi.md#partialUpdateSequenceUsingPATCH) | **PATCH** /api/sequences/{id} | partialUpdateSequence
 *SequenceResourceApi* | [**updateSequenceUsingPUT**](docs/SequenceResourceApi.md#updateSequenceUsingPUT) | **PUT** /api/sequences/{id} | updateSequence
 *TranscriptControllerApi* | [**compareEnsemblTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareEnsemblTranscriptUsingPOST) | **POST** /api/compare-ensembl-transcript | compareEnsemblTranscript
-*TranscriptControllerApi* | [**compareTranscriptUsingPOST1**](docs/TranscriptControllerApi.md#compareTranscriptUsingPOST1) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
+*TranscriptControllerApi* | [**compareTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
 *TranscriptControllerApi* | [**findGrch38VariantUsingGET**](docs/TranscriptControllerApi.md#findGrch38VariantUsingGET) | **GET** /api/find-grch38-variant | findGrch38Variant
 *TranscriptControllerApi* | [**getAlignmentsUsingPOST**](docs/TranscriptControllerApi.md#getAlignmentsUsingPOST) | **POST** /api/get-alignments/{hugoSymbol} | getAlignments
 *TranscriptControllerApi* | [**getTranscriptUsingGET**](docs/TranscriptControllerApi.md#getTranscriptUsingGET) | **GET** /api/get-sequence | getTranscript
@@ -143,6 +146,8 @@ Class | Method | HTTP request | Description
  - [EnrichedAlignmentResult](docs/EnrichedAlignmentResult.md)
  - [EnsemblTranscript](docs/EnsemblTranscript.md)
  - [Exon](docs/Exon.md)
+ - [Gene](docs/Gene.md)
+ - [GeneAlias](docs/GeneAlias.md)
  - [MatchTranscriptVM](docs/MatchTranscriptVM.md)
  - [PfamDomainRange](docs/PfamDomainRange.md)
  - [Sequence](docs/Sequence.md)
