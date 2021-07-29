@@ -64,7 +64,7 @@ public class User {
    * Get activated
    * @return activated
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Boolean isActivated() {
     return activated;
   }
@@ -190,7 +190,7 @@ public class User {
    * Get login
    * @return login
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public String getLogin() {
     return login;
   }

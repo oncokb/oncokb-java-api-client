@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Long** |  |  [optional]
 **mailType** | [**MailTypeEnum**](#MailTypeEnum) |  |  [optional]
-**sentBy** | **String** |  |  [optional]
-**sentDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**sentFrom** | **String** |  |  [optional]
+**sentBy** | **String** |  | 
+**sentDate** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
+**sentFrom** | **String** |  | 
 **userId** | **Long** |  |  [optional]
 **userLogin** | **String** |  |  [optional]
 

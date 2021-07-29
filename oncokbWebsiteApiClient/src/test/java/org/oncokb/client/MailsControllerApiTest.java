@@ -60,6 +60,22 @@ public class MailsControllerApiTest {
         // TODO: test validations
     }
     /**
+     * getSendToDev
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSendToDevUsingGETTest() throws ApiException {
+        String body = null;
+        String subject = null;
+        api.getSendToDevUsingGET(body, subject);
+
+        // TODO: test validations
+    }
+    /**
      * sendFeedbackMails
      *
      * 

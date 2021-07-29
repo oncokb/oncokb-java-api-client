@@ -152,7 +152,7 @@ public class UserMailsDTO {
    * Get sentBy
    * @return sentBy
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public String getSentBy() {
     return sentBy;
   }
@@ -170,7 +170,7 @@ public class UserMailsDTO {
    * Get sentDate
    * @return sentDate
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public OffsetDateTime getSentDate() {
     return sentDate;
   }
@@ -188,7 +188,7 @@ public class UserMailsDTO {
    * Get sentFrom
    * @return sentFrom
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public String getSentFrom() {
     return sentFrom;
   }

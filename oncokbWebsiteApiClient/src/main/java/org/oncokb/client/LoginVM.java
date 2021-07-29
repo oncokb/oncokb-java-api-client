@@ -45,7 +45,7 @@ public class LoginVM {
    * Get password
    * @return password
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public String getPassword() {
     return password;
   }
@@ -81,7 +81,7 @@ public class LoginVM {
    * Get username
    * @return username
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public String getUsername() {
     return username;
   }

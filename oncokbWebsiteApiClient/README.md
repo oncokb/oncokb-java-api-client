@@ -432,7 +432,7 @@ public class AccountResourceApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *//www.oncokb.org/*
+All URIs are relative to *//localhost:9095/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -464,6 +464,7 @@ Class | Method | HTTP request | Description
 *CronJobControllerApi* | [**updateTokenStatsUsingGET**](docs/CronJobControllerApi.md#updateTokenStatsUsingGET) | **GET** /api/cronjob/update-token-stats | updateTokenStats
 *MailsControllerApi* | [**getMailsFromUsingGET**](docs/MailsControllerApi.md#getMailsFromUsingGET) | **GET** /api/mails/from | getMailsFrom
 *MailsControllerApi* | [**getMailsTypesUsingGET**](docs/MailsControllerApi.md#getMailsTypesUsingGET) | **GET** /api/mails/types | getMailsTypes
+*MailsControllerApi* | [**getSendToDevUsingGET**](docs/MailsControllerApi.md#getSendToDevUsingGET) | **GET** /api/mails/send-to-dev | getSendToDev
 *MailsControllerApi* | [**sendFeedbackMailsUsingPOST**](docs/MailsControllerApi.md#sendFeedbackMailsUsingPOST) | **POST** /api/mails/feedback | sendFeedbackMails
 *MailsControllerApi* | [**sendUserMailsUsingPOST**](docs/MailsControllerApi.md#sendUserMailsUsingPOST) | **POST** /api/mails/users | sendUserMails
 *TokenResourceApi* | [**createTokenUsingPOST1**](docs/TokenResourceApi.md#createTokenUsingPOST1) | **POST** /api/tokens | createToken

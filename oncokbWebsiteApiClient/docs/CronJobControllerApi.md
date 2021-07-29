@@ -1,6 +1,6 @@
 # CronJobControllerApi
 
-All URIs are relative to *//www.oncokb.org/*
+All URIs are relative to *//localhost:9095/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -81,7 +81,7 @@ public class Token {
    * Get currentUsage
    * @return currentUsage
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Integer getCurrentUsage() {
     return currentUsage;
   }
@@ -135,7 +135,7 @@ public class Token {
    * Get renewable
    * @return renewable
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Boolean isRenewable() {
     return renewable;
   }

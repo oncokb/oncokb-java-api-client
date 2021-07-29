@@ -53,7 +53,7 @@ import org.oncokb.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "//www.oncokb.org/";
+    private String basePath = "//localhost:9095/";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -106,7 +106,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g //www.oncokb.org/
+     * @param basePath Base path of the URL (e.g //localhost:9095/
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

@@ -1,11 +1,12 @@
 # MailsControllerApi
 
-All URIs are relative to *//www.oncokb.org/*
+All URIs are relative to *//localhost:9095/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMailsFromUsingGET**](MailsControllerApi.md#getMailsFromUsingGET) | **GET** /api/mails/from | getMailsFrom
 [**getMailsTypesUsingGET**](MailsControllerApi.md#getMailsTypesUsingGET) | **GET** /api/mails/types | getMailsTypes
+[**getSendToDevUsingGET**](MailsControllerApi.md#getSendToDevUsingGET) | **GET** /api/mails/send-to-dev | getSendToDev
 [**sendFeedbackMailsUsingPOST**](MailsControllerApi.md#sendFeedbackMailsUsingPOST) | **POST** /api/mails/feedback | sendFeedbackMails
 [**sendUserMailsUsingPOST**](MailsControllerApi.md#sendUserMailsUsingPOST) | **POST** /api/mails/users | sendUserMails
 
@@ -90,6 +91,50 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: */*
+
+<a name="getSendToDevUsingGET"></a>
+# **getSendToDevUsingGET**
+> getSendToDevUsingGET(body, subject)
+
+getSendToDev
+
+### Example
+```java
+// Import classes:
+//import org.oncokb.ApiException;
+//import org.oncokb.client.MailsControllerApi;
+
+
+MailsControllerApi apiInstance = new MailsControllerApi();
+String body = "body_example"; // String | body
+String subject = "subject_example"; // String | subject
+try {
+    apiInstance.getSendToDevUsingGET(body, subject);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MailsControllerApi#getSendToDevUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**String**](String.md)| body |
+ **subject** | **String**| subject |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 <a name="sendFeedbackMailsUsingPOST"></a>
 # **sendFeedbackMailsUsingPOST**
