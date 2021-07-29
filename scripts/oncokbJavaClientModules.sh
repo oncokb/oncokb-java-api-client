@@ -3,6 +3,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ONCOKB_PUBLIC_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Public%20APIs}
 ONCOKB_PRIVATE_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Private%20APIs}
 ONCOKB_TRANSCRIPT_DOCS=${1:-https://transcript.oncokb.org/v3/api-docs}
+ONCOKB_WEBSITE_DOCS=${1:-https://www.oncokb.org/v2/api-docs}
 SWAGGER_CODEGEN_CLI_V2_JAR="swagger-codegen-cli-v2.jar"
 SWAGGER_CODEGEN_CLI_V3_JAR="swagger-codegen-cli-v3.jar"
 
@@ -22,8 +23,10 @@ fi
 rm -rf ../oncokbPublicApiClient
 rm -rf ../oncokbPrivateApiClient
 rm -rf ../oncokbTranscriptApiClient
+rm -rf ../oncokbWebsiteApiClient
 
 # generate java modules (see config json files for more details)
 java -jar ${SWAGGER_CODEGEN_CLI_V2_JAR} generate -i ${ONCOKB_PUBLIC_DOCS} -l java -c oncokbPublicApiClientConfig.json -o ../oncokbPublicApiClient
 java -jar ${SWAGGER_CODEGEN_CLI_V2_JAR} generate -i ${ONCOKB_PRIVATE_DOCS} -l java -c oncokbPrivateApiClientConfig.json -o ../oncokbPrivateApiClient
 java -jar ${SWAGGER_CODEGEN_CLI_V3_JAR} generate -i ${ONCOKB_TRANSCRIPT_DOCS} -l java -c oncokbTranscriptApiClientConfig.json -o ../oncokbTranscriptApiClient
+java -jar ${SWAGGER_CODEGEN_CLI_V3_JAR} generate -i ${ONCOKB_WEBSITE_DOCS} -l java -c oncokbWebsiteApiClientConfig.json -o ../oncokbWebsiteApiClient

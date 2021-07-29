@@ -1,0 +1,9 @@
+{
+    "apiPackage":"org.oncokb.client",
+    "modelPackage":"org.oncokb.client",
+    "groupId":"org.oncokb.client",
+    "artifactId":"oncokbWebsiteApiClient",
+    "artifactName":"OncoKB Website API Client",
+    "artifactVersion":"0.0.1-SNAPSHOT",
+    "hideGenerationTimestamp" : "true"
+  }

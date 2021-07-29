@@ -13,6 +13,7 @@
     <module>oncokbPublicApiClient</module>
     <module>oncokbPrivateApiClient</module>
     <module>oncokbTranscriptApiClient</module>
+    <module>oncokbWebsiteApiClient</module>
   </modules>
 
   <properties>
