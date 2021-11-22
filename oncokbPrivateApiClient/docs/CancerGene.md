@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **entrezGeneId** | **Integer** |  |  [optional]
 **foundation** | **Boolean** |  |  [optional]
 **foundationHeme** | **Boolean** |  |  [optional]
+**geneAliases** | **List&lt;String&gt;** |  |  [optional]
 **grch37Isoform** | **String** |  |  [optional]
 **grch37RefSeq** | **String** |  |  [optional]
 **grch38Isoform** | **String** |  |  [optional]

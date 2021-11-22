@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CancerGene
@@ -37,6 +39,9 @@ public class CancerGene {
 
   @SerializedName("foundationHeme")
   private Boolean foundationHeme = null;
+
+  @SerializedName("geneAliases")
+  private List<String> geneAliases = null;
 
   @SerializedName("grch37Isoform")
   private String grch37Isoform = null;
@@ -129,6 +134,32 @@ public class CancerGene {
 
   public void setFoundationHeme(Boolean foundationHeme) {
     this.foundationHeme = foundationHeme;
+  }
+
+  public CancerGene geneAliases(List<String> geneAliases) {
+    this.geneAliases = geneAliases;
+    return this;
+  }
+
+  public CancerGene addGeneAliasesItem(String geneAliasesItem) {
+    if (this.geneAliases == null) {
+      this.geneAliases = new ArrayList<String>();
+    }
+    this.geneAliases.add(geneAliasesItem);
+    return this;
+  }
+
+   /**
+   * Get geneAliases
+   * @return geneAliases
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getGeneAliases() {
+    return geneAliases;
+  }
+
+  public void setGeneAliases(List<String> geneAliases) {
+    this.geneAliases = geneAliases;
   }
 
   public CancerGene grch37Isoform(String grch37Isoform) {
@@ -378,6 +409,7 @@ public class CancerGene {
     return Objects.equals(this.entrezGeneId, cancerGene.entrezGeneId) &&
         Objects.equals(this.foundation, cancerGene.foundation) &&
         Objects.equals(this.foundationHeme, cancerGene.foundationHeme) &&
+        Objects.equals(this.geneAliases, cancerGene.geneAliases) &&
         Objects.equals(this.grch37Isoform, cancerGene.grch37Isoform) &&
         Objects.equals(this.grch37RefSeq, cancerGene.grch37RefSeq) &&
         Objects.equals(this.grch38Isoform, cancerGene.grch38Isoform) &&
@@ -395,7 +427,7 @@ public class CancerGene {
 
   @Override
   public int hashCode() {
-    return Objects.hash(entrezGeneId, foundation, foundationHeme, grch37Isoform, grch37RefSeq, grch38Isoform, grch38RefSeq, hugoSymbol, mSKHeme, mSKImpact, occurrenceCount, oncogene, oncokbAnnotated, sangerCGC, tsg, vogelstein);
+    return Objects.hash(entrezGeneId, foundation, foundationHeme, geneAliases, grch37Isoform, grch37RefSeq, grch38Isoform, grch38RefSeq, hugoSymbol, mSKHeme, mSKImpact, occurrenceCount, oncogene, oncokbAnnotated, sangerCGC, tsg, vogelstein);
   }
 
 
@@ -407,6 +439,7 @@ public class CancerGene {
     sb.append("    entrezGeneId: ").append(toIndentedString(entrezGeneId)).append("\n");
     sb.append("    foundation: ").append(toIndentedString(foundation)).append("\n");
     sb.append("    foundationHeme: ").append(toIndentedString(foundationHeme)).append("\n");
+    sb.append("    geneAliases: ").append(toIndentedString(geneAliases)).append("\n");
     sb.append("    grch37Isoform: ").append(toIndentedString(grch37Isoform)).append("\n");
     sb.append("    grch37RefSeq: ").append(toIndentedString(grch37RefSeq)).append("\n");
     sb.append("    grch38Isoform: ").append(toIndentedString(grch38Isoform)).append("\n");
