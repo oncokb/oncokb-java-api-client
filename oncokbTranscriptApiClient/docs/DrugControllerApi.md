@@ -1,17 +1,17 @@
-# GeneControllerApi
+# DrugControllerApi
 
 All URIs are relative to *https://transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findGeneBySymbolUsingGET**](GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene | findGeneBySymbol
-[**findGenesBySymbolsUsingPOST**](GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-gene | findGenesBySymbols
+[**findDrugByCodeUsingGET**](DrugControllerApi.md#findDrugByCodeUsingGET) | **GET** /api/drugs/search-by-code/{code} | findDrugByCode
+[**findDrugsUsingGET**](DrugControllerApi.md#findDrugsUsingGET) | **GET** /api/drugs/search | findDrugs
 
-<a name="findGeneBySymbolUsingGET"></a>
-# **findGeneBySymbolUsingGET**
-> Gene findGeneBySymbolUsingGET(symbol)
+<a name="findDrugByCodeUsingGET"></a>
+# **findDrugByCodeUsingGET**
+> Drug findDrugByCodeUsingGET(code)
 
-findGeneBySymbol
+findDrugByCode
 
 ### Example
 ```java
@@ -20,18 +20,18 @@ findGeneBySymbol
 //import org.oncokb.oncokb_transcript.ApiException;
 //import org.oncokb.oncokb_transcript.Configuration;
 //import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.GeneControllerApi;
+//import org.oncokb.oncokb_transcript.client.DrugControllerApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
-GeneControllerApi apiInstance = new GeneControllerApi();
-String symbol = "symbol_example"; // String | symbol
+DrugControllerApi apiInstance = new DrugControllerApi();
+String code = "code_example"; // String | code
 try {
-    Gene result = apiInstance.findGeneBySymbolUsingGET(symbol);
+    Drug result = apiInstance.findDrugByCodeUsingGET(code);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling GeneControllerApi#findGeneBySymbolUsingGET");
+    System.err.println("Exception when calling DrugControllerApi#findDrugByCodeUsingGET");
     e.printStackTrace();
 }
 ```
@@ -40,11 +40,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbol** | **String**| symbol |
+ **code** | **String**| code |
 
 ### Return type
 
-[**Gene**](Gene.md)
+[**Drug**](Drug.md)
 
 ### Authorization
 
@@ -55,11 +55,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="findGenesBySymbolsUsingPOST"></a>
-# **findGenesBySymbolsUsingPOST**
-> List&lt;Gene&gt; findGenesBySymbolsUsingPOST(body)
+<a name="findDrugsUsingGET"></a>
+# **findDrugsUsingGET**
+> List&lt;Drug&gt; findDrugsUsingGET(query)
 
-findGenesBySymbols
+findDrugs
 
 ### Example
 ```java
@@ -68,18 +68,18 @@ findGenesBySymbols
 //import org.oncokb.oncokb_transcript.ApiException;
 //import org.oncokb.oncokb_transcript.Configuration;
 //import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.GeneControllerApi;
+//import org.oncokb.oncokb_transcript.client.DrugControllerApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
-GeneControllerApi apiInstance = new GeneControllerApi();
-List<String> body = Arrays.asList("body_example"); // List<String> | 
+DrugControllerApi apiInstance = new DrugControllerApi();
+String query = "query_example"; // String | query
 try {
-    List<Gene> result = apiInstance.findGenesBySymbolsUsingPOST(body);
+    List<Drug> result = apiInstance.findDrugsUsingGET(query);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling GeneControllerApi#findGenesBySymbolsUsingPOST");
+    System.err.println("Exception when calling DrugControllerApi#findDrugsUsingGET");
     e.printStackTrace();
 }
 ```
@@ -88,11 +88,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;String&gt;**](String.md)|  | [optional]
+ **query** | **String**| query |
 
 ### Return type
 
-[**List&lt;Gene&gt;**](Gene.md)
+[**List&lt;Drug&gt;**](Drug.md)
 
 ### Authorization
 
@@ -100,6 +100,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: */*
 

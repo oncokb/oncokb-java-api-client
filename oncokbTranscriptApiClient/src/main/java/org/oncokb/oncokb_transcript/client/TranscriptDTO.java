@@ -24,16 +24,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.oncokb.oncokb_transcript.client.GenomeFragment;
-import org.oncokb.oncokb_transcript.client.Sequence;
-import org.oncokb.oncokb_transcript.client.TranscriptUsage;
 /**
- * Transcript
+ * TranscriptDTO
  */
 
 
-public class Transcript {
+public class TranscriptDTO {
+  @SerializedName("chromosome")
+  private String chromosome = null;
+
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("end")
+  private Integer end = null;
 
   @SerializedName("ensemblProteinId")
   private String ensemblProteinId = null;
@@ -44,8 +48,8 @@ public class Transcript {
   @SerializedName("entrezGeneId")
   private Integer entrezGeneId = null;
 
-  @SerializedName("fragments")
-  private List<GenomeFragment> fragments = null;
+  @SerializedName("exons")
+  private List<GenomeFragment> exons = null;
 
   @SerializedName("hugoSymbol")
   private String hugoSymbol = null;
@@ -100,13 +104,34 @@ public class Transcript {
   @SerializedName("referenceSequenceId")
   private String referenceSequenceId = null;
 
-  @SerializedName("sequences")
-  private List<Sequence> sequences = null;
+  @SerializedName("start")
+  private Integer start = null;
 
-  @SerializedName("transcriptUsages")
-  private List<TranscriptUsage> transcriptUsages = null;
+  @SerializedName("strand")
+  private Integer strand = null;
 
-  public Transcript description(String description) {
+  @SerializedName("utrs")
+  private List<GenomeFragment> utrs = null;
+
+  public TranscriptDTO chromosome(String chromosome) {
+    this.chromosome = chromosome;
+    return this;
+  }
+
+   /**
+   * Get chromosome
+   * @return chromosome
+  **/
+  @Schema(description = "")
+  public String getChromosome() {
+    return chromosome;
+  }
+
+  public void setChromosome(String chromosome) {
+    this.chromosome = chromosome;
+  }
+
+  public TranscriptDTO description(String description) {
     this.description = description;
     return this;
   }
@@ -124,7 +149,25 @@ public class Transcript {
     this.description = description;
   }
 
-  public Transcript ensemblProteinId(String ensemblProteinId) {
+  public TranscriptDTO end(Integer end) {
+    this.end = end;
+    return this;
+  }
+
+   /**
+   * Get end
+   * @return end
+  **/
+  @Schema(description = "")
+  public Integer getEnd() {
+    return end;
+  }
+
+  public void setEnd(Integer end) {
+    this.end = end;
+  }
+
+  public TranscriptDTO ensemblProteinId(String ensemblProteinId) {
     this.ensemblProteinId = ensemblProteinId;
     return this;
   }
@@ -142,7 +185,7 @@ public class Transcript {
     this.ensemblProteinId = ensemblProteinId;
   }
 
-  public Transcript ensemblTranscriptId(String ensemblTranscriptId) {
+  public TranscriptDTO ensemblTranscriptId(String ensemblTranscriptId) {
     this.ensemblTranscriptId = ensemblTranscriptId;
     return this;
   }
@@ -160,7 +203,7 @@ public class Transcript {
     this.ensemblTranscriptId = ensemblTranscriptId;
   }
 
-  public Transcript entrezGeneId(Integer entrezGeneId) {
+  public TranscriptDTO entrezGeneId(Integer entrezGeneId) {
     this.entrezGeneId = entrezGeneId;
     return this;
   }
@@ -178,33 +221,33 @@ public class Transcript {
     this.entrezGeneId = entrezGeneId;
   }
 
-  public Transcript fragments(List<GenomeFragment> fragments) {
-    this.fragments = fragments;
+  public TranscriptDTO exons(List<GenomeFragment> exons) {
+    this.exons = exons;
     return this;
   }
 
-  public Transcript addFragmentsItem(GenomeFragment fragmentsItem) {
-    if (this.fragments == null) {
-      this.fragments = new ArrayList<GenomeFragment>();
+  public TranscriptDTO addExonsItem(GenomeFragment exonsItem) {
+    if (this.exons == null) {
+      this.exons = new ArrayList<GenomeFragment>();
     }
-    this.fragments.add(fragmentsItem);
+    this.exons.add(exonsItem);
     return this;
   }
 
    /**
-   * Get fragments
-   * @return fragments
+   * Get exons
+   * @return exons
   **/
   @Schema(description = "")
-  public List<GenomeFragment> getFragments() {
-    return fragments;
+  public List<GenomeFragment> getExons() {
+    return exons;
   }
 
-  public void setFragments(List<GenomeFragment> fragments) {
-    this.fragments = fragments;
+  public void setExons(List<GenomeFragment> exons) {
+    this.exons = exons;
   }
 
-  public Transcript hugoSymbol(String hugoSymbol) {
+  public TranscriptDTO hugoSymbol(String hugoSymbol) {
     this.hugoSymbol = hugoSymbol;
     return this;
   }
@@ -222,7 +265,7 @@ public class Transcript {
     this.hugoSymbol = hugoSymbol;
   }
 
-  public Transcript id(Long id) {
+  public TranscriptDTO id(Long id) {
     this.id = id;
     return this;
   }
@@ -240,7 +283,7 @@ public class Transcript {
     this.id = id;
   }
 
-  public Transcript referenceGenome(ReferenceGenomeEnum referenceGenome) {
+  public TranscriptDTO referenceGenome(ReferenceGenomeEnum referenceGenome) {
     this.referenceGenome = referenceGenome;
     return this;
   }
@@ -258,7 +301,7 @@ public class Transcript {
     this.referenceGenome = referenceGenome;
   }
 
-  public Transcript referenceSequenceId(String referenceSequenceId) {
+  public TranscriptDTO referenceSequenceId(String referenceSequenceId) {
     this.referenceSequenceId = referenceSequenceId;
     return this;
   }
@@ -276,56 +319,66 @@ public class Transcript {
     this.referenceSequenceId = referenceSequenceId;
   }
 
-  public Transcript sequences(List<Sequence> sequences) {
-    this.sequences = sequences;
-    return this;
-  }
-
-  public Transcript addSequencesItem(Sequence sequencesItem) {
-    if (this.sequences == null) {
-      this.sequences = new ArrayList<Sequence>();
-    }
-    this.sequences.add(sequencesItem);
+  public TranscriptDTO start(Integer start) {
+    this.start = start;
     return this;
   }
 
    /**
-   * Get sequences
-   * @return sequences
+   * Get start
+   * @return start
   **/
   @Schema(description = "")
-  public List<Sequence> getSequences() {
-    return sequences;
+  public Integer getStart() {
+    return start;
   }
 
-  public void setSequences(List<Sequence> sequences) {
-    this.sequences = sequences;
+  public void setStart(Integer start) {
+    this.start = start;
   }
 
-  public Transcript transcriptUsages(List<TranscriptUsage> transcriptUsages) {
-    this.transcriptUsages = transcriptUsages;
-    return this;
-  }
-
-  public Transcript addTranscriptUsagesItem(TranscriptUsage transcriptUsagesItem) {
-    if (this.transcriptUsages == null) {
-      this.transcriptUsages = new ArrayList<TranscriptUsage>();
-    }
-    this.transcriptUsages.add(transcriptUsagesItem);
+  public TranscriptDTO strand(Integer strand) {
+    this.strand = strand;
     return this;
   }
 
    /**
-   * Get transcriptUsages
-   * @return transcriptUsages
+   * Get strand
+   * @return strand
   **/
   @Schema(description = "")
-  public List<TranscriptUsage> getTranscriptUsages() {
-    return transcriptUsages;
+  public Integer getStrand() {
+    return strand;
   }
 
-  public void setTranscriptUsages(List<TranscriptUsage> transcriptUsages) {
-    this.transcriptUsages = transcriptUsages;
+  public void setStrand(Integer strand) {
+    this.strand = strand;
+  }
+
+  public TranscriptDTO utrs(List<GenomeFragment> utrs) {
+    this.utrs = utrs;
+    return this;
+  }
+
+  public TranscriptDTO addUtrsItem(GenomeFragment utrsItem) {
+    if (this.utrs == null) {
+      this.utrs = new ArrayList<GenomeFragment>();
+    }
+    this.utrs.add(utrsItem);
+    return this;
+  }
+
+   /**
+   * Get utrs
+   * @return utrs
+  **/
+  @Schema(description = "")
+  public List<GenomeFragment> getUtrs() {
+    return utrs;
+  }
+
+  public void setUtrs(List<GenomeFragment> utrs) {
+    this.utrs = utrs;
   }
 
 
@@ -337,42 +390,48 @@ public class Transcript {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Transcript transcript = (Transcript) o;
-    return Objects.equals(this.description, transcript.description) &&
-        Objects.equals(this.ensemblProteinId, transcript.ensemblProteinId) &&
-        Objects.equals(this.ensemblTranscriptId, transcript.ensemblTranscriptId) &&
-        Objects.equals(this.entrezGeneId, transcript.entrezGeneId) &&
-        Objects.equals(this.fragments, transcript.fragments) &&
-        Objects.equals(this.hugoSymbol, transcript.hugoSymbol) &&
-        Objects.equals(this.id, transcript.id) &&
-        Objects.equals(this.referenceGenome, transcript.referenceGenome) &&
-        Objects.equals(this.referenceSequenceId, transcript.referenceSequenceId) &&
-        Objects.equals(this.sequences, transcript.sequences) &&
-        Objects.equals(this.transcriptUsages, transcript.transcriptUsages);
+    TranscriptDTO transcriptDTO = (TranscriptDTO) o;
+    return Objects.equals(this.chromosome, transcriptDTO.chromosome) &&
+        Objects.equals(this.description, transcriptDTO.description) &&
+        Objects.equals(this.end, transcriptDTO.end) &&
+        Objects.equals(this.ensemblProteinId, transcriptDTO.ensemblProteinId) &&
+        Objects.equals(this.ensemblTranscriptId, transcriptDTO.ensemblTranscriptId) &&
+        Objects.equals(this.entrezGeneId, transcriptDTO.entrezGeneId) &&
+        Objects.equals(this.exons, transcriptDTO.exons) &&
+        Objects.equals(this.hugoSymbol, transcriptDTO.hugoSymbol) &&
+        Objects.equals(this.id, transcriptDTO.id) &&
+        Objects.equals(this.referenceGenome, transcriptDTO.referenceGenome) &&
+        Objects.equals(this.referenceSequenceId, transcriptDTO.referenceSequenceId) &&
+        Objects.equals(this.start, transcriptDTO.start) &&
+        Objects.equals(this.strand, transcriptDTO.strand) &&
+        Objects.equals(this.utrs, transcriptDTO.utrs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, ensemblProteinId, ensemblTranscriptId, entrezGeneId, fragments, hugoSymbol, id, referenceGenome, referenceSequenceId, sequences, transcriptUsages);
+    return Objects.hash(chromosome, description, end, ensemblProteinId, ensemblTranscriptId, entrezGeneId, exons, hugoSymbol, id, referenceGenome, referenceSequenceId, start, strand, utrs);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Transcript {\n");
+    sb.append("class TranscriptDTO {\n");
     
+    sb.append("    chromosome: ").append(toIndentedString(chromosome)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    ensemblProteinId: ").append(toIndentedString(ensemblProteinId)).append("\n");
     sb.append("    ensemblTranscriptId: ").append(toIndentedString(ensemblTranscriptId)).append("\n");
     sb.append("    entrezGeneId: ").append(toIndentedString(entrezGeneId)).append("\n");
-    sb.append("    fragments: ").append(toIndentedString(fragments)).append("\n");
+    sb.append("    exons: ").append(toIndentedString(exons)).append("\n");
     sb.append("    hugoSymbol: ").append(toIndentedString(hugoSymbol)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    referenceGenome: ").append(toIndentedString(referenceGenome)).append("\n");
     sb.append("    referenceSequenceId: ").append(toIndentedString(referenceSequenceId)).append("\n");
-    sb.append("    sequences: ").append(toIndentedString(sequences)).append("\n");
-    sb.append("    transcriptUsages: ").append(toIndentedString(transcriptUsages)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    strand: ").append(toIndentedString(strand)).append("\n");
+    sb.append("    utrs: ").append(toIndentedString(utrs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

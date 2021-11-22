@@ -1,19 +1,22 @@
-# Transcript
+# TranscriptDTO
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**chromosome** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
+**end** | **Integer** |  |  [optional]
 **ensemblProteinId** | **String** |  |  [optional]
 **ensemblTranscriptId** | **String** |  |  [optional]
 **entrezGeneId** | **Integer** |  | 
-**fragments** | [**List&lt;GenomeFragment&gt;**](GenomeFragment.md) |  |  [optional]
+**exons** | [**List&lt;GenomeFragment&gt;**](GenomeFragment.md) |  |  [optional]
 **hugoSymbol** | **String** |  | 
 **id** | **Long** |  |  [optional]
 **referenceGenome** | [**ReferenceGenomeEnum**](#ReferenceGenomeEnum) |  | 
 **referenceSequenceId** | **String** |  |  [optional]
-**sequences** | [**List&lt;Sequence&gt;**](Sequence.md) |  |  [optional]
-**transcriptUsages** | [**List&lt;TranscriptUsage&gt;**](TranscriptUsage.md) |  |  [optional]
+**start** | **Integer** |  |  [optional]
+**strand** | **Integer** |  |  [optional]
+**utrs** | [**List&lt;GenomeFragment&gt;**](GenomeFragment.md) |  |  [optional]
 
 <a name="ReferenceGenomeEnum"></a>
 ## Enum: ReferenceGenomeEnum
