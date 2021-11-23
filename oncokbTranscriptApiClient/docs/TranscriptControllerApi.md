@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**compareEnsemblTranscriptUsingPOST**](TranscriptControllerApi.md#compareEnsemblTranscriptUsingPOST) | **POST** /api/compare-ensembl-transcript | compareEnsemblTranscript
 [**compareTranscriptUsingPOST**](TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
 [**findGrch38VariantUsingGET**](TranscriptControllerApi.md#findGrch38VariantUsingGET) | **GET** /api/find-grch38-variant | findGrch38Variant
+[**findTranscriptsByEnsemblIdsUsingPOST**](TranscriptControllerApi.md#findTranscriptsByEnsemblIdsUsingPOST) | **POST** /api/find-transcripts-by-ensembl-ids | findTranscriptsByEnsemblIds
 [**getAlignmentsUsingPOST**](TranscriptControllerApi.md#getAlignmentsUsingPOST) | **POST** /api/get-alignments/{hugoSymbol} | getAlignments
 [**getTranscriptUsingGET**](TranscriptControllerApi.md#getTranscriptUsingGET) | **GET** /api/get-sequence | getTranscript
 [**getTranscriptUsingGET1**](TranscriptControllerApi.md#getTranscriptUsingGET1) | **GET** /api/get-transcript/{hugoSymbol} | getTranscript
@@ -164,6 +165,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="findTranscriptsByEnsemblIdsUsingPOST"></a>
+# **findTranscriptsByEnsemblIdsUsingPOST**
+> List&lt;TranscriptDTO&gt; findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body)
+
+findTranscriptsByEnsemblIds
+
+### Example
+```java
+// Import classes:
+//import org.oncokb.oncokb_transcript.ApiClient;
+//import org.oncokb.oncokb_transcript.ApiException;
+//import org.oncokb.oncokb_transcript.Configuration;
+//import org.oncokb.oncokb_transcript.auth.*;
+//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+TranscriptControllerApi apiInstance = new TranscriptControllerApi();
+String referenceGenome = "referenceGenome_example"; // String | referenceGenome
+List<String> body = Arrays.asList("body_example"); // List<String> | 
+try {
+    List<TranscriptDTO> result = apiInstance.findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TranscriptControllerApi#findTranscriptsByEnsemblIdsUsingPOST");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
+ **body** | [**List&lt;String&gt;**](String.md)|  | [optional]
+
+### Return type
+
+[**List&lt;TranscriptDTO&gt;**](TranscriptDTO.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 <a name="getAlignmentsUsingPOST"></a>

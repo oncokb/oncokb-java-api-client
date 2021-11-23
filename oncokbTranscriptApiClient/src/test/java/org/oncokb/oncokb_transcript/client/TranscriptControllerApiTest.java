@@ -18,6 +18,7 @@ import org.oncokb.oncokb_transcript.client.EnrichedAlignmentResult;
 import org.oncokb.oncokb_transcript.client.MatchTranscriptVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonResultVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonVM;
+import org.oncokb.oncokb_transcript.client.TranscriptDTO;
 import org.oncokb.oncokb_transcript.client.TranscriptMatchResultVM;
 import org.oncokb.oncokb_transcript.client.TranscriptResultVM;
 import org.oncokb.oncokb_transcript.client.TranscriptSuggestionVM;
@@ -83,6 +84,22 @@ public class TranscriptControllerApiTest {
         String grch37ProteinId = null;
         String grch38ProteinId = null;
         TranscriptSuggestionVM response = api.findGrch38VariantUsingGET(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId);
+
+        // TODO: test validations
+    }
+    /**
+     * findTranscriptsByEnsemblIds
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findTranscriptsByEnsemblIdsUsingPOSTTest() throws ApiException {
+        String referenceGenome = null;
+        List<String> body = null;
+        List<TranscriptDTO> response = api.findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body);
 
         // TODO: test validations
     }

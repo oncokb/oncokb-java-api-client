@@ -94,6 +94,30 @@ public class AccountResourceApiExample {
         }
     }
 }
+import org.oncokb.oncokb_transcript.*;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.client.*;
+import org.oncokb.oncokb_transcript.client.AccountResourceApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AccountResourceApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        AccountResourceApi apiInstance = new AccountResourceApi();
+        try {
+            String result = apiInstance.isAuthenticatedUsingGET();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountResourceApi#isAuthenticatedUsingGET");
+            e.printStackTrace();
+        }
+    }
+}
 ```
 
 ## Documentation for API Endpoints
@@ -103,40 +127,24 @@ All URIs are relative to *https://transcript.oncokb.org:443*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountResourceApi* | [**getAccountUsingGET**](docs/AccountResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
-*DrugResourceApi* | [**createDrugUsingPOST**](docs/DrugResourceApi.md#createDrugUsingPOST) | **POST** /api/drugs | createDrug
-*DrugResourceApi* | [**deleteDrugUsingDELETE**](docs/DrugResourceApi.md#deleteDrugUsingDELETE) | **DELETE** /api/drugs/{id} | deleteDrug
-*DrugResourceApi* | [**findDrugByCodeUsingGET**](docs/DrugResourceApi.md#findDrugByCodeUsingGET) | **GET** /api/drugs/search-by-code/{code} | findDrugByCode
-*DrugResourceApi* | [**findDrugsUsingGET**](docs/DrugResourceApi.md#findDrugsUsingGET) | **GET** /api/drugs/search/{query} | findDrugs
-*DrugResourceApi* | [**getAllDrugsUsingGET**](docs/DrugResourceApi.md#getAllDrugsUsingGET) | **GET** /api/drugs | getAllDrugs
-*DrugResourceApi* | [**getDrugUsingGET**](docs/DrugResourceApi.md#getDrugUsingGET) | **GET** /api/drugs/{id} | getDrug
-*DrugResourceApi* | [**partialUpdateDrugUsingPATCH**](docs/DrugResourceApi.md#partialUpdateDrugUsingPATCH) | **PATCH** /api/drugs/{id} | partialUpdateDrug
-*DrugResourceApi* | [**updateDrugUsingPUT**](docs/DrugResourceApi.md#updateDrugUsingPUT) | **PUT** /api/drugs/{id} | updateDrug
-*GeneControllerApi* | [**findGeneBySymbolUsingGET**](docs/GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene/{symbol} | findGeneBySymbol
+*AccountResourceApi* | [**isAuthenticatedUsingGET**](docs/AccountResourceApi.md#isAuthenticatedUsingGET) | **GET** /api/authenticate | isAuthenticated
+*DrugControllerApi* | [**findDrugByCodeUsingGET**](docs/DrugControllerApi.md#findDrugByCodeUsingGET) | **GET** /api/drugs/search-by-code/{code} | findDrugByCode
+*DrugControllerApi* | [**findDrugsUsingGET**](docs/DrugControllerApi.md#findDrugsUsingGET) | **GET** /api/drugs/search | findDrugs
+*GeneControllerApi* | [**findGeneBySymbolUsingGET**](docs/GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene | findGeneBySymbol
 *GeneControllerApi* | [**findGenesBySymbolsUsingPOST**](docs/GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-gene | findGenesBySymbols
 *PipelineControllerApi* | [**updateNcitUsingPOST**](docs/PipelineControllerApi.md#updateNcitUsingPOST) | **POST** /api/pipeline/update-ncit | updateNcit
 *PipelineControllerApi* | [**updatePortalGeneUsingPOST**](docs/PipelineControllerApi.md#updatePortalGeneUsingPOST) | **POST** /api/pipeline/update-gene | updatePortalGene
-*SequenceResourceApi* | [**createSequenceUsingPOST**](docs/SequenceResourceApi.md#createSequenceUsingPOST) | **POST** /api/sequences | createSequence
-*SequenceResourceApi* | [**deleteSequenceUsingDELETE**](docs/SequenceResourceApi.md#deleteSequenceUsingDELETE) | **DELETE** /api/sequences/{id} | deleteSequence
-*SequenceResourceApi* | [**getAllSequencesUsingGET**](docs/SequenceResourceApi.md#getAllSequencesUsingGET) | **GET** /api/sequences | getAllSequences
-*SequenceResourceApi* | [**getAllSequencesUsingGET1**](docs/SequenceResourceApi.md#getAllSequencesUsingGET1) | **GET** /api/sequences-by-usage-source | getAllSequences
-*SequenceResourceApi* | [**getSequenceUsingGET**](docs/SequenceResourceApi.md#getSequenceUsingGET) | **GET** /api/sequences/{id} | getSequence
-*SequenceResourceApi* | [**partialUpdateSequenceUsingPATCH**](docs/SequenceResourceApi.md#partialUpdateSequenceUsingPATCH) | **PATCH** /api/sequences/{id} | partialUpdateSequence
-*SequenceResourceApi* | [**updateSequenceUsingPUT**](docs/SequenceResourceApi.md#updateSequenceUsingPUT) | **PUT** /api/sequences/{id} | updateSequence
+*SequenceControllerApi* | [**findSequencesByUsageSourceUsingGET**](docs/SequenceControllerApi.md#findSequencesByUsageSourceUsingGET) | **GET** /api/sequences-by-usage-source | findSequencesByUsageSource
 *TranscriptControllerApi* | [**compareEnsemblTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareEnsemblTranscriptUsingPOST) | **POST** /api/compare-ensembl-transcript | compareEnsemblTranscript
 *TranscriptControllerApi* | [**compareTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
 *TranscriptControllerApi* | [**findGrch38VariantUsingGET**](docs/TranscriptControllerApi.md#findGrch38VariantUsingGET) | **GET** /api/find-grch38-variant | findGrch38Variant
+*TranscriptControllerApi* | [**findTranscriptsByEnsemblIdsUsingPOST**](docs/TranscriptControllerApi.md#findTranscriptsByEnsemblIdsUsingPOST) | **POST** /api/find-transcripts-by-ensembl-ids | findTranscriptsByEnsemblIds
 *TranscriptControllerApi* | [**getAlignmentsUsingPOST**](docs/TranscriptControllerApi.md#getAlignmentsUsingPOST) | **POST** /api/get-alignments/{hugoSymbol} | getAlignments
 *TranscriptControllerApi* | [**getTranscriptUsingGET**](docs/TranscriptControllerApi.md#getTranscriptUsingGET) | **GET** /api/get-sequence | getTranscript
 *TranscriptControllerApi* | [**getTranscriptUsingGET1**](docs/TranscriptControllerApi.md#getTranscriptUsingGET1) | **GET** /api/get-transcript/{hugoSymbol} | getTranscript
 *TranscriptControllerApi* | [**matchTranscriptUsingPOST**](docs/TranscriptControllerApi.md#matchTranscriptUsingPOST) | **POST** /api/match-transcript/{hugoSymbol} | matchTranscript
 *TranscriptControllerApi* | [**suggestVariantUsingGET**](docs/TranscriptControllerApi.md#suggestVariantUsingGET) | **GET** /api/suggest-variant/{hugoSymbol} | suggestVariant
 *TranscriptControllerApi* | [**updateTranscriptUsageUsingPOST**](docs/TranscriptControllerApi.md#updateTranscriptUsageUsingPOST) | **POST** /api/update-transcript-usage-source | updateTranscriptUsage
-*TranscriptResourceApi* | [**createTranscriptUsingPOST**](docs/TranscriptResourceApi.md#createTranscriptUsingPOST) | **POST** /api/transcripts | createTranscript
-*TranscriptResourceApi* | [**deleteTranscriptUsingDELETE**](docs/TranscriptResourceApi.md#deleteTranscriptUsingDELETE) | **DELETE** /api/transcripts/{id} | deleteTranscript
-*TranscriptResourceApi* | [**getAllTranscriptsUsingGET**](docs/TranscriptResourceApi.md#getAllTranscriptsUsingGET) | **GET** /api/transcripts | getAllTranscripts
-*TranscriptResourceApi* | [**getTranscriptUsingGET2**](docs/TranscriptResourceApi.md#getTranscriptUsingGET2) | **GET** /api/transcripts/{id} | getTranscript
-*TranscriptResourceApi* | [**partialUpdateTranscriptUsingPATCH**](docs/TranscriptResourceApi.md#partialUpdateTranscriptUsingPATCH) | **PATCH** /api/transcripts/{id} | partialUpdateTranscript
-*TranscriptResourceApi* | [**updateTranscriptUsingPUT**](docs/TranscriptResourceApi.md#updateTranscriptUsingPUT) | **PUT** /api/transcripts/{id} | updateTranscript
 
 ## Documentation for Models
 
@@ -148,12 +156,14 @@ Class | Method | HTTP request | Description
  - [Exon](docs/Exon.md)
  - [Gene](docs/Gene.md)
  - [GeneAlias](docs/GeneAlias.md)
+ - [GenomeFragment](docs/GenomeFragment.md)
  - [MatchTranscriptVM](docs/MatchTranscriptVM.md)
  - [PfamDomainRange](docs/PfamDomainRange.md)
  - [Sequence](docs/Sequence.md)
  - [Transcript](docs/Transcript.md)
  - [TranscriptComparisonResultVM](docs/TranscriptComparisonResultVM.md)
  - [TranscriptComparisonVM](docs/TranscriptComparisonVM.md)
+ - [TranscriptDTO](docs/TranscriptDTO.md)
  - [TranscriptMatchResultVM](docs/TranscriptMatchResultVM.md)
  - [TranscriptPairVM](docs/TranscriptPairVM.md)
  - [TranscriptResultVM](docs/TranscriptResultVM.md)

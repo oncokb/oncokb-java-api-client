@@ -13,7 +13,7 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.ApiException;
-import org.oncokb.oncokb_transcript.client.UserVM;
+import org.oncokb.oncokb_transcript.client.Sequence;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -23,15 +23,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for AccountResourceApi
+ * API tests for SequenceControllerApi
  */
 @Ignore
-public class AccountResourceApiTest {
+public class SequenceControllerApiTest {
 
-    private final AccountResourceApi api = new AccountResourceApi();
+    private final SequenceControllerApi api = new SequenceControllerApi();
 
     /**
-     * getAccount
+     * findSequencesByUsageSource
      *
      * 
      *
@@ -39,22 +39,11 @@ public class AccountResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getAccountUsingGETTest() throws ApiException {
-        UserVM response = api.getAccountUsingGET();
-
-        // TODO: test validations
-    }
-    /**
-     * isAuthenticated
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void isAuthenticatedUsingGETTest() throws ApiException {
-        String response = api.isAuthenticatedUsingGET();
+    public void findSequencesByUsageSourceUsingGETTest() throws ApiException {
+        String referenceGenome = null;
+        String usageSource = null;
+        String hugoSymbol = null;
+        List<Sequence> response = api.findSequencesByUsageSourceUsingGET(referenceGenome, usageSource, hugoSymbol);
 
         // TODO: test validations
     }

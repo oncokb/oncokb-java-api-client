@@ -13,7 +13,7 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.ApiException;
-import org.oncokb.oncokb_transcript.client.UserVM;
+import org.oncokb.oncokb_transcript.client.Drug;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -23,15 +23,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for AccountResourceApi
+ * API tests for DrugControllerApi
  */
 @Ignore
-public class AccountResourceApiTest {
+public class DrugControllerApiTest {
 
-    private final AccountResourceApi api = new AccountResourceApi();
+    private final DrugControllerApi api = new DrugControllerApi();
 
     /**
-     * getAccount
+     * findDrugByCode
      *
      * 
      *
@@ -39,13 +39,14 @@ public class AccountResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getAccountUsingGETTest() throws ApiException {
-        UserVM response = api.getAccountUsingGET();
+    public void findDrugByCodeUsingGETTest() throws ApiException {
+        String code = null;
+        Drug response = api.findDrugByCodeUsingGET(code);
 
         // TODO: test validations
     }
     /**
-     * isAuthenticated
+     * findDrugs
      *
      * 
      *
@@ -53,8 +54,9 @@ public class AccountResourceApiTest {
      *          if the Api call fails
      */
     @Test
-    public void isAuthenticatedUsingGETTest() throws ApiException {
-        String response = api.isAuthenticatedUsingGET();
+    public void findDrugsUsingGETTest() throws ApiException {
+        String query = null;
+        List<Drug> response = api.findDrugsUsingGET(query);
 
         // TODO: test validations
     }
