@@ -24,12 +24,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.oncokb.oncokb_transcript.client.DrugSynonym;
+import java.io.Serializable;
 /**
  * Drug
  */
 
 
-public class Drug {
+public class Drug implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("code")
   private String code = null;
 

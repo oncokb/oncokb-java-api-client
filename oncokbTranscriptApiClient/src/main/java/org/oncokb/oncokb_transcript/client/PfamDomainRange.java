@@ -21,12 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.io.Serializable;
 /**
  * PfamDomainRange
  */
 
 
-public class PfamDomainRange {
+public class PfamDomainRange implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("pfamDomainEnd")
   private Integer pfamDomainEnd = null;
 

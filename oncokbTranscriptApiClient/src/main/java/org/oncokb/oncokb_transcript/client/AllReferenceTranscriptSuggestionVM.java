@@ -22,12 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import org.oncokb.oncokb_transcript.client.TranscriptSuggestionVM;
+import java.io.Serializable;
 /**
  * AllReferenceTranscriptSuggestionVM
  */
 
 
-public class AllReferenceTranscriptSuggestionVM {
+public class AllReferenceTranscriptSuggestionVM implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("grch37")
   private TranscriptSuggestionVM grch37 = null;
 

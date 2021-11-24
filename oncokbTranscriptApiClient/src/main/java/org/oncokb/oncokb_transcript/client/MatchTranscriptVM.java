@@ -22,12 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import org.oncokb.oncokb_transcript.client.TranscriptPairVM;
+import java.io.Serializable;
 /**
  * MatchTranscriptVM
  */
 
 
-public class MatchTranscriptVM {
+public class MatchTranscriptVM implements Serializable{
+  private static final long serialVersionUID = 1L;
   /**
    * Gets or Sets targetReferenceGenome
    */

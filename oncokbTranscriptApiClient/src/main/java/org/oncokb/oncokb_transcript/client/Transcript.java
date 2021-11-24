@@ -26,12 +26,14 @@ import java.util.List;
 import org.oncokb.oncokb_transcript.client.GenomeFragment;
 import org.oncokb.oncokb_transcript.client.Sequence;
 import org.oncokb.oncokb_transcript.client.TranscriptUsage;
+import java.io.Serializable;
 /**
  * Transcript
  */
 
 
-public class Transcript {
+public class Transcript implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("description")
   private String description = null;
 

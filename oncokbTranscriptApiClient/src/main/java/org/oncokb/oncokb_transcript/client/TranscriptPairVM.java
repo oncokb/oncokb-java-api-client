@@ -21,12 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.io.Serializable;
 /**
  * TranscriptPairVM
  */
 
 
-public class TranscriptPairVM {
+public class TranscriptPairVM implements Serializable{
+  private static final long serialVersionUID = 1L;
   /**
    * Gets or Sets referenceGenome
    */

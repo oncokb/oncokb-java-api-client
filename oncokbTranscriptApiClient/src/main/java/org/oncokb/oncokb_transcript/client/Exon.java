@@ -21,12 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.io.Serializable;
 /**
  * Exon
  */
 
 
-public class Exon {
+public class Exon implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("exonEnd")
   private Integer exonEnd = null;
 

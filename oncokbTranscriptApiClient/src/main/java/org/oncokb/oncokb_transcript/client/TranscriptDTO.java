@@ -24,12 +24,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.oncokb.oncokb_transcript.client.GenomeFragment;
+import java.io.Serializable;
 /**
  * TranscriptDTO
  */
 
 
-public class TranscriptDTO {
+public class TranscriptDTO implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("chromosome")
   private String chromosome = null;
 

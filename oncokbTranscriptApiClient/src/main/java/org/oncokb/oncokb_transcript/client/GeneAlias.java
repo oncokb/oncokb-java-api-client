@@ -22,12 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import org.oncokb.oncokb_transcript.client.Gene;
+import java.io.Serializable;
 /**
  * GeneAlias
  */
 
 
-public class GeneAlias {
+public class GeneAlias implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("gene")
   private Gene gene = null;
 

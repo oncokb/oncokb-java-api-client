@@ -26,12 +26,14 @@ import java.util.List;
 import org.oncokb.oncokb_transcript.client.Exon;
 import org.oncokb.oncokb_transcript.client.PfamDomainRange;
 import org.oncokb.oncokb_transcript.client.UntranslatedRegion;
+import java.io.Serializable;
 /**
  * EnsemblTranscript
  */
 
 
-public class EnsemblTranscript {
+public class EnsemblTranscript implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("ccdsId")
   private String ccdsId = null;
 

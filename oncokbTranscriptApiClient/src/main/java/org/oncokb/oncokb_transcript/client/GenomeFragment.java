@@ -22,12 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import org.oncokb.oncokb_transcript.client.Transcript;
+import java.io.Serializable;
 /**
  * GenomeFragment
  */
 
 
-public class GenomeFragment {
+public class GenomeFragment implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("chromosome")
   private String chromosome = null;
 

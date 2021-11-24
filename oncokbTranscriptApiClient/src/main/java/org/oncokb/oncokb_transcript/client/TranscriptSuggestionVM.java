@@ -23,12 +23,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 /**
  * TranscriptSuggestionVM
  */
 
 
-public class TranscriptSuggestionVM {
+public class TranscriptSuggestionVM implements Serializable{
+  private static final long serialVersionUID = 1L;
   @SerializedName("note")
   private String note = null;
 
