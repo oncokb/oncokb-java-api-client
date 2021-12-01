@@ -23,6 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.oncokb.oncokb_transcript.client.EnsemblGene;
 import org.oncokb.oncokb_transcript.client.GeneAlias;
 import java.io.Serializable;
 /**
@@ -32,6 +33,9 @@ import java.io.Serializable;
 
 public class Gene implements Serializable{
   private static final long serialVersionUID = 1L;
+  @SerializedName("ensemblGenes")
+  private List<EnsemblGene> ensemblGenes = null;
+
   @SerializedName("entrezGeneId")
   private Integer entrezGeneId = null;
 
@@ -43,6 +47,32 @@ public class Gene implements Serializable{
 
   @SerializedName("id")
   private Long id = null;
+
+  public Gene ensemblGenes(List<EnsemblGene> ensemblGenes) {
+    this.ensemblGenes = ensemblGenes;
+    return this;
+  }
+
+  public Gene addEnsemblGenesItem(EnsemblGene ensemblGenesItem) {
+    if (this.ensemblGenes == null) {
+      this.ensemblGenes = new ArrayList<EnsemblGene>();
+    }
+    this.ensemblGenes.add(ensemblGenesItem);
+    return this;
+  }
+
+   /**
+   * Get ensemblGenes
+   * @return ensemblGenes
+  **/
+  @Schema(description = "")
+  public List<EnsemblGene> getEnsemblGenes() {
+    return ensemblGenes;
+  }
+
+  public void setEnsemblGenes(List<EnsemblGene> ensemblGenes) {
+    this.ensemblGenes = ensemblGenes;
+  }
 
   public Gene entrezGeneId(Integer entrezGeneId) {
     this.entrezGeneId = entrezGeneId;
@@ -134,7 +164,8 @@ public class Gene implements Serializable{
       return false;
     }
     Gene gene = (Gene) o;
-    return Objects.equals(this.entrezGeneId, gene.entrezGeneId) &&
+    return Objects.equals(this.ensemblGenes, gene.ensemblGenes) &&
+        Objects.equals(this.entrezGeneId, gene.entrezGeneId) &&
         Objects.equals(this.geneAliases, gene.geneAliases) &&
         Objects.equals(this.hugoSymbol, gene.hugoSymbol) &&
         Objects.equals(this.id, gene.id);
@@ -142,7 +173,7 @@ public class Gene implements Serializable{
 
   @Override
   public int hashCode() {
-    return Objects.hash(entrezGeneId, geneAliases, hugoSymbol, id);
+    return Objects.hash(ensemblGenes, entrezGeneId, geneAliases, hugoSymbol, id);
   }
 
 
@@ -151,6 +182,7 @@ public class Gene implements Serializable{
     StringBuilder sb = new StringBuilder();
     sb.append("class Gene {\n");
     
+    sb.append("    ensemblGenes: ").append(toIndentedString(ensemblGenes)).append("\n");
     sb.append("    entrezGeneId: ").append(toIndentedString(entrezGeneId)).append("\n");
     sb.append("    geneAliases: ").append(toIndentedString(geneAliases)).append("\n");
     sb.append("    hugoSymbol: ").append(toIndentedString(hugoSymbol)).append("\n");

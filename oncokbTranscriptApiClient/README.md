@@ -122,7 +122,7 @@ public class AccountResourceApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://transcript.oncokb.org:443*
+All URIs are relative to *http://localhost:9090*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -152,6 +152,7 @@ Class | Method | HTTP request | Description
  - [Drug](docs/Drug.md)
  - [DrugSynonym](docs/DrugSynonym.md)
  - [EnrichedAlignmentResult](docs/EnrichedAlignmentResult.md)
+ - [EnsemblGene](docs/EnsemblGene.md)
  - [EnsemblTranscript](docs/EnsemblTranscript.md)
  - [Exon](docs/Exon.md)
  - [Gene](docs/Gene.md)
