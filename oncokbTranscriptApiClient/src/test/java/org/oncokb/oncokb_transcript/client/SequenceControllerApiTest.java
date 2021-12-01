@@ -12,15 +12,16 @@
 
 package org.oncokb.oncokb_transcript.client;
 
-import org.oncokb.oncokb_transcript.ApiException;
 import org.oncokb.oncokb_transcript.client.Sequence;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * API tests for SequenceControllerApi
@@ -35,11 +36,11 @@ public class SequenceControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void findSequencesByUsageSourceUsingGETTest() throws ApiException {
+    public void findSequencesByUsageSourceUsingGETTest() throws Exception {
         String referenceGenome = null;
         String usageSource = null;
         String hugoSymbol = null;

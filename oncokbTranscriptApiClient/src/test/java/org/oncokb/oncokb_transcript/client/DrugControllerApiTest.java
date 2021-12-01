@@ -12,15 +12,16 @@
 
 package org.oncokb.oncokb_transcript.client;
 
-import org.oncokb.oncokb_transcript.ApiException;
 import org.oncokb.oncokb_transcript.client.Drug;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * API tests for DrugControllerApi
@@ -35,11 +36,11 @@ public class DrugControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void findDrugByCodeUsingGETTest() throws ApiException {
+    public void findDrugByCodeUsingGETTest() throws Exception {
         String code = null;
         Drug response = api.findDrugByCodeUsingGET(code);
 
@@ -50,11 +51,11 @@ public class DrugControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void findDrugsUsingGETTest() throws ApiException {
+    public void findDrugsUsingGETTest() throws Exception {
         String query = null;
         List<Drug> response = api.findDrugsUsingGET(query);
 

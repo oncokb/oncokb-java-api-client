@@ -12,15 +12,16 @@
 
 package org.oncokb.oncokb_transcript.client;
 
-import org.oncokb.oncokb_transcript.ApiException;
 import org.oncokb.oncokb_transcript.client.Gene;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * API tests for GeneControllerApi
@@ -35,11 +36,11 @@ public class GeneControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void findGeneBySymbolUsingGETTest() throws ApiException {
+    public void findGeneBySymbolUsingGETTest() throws Exception {
         String symbol = null;
         Gene response = api.findGeneBySymbolUsingGET(symbol);
 
@@ -50,11 +51,11 @@ public class GeneControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void findGenesBySymbolsUsingPOSTTest() throws ApiException {
+    public void findGenesBySymbolsUsingPOSTTest() throws Exception {
         List<String> body = null;
         List<Gene> response = api.findGenesBySymbolsUsingPOST(body);
 

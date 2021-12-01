@@ -12,15 +12,16 @@
 
 package org.oncokb.oncokb_transcript.client;
 
-import org.oncokb.oncokb_transcript.ApiException;
 import org.oncokb.oncokb_transcript.client.UserVM;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * API tests for AccountResourceApi
@@ -35,11 +36,11 @@ public class AccountResourceApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void getAccountUsingGETTest() throws ApiException {
+    public void getAccountUsingGETTest() throws Exception {
         UserVM response = api.getAccountUsingGET();
 
         // TODO: test validations
@@ -49,11 +50,11 @@ public class AccountResourceApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void isAuthenticatedUsingGETTest() throws ApiException {
+    public void isAuthenticatedUsingGETTest() throws Exception {
         String response = api.isAuthenticatedUsingGET();
 
         // TODO: test validations

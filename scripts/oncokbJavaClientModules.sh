@@ -17,7 +17,7 @@ if [ ! -f ${SWAGGER_CODEGEN_CLI_V2_JAR} ]; then
 fi
 
 if [ ! -f ${SWAGGER_CODEGEN_CLI_V3_JAR} ]; then
-    wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.25/swagger-codegen-cli-3.0.25.jar -O ${SWAGGER_CODEGEN_CLI_V3_JAR}
+    wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.30/swagger-codegen-cli-3.0.30.jar -O ${SWAGGER_CODEGEN_CLI_V3_JAR}
 fi
 
 # remove the modules if available (otherwise some legacy methods in the test will not get removed)

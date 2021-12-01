@@ -51,9 +51,9 @@ public class MatchTranscriptVM implements Serializable{
     public String toString() {
       return String.valueOf(value);
     }
-    public static TargetReferenceGenomeEnum fromValue(String text) {
+    public static TargetReferenceGenomeEnum fromValue(String input) {
       for (TargetReferenceGenomeEnum b : TargetReferenceGenomeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(input)) {
           return b;
         }
       }
@@ -62,13 +62,13 @@ public class MatchTranscriptVM implements Serializable{
     public static class Adapter extends TypeAdapter<TargetReferenceGenomeEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final TargetReferenceGenomeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
       }
 
       @Override
       public TargetReferenceGenomeEnum read(final JsonReader jsonReader) throws IOException {
         Object value = jsonReader.nextString();
-        return TargetReferenceGenomeEnum.fromValue(String.valueOf(value));
+        return TargetReferenceGenomeEnum.fromValue((String)(value));
       }
     }
   }  @SerializedName("targetReferenceGenome")

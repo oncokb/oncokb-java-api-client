@@ -12,7 +12,6 @@
 
 package org.oncokb.oncokb_transcript.client;
 
-import org.oncokb.oncokb_transcript.ApiException;
 import org.oncokb.oncokb_transcript.client.AllReferenceTranscriptSuggestionVM;
 import org.oncokb.oncokb_transcript.client.EnrichedAlignmentResult;
 import org.oncokb.oncokb_transcript.client.MatchTranscriptVM;
@@ -25,10 +24,12 @@ import org.oncokb.oncokb_transcript.client.TranscriptSuggestionVM;
 import org.junit.Test;
 import org.junit.Ignore;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * API tests for TranscriptControllerApi
@@ -43,11 +44,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void compareEnsemblTranscriptUsingPOSTTest() throws ApiException {
+    public void compareEnsemblTranscriptUsingPOSTTest() throws Exception {
         TranscriptComparisonVM body = null;
         TranscriptComparisonResultVM response = api.compareEnsemblTranscriptUsingPOST(body);
 
@@ -58,11 +59,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void compareTranscriptUsingPOSTTest() throws ApiException {
+    public void compareTranscriptUsingPOSTTest() throws Exception {
         String hugoSymbol = null;
         TranscriptComparisonVM body = null;
         TranscriptComparisonResultVM response = api.compareTranscriptUsingPOST(hugoSymbol, body);
@@ -74,11 +75,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void findGrch38VariantUsingGETTest() throws ApiException {
+    public void findGrch38VariantUsingGETTest() throws Exception {
         String referenceAminoAcid = null;
         Integer proteinPosition = null;
         String grch37ProteinId = null;
@@ -92,11 +93,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void findTranscriptsByEnsemblIdsUsingPOSTTest() throws ApiException {
+    public void findTranscriptsByEnsemblIdsUsingPOSTTest() throws Exception {
         String referenceGenome = null;
         List<String> body = null;
         List<TranscriptDTO> response = api.findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body);
@@ -108,11 +109,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void getAlignmentsUsingPOSTTest() throws ApiException {
+    public void getAlignmentsUsingPOSTTest() throws Exception {
         String hugoSymbol = null;
         MatchTranscriptVM body = null;
         List<EnrichedAlignmentResult> response = api.getAlignmentsUsingPOST(hugoSymbol, body);
@@ -124,11 +125,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void getTranscriptUsingGETTest() throws ApiException {
+    public void getTranscriptUsingGETTest() throws Exception {
         String referenceGenome = null;
         String transcript = null;
         String response = api.getTranscriptUsingGET(referenceGenome, transcript);
@@ -140,11 +141,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void getTranscriptUsingGET1Test() throws ApiException {
+    public void getTranscriptUsingGET1Test() throws Exception {
         String hugoSymbol = null;
         TranscriptResultVM response = api.getTranscriptUsingGET1(hugoSymbol);
 
@@ -155,11 +156,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void matchTranscriptUsingPOSTTest() throws ApiException {
+    public void matchTranscriptUsingPOSTTest() throws Exception {
         String hugoSymbol = null;
         MatchTranscriptVM body = null;
         TranscriptMatchResultVM response = api.matchTranscriptUsingPOST(hugoSymbol, body);
@@ -171,11 +172,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void suggestVariantUsingGETTest() throws ApiException {
+    public void suggestVariantUsingGETTest() throws Exception {
         String hugoSymbol = null;
         Integer proteinPosition = null;
         String curatedResidue = null;
@@ -190,11 +191,11 @@ public class TranscriptControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void updateTranscriptUsageUsingPOSTTest() throws ApiException {
+    public void updateTranscriptUsageUsingPOSTTest() throws Exception {
         String usageSource = null;
         String hugoSymbol = null;
         Integer entrezGeneId = null;

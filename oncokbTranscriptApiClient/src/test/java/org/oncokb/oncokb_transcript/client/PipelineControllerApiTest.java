@@ -12,14 +12,15 @@
 
 package org.oncokb.oncokb_transcript.client;
 
-import org.oncokb.oncokb_transcript.ApiException;
 import org.junit.Test;
 import org.junit.Ignore;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * API tests for PipelineControllerApi
@@ -34,11 +35,11 @@ public class PipelineControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void updateNcitUsingPOSTTest() throws ApiException {
+    public void updateNcitUsingPOSTTest() throws Exception {
         api.updateNcitUsingPOST();
 
         // TODO: test validations
@@ -48,11 +49,11 @@ public class PipelineControllerApiTest {
      *
      * 
      *
-     * @throws ApiException
+     * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void updatePortalGeneUsingPOSTTest() throws ApiException {
+    public void updatePortalGeneUsingPOSTTest() throws Exception {
         api.updatePortalGeneUsingPOST();
 
         // TODO: test validations

@@ -55,9 +55,9 @@ public class TranscriptSuggestionVM implements Serializable{
     public String toString() {
       return String.valueOf(value);
     }
-    public static ReferenceGenomeEnum fromValue(String text) {
+    public static ReferenceGenomeEnum fromValue(String input) {
       for (ReferenceGenomeEnum b : ReferenceGenomeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(input)) {
           return b;
         }
       }
@@ -66,13 +66,13 @@ public class TranscriptSuggestionVM implements Serializable{
     public static class Adapter extends TypeAdapter<ReferenceGenomeEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final ReferenceGenomeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
       }
 
       @Override
       public ReferenceGenomeEnum read(final JsonReader jsonReader) throws IOException {
         Object value = jsonReader.nextString();
-        return ReferenceGenomeEnum.fromValue(String.valueOf(value));
+        return ReferenceGenomeEnum.fromValue((String)(value));
       }
     }
   }  @SerializedName("referenceGenome")

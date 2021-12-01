@@ -53,9 +53,9 @@ public class TranscriptUsage implements Serializable{
     public String toString() {
       return String.valueOf(value);
     }
-    public static SourceEnum fromValue(String text) {
+    public static SourceEnum fromValue(String input) {
       for (SourceEnum b : SourceEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(input)) {
           return b;
         }
       }
@@ -64,13 +64,13 @@ public class TranscriptUsage implements Serializable{
     public static class Adapter extends TypeAdapter<SourceEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final SourceEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
       }
 
       @Override
       public SourceEnum read(final JsonReader jsonReader) throws IOException {
         Object value = jsonReader.nextString();
-        return SourceEnum.fromValue(String.valueOf(value));
+        return SourceEnum.fromValue((String)(value));
       }
     }
   }  @SerializedName("source")

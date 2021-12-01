@@ -57,9 +57,9 @@ public class Sequence implements Serializable{
     public String toString() {
       return String.valueOf(value);
     }
-    public static SequenceTypeEnum fromValue(String text) {
+    public static SequenceTypeEnum fromValue(String input) {
       for (SequenceTypeEnum b : SequenceTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(input)) {
           return b;
         }
       }
@@ -68,13 +68,13 @@ public class Sequence implements Serializable{
     public static class Adapter extends TypeAdapter<SequenceTypeEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final SequenceTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
       }
 
       @Override
       public SequenceTypeEnum read(final JsonReader jsonReader) throws IOException {
         Object value = jsonReader.nextString();
-        return SequenceTypeEnum.fromValue(String.valueOf(value));
+        return SequenceTypeEnum.fromValue((String)(value));
       }
     }
   }  @SerializedName("sequenceType")
