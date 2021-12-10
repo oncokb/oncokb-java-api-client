@@ -1,6 +1,6 @@
 # GeneControllerApi
 
-All URIs are relative to *http://localhost:9090*
+All URIs are relative to *https://beta.transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

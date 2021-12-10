@@ -54,29 +54,29 @@ public class SequenceControllerApi {
     }
 
     /**
-     * Build call for findSequencesByUsageSourceUsingGET
+     * Build call for findCanonicalSequenceUsingGET
      * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
+     * @param entrezGeneId entrezGeneId (required)
+     * @param sequenceType sequenceType (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call findSequencesByUsageSourceUsingGETCall(String referenceGenome, String usageSource, String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call findCanonicalSequenceUsingGETCall(String referenceGenome, Integer entrezGeneId, String sequenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/sequences-by-usage-source";
+        String localVarPath = "/api/find-canonical-sequence";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (referenceGenome != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("referenceGenome", referenceGenome));
-        if (usageSource != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("usageSource", usageSource));
-        if (hugoSymbol != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("hugoSymbol", hugoSymbol));
+        if (entrezGeneId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("entrezGeneId", entrezGeneId));
+        if (sequenceType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sequenceType", sequenceType));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -111,17 +111,17 @@ public class SequenceControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call findSequencesByUsageSourceUsingGETValidateBeforeCall(String referenceGenome, String usageSource, String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call findCanonicalSequenceUsingGETValidateBeforeCall(String referenceGenome, Integer entrezGeneId, String sequenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'referenceGenome' is set
         if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling findSequencesByUsageSourceUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'referenceGenome' when calling findCanonicalSequenceUsingGET(Async)");
         }
-        // verify the required parameter 'usageSource' is set
-        if (usageSource == null) {
-            throw new ApiException("Missing the required parameter 'usageSource' when calling findSequencesByUsageSourceUsingGET(Async)");
+        // verify the required parameter 'entrezGeneId' is set
+        if (entrezGeneId == null) {
+            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling findCanonicalSequenceUsingGET(Async)");
         }
         
-        com.squareup.okhttp.Call call = findSequencesByUsageSourceUsingGETCall(referenceGenome, usageSource, hugoSymbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findCanonicalSequenceUsingGETCall(referenceGenome, entrezGeneId, sequenceType, progressListener, progressRequestListener);
         return call;
 
         
@@ -131,45 +131,45 @@ public class SequenceControllerApi {
     }
 
     /**
-     * findSequencesByUsageSource
+     * findCanonicalSequence
      * 
      * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
-     * @return List&lt;Sequence&gt;
+     * @param entrezGeneId entrezGeneId (required)
+     * @param sequenceType sequenceType (optional)
+     * @return Sequence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Sequence> findSequencesByUsageSourceUsingGET(String referenceGenome, String usageSource, String hugoSymbol) throws ApiException {
-        ApiResponse<List<Sequence>> resp = findSequencesByUsageSourceUsingGETWithHttpInfo(referenceGenome, usageSource, hugoSymbol);
+    public Sequence findCanonicalSequenceUsingGET(String referenceGenome, Integer entrezGeneId, String sequenceType) throws ApiException {
+        ApiResponse<Sequence> resp = findCanonicalSequenceUsingGETWithHttpInfo(referenceGenome, entrezGeneId, sequenceType);
         return resp.getData();
     }
 
     /**
-     * findSequencesByUsageSource
+     * findCanonicalSequence
      * 
      * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
-     * @return ApiResponse&lt;List&lt;Sequence&gt;&gt;
+     * @param entrezGeneId entrezGeneId (required)
+     * @param sequenceType sequenceType (optional)
+     * @return ApiResponse&lt;Sequence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Sequence>> findSequencesByUsageSourceUsingGETWithHttpInfo(String referenceGenome, String usageSource, String hugoSymbol) throws ApiException {
-        com.squareup.okhttp.Call call = findSequencesByUsageSourceUsingGETValidateBeforeCall(referenceGenome, usageSource, hugoSymbol, null, null);
-        Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
+    public ApiResponse<Sequence> findCanonicalSequenceUsingGETWithHttpInfo(String referenceGenome, Integer entrezGeneId, String sequenceType) throws ApiException {
+        com.squareup.okhttp.Call call = findCanonicalSequenceUsingGETValidateBeforeCall(referenceGenome, entrezGeneId, sequenceType, null, null);
+        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * findSequencesByUsageSource (asynchronously)
+     * findCanonicalSequence (asynchronously)
      * 
      * @param referenceGenome referenceGenome (required)
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (optional)
+     * @param entrezGeneId entrezGeneId (required)
+     * @param sequenceType sequenceType (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call findSequencesByUsageSourceUsingGETAsync(String referenceGenome, String usageSource, String hugoSymbol, final ApiCallback<List<Sequence>> callback) throws ApiException {
+    public com.squareup.okhttp.Call findCanonicalSequenceUsingGETAsync(String referenceGenome, Integer entrezGeneId, String sequenceType, final ApiCallback<Sequence> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -190,7 +190,143 @@ public class SequenceControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = findSequencesByUsageSourceUsingGETValidateBeforeCall(referenceGenome, usageSource, hugoSymbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = findCanonicalSequenceUsingGETValidateBeforeCall(referenceGenome, entrezGeneId, sequenceType, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Sequence>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for findCanonicalSequencesUsingPOST
+     * @param referenceGenome referenceGenome (required)
+     * @param body  (optional)
+     * @param sequenceType sequenceType (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call findCanonicalSequencesUsingPOSTCall(String referenceGenome, List<Integer> body, String sequenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/api/find-canonical-sequences";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (referenceGenome != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("referenceGenome", referenceGenome));
+        if (sequenceType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sequenceType", sequenceType));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "Authorization" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call findCanonicalSequencesUsingPOSTValidateBeforeCall(String referenceGenome, List<Integer> body, String sequenceType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'referenceGenome' is set
+        if (referenceGenome == null) {
+            throw new ApiException("Missing the required parameter 'referenceGenome' when calling findCanonicalSequencesUsingPOST(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = findCanonicalSequencesUsingPOSTCall(referenceGenome, body, sequenceType, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * findCanonicalSequences
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param body  (optional)
+     * @param sequenceType sequenceType (optional)
+     * @return List&lt;Sequence&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Sequence> findCanonicalSequencesUsingPOST(String referenceGenome, List<Integer> body, String sequenceType) throws ApiException {
+        ApiResponse<List<Sequence>> resp = findCanonicalSequencesUsingPOSTWithHttpInfo(referenceGenome, body, sequenceType);
+        return resp.getData();
+    }
+
+    /**
+     * findCanonicalSequences
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param body  (optional)
+     * @param sequenceType sequenceType (optional)
+     * @return ApiResponse&lt;List&lt;Sequence&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Sequence>> findCanonicalSequencesUsingPOSTWithHttpInfo(String referenceGenome, List<Integer> body, String sequenceType) throws ApiException {
+        com.squareup.okhttp.Call call = findCanonicalSequencesUsingPOSTValidateBeforeCall(referenceGenome, body, sequenceType, null, null);
+        Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * findCanonicalSequences (asynchronously)
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param body  (optional)
+     * @param sequenceType sequenceType (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call findCanonicalSequencesUsingPOSTAsync(String referenceGenome, List<Integer> body, String sequenceType, final ApiCallback<List<Sequence>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = findCanonicalSequencesUsingPOSTValidateBeforeCall(referenceGenome, body, sequenceType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Sequence>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

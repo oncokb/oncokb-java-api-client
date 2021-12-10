@@ -3,16 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**canonical** | **Boolean** |  | 
 **chromosome** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **end** | **Integer** |  |  [optional]
+**ensemblGene** | [**EnsemblGene**](EnsemblGene.md) |  |  [optional]
 **ensemblProteinId** | **String** |  |  [optional]
 **ensemblTranscriptId** | **String** |  |  [optional]
-**entrezGeneId** | **Integer** |  | 
 **exons** | [**List&lt;GenomeFragment&gt;**](GenomeFragment.md) |  |  [optional]
-**hugoSymbol** | **String** |  | 
 **id** | **Long** |  |  [optional]
-**referenceGenome** | **String** |  | 
 **referenceSequenceId** | **String** |  |  [optional]
 **start** | **Integer** |  |  [optional]
 **strand** | **Integer** |  |  [optional]

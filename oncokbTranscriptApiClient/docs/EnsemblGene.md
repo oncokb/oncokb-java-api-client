@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**canonical** | **Boolean** |  | 
 **chromosome** | **String** |  | 
 **end** | **Integer** |  | 
 **ensemblGeneId** | **String** |  | 
@@ -11,3 +12,4 @@ Name | Type | Description | Notes
 **referenceGenome** | **String** |  | 
 **start** | **Integer** |  | 
 **strand** | **Integer** |  | 
+**transcripts** | [**List&lt;Transcript&gt;**](Transcript.md) |  |  [optional]

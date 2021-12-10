@@ -122,7 +122,7 @@ public class AccountResourceApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:9090*
+All URIs are relative to *https://beta.transcript.oncokb.org:443*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -130,28 +130,24 @@ Class | Method | HTTP request | Description
 *AccountResourceApi* | [**isAuthenticatedUsingGET**](docs/AccountResourceApi.md#isAuthenticatedUsingGET) | **GET** /api/authenticate | isAuthenticated
 *DrugControllerApi* | [**findDrugByCodeUsingGET**](docs/DrugControllerApi.md#findDrugByCodeUsingGET) | **GET** /api/drugs/search-by-code/{code} | findDrugByCode
 *DrugControllerApi* | [**findDrugsUsingGET**](docs/DrugControllerApi.md#findDrugsUsingGET) | **GET** /api/drugs/search | findDrugs
+*EnsemblGeneControllerApi* | [**addTranscriptUsingPOST**](docs/EnsemblGeneControllerApi.md#addTranscriptUsingPOST) | **POST** /api/add-ensembl-gene | addTranscript
 *GeneControllerApi* | [**findGeneBySymbolUsingGET**](docs/GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene | findGeneBySymbol
 *GeneControllerApi* | [**findGenesBySymbolsUsingPOST**](docs/GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-gene | findGenesBySymbols
 *PipelineControllerApi* | [**updateNcitUsingPOST**](docs/PipelineControllerApi.md#updateNcitUsingPOST) | **POST** /api/pipeline/update-ncit | updateNcit
 *PipelineControllerApi* | [**updatePortalGeneUsingPOST**](docs/PipelineControllerApi.md#updatePortalGeneUsingPOST) | **POST** /api/pipeline/update-gene | updatePortalGene
-*SequenceControllerApi* | [**findSequencesByUsageSourceUsingGET**](docs/SequenceControllerApi.md#findSequencesByUsageSourceUsingGET) | **GET** /api/sequences-by-usage-source | findSequencesByUsageSource
-*TranscriptControllerApi* | [**compareEnsemblTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareEnsemblTranscriptUsingPOST) | **POST** /api/compare-ensembl-transcript | compareEnsemblTranscript
+*SequenceControllerApi* | [**findCanonicalSequenceUsingGET**](docs/SequenceControllerApi.md#findCanonicalSequenceUsingGET) | **GET** /api/find-canonical-sequence | findCanonicalSequence
+*SequenceControllerApi* | [**findCanonicalSequencesUsingPOST**](docs/SequenceControllerApi.md#findCanonicalSequencesUsingPOST) | **POST** /api/find-canonical-sequences | findCanonicalSequences
+*TranscriptControllerApi* | [**addTranscriptUsingPOST1**](docs/TranscriptControllerApi.md#addTranscriptUsingPOST1) | **POST** /api/add-transcript | addTranscript
 *TranscriptControllerApi* | [**compareTranscriptUsingPOST**](docs/TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
-*TranscriptControllerApi* | [**findGrch38VariantUsingGET**](docs/TranscriptControllerApi.md#findGrch38VariantUsingGET) | **GET** /api/find-grch38-variant | findGrch38Variant
 *TranscriptControllerApi* | [**findTranscriptsByEnsemblIdsUsingPOST**](docs/TranscriptControllerApi.md#findTranscriptsByEnsemblIdsUsingPOST) | **POST** /api/find-transcripts-by-ensembl-ids | findTranscriptsByEnsemblIds
-*TranscriptControllerApi* | [**getAlignmentsUsingPOST**](docs/TranscriptControllerApi.md#getAlignmentsUsingPOST) | **POST** /api/get-alignments/{hugoSymbol} | getAlignments
-*TranscriptControllerApi* | [**getTranscriptUsingGET**](docs/TranscriptControllerApi.md#getTranscriptUsingGET) | **GET** /api/get-sequence | getTranscript
-*TranscriptControllerApi* | [**getTranscriptUsingGET1**](docs/TranscriptControllerApi.md#getTranscriptUsingGET1) | **GET** /api/get-transcript/{hugoSymbol} | getTranscript
 *TranscriptControllerApi* | [**matchTranscriptUsingPOST**](docs/TranscriptControllerApi.md#matchTranscriptUsingPOST) | **POST** /api/match-transcript/{hugoSymbol} | matchTranscript
 *TranscriptControllerApi* | [**suggestVariantUsingGET**](docs/TranscriptControllerApi.md#suggestVariantUsingGET) | **GET** /api/suggest-variant/{hugoSymbol} | suggestVariant
-*TranscriptControllerApi* | [**updateTranscriptUsageUsingPOST**](docs/TranscriptControllerApi.md#updateTranscriptUsageUsingPOST) | **POST** /api/update-transcript-usage-source | updateTranscriptUsage
 
 ## Documentation for Models
 
  - [AllReferenceTranscriptSuggestionVM](docs/AllReferenceTranscriptSuggestionVM.md)
  - [Drug](docs/Drug.md)
  - [DrugSynonym](docs/DrugSynonym.md)
- - [EnrichedAlignmentResult](docs/EnrichedAlignmentResult.md)
  - [EnsemblGene](docs/EnsemblGene.md)
  - [EnsemblTranscript](docs/EnsemblTranscript.md)
  - [Exon](docs/Exon.md)
@@ -167,9 +163,7 @@ Class | Method | HTTP request | Description
  - [TranscriptDTO](docs/TranscriptDTO.md)
  - [TranscriptMatchResultVM](docs/TranscriptMatchResultVM.md)
  - [TranscriptPairVM](docs/TranscriptPairVM.md)
- - [TranscriptResultVM](docs/TranscriptResultVM.md)
  - [TranscriptSuggestionVM](docs/TranscriptSuggestionVM.md)
- - [TranscriptUsage](docs/TranscriptUsage.md)
  - [UntranslatedRegion](docs/UntranslatedRegion.md)
  - [UserVM](docs/UserVM.md)
 

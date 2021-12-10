@@ -23,9 +23,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.oncokb.oncokb_transcript.client.EnsemblGene;
 import org.oncokb.oncokb_transcript.client.GenomeFragment;
 import org.oncokb.oncokb_transcript.client.Sequence;
-import org.oncokb.oncokb_transcript.client.TranscriptUsage;
 import java.io.Serializable;
 /**
  * Transcript
@@ -34,8 +34,14 @@ import java.io.Serializable;
 
 public class Transcript implements Serializable{
   private static final long serialVersionUID = 1L;
+  @SerializedName("canonical")
+  private Boolean canonical = null;
+
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("ensemblGene")
+  private EnsemblGene ensemblGene = null;
 
   @SerializedName("ensemblProteinId")
   private String ensemblProteinId = null;
@@ -43,20 +49,11 @@ public class Transcript implements Serializable{
   @SerializedName("ensemblTranscriptId")
   private String ensemblTranscriptId = null;
 
-  @SerializedName("entrezGeneId")
-  private Integer entrezGeneId = null;
-
   @SerializedName("fragments")
   private List<GenomeFragment> fragments = null;
 
-  @SerializedName("hugoSymbol")
-  private String hugoSymbol = null;
-
   @SerializedName("id")
   private Long id = null;
-
-  @SerializedName("referenceGenome")
-  private String referenceGenome = null;
 
   @SerializedName("referenceSequenceId")
   private String referenceSequenceId = null;
@@ -64,8 +61,23 @@ public class Transcript implements Serializable{
   @SerializedName("sequences")
   private List<Sequence> sequences = null;
 
-  @SerializedName("transcriptUsages")
-  private List<TranscriptUsage> transcriptUsages = null;
+  public Transcript canonical(Boolean canonical) {
+    this.canonical = canonical;
+    return this;
+  }
+
+   /**
+   * Get canonical
+   * @return canonical
+  **/
+  @Schema(required = true, description = "")
+  public Boolean isCanonical() {
+    return canonical;
+  }
+
+  public void setCanonical(Boolean canonical) {
+    this.canonical = canonical;
+  }
 
   public Transcript description(String description) {
     this.description = description;
@@ -83,6 +95,24 @@ public class Transcript implements Serializable{
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public Transcript ensemblGene(EnsemblGene ensemblGene) {
+    this.ensemblGene = ensemblGene;
+    return this;
+  }
+
+   /**
+   * Get ensemblGene
+   * @return ensemblGene
+  **/
+  @Schema(description = "")
+  public EnsemblGene getEnsemblGene() {
+    return ensemblGene;
+  }
+
+  public void setEnsemblGene(EnsemblGene ensemblGene) {
+    this.ensemblGene = ensemblGene;
   }
 
   public Transcript ensemblProteinId(String ensemblProteinId) {
@@ -121,24 +151,6 @@ public class Transcript implements Serializable{
     this.ensemblTranscriptId = ensemblTranscriptId;
   }
 
-  public Transcript entrezGeneId(Integer entrezGeneId) {
-    this.entrezGeneId = entrezGeneId;
-    return this;
-  }
-
-   /**
-   * Get entrezGeneId
-   * @return entrezGeneId
-  **/
-  @Schema(required = true, description = "")
-  public Integer getEntrezGeneId() {
-    return entrezGeneId;
-  }
-
-  public void setEntrezGeneId(Integer entrezGeneId) {
-    this.entrezGeneId = entrezGeneId;
-  }
-
   public Transcript fragments(List<GenomeFragment> fragments) {
     this.fragments = fragments;
     return this;
@@ -165,24 +177,6 @@ public class Transcript implements Serializable{
     this.fragments = fragments;
   }
 
-  public Transcript hugoSymbol(String hugoSymbol) {
-    this.hugoSymbol = hugoSymbol;
-    return this;
-  }
-
-   /**
-   * Get hugoSymbol
-   * @return hugoSymbol
-  **/
-  @Schema(required = true, description = "")
-  public String getHugoSymbol() {
-    return hugoSymbol;
-  }
-
-  public void setHugoSymbol(String hugoSymbol) {
-    this.hugoSymbol = hugoSymbol;
-  }
-
   public Transcript id(Long id) {
     this.id = id;
     return this;
@@ -199,24 +193,6 @@ public class Transcript implements Serializable{
 
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public Transcript referenceGenome(String referenceGenome) {
-    this.referenceGenome = referenceGenome;
-    return this;
-  }
-
-   /**
-   * Get referenceGenome
-   * @return referenceGenome
-  **/
-  @Schema(required = true, description = "")
-  public String getReferenceGenome() {
-    return referenceGenome;
-  }
-
-  public void setReferenceGenome(String referenceGenome) {
-    this.referenceGenome = referenceGenome;
   }
 
   public Transcript referenceSequenceId(String referenceSequenceId) {
@@ -263,32 +239,6 @@ public class Transcript implements Serializable{
     this.sequences = sequences;
   }
 
-  public Transcript transcriptUsages(List<TranscriptUsage> transcriptUsages) {
-    this.transcriptUsages = transcriptUsages;
-    return this;
-  }
-
-  public Transcript addTranscriptUsagesItem(TranscriptUsage transcriptUsagesItem) {
-    if (this.transcriptUsages == null) {
-      this.transcriptUsages = new ArrayList<TranscriptUsage>();
-    }
-    this.transcriptUsages.add(transcriptUsagesItem);
-    return this;
-  }
-
-   /**
-   * Get transcriptUsages
-   * @return transcriptUsages
-  **/
-  @Schema(description = "")
-  public List<TranscriptUsage> getTranscriptUsages() {
-    return transcriptUsages;
-  }
-
-  public void setTranscriptUsages(List<TranscriptUsage> transcriptUsages) {
-    this.transcriptUsages = transcriptUsages;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -299,22 +249,20 @@ public class Transcript implements Serializable{
       return false;
     }
     Transcript transcript = (Transcript) o;
-    return Objects.equals(this.description, transcript.description) &&
+    return Objects.equals(this.canonical, transcript.canonical) &&
+        Objects.equals(this.description, transcript.description) &&
+        Objects.equals(this.ensemblGene, transcript.ensemblGene) &&
         Objects.equals(this.ensemblProteinId, transcript.ensemblProteinId) &&
         Objects.equals(this.ensemblTranscriptId, transcript.ensemblTranscriptId) &&
-        Objects.equals(this.entrezGeneId, transcript.entrezGeneId) &&
         Objects.equals(this.fragments, transcript.fragments) &&
-        Objects.equals(this.hugoSymbol, transcript.hugoSymbol) &&
         Objects.equals(this.id, transcript.id) &&
-        Objects.equals(this.referenceGenome, transcript.referenceGenome) &&
         Objects.equals(this.referenceSequenceId, transcript.referenceSequenceId) &&
-        Objects.equals(this.sequences, transcript.sequences) &&
-        Objects.equals(this.transcriptUsages, transcript.transcriptUsages);
+        Objects.equals(this.sequences, transcript.sequences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, ensemblProteinId, ensemblTranscriptId, entrezGeneId, fragments, hugoSymbol, id, referenceGenome, referenceSequenceId, sequences, transcriptUsages);
+    return Objects.hash(canonical, description, ensemblGene, ensemblProteinId, ensemblTranscriptId, fragments, id, referenceSequenceId, sequences);
   }
 
 
@@ -323,17 +271,15 @@ public class Transcript implements Serializable{
     StringBuilder sb = new StringBuilder();
     sb.append("class Transcript {\n");
     
+    sb.append("    canonical: ").append(toIndentedString(canonical)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ensemblGene: ").append(toIndentedString(ensemblGene)).append("\n");
     sb.append("    ensemblProteinId: ").append(toIndentedString(ensemblProteinId)).append("\n");
     sb.append("    ensemblTranscriptId: ").append(toIndentedString(ensemblTranscriptId)).append("\n");
-    sb.append("    entrezGeneId: ").append(toIndentedString(entrezGeneId)).append("\n");
     sb.append("    fragments: ").append(toIndentedString(fragments)).append("\n");
-    sb.append("    hugoSymbol: ").append(toIndentedString(hugoSymbol)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    referenceGenome: ").append(toIndentedString(referenceGenome)).append("\n");
     sb.append("    referenceSequenceId: ").append(toIndentedString(referenceSequenceId)).append("\n");
     sb.append("    sequences: ").append(toIndentedString(sequences)).append("\n");
-    sb.append("    transcriptUsages: ").append(toIndentedString(transcriptUsages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

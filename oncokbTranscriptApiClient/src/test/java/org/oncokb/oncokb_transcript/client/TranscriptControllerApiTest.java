@@ -13,14 +13,11 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.client.AllReferenceTranscriptSuggestionVM;
-import org.oncokb.oncokb_transcript.client.EnrichedAlignmentResult;
 import org.oncokb.oncokb_transcript.client.MatchTranscriptVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonResultVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonVM;
 import org.oncokb.oncokb_transcript.client.TranscriptDTO;
 import org.oncokb.oncokb_transcript.client.TranscriptMatchResultVM;
-import org.oncokb.oncokb_transcript.client.TranscriptResultVM;
-import org.oncokb.oncokb_transcript.client.TranscriptSuggestionVM;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -40,7 +37,7 @@ public class TranscriptControllerApiTest {
     private final TranscriptControllerApi api = new TranscriptControllerApi();
 
     /**
-     * compareEnsemblTranscript
+     * addTranscript
      *
      * 
      *
@@ -48,9 +45,12 @@ public class TranscriptControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void compareEnsemblTranscriptUsingPOSTTest() throws Exception {
-        TranscriptComparisonVM body = null;
-        TranscriptComparisonResultVM response = api.compareEnsemblTranscriptUsingPOST(body);
+    public void addTranscriptUsingPOST1Test() throws Exception {
+        Integer entrezGeneId = null;
+        String referenceGenome = null;
+        String ensemblTranscriptId = null;
+        Boolean isCanonical = null;
+        TranscriptDTO response = api.addTranscriptUsingPOST1(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
 
         // TODO: test validations
     }
@@ -71,24 +71,6 @@ public class TranscriptControllerApiTest {
         // TODO: test validations
     }
     /**
-     * findGrch38Variant
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void findGrch38VariantUsingGETTest() throws Exception {
-        String referenceAminoAcid = null;
-        Integer proteinPosition = null;
-        String grch37ProteinId = null;
-        String grch38ProteinId = null;
-        TranscriptSuggestionVM response = api.findGrch38VariantUsingGET(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId);
-
-        // TODO: test validations
-    }
-    /**
      * findTranscriptsByEnsemblIds
      *
      * 
@@ -101,53 +83,6 @@ public class TranscriptControllerApiTest {
         String referenceGenome = null;
         List<String> body = null;
         List<TranscriptDTO> response = api.findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body);
-
-        // TODO: test validations
-    }
-    /**
-     * getAlignments
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void getAlignmentsUsingPOSTTest() throws Exception {
-        String hugoSymbol = null;
-        MatchTranscriptVM body = null;
-        List<EnrichedAlignmentResult> response = api.getAlignmentsUsingPOST(hugoSymbol, body);
-
-        // TODO: test validations
-    }
-    /**
-     * getTranscript
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void getTranscriptUsingGETTest() throws Exception {
-        String referenceGenome = null;
-        String transcript = null;
-        String response = api.getTranscriptUsingGET(referenceGenome, transcript);
-
-        // TODO: test validations
-    }
-    /**
-     * getTranscript
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void getTranscriptUsingGET1Test() throws Exception {
-        String hugoSymbol = null;
-        TranscriptResultVM response = api.getTranscriptUsingGET1(hugoSymbol);
 
         // TODO: test validations
     }
@@ -183,25 +118,6 @@ public class TranscriptControllerApiTest {
         String grch37Transcript = null;
         String grch38Transcript = null;
         AllReferenceTranscriptSuggestionVM response = api.suggestVariantUsingGET(hugoSymbol, proteinPosition, curatedResidue, grch37Transcript, grch38Transcript);
-
-        // TODO: test validations
-    }
-    /**
-     * updateTranscriptUsage
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void updateTranscriptUsageUsingPOSTTest() throws Exception {
-        String usageSource = null;
-        String hugoSymbol = null;
-        Integer entrezGeneId = null;
-        String referenceGenome = null;
-        String ensemblTranscriptId = null;
-        api.updateTranscriptUsageUsingPOST(usageSource, hugoSymbol, entrezGeneId, referenceGenome, ensemblTranscriptId);
 
         // TODO: test validations
     }
