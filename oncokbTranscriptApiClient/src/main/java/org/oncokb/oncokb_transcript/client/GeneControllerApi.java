@@ -65,7 +65,7 @@ public class GeneControllerApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/find-gene";
+        String localVarPath = "/api/find-genes";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -191,7 +191,7 @@ public class GeneControllerApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/api/find-gene";
+        String localVarPath = "/api/find-genes";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

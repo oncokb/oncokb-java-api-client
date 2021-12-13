@@ -32,7 +32,7 @@ public class EnsemblGeneControllerApiTest {
     private final EnsemblGeneControllerApi api = new EnsemblGeneControllerApi();
 
     /**
-     * addTranscript
+     * addEnsemblGene
      *
      * 
      *
@@ -40,12 +40,12 @@ public class EnsemblGeneControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void addTranscriptUsingPOSTTest() throws Exception {
+    public void addEnsemblGeneUsingPOSTTest() throws Exception {
         String referenceGenome = null;
         Integer entrezGeneId = null;
         String ensemblGeneId = null;
         Boolean isCanonical = null;
-        EnsemblGene response = api.addTranscriptUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
+        EnsemblGene response = api.addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
 
         // TODO: test validations
     }

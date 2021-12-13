@@ -4,15 +4,15 @@ All URIs are relative to *https://beta.transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addTranscriptUsingPOST1**](TranscriptControllerApi.md#addTranscriptUsingPOST1) | **POST** /api/add-transcript | addTranscript
+[**addTranscriptUsingPOST**](TranscriptControllerApi.md#addTranscriptUsingPOST) | **POST** /api/add-transcript | addTranscript
 [**compareTranscriptUsingPOST**](TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
 [**findTranscriptsByEnsemblIdsUsingPOST**](TranscriptControllerApi.md#findTranscriptsByEnsemblIdsUsingPOST) | **POST** /api/find-transcripts-by-ensembl-ids | findTranscriptsByEnsemblIds
 [**matchTranscriptUsingPOST**](TranscriptControllerApi.md#matchTranscriptUsingPOST) | **POST** /api/match-transcript/{hugoSymbol} | matchTranscript
 [**suggestVariantUsingGET**](TranscriptControllerApi.md#suggestVariantUsingGET) | **GET** /api/suggest-variant/{hugoSymbol} | suggestVariant
 
-<a name="addTranscriptUsingPOST1"></a>
-# **addTranscriptUsingPOST1**
-> TranscriptDTO addTranscriptUsingPOST1(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical)
+<a name="addTranscriptUsingPOST"></a>
+# **addTranscriptUsingPOST**
+> TranscriptDTO addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical)
 
 addTranscript
 
@@ -34,10 +34,10 @@ String referenceGenome = "referenceGenome_example"; // String | referenceGenome
 String ensemblTranscriptId = "ensemblTranscriptId_example"; // String | ensemblTranscriptId
 Boolean isCanonical = true; // Boolean | isCanonical
 try {
-    TranscriptDTO result = apiInstance.addTranscriptUsingPOST1(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
+    TranscriptDTO result = apiInstance.addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#addTranscriptUsingPOST1");
+    System.err.println("Exception when calling TranscriptControllerApi#addTranscriptUsingPOST");
     e.printStackTrace();
 }
 ```

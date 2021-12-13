@@ -59,7 +59,7 @@ public class TranscriptControllerApi {
     }
 
     /**
-     * Build call for addTranscriptUsingPOST1
+     * Build call for addTranscriptUsingPOST
      * @param entrezGeneId entrezGeneId (required)
      * @param referenceGenome referenceGenome (required)
      * @param ensemblTranscriptId ensemblTranscriptId (required)
@@ -69,7 +69,7 @@ public class TranscriptControllerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addTranscriptUsingPOST1Call(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addTranscriptUsingPOSTCall(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -119,25 +119,25 @@ public class TranscriptControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addTranscriptUsingPOST1ValidateBeforeCall(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addTranscriptUsingPOSTValidateBeforeCall(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'entrezGeneId' is set
         if (entrezGeneId == null) {
-            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling addTranscriptUsingPOST1(Async)");
+            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling addTranscriptUsingPOST(Async)");
         }
         // verify the required parameter 'referenceGenome' is set
         if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling addTranscriptUsingPOST1(Async)");
+            throw new ApiException("Missing the required parameter 'referenceGenome' when calling addTranscriptUsingPOST(Async)");
         }
         // verify the required parameter 'ensemblTranscriptId' is set
         if (ensemblTranscriptId == null) {
-            throw new ApiException("Missing the required parameter 'ensemblTranscriptId' when calling addTranscriptUsingPOST1(Async)");
+            throw new ApiException("Missing the required parameter 'ensemblTranscriptId' when calling addTranscriptUsingPOST(Async)");
         }
         // verify the required parameter 'isCanonical' is set
         if (isCanonical == null) {
-            throw new ApiException("Missing the required parameter 'isCanonical' when calling addTranscriptUsingPOST1(Async)");
+            throw new ApiException("Missing the required parameter 'isCanonical' when calling addTranscriptUsingPOST(Async)");
         }
         
-        com.squareup.okhttp.Call call = addTranscriptUsingPOST1Call(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addTranscriptUsingPOSTCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, progressListener, progressRequestListener);
         return call;
 
         
@@ -156,8 +156,8 @@ public class TranscriptControllerApi {
      * @return TranscriptDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TranscriptDTO addTranscriptUsingPOST1(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
-        ApiResponse<TranscriptDTO> resp = addTranscriptUsingPOST1WithHttpInfo(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
+    public TranscriptDTO addTranscriptUsingPOST(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
+        ApiResponse<TranscriptDTO> resp = addTranscriptUsingPOSTWithHttpInfo(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
         return resp.getData();
     }
 
@@ -171,8 +171,8 @@ public class TranscriptControllerApi {
      * @return ApiResponse&lt;TranscriptDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TranscriptDTO> addTranscriptUsingPOST1WithHttpInfo(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
-        com.squareup.okhttp.Call call = addTranscriptUsingPOST1ValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, null, null);
+    public ApiResponse<TranscriptDTO> addTranscriptUsingPOSTWithHttpInfo(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
+        com.squareup.okhttp.Call call = addTranscriptUsingPOSTValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, null, null);
         Type localVarReturnType = new TypeToken<TranscriptDTO>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -188,7 +188,7 @@ public class TranscriptControllerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addTranscriptUsingPOST1Async(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ApiCallback<TranscriptDTO> callback) throws ApiException {
+    public com.squareup.okhttp.Call addTranscriptUsingPOSTAsync(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ApiCallback<TranscriptDTO> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -209,7 +209,7 @@ public class TranscriptControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addTranscriptUsingPOST1ValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addTranscriptUsingPOSTValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TranscriptDTO>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -4,8 +4,8 @@ All URIs are relative to *https://beta.transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findGeneBySymbolUsingGET**](GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-gene | findGeneBySymbol
-[**findGenesBySymbolsUsingPOST**](GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-gene | findGenesBySymbols
+[**findGeneBySymbolUsingGET**](GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-genes | findGeneBySymbol
+[**findGenesBySymbolsUsingPOST**](GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-genes | findGenesBySymbols
 
 <a name="findGeneBySymbolUsingGET"></a>
 # **findGeneBySymbolUsingGET**

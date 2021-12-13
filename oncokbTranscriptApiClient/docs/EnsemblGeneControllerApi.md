@@ -4,13 +4,13 @@ All URIs are relative to *https://beta.transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addTranscriptUsingPOST**](EnsemblGeneControllerApi.md#addTranscriptUsingPOST) | **POST** /api/add-ensembl-gene | addTranscript
+[**addEnsemblGeneUsingPOST**](EnsemblGeneControllerApi.md#addEnsemblGeneUsingPOST) | **POST** /api/add-ensembl-gene | addEnsemblGene
 
-<a name="addTranscriptUsingPOST"></a>
-# **addTranscriptUsingPOST**
-> EnsemblGene addTranscriptUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical)
+<a name="addEnsemblGeneUsingPOST"></a>
+# **addEnsemblGeneUsingPOST**
+> EnsemblGene addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical)
 
-addTranscript
+addEnsemblGene
 
 ### Example
 ```java
@@ -30,10 +30,10 @@ Integer entrezGeneId = 56; // Integer | entrezGeneId
 String ensemblGeneId = "ensemblGeneId_example"; // String | ensemblGeneId
 Boolean isCanonical = true; // Boolean | isCanonical
 try {
-    EnsemblGene result = apiInstance.addTranscriptUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
+    EnsemblGene result = apiInstance.addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling EnsemblGeneControllerApi#addTranscriptUsingPOST");
+    System.err.println("Exception when calling EnsemblGeneControllerApi#addEnsemblGeneUsingPOST");
     e.printStackTrace();
 }
 ```

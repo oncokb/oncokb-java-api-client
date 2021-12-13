@@ -45,12 +45,12 @@ public class TranscriptControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void addTranscriptUsingPOST1Test() throws Exception {
+    public void addTranscriptUsingPOSTTest() throws Exception {
         Integer entrezGeneId = null;
         String referenceGenome = null;
         String ensemblTranscriptId = null;
         Boolean isCanonical = null;
-        TranscriptDTO response = api.addTranscriptUsingPOST1(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
+        TranscriptDTO response = api.addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
 
         // TODO: test validations
     }

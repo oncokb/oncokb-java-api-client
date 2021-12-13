@@ -4,7 +4,7 @@ All URIs are relative to *https://beta.transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findCanonicalSequenceUsingGET**](SequenceControllerApi.md#findCanonicalSequenceUsingGET) | **GET** /api/find-canonical-sequence | findCanonicalSequence
+[**findCanonicalSequenceUsingGET**](SequenceControllerApi.md#findCanonicalSequenceUsingGET) | **GET** /api/find-canonical-sequences | findCanonicalSequence
 [**findCanonicalSequencesUsingPOST**](SequenceControllerApi.md#findCanonicalSequencesUsingPOST) | **POST** /api/find-canonical-sequences | findCanonicalSequences
 
 <a name="findCanonicalSequenceUsingGET"></a>

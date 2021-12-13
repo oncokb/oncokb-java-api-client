@@ -54,7 +54,7 @@ public class EnsemblGeneControllerApi {
     }
 
     /**
-     * Build call for addTranscriptUsingPOST
+     * Build call for addEnsemblGeneUsingPOST
      * @param referenceGenome referenceGenome (required)
      * @param entrezGeneId entrezGeneId (required)
      * @param ensemblGeneId ensemblGeneId (required)
@@ -64,7 +64,7 @@ public class EnsemblGeneControllerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addTranscriptUsingPOSTCall(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addEnsemblGeneUsingPOSTCall(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -114,25 +114,25 @@ public class EnsemblGeneControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addTranscriptUsingPOSTValidateBeforeCall(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addEnsemblGeneUsingPOSTValidateBeforeCall(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'referenceGenome' is set
         if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling addTranscriptUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'referenceGenome' when calling addEnsemblGeneUsingPOST(Async)");
         }
         // verify the required parameter 'entrezGeneId' is set
         if (entrezGeneId == null) {
-            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling addTranscriptUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling addEnsemblGeneUsingPOST(Async)");
         }
         // verify the required parameter 'ensemblGeneId' is set
         if (ensemblGeneId == null) {
-            throw new ApiException("Missing the required parameter 'ensemblGeneId' when calling addTranscriptUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'ensemblGeneId' when calling addEnsemblGeneUsingPOST(Async)");
         }
         // verify the required parameter 'isCanonical' is set
         if (isCanonical == null) {
-            throw new ApiException("Missing the required parameter 'isCanonical' when calling addTranscriptUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'isCanonical' when calling addEnsemblGeneUsingPOST(Async)");
         }
         
-        com.squareup.okhttp.Call call = addTranscriptUsingPOSTCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addEnsemblGeneUsingPOSTCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, progressListener, progressRequestListener);
         return call;
 
         
@@ -142,7 +142,7 @@ public class EnsemblGeneControllerApi {
     }
 
     /**
-     * addTranscript
+     * addEnsemblGene
      * 
      * @param referenceGenome referenceGenome (required)
      * @param entrezGeneId entrezGeneId (required)
@@ -151,13 +151,13 @@ public class EnsemblGeneControllerApi {
      * @return EnsemblGene
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EnsemblGene addTranscriptUsingPOST(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical) throws ApiException {
-        ApiResponse<EnsemblGene> resp = addTranscriptUsingPOSTWithHttpInfo(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
+    public EnsemblGene addEnsemblGeneUsingPOST(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical) throws ApiException {
+        ApiResponse<EnsemblGene> resp = addEnsemblGeneUsingPOSTWithHttpInfo(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
         return resp.getData();
     }
 
     /**
-     * addTranscript
+     * addEnsemblGene
      * 
      * @param referenceGenome referenceGenome (required)
      * @param entrezGeneId entrezGeneId (required)
@@ -166,14 +166,14 @@ public class EnsemblGeneControllerApi {
      * @return ApiResponse&lt;EnsemblGene&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EnsemblGene> addTranscriptUsingPOSTWithHttpInfo(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical) throws ApiException {
-        com.squareup.okhttp.Call call = addTranscriptUsingPOSTValidateBeforeCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, null, null);
+    public ApiResponse<EnsemblGene> addEnsemblGeneUsingPOSTWithHttpInfo(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical) throws ApiException {
+        com.squareup.okhttp.Call call = addEnsemblGeneUsingPOSTValidateBeforeCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, null, null);
         Type localVarReturnType = new TypeToken<EnsemblGene>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * addTranscript (asynchronously)
+     * addEnsemblGene (asynchronously)
      * 
      * @param referenceGenome referenceGenome (required)
      * @param entrezGeneId entrezGeneId (required)
@@ -183,7 +183,7 @@ public class EnsemblGeneControllerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addTranscriptUsingPOSTAsync(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ApiCallback<EnsemblGene> callback) throws ApiException {
+    public com.squareup.okhttp.Call addEnsemblGeneUsingPOSTAsync(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ApiCallback<EnsemblGene> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -204,7 +204,7 @@ public class EnsemblGeneControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addTranscriptUsingPOSTValidateBeforeCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addEnsemblGeneUsingPOSTValidateBeforeCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EnsemblGene>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

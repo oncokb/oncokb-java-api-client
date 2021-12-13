@@ -67,7 +67,7 @@ public class SequenceControllerApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/find-canonical-sequence";
+        String localVarPath = "/api/find-canonical-sequences";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
