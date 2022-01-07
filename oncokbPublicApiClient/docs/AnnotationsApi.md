@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
  **entrezGeneId** | **Integer**| The entrez gene ID. (Higher priority than hugoSymbol). Example: 673 | [optional]
  **alteration** | **String**| Protein Change. Example: V600E | [optional]
  **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
- **consequence** | **String**| Consequence. Exacmple: missense_variant | [optional] [enum: feature_truncation, frameshift_variant, inframe_deletion, inframe_insertion, start_lost, missense_variant, splice_region_variant, stop_gained, synonymous_variant]
+ **consequence** | **String**| Consequence. Exacmple: missense_variant | [optional] [enum: feature_truncation, frameshift_variant, inframe_deletion, inframe_insertion, start_lost, missense_variant, splice_region_variant, stop_gained, synonymous_variant, intron_variant]
  **proteinStart** | **Integer**| Protein Start. Example: 600 | [optional]
  **proteinEnd** | **Integer**| Protein End. Example: 600 | [optional]
  **tumorType** | **String**| OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma | [optional]

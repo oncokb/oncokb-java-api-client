@@ -1,25 +1,20 @@
 # TranscriptControllerApi
 
-All URIs are relative to *http://localhost:9090*
+All URIs are relative to *https://transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**compareEnsemblTranscriptUsingPOST**](TranscriptControllerApi.md#compareEnsemblTranscriptUsingPOST) | **POST** /api/compare-ensembl-transcript | compareEnsemblTranscript
+[**addTranscriptUsingPOST**](TranscriptControllerApi.md#addTranscriptUsingPOST) | **POST** /api/add-transcript | addTranscript
 [**compareTranscriptUsingPOST**](TranscriptControllerApi.md#compareTranscriptUsingPOST) | **POST** /api/compare-transcript/{hugoSymbol} | compareTranscript
-[**findGrch38VariantUsingGET**](TranscriptControllerApi.md#findGrch38VariantUsingGET) | **GET** /api/find-grch38-variant | findGrch38Variant
 [**findTranscriptsByEnsemblIdsUsingPOST**](TranscriptControllerApi.md#findTranscriptsByEnsemblIdsUsingPOST) | **POST** /api/find-transcripts-by-ensembl-ids | findTranscriptsByEnsemblIds
-[**getAlignmentsUsingPOST**](TranscriptControllerApi.md#getAlignmentsUsingPOST) | **POST** /api/get-alignments/{hugoSymbol} | getAlignments
-[**getTranscriptUsingGET**](TranscriptControllerApi.md#getTranscriptUsingGET) | **GET** /api/get-sequence | getTranscript
-[**getTranscriptUsingGET1**](TranscriptControllerApi.md#getTranscriptUsingGET1) | **GET** /api/get-transcript/{hugoSymbol} | getTranscript
 [**matchTranscriptUsingPOST**](TranscriptControllerApi.md#matchTranscriptUsingPOST) | **POST** /api/match-transcript/{hugoSymbol} | matchTranscript
 [**suggestVariantUsingGET**](TranscriptControllerApi.md#suggestVariantUsingGET) | **GET** /api/suggest-variant/{hugoSymbol} | suggestVariant
-[**updateTranscriptUsageUsingPOST**](TranscriptControllerApi.md#updateTranscriptUsageUsingPOST) | **POST** /api/update-transcript-usage-source | updateTranscriptUsage
 
-<a name="compareEnsemblTranscriptUsingPOST"></a>
-# **compareEnsemblTranscriptUsingPOST**
-> TranscriptComparisonResultVM compareEnsemblTranscriptUsingPOST(body)
+<a name="addTranscriptUsingPOST"></a>
+# **addTranscriptUsingPOST**
+> TranscriptDTO addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical)
 
-compareEnsemblTranscript
+addTranscript
 
 ### Example
 ```java
@@ -34,12 +29,15 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-TranscriptComparisonVM body = new TranscriptComparisonVM(); // TranscriptComparisonVM | 
+Integer entrezGeneId = 56; // Integer | entrezGeneId
+String referenceGenome = "referenceGenome_example"; // String | referenceGenome
+String ensemblTranscriptId = "ensemblTranscriptId_example"; // String | ensemblTranscriptId
+Boolean isCanonical = true; // Boolean | isCanonical
 try {
-    TranscriptComparisonResultVM result = apiInstance.compareEnsemblTranscriptUsingPOST(body);
+    TranscriptDTO result = apiInstance.addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#compareEnsemblTranscriptUsingPOST");
+    System.err.println("Exception when calling TranscriptControllerApi#addTranscriptUsingPOST");
     e.printStackTrace();
 }
 ```
@@ -48,11 +46,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TranscriptComparisonVM**](TranscriptComparisonVM.md)|  | [optional]
+ **entrezGeneId** | **Integer**| entrezGeneId |
+ **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
+ **ensemblTranscriptId** | **String**| ensemblTranscriptId |
+ **isCanonical** | **Boolean**| isCanonical |
 
 ### Return type
 
-[**TranscriptComparisonResultVM**](TranscriptComparisonResultVM.md)
+[**TranscriptDTO**](TranscriptDTO.md)
 
 ### Authorization
 
@@ -60,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 <a name="compareTranscriptUsingPOST"></a>
@@ -113,60 +114,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="findGrch38VariantUsingGET"></a>
-# **findGrch38VariantUsingGET**
-> TranscriptSuggestionVM findGrch38VariantUsingGET(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId)
-
-findGrch38Variant
-
-### Example
-```java
-// Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String referenceAminoAcid = "referenceAminoAcid_example"; // String | referenceAminoAcid
-Integer proteinPosition = 56; // Integer | proteinPosition
-String grch37ProteinId = "grch37ProteinId_example"; // String | grch37ProteinId
-String grch38ProteinId = "grch38ProteinId_example"; // String | grch38ProteinId
-try {
-    TranscriptSuggestionVM result = apiInstance.findGrch38VariantUsingGET(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#findGrch38VariantUsingGET");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **referenceAminoAcid** | **String**| referenceAminoAcid |
- **proteinPosition** | **Integer**| proteinPosition |
- **grch37ProteinId** | **String**| grch37ProteinId |
- **grch38ProteinId** | **String**| grch38ProteinId |
-
-### Return type
-
-[**TranscriptSuggestionVM**](TranscriptSuggestionVM.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
 <a name="findTranscriptsByEnsemblIdsUsingPOST"></a>
 # **findTranscriptsByEnsemblIdsUsingPOST**
 > List&lt;TranscriptDTO&gt; findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body)
@@ -215,154 +162,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: */*
-
-<a name="getAlignmentsUsingPOST"></a>
-# **getAlignmentsUsingPOST**
-> List&lt;EnrichedAlignmentResult&gt; getAlignmentsUsingPOST(hugoSymbol, body)
-
-getAlignments
-
-### Example
-```java
-// Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
-MatchTranscriptVM body = new MatchTranscriptVM(); // MatchTranscriptVM | 
-try {
-    List<EnrichedAlignmentResult> result = apiInstance.getAlignmentsUsingPOST(hugoSymbol, body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#getAlignmentsUsingPOST");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **hugoSymbol** | **String**| hugoSymbol |
- **body** | [**MatchTranscriptVM**](MatchTranscriptVM.md)|  | [optional]
-
-### Return type
-
-[**List&lt;EnrichedAlignmentResult&gt;**](EnrichedAlignmentResult.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-<a name="getTranscriptUsingGET"></a>
-# **getTranscriptUsingGET**
-> String getTranscriptUsingGET(referenceGenome, transcript)
-
-getTranscript
-
-### Example
-```java
-// Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String referenceGenome = "referenceGenome_example"; // String | referenceGenome
-String transcript = "transcript_example"; // String | transcript
-try {
-    String result = apiInstance.getTranscriptUsingGET(referenceGenome, transcript);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#getTranscriptUsingGET");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
- **transcript** | **String**| transcript |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getTranscriptUsingGET1"></a>
-# **getTranscriptUsingGET1**
-> TranscriptResultVM getTranscriptUsingGET1(hugoSymbol)
-
-getTranscript
-
-### Example
-```java
-// Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
-try {
-    TranscriptResultVM result = apiInstance.getTranscriptUsingGET1(hugoSymbol);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#getTranscriptUsingGET1");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **hugoSymbol** | **String**| hugoSymbol |
-
-### Return type
-
-[**TranscriptResultVM**](TranscriptResultVM.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: */*
 
 <a name="matchTranscriptUsingPOST"></a>
@@ -470,59 +269,4 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: */*
-
-<a name="updateTranscriptUsageUsingPOST"></a>
-# **updateTranscriptUsageUsingPOST**
-> updateTranscriptUsageUsingPOST(usageSource, hugoSymbol, entrezGeneId, referenceGenome, ensemblTranscriptId)
-
-updateTranscriptUsage
-
-### Example
-```java
-// Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String usageSource = "usageSource_example"; // String | usageSource
-String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
-Integer entrezGeneId = 56; // Integer | entrezGeneId
-String referenceGenome = "referenceGenome_example"; // String | referenceGenome
-String ensemblTranscriptId = "ensemblTranscriptId_example"; // String | ensemblTranscriptId
-try {
-    apiInstance.updateTranscriptUsageUsingPOST(usageSource, hugoSymbol, entrezGeneId, referenceGenome, ensemblTranscriptId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#updateTranscriptUsageUsingPOST");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **usageSource** | **String**| usageSource | [enum: ONCOKB]
- **hugoSymbol** | **String**| hugoSymbol |
- **entrezGeneId** | **Integer**| entrezGeneId |
- **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
- **ensemblTranscriptId** | **String**| ensemblTranscriptId |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
 

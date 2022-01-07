@@ -21,7 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.oncokb.oncokb_transcript.client.Gene;
+import org.oncokb.oncokb_transcript.client.Transcript;
 import java.io.Serializable;
 /**
  * EnsemblGene
@@ -30,6 +33,9 @@ import java.io.Serializable;
 
 public class EnsemblGene implements Serializable{
   private static final long serialVersionUID = 1L;
+  @SerializedName("canonical")
+  private Boolean canonical = null;
+
   @SerializedName("chromosome")
   private String chromosome = null;
 
@@ -53,6 +59,27 @@ public class EnsemblGene implements Serializable{
 
   @SerializedName("strand")
   private Integer strand = null;
+
+  @SerializedName("transcripts")
+  private List<Transcript> transcripts = null;
+
+  public EnsemblGene canonical(Boolean canonical) {
+    this.canonical = canonical;
+    return this;
+  }
+
+   /**
+   * Get canonical
+   * @return canonical
+  **/
+  @Schema(required = true, description = "")
+  public Boolean isCanonical() {
+    return canonical;
+  }
+
+  public void setCanonical(Boolean canonical) {
+    this.canonical = canonical;
+  }
 
   public EnsemblGene chromosome(String chromosome) {
     this.chromosome = chromosome;
@@ -198,6 +225,32 @@ public class EnsemblGene implements Serializable{
     this.strand = strand;
   }
 
+  public EnsemblGene transcripts(List<Transcript> transcripts) {
+    this.transcripts = transcripts;
+    return this;
+  }
+
+  public EnsemblGene addTranscriptsItem(Transcript transcriptsItem) {
+    if (this.transcripts == null) {
+      this.transcripts = new ArrayList<Transcript>();
+    }
+    this.transcripts.add(transcriptsItem);
+    return this;
+  }
+
+   /**
+   * Get transcripts
+   * @return transcripts
+  **/
+  @Schema(description = "")
+  public List<Transcript> getTranscripts() {
+    return transcripts;
+  }
+
+  public void setTranscripts(List<Transcript> transcripts) {
+    this.transcripts = transcripts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -208,19 +261,21 @@ public class EnsemblGene implements Serializable{
       return false;
     }
     EnsemblGene ensemblGene = (EnsemblGene) o;
-    return Objects.equals(this.chromosome, ensemblGene.chromosome) &&
+    return Objects.equals(this.canonical, ensemblGene.canonical) &&
+        Objects.equals(this.chromosome, ensemblGene.chromosome) &&
         Objects.equals(this.end, ensemblGene.end) &&
         Objects.equals(this.ensemblGeneId, ensemblGene.ensemblGeneId) &&
         Objects.equals(this.gene, ensemblGene.gene) &&
         Objects.equals(this.id, ensemblGene.id) &&
         Objects.equals(this.referenceGenome, ensemblGene.referenceGenome) &&
         Objects.equals(this.start, ensemblGene.start) &&
-        Objects.equals(this.strand, ensemblGene.strand);
+        Objects.equals(this.strand, ensemblGene.strand) &&
+        Objects.equals(this.transcripts, ensemblGene.transcripts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chromosome, end, ensemblGeneId, gene, id, referenceGenome, start, strand);
+    return Objects.hash(canonical, chromosome, end, ensemblGeneId, gene, id, referenceGenome, start, strand, transcripts);
   }
 
 
@@ -229,6 +284,7 @@ public class EnsemblGene implements Serializable{
     StringBuilder sb = new StringBuilder();
     sb.append("class EnsemblGene {\n");
     
+    sb.append("    canonical: ").append(toIndentedString(canonical)).append("\n");
     sb.append("    chromosome: ").append(toIndentedString(chromosome)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    ensemblGeneId: ").append(toIndentedString(ensemblGeneId)).append("\n");
@@ -237,6 +293,7 @@ public class EnsemblGene implements Serializable{
     sb.append("    referenceGenome: ").append(toIndentedString(referenceGenome)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    strand: ").append(toIndentedString(strand)).append("\n");
+    sb.append("    transcripts: ").append(toIndentedString(transcripts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

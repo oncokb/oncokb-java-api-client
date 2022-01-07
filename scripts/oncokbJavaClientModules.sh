@@ -2,8 +2,7 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ONCOKB_PUBLIC_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Public%20APIs}
 ONCOKB_PRIVATE_DOCS=${1:-https://www.oncokb.org/api/v1/v2/api-docs?group=Private%20APIs}
-#ONCOKB_TRANSCRIPT_DOCS=${1:-https://transcript.oncokb.org/v3/api-docs}
-ONCOKB_TRANSCRIPT_DOCS=${1:-http://localhost:9090/v3/api-docs}
+ONCOKB_TRANSCRIPT_DOCS=${1:-https://transcript.oncokb.org/v3/api-docs}
 
 SWAGGER_CODEGEN_CLI_V2_JAR="swagger-codegen-cli-v2.jar"
 SWAGGER_CODEGEN_CLI_V3_JAR="swagger-codegen-cli-v3.jar"

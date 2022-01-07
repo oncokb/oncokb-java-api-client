@@ -27,14 +27,11 @@ import java.io.IOException;
 
 
 import org.oncokb.oncokb_transcript.client.AllReferenceTranscriptSuggestionVM;
-import org.oncokb.oncokb_transcript.client.EnrichedAlignmentResult;
 import org.oncokb.oncokb_transcript.client.MatchTranscriptVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonResultVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonVM;
 import org.oncokb.oncokb_transcript.client.TranscriptDTO;
 import org.oncokb.oncokb_transcript.client.TranscriptMatchResultVM;
-import org.oncokb.oncokb_transcript.client.TranscriptResultVM;
-import org.oncokb.oncokb_transcript.client.TranscriptSuggestionVM;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -62,21 +59,32 @@ public class TranscriptControllerApi {
     }
 
     /**
-     * Build call for compareEnsemblTranscriptUsingPOST
-     * @param body  (optional)
+     * Build call for addTranscriptUsingPOST
+     * @param entrezGeneId entrezGeneId (required)
+     * @param referenceGenome referenceGenome (required)
+     * @param ensemblTranscriptId ensemblTranscriptId (required)
+     * @param isCanonical isCanonical (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call compareEnsemblTranscriptUsingPOSTCall(TranscriptComparisonVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    public com.squareup.okhttp.Call addTranscriptUsingPOSTCall(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/api/compare-ensembl-transcript";
+        String localVarPath = "/api/add-transcript";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (entrezGeneId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("entrezGeneId", entrezGeneId));
+        if (referenceGenome != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("referenceGenome", referenceGenome));
+        if (ensemblTranscriptId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("ensemblTranscriptId", ensemblTranscriptId));
+        if (isCanonical != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isCanonical", isCanonical));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -89,7 +97,7 @@ public class TranscriptControllerApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -111,9 +119,25 @@ public class TranscriptControllerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call compareEnsemblTranscriptUsingPOSTValidateBeforeCall(TranscriptComparisonVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addTranscriptUsingPOSTValidateBeforeCall(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'entrezGeneId' is set
+        if (entrezGeneId == null) {
+            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling addTranscriptUsingPOST(Async)");
+        }
+        // verify the required parameter 'referenceGenome' is set
+        if (referenceGenome == null) {
+            throw new ApiException("Missing the required parameter 'referenceGenome' when calling addTranscriptUsingPOST(Async)");
+        }
+        // verify the required parameter 'ensemblTranscriptId' is set
+        if (ensemblTranscriptId == null) {
+            throw new ApiException("Missing the required parameter 'ensemblTranscriptId' when calling addTranscriptUsingPOST(Async)");
+        }
+        // verify the required parameter 'isCanonical' is set
+        if (isCanonical == null) {
+            throw new ApiException("Missing the required parameter 'isCanonical' when calling addTranscriptUsingPOST(Async)");
+        }
         
-        com.squareup.okhttp.Call call = compareEnsemblTranscriptUsingPOSTCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addTranscriptUsingPOSTCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, progressListener, progressRequestListener);
         return call;
 
         
@@ -123,39 +147,48 @@ public class TranscriptControllerApi {
     }
 
     /**
-     * compareEnsemblTranscript
+     * addTranscript
      * 
-     * @param body  (optional)
-     * @return TranscriptComparisonResultVM
+     * @param entrezGeneId entrezGeneId (required)
+     * @param referenceGenome referenceGenome (required)
+     * @param ensemblTranscriptId ensemblTranscriptId (required)
+     * @param isCanonical isCanonical (required)
+     * @return TranscriptDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TranscriptComparisonResultVM compareEnsemblTranscriptUsingPOST(TranscriptComparisonVM body) throws ApiException {
-        ApiResponse<TranscriptComparisonResultVM> resp = compareEnsemblTranscriptUsingPOSTWithHttpInfo(body);
+    public TranscriptDTO addTranscriptUsingPOST(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
+        ApiResponse<TranscriptDTO> resp = addTranscriptUsingPOSTWithHttpInfo(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
         return resp.getData();
     }
 
     /**
-     * compareEnsemblTranscript
+     * addTranscript
      * 
-     * @param body  (optional)
-     * @return ApiResponse&lt;TranscriptComparisonResultVM&gt;
+     * @param entrezGeneId entrezGeneId (required)
+     * @param referenceGenome referenceGenome (required)
+     * @param ensemblTranscriptId ensemblTranscriptId (required)
+     * @param isCanonical isCanonical (required)
+     * @return ApiResponse&lt;TranscriptDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<TranscriptComparisonResultVM> compareEnsemblTranscriptUsingPOSTWithHttpInfo(TranscriptComparisonVM body) throws ApiException {
-        com.squareup.okhttp.Call call = compareEnsemblTranscriptUsingPOSTValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<TranscriptComparisonResultVM>(){}.getType();
+    public ApiResponse<TranscriptDTO> addTranscriptUsingPOSTWithHttpInfo(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
+        com.squareup.okhttp.Call call = addTranscriptUsingPOSTValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, null, null);
+        Type localVarReturnType = new TypeToken<TranscriptDTO>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * compareEnsemblTranscript (asynchronously)
+     * addTranscript (asynchronously)
      * 
-     * @param body  (optional)
+     * @param entrezGeneId entrezGeneId (required)
+     * @param referenceGenome referenceGenome (required)
+     * @param ensemblTranscriptId ensemblTranscriptId (required)
+     * @param isCanonical isCanonical (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call compareEnsemblTranscriptUsingPOSTAsync(TranscriptComparisonVM body, final ApiCallback<TranscriptComparisonResultVM> callback) throws ApiException {
+    public com.squareup.okhttp.Call addTranscriptUsingPOSTAsync(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ApiCallback<TranscriptDTO> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,8 +209,8 @@ public class TranscriptControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = compareEnsemblTranscriptUsingPOSTValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TranscriptComparisonResultVM>(){}.getType();
+        com.squareup.okhttp.Call call = addTranscriptUsingPOSTValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TranscriptDTO>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -311,162 +344,6 @@ public class TranscriptControllerApi {
         return call;
     }
     /**
-     * Build call for findGrch38VariantUsingGET
-     * @param referenceAminoAcid referenceAminoAcid (required)
-     * @param proteinPosition proteinPosition (required)
-     * @param grch37ProteinId grch37ProteinId (required)
-     * @param grch38ProteinId grch38ProteinId (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call findGrch38VariantUsingGETCall(String referenceAminoAcid, Integer proteinPosition, String grch37ProteinId, String grch38ProteinId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/api/find-grch38-variant";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (referenceAminoAcid != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("referenceAminoAcid", referenceAminoAcid));
-        if (proteinPosition != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("proteinPosition", proteinPosition));
-        if (grch37ProteinId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("grch37ProteinId", grch37ProteinId));
-        if (grch38ProteinId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("grch38ProteinId", grch38ProteinId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Authorization" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call findGrch38VariantUsingGETValidateBeforeCall(String referenceAminoAcid, Integer proteinPosition, String grch37ProteinId, String grch38ProteinId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'referenceAminoAcid' is set
-        if (referenceAminoAcid == null) {
-            throw new ApiException("Missing the required parameter 'referenceAminoAcid' when calling findGrch38VariantUsingGET(Async)");
-        }
-        // verify the required parameter 'proteinPosition' is set
-        if (proteinPosition == null) {
-            throw new ApiException("Missing the required parameter 'proteinPosition' when calling findGrch38VariantUsingGET(Async)");
-        }
-        // verify the required parameter 'grch37ProteinId' is set
-        if (grch37ProteinId == null) {
-            throw new ApiException("Missing the required parameter 'grch37ProteinId' when calling findGrch38VariantUsingGET(Async)");
-        }
-        // verify the required parameter 'grch38ProteinId' is set
-        if (grch38ProteinId == null) {
-            throw new ApiException("Missing the required parameter 'grch38ProteinId' when calling findGrch38VariantUsingGET(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = findGrch38VariantUsingGETCall(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * findGrch38Variant
-     * 
-     * @param referenceAminoAcid referenceAminoAcid (required)
-     * @param proteinPosition proteinPosition (required)
-     * @param grch37ProteinId grch37ProteinId (required)
-     * @param grch38ProteinId grch38ProteinId (required)
-     * @return TranscriptSuggestionVM
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TranscriptSuggestionVM findGrch38VariantUsingGET(String referenceAminoAcid, Integer proteinPosition, String grch37ProteinId, String grch38ProteinId) throws ApiException {
-        ApiResponse<TranscriptSuggestionVM> resp = findGrch38VariantUsingGETWithHttpInfo(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId);
-        return resp.getData();
-    }
-
-    /**
-     * findGrch38Variant
-     * 
-     * @param referenceAminoAcid referenceAminoAcid (required)
-     * @param proteinPosition proteinPosition (required)
-     * @param grch37ProteinId grch37ProteinId (required)
-     * @param grch38ProteinId grch38ProteinId (required)
-     * @return ApiResponse&lt;TranscriptSuggestionVM&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TranscriptSuggestionVM> findGrch38VariantUsingGETWithHttpInfo(String referenceAminoAcid, Integer proteinPosition, String grch37ProteinId, String grch38ProteinId) throws ApiException {
-        com.squareup.okhttp.Call call = findGrch38VariantUsingGETValidateBeforeCall(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId, null, null);
-        Type localVarReturnType = new TypeToken<TranscriptSuggestionVM>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * findGrch38Variant (asynchronously)
-     * 
-     * @param referenceAminoAcid referenceAminoAcid (required)
-     * @param proteinPosition proteinPosition (required)
-     * @param grch37ProteinId grch37ProteinId (required)
-     * @param grch38ProteinId grch38ProteinId (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call findGrch38VariantUsingGETAsync(String referenceAminoAcid, Integer proteinPosition, String grch37ProteinId, String grch38ProteinId, final ApiCallback<TranscriptSuggestionVM> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = findGrch38VariantUsingGETValidateBeforeCall(referenceAminoAcid, proteinPosition, grch37ProteinId, grch38ProteinId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TranscriptSuggestionVM>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for findTranscriptsByEnsemblIdsUsingPOST
      * @param referenceGenome referenceGenome (required)
      * @param body  (optional)
@@ -593,396 +470,6 @@ public class TranscriptControllerApi {
 
         com.squareup.okhttp.Call call = findTranscriptsByEnsemblIdsUsingPOSTValidateBeforeCall(referenceGenome, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<TranscriptDTO>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getAlignmentsUsingPOST
-     * @param hugoSymbol hugoSymbol (required)
-     * @param body  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getAlignmentsUsingPOSTCall(String hugoSymbol, MatchTranscriptVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/api/get-alignments/{hugoSymbol}"
-            .replaceAll("\\{" + "hugoSymbol" + "\\}", apiClient.escapeString(hugoSymbol.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Authorization" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAlignmentsUsingPOSTValidateBeforeCall(String hugoSymbol, MatchTranscriptVM body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'hugoSymbol' is set
-        if (hugoSymbol == null) {
-            throw new ApiException("Missing the required parameter 'hugoSymbol' when calling getAlignmentsUsingPOST(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = getAlignmentsUsingPOSTCall(hugoSymbol, body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * getAlignments
-     * 
-     * @param hugoSymbol hugoSymbol (required)
-     * @param body  (optional)
-     * @return List&lt;EnrichedAlignmentResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<EnrichedAlignmentResult> getAlignmentsUsingPOST(String hugoSymbol, MatchTranscriptVM body) throws ApiException {
-        ApiResponse<List<EnrichedAlignmentResult>> resp = getAlignmentsUsingPOSTWithHttpInfo(hugoSymbol, body);
-        return resp.getData();
-    }
-
-    /**
-     * getAlignments
-     * 
-     * @param hugoSymbol hugoSymbol (required)
-     * @param body  (optional)
-     * @return ApiResponse&lt;List&lt;EnrichedAlignmentResult&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<EnrichedAlignmentResult>> getAlignmentsUsingPOSTWithHttpInfo(String hugoSymbol, MatchTranscriptVM body) throws ApiException {
-        com.squareup.okhttp.Call call = getAlignmentsUsingPOSTValidateBeforeCall(hugoSymbol, body, null, null);
-        Type localVarReturnType = new TypeToken<List<EnrichedAlignmentResult>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getAlignments (asynchronously)
-     * 
-     * @param hugoSymbol hugoSymbol (required)
-     * @param body  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getAlignmentsUsingPOSTAsync(String hugoSymbol, MatchTranscriptVM body, final ApiCallback<List<EnrichedAlignmentResult>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getAlignmentsUsingPOSTValidateBeforeCall(hugoSymbol, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<EnrichedAlignmentResult>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getTranscriptUsingGET
-     * @param referenceGenome referenceGenome (required)
-     * @param transcript transcript (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getTranscriptUsingGETCall(String referenceGenome, String transcript, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/api/get-sequence";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (referenceGenome != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("referenceGenome", referenceGenome));
-        if (transcript != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("transcript", transcript));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Authorization" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTranscriptUsingGETValidateBeforeCall(String referenceGenome, String transcript, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'referenceGenome' is set
-        if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling getTranscriptUsingGET(Async)");
-        }
-        // verify the required parameter 'transcript' is set
-        if (transcript == null) {
-            throw new ApiException("Missing the required parameter 'transcript' when calling getTranscriptUsingGET(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = getTranscriptUsingGETCall(referenceGenome, transcript, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * getTranscript
-     * 
-     * @param referenceGenome referenceGenome (required)
-     * @param transcript transcript (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String getTranscriptUsingGET(String referenceGenome, String transcript) throws ApiException {
-        ApiResponse<String> resp = getTranscriptUsingGETWithHttpInfo(referenceGenome, transcript);
-        return resp.getData();
-    }
-
-    /**
-     * getTranscript
-     * 
-     * @param referenceGenome referenceGenome (required)
-     * @param transcript transcript (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> getTranscriptUsingGETWithHttpInfo(String referenceGenome, String transcript) throws ApiException {
-        com.squareup.okhttp.Call call = getTranscriptUsingGETValidateBeforeCall(referenceGenome, transcript, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getTranscript (asynchronously)
-     * 
-     * @param referenceGenome referenceGenome (required)
-     * @param transcript transcript (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getTranscriptUsingGETAsync(String referenceGenome, String transcript, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getTranscriptUsingGETValidateBeforeCall(referenceGenome, transcript, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getTranscriptUsingGET1
-     * @param hugoSymbol hugoSymbol (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getTranscriptUsingGET1Call(String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/api/get-transcript/{hugoSymbol}"
-            .replaceAll("\\{" + "hugoSymbol" + "\\}", apiClient.escapeString(hugoSymbol.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Authorization" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTranscriptUsingGET1ValidateBeforeCall(String hugoSymbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'hugoSymbol' is set
-        if (hugoSymbol == null) {
-            throw new ApiException("Missing the required parameter 'hugoSymbol' when calling getTranscriptUsingGET1(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = getTranscriptUsingGET1Call(hugoSymbol, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * getTranscript
-     * 
-     * @param hugoSymbol hugoSymbol (required)
-     * @return TranscriptResultVM
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TranscriptResultVM getTranscriptUsingGET1(String hugoSymbol) throws ApiException {
-        ApiResponse<TranscriptResultVM> resp = getTranscriptUsingGET1WithHttpInfo(hugoSymbol);
-        return resp.getData();
-    }
-
-    /**
-     * getTranscript
-     * 
-     * @param hugoSymbol hugoSymbol (required)
-     * @return ApiResponse&lt;TranscriptResultVM&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TranscriptResultVM> getTranscriptUsingGET1WithHttpInfo(String hugoSymbol) throws ApiException {
-        com.squareup.okhttp.Call call = getTranscriptUsingGET1ValidateBeforeCall(hugoSymbol, null, null);
-        Type localVarReturnType = new TypeToken<TranscriptResultVM>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getTranscript (asynchronously)
-     * 
-     * @param hugoSymbol hugoSymbol (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getTranscriptUsingGET1Async(String hugoSymbol, final ApiCallback<TranscriptResultVM> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getTranscriptUsingGET1ValidateBeforeCall(hugoSymbol, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TranscriptResultVM>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1278,168 +765,6 @@ public class TranscriptControllerApi {
         com.squareup.okhttp.Call call = suggestVariantUsingGETValidateBeforeCall(hugoSymbol, proteinPosition, curatedResidue, grch37Transcript, grch38Transcript, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AllReferenceTranscriptSuggestionVM>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for updateTranscriptUsageUsingPOST
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call updateTranscriptUsageUsingPOSTCall(String usageSource, String hugoSymbol, Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/api/update-transcript-usage-source";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (usageSource != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("usageSource", usageSource));
-        if (hugoSymbol != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("hugoSymbol", hugoSymbol));
-        if (entrezGeneId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("entrezGeneId", entrezGeneId));
-        if (referenceGenome != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("referenceGenome", referenceGenome));
-        if (ensemblTranscriptId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("ensemblTranscriptId", ensemblTranscriptId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "Authorization" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTranscriptUsageUsingPOSTValidateBeforeCall(String usageSource, String hugoSymbol, Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'usageSource' is set
-        if (usageSource == null) {
-            throw new ApiException("Missing the required parameter 'usageSource' when calling updateTranscriptUsageUsingPOST(Async)");
-        }
-        // verify the required parameter 'hugoSymbol' is set
-        if (hugoSymbol == null) {
-            throw new ApiException("Missing the required parameter 'hugoSymbol' when calling updateTranscriptUsageUsingPOST(Async)");
-        }
-        // verify the required parameter 'entrezGeneId' is set
-        if (entrezGeneId == null) {
-            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling updateTranscriptUsageUsingPOST(Async)");
-        }
-        // verify the required parameter 'referenceGenome' is set
-        if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling updateTranscriptUsageUsingPOST(Async)");
-        }
-        // verify the required parameter 'ensemblTranscriptId' is set
-        if (ensemblTranscriptId == null) {
-            throw new ApiException("Missing the required parameter 'ensemblTranscriptId' when calling updateTranscriptUsageUsingPOST(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = updateTranscriptUsageUsingPOSTCall(usageSource, hugoSymbol, entrezGeneId, referenceGenome, ensemblTranscriptId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * updateTranscriptUsage
-     * 
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void updateTranscriptUsageUsingPOST(String usageSource, String hugoSymbol, Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId) throws ApiException {
-        updateTranscriptUsageUsingPOSTWithHttpInfo(usageSource, hugoSymbol, entrezGeneId, referenceGenome, ensemblTranscriptId);
-    }
-
-    /**
-     * updateTranscriptUsage
-     * 
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> updateTranscriptUsageUsingPOSTWithHttpInfo(String usageSource, String hugoSymbol, Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId) throws ApiException {
-        com.squareup.okhttp.Call call = updateTranscriptUsageUsingPOSTValidateBeforeCall(usageSource, hugoSymbol, entrezGeneId, referenceGenome, ensemblTranscriptId, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * updateTranscriptUsage (asynchronously)
-     * 
-     * @param usageSource usageSource (required)
-     * @param hugoSymbol hugoSymbol (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call updateTranscriptUsageUsingPOSTAsync(String usageSource, String hugoSymbol, Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = updateTranscriptUsageUsingPOSTValidateBeforeCall(usageSource, hugoSymbol, entrezGeneId, referenceGenome, ensemblTranscriptId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
         return call;
     }
 }

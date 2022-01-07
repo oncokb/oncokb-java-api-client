@@ -32,7 +32,7 @@ public class SequenceControllerApiTest {
     private final SequenceControllerApi api = new SequenceControllerApi();
 
     /**
-     * findSequencesByUsageSource
+     * findCanonicalSequence
      *
      * 
      *
@@ -40,11 +40,28 @@ public class SequenceControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void findSequencesByUsageSourceUsingGETTest() throws Exception {
+    public void findCanonicalSequenceUsingGETTest() throws Exception {
         String referenceGenome = null;
-        String usageSource = null;
-        String hugoSymbol = null;
-        List<Sequence> response = api.findSequencesByUsageSourceUsingGET(referenceGenome, usageSource, hugoSymbol);
+        Integer entrezGeneId = null;
+        String sequenceType = null;
+        Sequence response = api.findCanonicalSequenceUsingGET(referenceGenome, entrezGeneId, sequenceType);
+
+        // TODO: test validations
+    }
+    /**
+     * findCanonicalSequences
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void findCanonicalSequencesUsingPOSTTest() throws Exception {
+        String referenceGenome = null;
+        List<Integer> body = null;
+        String sequenceType = null;
+        List<Sequence> response = api.findCanonicalSequencesUsingPOST(referenceGenome, body, sequenceType);
 
         // TODO: test validations
     }
