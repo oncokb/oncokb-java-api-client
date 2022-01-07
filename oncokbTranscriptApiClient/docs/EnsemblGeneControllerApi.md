@@ -1,6 +1,6 @@
 # EnsemblGeneControllerApi
 
-All URIs are relative to *https://beta.transcript.oncokb.org:443*
+All URIs are relative to *https://transcript.oncokb.org:443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
