@@ -1,7 +1,10 @@
 
+
 # Article
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_abstract** | **String** |  |  [optional]

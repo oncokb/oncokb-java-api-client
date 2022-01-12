@@ -1,6 +1,6 @@
 # ClassificationApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,17 +18,29 @@ Get All OncoKB Variant Classification.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.ClassificationApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.ClassificationApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-ClassificationApi apiInstance = new ClassificationApi();
-try {
-    List<String> result = apiInstance.classificationVariantsGetUsingGET();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ClassificationApi#classificationVariantsGetUsingGET");
-    e.printStackTrace();
+    ClassificationApi apiInstance = new ClassificationApi(defaultClient);
+    try {
+      List<String> result = apiInstance.classificationVariantsGetUsingGET();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ClassificationApi#classificationVariantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -45,6 +57,11 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 

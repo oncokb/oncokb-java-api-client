@@ -1,15 +1,19 @@
 
+
 # ResponseEntity
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **body** | **Object** |  |  [optional]
 **statusCode** | [**StatusCodeEnum**](#StatusCodeEnum) |  |  [optional]
 
 
-<a name="StatusCodeEnum"></a>
+
 ## Enum: StatusCodeEnum
+
 Name | Value
 ---- | -----
 _100 | &quot;100&quot;
@@ -29,7 +33,7 @@ _226 | &quot;226&quot;
 _300 | &quot;300&quot;
 _301 | &quot;301&quot;
 _302 | &quot;302&quot;
-_302_2 | &quot;302&quot;
+_302 | &quot;302&quot;
 _303 | &quot;303&quot;
 _304 | &quot;304&quot;
 _305 | &quot;305&quot;
@@ -49,9 +53,9 @@ _410 | &quot;410&quot;
 _411 | &quot;411&quot;
 _412 | &quot;412&quot;
 _413 | &quot;413&quot;
-_413_2 | &quot;413&quot;
+_413 | &quot;413&quot;
 _414 | &quot;414&quot;
-_414_2 | &quot;414&quot;
+_414 | &quot;414&quot;
 _415 | &quot;415&quot;
 _416 | &quot;416&quot;
 _417 | &quot;417&quot;

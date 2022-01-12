@@ -1,6 +1,6 @@
 # VariantsApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,18 +24,30 @@ Get All Actionable Variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.VariantsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.VariantsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | The data version
-try {
-    List<ActionableGene> result = apiInstance.utilsAllActionableVariantsGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling VariantsApi#utilsAllActionableVariantsGetUsingGET");
-    e.printStackTrace();
+    VariantsApi apiInstance = new VariantsApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      List<ActionableGene> result = apiInstance.utilsAllActionableVariantsGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VariantsApi#utilsAllActionableVariantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -55,8 +67,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllActionableVariantsTxtGetUsingGET"></a>
 # **utilsAllActionableVariantsTxtGetUsingGET**
@@ -69,18 +88,30 @@ Get All Actionable Variants in text file.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.VariantsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.VariantsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | The data version
-try {
-    String result = apiInstance.utilsAllActionableVariantsTxtGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling VariantsApi#utilsAllActionableVariantsTxtGetUsingGET");
-    e.printStackTrace();
+    VariantsApi apiInstance = new VariantsApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      String result = apiInstance.utilsAllActionableVariantsTxtGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VariantsApi#utilsAllActionableVariantsTxtGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -100,8 +131,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllAnnotatedVariantsGetUsingGET"></a>
 # **utilsAllAnnotatedVariantsGetUsingGET**
@@ -114,18 +152,30 @@ Get All Annotated Variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.VariantsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.VariantsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | The data version
-try {
-    List<AnnotatedVariant> result = apiInstance.utilsAllAnnotatedVariantsGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling VariantsApi#utilsAllAnnotatedVariantsGetUsingGET");
-    e.printStackTrace();
+    VariantsApi apiInstance = new VariantsApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      List<AnnotatedVariant> result = apiInstance.utilsAllAnnotatedVariantsGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VariantsApi#utilsAllAnnotatedVariantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -145,8 +195,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllAnnotatedVariantsTxtGetUsingGET"></a>
 # **utilsAllAnnotatedVariantsTxtGetUsingGET**
@@ -159,18 +216,30 @@ Get All Annotated Variants in text file.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.VariantsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.VariantsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-VariantsApi apiInstance = new VariantsApi();
-String version = "version_example"; // String | The data version
-try {
-    String result = apiInstance.utilsAllAnnotatedVariantsTxtGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling VariantsApi#utilsAllAnnotatedVariantsTxtGetUsingGET");
-    e.printStackTrace();
+    VariantsApi apiInstance = new VariantsApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      String result = apiInstance.utilsAllAnnotatedVariantsTxtGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VariantsApi#utilsAllAnnotatedVariantsTxtGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -190,8 +259,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="variantsGetUsingGET"></a>
 # **variantsGetUsingGET**
@@ -204,18 +280,30 @@ Get all annotated variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.VariantsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.VariantsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-VariantsApi apiInstance = new VariantsApi();
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    List<Alteration> result = apiInstance.variantsGetUsingGET(fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling VariantsApi#variantsGetUsingGET");
-    e.printStackTrace();
+    VariantsApi apiInstance = new VariantsApi(defaultClient);
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      List<Alteration> result = apiInstance.variantsGetUsingGET(fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VariantsApi#variantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -235,8 +323,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="variantsLookupGetUsingGET"></a>
 # **variantsLookupGetUsingGET**
@@ -249,27 +342,39 @@ Search for variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.VariantsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.VariantsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-VariantsApi apiInstance = new VariantsApi();
-Integer entrezGeneId = 56; // Integer | The entrez gene ID. entrezGeneId is prioritize than hugoSymbol if both parameters have been defined
-String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation.
-String variant = "variant_example"; // String | variant name.
-String variantType = "variantType_example"; // String | variantType
-String consequence = "consequence_example"; // String | consequence
-Integer proteinStart = 56; // Integer | proteinStart
-Integer proteinEnd = 56; // Integer | proteinEnd
-String hgvs = "hgvs_example"; // String | HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination
-String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    List<Alteration> result = apiInstance.variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, referenceGenome, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling VariantsApi#variantsLookupGetUsingGET");
-    e.printStackTrace();
+    VariantsApi apiInstance = new VariantsApi(defaultClient);
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID. entrezGeneId is prioritize than hugoSymbol if both parameters have been defined
+    String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation.
+    String variant = "variant_example"; // String | variant name.
+    String variantType = "variantType_example"; // String | variantType
+    String consequence = "consequence_example"; // String | consequence
+    Integer proteinStart = 56; // Integer | proteinStart
+    Integer proteinEnd = 56; // Integer | proteinEnd
+    String hgvs = "hgvs_example"; // String | HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination
+    String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      List<Alteration> result = apiInstance.variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, referenceGenome, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VariantsApi#variantsLookupGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -298,8 +403,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="variantsLookupPostUsingPOST"></a>
 # **variantsLookupPostUsingPOST**
@@ -312,19 +422,31 @@ Search for variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.VariantsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.VariantsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-VariantsApi apiInstance = new VariantsApi();
-List<VariantSearchQuery> body = Arrays.asList(new VariantSearchQuery()); // List<VariantSearchQuery> | List of queries.
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    List<List<Object>> result = apiInstance.variantsLookupPostUsingPOST(body, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling VariantsApi#variantsLookupPostUsingPOST");
-    e.printStackTrace();
+    VariantsApi apiInstance = new VariantsApi(defaultClient);
+    List<VariantSearchQuery> body = Arrays.asList(); // List<VariantSearchQuery> | List of queries.
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      List<List<Object>> result = apiInstance.variantsLookupPostUsingPOST(body, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VariantsApi#variantsLookupPostUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -347,4 +469,9 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 

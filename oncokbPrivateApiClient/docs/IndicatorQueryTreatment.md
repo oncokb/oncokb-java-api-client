@@ -1,7 +1,10 @@
 
+
 # IndicatorQueryTreatment
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abstracts** | [**List&lt;ArticleAbstract&gt;**](ArticleAbstract.md) |  |  [optional]
@@ -14,8 +17,9 @@ Name | Type | Description | Notes
 **pmids** | **List&lt;String&gt;** |  |  [optional]
 
 
-<a name="LevelEnum"></a>
+
 ## Enum: LevelEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;

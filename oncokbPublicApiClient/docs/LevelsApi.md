@@ -1,6 +1,6 @@
 # LevelsApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,17 +20,29 @@ Get all levels.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.LevelsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.LevelsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-LevelsApi apiInstance = new LevelsApi();
-try {
-    Object result = apiInstance.levelsGetUsingGET1();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LevelsApi#levelsGetUsingGET1");
-    e.printStackTrace();
+    LevelsApi apiInstance = new LevelsApi(defaultClient);
+    try {
+      Object result = apiInstance.levelsGetUsingGET1();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LevelsApi#levelsGetUsingGET1");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -47,8 +59,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="levelsResistanceGetUsingGET1"></a>
 # **levelsResistanceGetUsingGET1**
@@ -61,17 +78,29 @@ Get all resistance levels.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.LevelsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.LevelsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-LevelsApi apiInstance = new LevelsApi();
-try {
-    Object result = apiInstance.levelsResistanceGetUsingGET1();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LevelsApi#levelsResistanceGetUsingGET1");
-    e.printStackTrace();
+    LevelsApi apiInstance = new LevelsApi(defaultClient);
+    try {
+      Object result = apiInstance.levelsResistanceGetUsingGET1();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LevelsApi#levelsResistanceGetUsingGET1");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -88,8 +117,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="levelsSensitiveGetUsingGET1"></a>
 # **levelsSensitiveGetUsingGET1**
@@ -102,17 +136,29 @@ Get all sensitive levels.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.LevelsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.LevelsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-LevelsApi apiInstance = new LevelsApi();
-try {
-    Object result = apiInstance.levelsSensitiveGetUsingGET1();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LevelsApi#levelsSensitiveGetUsingGET1");
-    e.printStackTrace();
+    LevelsApi apiInstance = new LevelsApi(defaultClient);
+    try {
+      Object result = apiInstance.levelsSensitiveGetUsingGET1();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LevelsApi#levelsSensitiveGetUsingGET1");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -129,6 +175,11 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 

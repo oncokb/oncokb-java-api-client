@@ -1,6 +1,6 @@
 # GenesApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,19 +22,31 @@ Get list of evidences for specific gene.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.GenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.GenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-GenesApi apiInstance = new GenesApi();
-Integer entrezGeneId = 56; // Integer | The entrez gene ID.
-String evidenceTypes = "evidenceTypes_example"; // String | Separate by comma. Evidence type includes GENE_SUMMARY, GENE_BACKGROUND
-try {
-    List<GeneEvidence> result = apiInstance.genesEntrezGeneIdEvidencesGetUsingGET(entrezGeneId, evidenceTypes);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GenesApi#genesEntrezGeneIdEvidencesGetUsingGET");
-    e.printStackTrace();
+    GenesApi apiInstance = new GenesApi(defaultClient);
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID.
+    String evidenceTypes = "evidenceTypes_example"; // String | Separate by comma. Evidence type includes GENE_SUMMARY, GENE_BACKGROUND
+    try {
+      List<GeneEvidence> result = apiInstance.genesEntrezGeneIdEvidencesGetUsingGET(entrezGeneId, evidenceTypes);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GenesApi#genesEntrezGeneIdEvidencesGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -55,8 +67,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="genesEntrezGeneIdGetUsingGET"></a>
 # **genesEntrezGeneIdGetUsingGET**
@@ -69,19 +86,31 @@ Get specific gene information.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.GenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.GenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-GenesApi apiInstance = new GenesApi();
-Integer entrezGeneId = 56; // Integer | The entrez gene ID.
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    Gene result = apiInstance.genesEntrezGeneIdGetUsingGET(entrezGeneId, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GenesApi#genesEntrezGeneIdGetUsingGET");
-    e.printStackTrace();
+    GenesApi apiInstance = new GenesApi(defaultClient);
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID.
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      Gene result = apiInstance.genesEntrezGeneIdGetUsingGET(entrezGeneId, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GenesApi#genesEntrezGeneIdGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -102,8 +131,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="genesEntrezGeneIdVariantsGetUsingGET"></a>
 # **genesEntrezGeneIdVariantsGetUsingGET**
@@ -116,19 +150,31 @@ Get list of variants for specific gene.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.GenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.GenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-GenesApi apiInstance = new GenesApi();
-Integer entrezGeneId = 56; // Integer | The entrez gene ID.
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    List<Alteration> result = apiInstance.genesEntrezGeneIdVariantsGetUsingGET(entrezGeneId, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GenesApi#genesEntrezGeneIdVariantsGetUsingGET");
-    e.printStackTrace();
+    GenesApi apiInstance = new GenesApi(defaultClient);
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID.
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      List<Alteration> result = apiInstance.genesEntrezGeneIdVariantsGetUsingGET(entrezGeneId, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GenesApi#genesEntrezGeneIdVariantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -149,8 +195,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="genesGetUsingGET"></a>
 # **genesGetUsingGET**
@@ -163,18 +214,30 @@ Get list of currently curated genes.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.GenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.GenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-GenesApi apiInstance = new GenesApi();
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    List<Gene> result = apiInstance.genesGetUsingGET(fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GenesApi#genesGetUsingGET");
-    e.printStackTrace();
+    GenesApi apiInstance = new GenesApi(defaultClient);
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      List<Gene> result = apiInstance.genesGetUsingGET(fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GenesApi#genesGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -194,8 +257,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="genesLookupGetUsingGET"></a>
 # **genesLookupGetUsingGET**
@@ -208,21 +276,33 @@ Search gene.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.GenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.GenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-GenesApi apiInstance = new GenesApi();
-String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. (Deprecated, use query instead)
-Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Deprecated, use query instead)
-String query = "query_example"; // String | The search query, it could be hugoSymbol or entrezGeneId.
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    List<Gene> result = apiInstance.genesLookupGetUsingGET(hugoSymbol, entrezGeneId, query, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GenesApi#genesLookupGetUsingGET");
-    e.printStackTrace();
+    GenesApi apiInstance = new GenesApi(defaultClient);
+    String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. (Deprecated, use query instead)
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Deprecated, use query instead)
+    String query = "query_example"; // String | The search query, it could be hugoSymbol or entrezGeneId.
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      List<Gene> result = apiInstance.genesLookupGetUsingGET(hugoSymbol, entrezGeneId, query, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GenesApi#genesLookupGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -245,6 +325,11 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 

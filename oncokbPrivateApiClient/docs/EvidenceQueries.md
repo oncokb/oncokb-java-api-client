@@ -1,7 +1,10 @@
 
+
 # EvidenceQueries
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **evidenceTypes** | **String** |  |  [optional]
@@ -10,8 +13,9 @@ Name | Type | Description | Notes
 **queries** | [**List&lt;Query&gt;**](Query.md) |  |  [optional]
 
 
-<a name="List<LevelsEnum>"></a>
+
 ## Enum: List&lt;LevelsEnum&gt;
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;

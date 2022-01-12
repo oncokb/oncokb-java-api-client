@@ -30,6 +30,6 @@ rm -rf ../oncokbPrivateApiClient
 rm -rf ../oncokbTranscriptApiClient
 
 # generate java modules (see config json files for more details)
-java -jar ${SWAGGER_CODEGEN_CLI_V2_JAR} generate -i ${ONCOKB_PUBLIC_DOCS} -l java -c oncokbPublicApiClientConfig.json -o ../oncokbPublicApiClient
-java -jar ${SWAGGER_CODEGEN_CLI_V2_JAR} generate -i ${ONCOKB_PRIVATE_DOCS} -l java -c oncokbPrivateApiClientConfig.json -o ../oncokbPrivateApiClient
+java -jar ${OPENAPI_GENERATOR_CLI_V5_JAR} generate -i ${ONCOKB_PUBLIC_DOCS} -g java -c oncokbPublicApiClientConfig.json -o ../oncokbPublicApiClient
+java -jar ${OPENAPI_GENERATOR_CLI_V5_JAR} generate -i ${ONCOKB_PRIVATE_DOCS} -g java -c oncokbPrivateApiClientConfig.json -o ../oncokbPrivateApiClient
 java -jar ${OPENAPI_GENERATOR_CLI_V5_JAR} generate -i ${ONCOKB_TRANSCRIPT_DOCS} -g java -c oncokbTranscriptApiClientConfig.json -o ../oncokbTranscriptApiClient

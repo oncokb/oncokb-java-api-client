@@ -1,6 +1,6 @@
 # TrialsApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,18 +17,30 @@ Return a list of trials using cancer types
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.TrialsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.TrialsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-TrialsApi apiInstance = new TrialsApi();
-CancerTypesQuery body = new CancerTypesQuery(); // CancerTypesQuery | body
-try {
-    Map<String, List> result = apiInstance.trialsGetByCancerTypesUsingPOST(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrialsApi#trialsGetByCancerTypesUsingPOST");
-    e.printStackTrace();
+    TrialsApi apiInstance = new TrialsApi(defaultClient);
+    CancerTypesQuery body = new CancerTypesQuery(); // CancerTypesQuery | body
+    try {
+      Map<String, List> result = apiInstance.trialsGetByCancerTypesUsingPOST(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrialsApi#trialsGetByCancerTypesUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -51,6 +63,12 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error |  -  |
+
 <a name="trialsMatchingGetUsingGET"></a>
 # **trialsMatchingGetUsingGET**
 > List&lt;Trial&gt; trialsMatchingGetUsingGET(oncoTreeCode, treatment)
@@ -60,19 +78,31 @@ Return a list of trials using OncoTree Code and/or treatment
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.TrialsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.TrialsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-TrialsApi apiInstance = new TrialsApi();
-String oncoTreeCode = "oncoTreeCode_example"; // String | oncoTreeCode
-String treatment = "treatment_example"; // String | treatment
-try {
-    List<Trial> result = apiInstance.trialsMatchingGetUsingGET(oncoTreeCode, treatment);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrialsApi#trialsMatchingGetUsingGET");
-    e.printStackTrace();
+    TrialsApi apiInstance = new TrialsApi(defaultClient);
+    String oncoTreeCode = "oncoTreeCode_example"; // String | oncoTreeCode
+    String treatment = "treatment_example"; // String | treatment
+    try {
+      List<Trial> result = apiInstance.trialsMatchingGetUsingGET(oncoTreeCode, treatment);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrialsApi#trialsMatchingGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -93,6 +123,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error |  -  |
 

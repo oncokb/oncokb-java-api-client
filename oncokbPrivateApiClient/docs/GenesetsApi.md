@@ -1,6 +1,6 @@
 # GenesetsApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,17 +19,29 @@ Get list of currently curated genesets.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.GenesetsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.GenesetsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-GenesetsApi apiInstance = new GenesetsApi();
-try {
-    List<Geneset> result = apiInstance.genesetsGetUsingGET();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GenesetsApi#genesetsGetUsingGET");
-    e.printStackTrace();
+    GenesetsApi apiInstance = new GenesetsApi(defaultClient);
+    try {
+      List<Geneset> result = apiInstance.genesetsGetUsingGET();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GenesetsApi#genesetsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -46,8 +58,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="genesetsUuidGetUsingGET"></a>
 # **genesetsUuidGetUsingGET**
@@ -60,18 +77,30 @@ Find geneset by uuid
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.GenesetsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.GenesetsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-GenesetsApi apiInstance = new GenesetsApi();
-String uuid = "uuid_example"; // String | Geneset UUID
-try {
-    Geneset result = apiInstance.genesetsUuidGetUsingGET(uuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling GenesetsApi#genesetsUuidGetUsingGET");
-    e.printStackTrace();
+    GenesetsApi apiInstance = new GenesetsApi(defaultClient);
+    String uuid = "uuid_example"; // String | Geneset UUID
+    try {
+      Geneset result = apiInstance.genesetsUuidGetUsingGET(uuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GenesetsApi#genesetsUuidGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -91,6 +120,11 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 

@@ -1,7 +1,10 @@
 
+
 # IndicatorQueryResp
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alleleExist** | **Boolean** |  |  [optional]
@@ -30,8 +33,9 @@ Name | Type | Description | Notes
 **vus** | **Boolean** |  |  [optional]
 
 
-<a name="HighestDiagnosticImplicationLevelEnum"></a>
+
 ## Enum: HighestDiagnosticImplicationLevelEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
@@ -54,8 +58,9 @@ LEVEL_DX3 | &quot;LEVEL_Dx3&quot;
 NO | &quot;NO&quot;
 
 
-<a name="HighestPrognosticImplicationLevelEnum"></a>
+
 ## Enum: HighestPrognosticImplicationLevelEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
@@ -78,8 +83,9 @@ LEVEL_DX3 | &quot;LEVEL_Dx3&quot;
 NO | &quot;NO&quot;
 
 
-<a name="HighestResistanceLevelEnum"></a>
+
 ## Enum: HighestResistanceLevelEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
@@ -102,8 +108,9 @@ LEVEL_DX3 | &quot;LEVEL_Dx3&quot;
 NO | &quot;NO&quot;
 
 
-<a name="HighestSensitiveLevelEnum"></a>
+
 ## Enum: HighestSensitiveLevelEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
@@ -126,8 +133,9 @@ LEVEL_DX3 | &quot;LEVEL_Dx3&quot;
 NO | &quot;NO&quot;
 
 
-<a name="List<OtherSignificantResistanceLevelsEnum>"></a>
+
 ## Enum: List&lt;OtherSignificantResistanceLevelsEnum&gt;
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
@@ -150,8 +158,9 @@ LEVEL_DX3 | &quot;LEVEL_Dx3&quot;
 NO | &quot;NO&quot;
 
 
-<a name="List<OtherSignificantSensitiveLevelsEnum>"></a>
+
 ## Enum: List&lt;OtherSignificantSensitiveLevelsEnum&gt;
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
