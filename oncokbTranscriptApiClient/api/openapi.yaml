@@ -1,0 +1,1543 @@
+openapi: 3.0.3
+info:
+  contact: {}
+  description: oncokb-transcript API documentation
+  license:
+    name: unlicensed
+  title: oncokb-transcript API
+  version: 0.0.1
+servers:
+- description: Inferred Url
+  url: https://transcript.oncokb.org:443
+tags:
+- description: Account Resource
+  name: account-resource
+- description: Drug Controller
+  name: drug-controller
+- description: Ensembl Gene Controller
+  name: ensembl-gene-controller
+- description: Gene Controller
+  name: gene-controller
+- description: Pipeline Controller
+  name: pipeline-controller
+- description: Sequence Controller
+  name: sequence-controller
+- description: Transcript Controller
+  name: transcript-controller
+paths:
+  /api/account:
+    get:
+      operationId: getAccountUsingGET
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserVM'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: getAccount
+      tags:
+      - account-resource
+      x-accepts: '*/*'
+  /api/authenticate:
+    get:
+      operationId: isAuthenticatedUsingGET
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: isAuthenticated
+      tags:
+      - account-resource
+      x-accepts: '*/*'
+  /api/drugs/search:
+    get:
+      operationId: findDrugsUsingGET
+      parameters:
+      - description: query
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Drug'
+                type: array
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findDrugs
+      tags:
+      - drug-controller
+      x-accepts: '*/*'
+  /api/drugs/search-by-code/{code}:
+    get:
+      operationId: findDrugByCodeUsingGET
+      parameters:
+      - description: code
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Drug'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findDrugByCode
+      tags:
+      - drug-controller
+      x-accepts: '*/*'
+  /api/add-ensembl-gene:
+    post:
+      operationId: addEnsemblGeneUsingPOST
+      parameters:
+      - description: referenceGenome
+        explode: true
+        in: query
+        name: referenceGenome
+        required: true
+        schema:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        style: form
+      - description: entrezGeneId
+        explode: true
+        in: query
+        name: entrezGeneId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: ensemblGeneId
+        explode: true
+        in: query
+        name: ensemblGeneId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: isCanonical
+        explode: true
+        in: query
+        name: isCanonical
+        required: true
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EnsemblGene'
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: addEnsemblGene
+      tags:
+      - ensembl-gene-controller
+      x-accepts: '*/*'
+  /api/find-genes:
+    get:
+      operationId: findGeneBySymbolUsingGET
+      parameters:
+      - description: symbol
+        explode: true
+        in: query
+        name: symbol
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Gene'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findGeneBySymbol
+      tags:
+      - gene-controller
+      x-accepts: '*/*'
+    post:
+      operationId: findGenesBySymbolsUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Gene'
+                type: array
+                uniqueItems: true
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findGenesBySymbols
+      tags:
+      - gene-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /api/pipeline/update-gene:
+    post:
+      operationId: updatePortalGeneUsingPOST
+      responses:
+        "200":
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: updatePortalGene
+      tags:
+      - pipeline-controller
+      x-accepts: application/json
+  /api/pipeline/update-ncit:
+    post:
+      operationId: updateNcitUsingPOST
+      responses:
+        "200":
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: updateNcit
+      tags:
+      - pipeline-controller
+      x-accepts: application/json
+  /api/find-canonical-sequences:
+    get:
+      operationId: findCanonicalSequenceUsingGET
+      parameters:
+      - description: referenceGenome
+        explode: true
+        in: query
+        name: referenceGenome
+        required: true
+        schema:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        style: form
+      - description: entrezGeneId
+        explode: true
+        in: query
+        name: entrezGeneId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: sequenceType
+        explode: true
+        in: query
+        name: sequenceType
+        required: false
+        schema:
+          enum:
+          - CDNA
+          - PROTEIN
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Sequence'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findCanonicalSequence
+      tags:
+      - sequence-controller
+      x-accepts: '*/*'
+    post:
+      operationId: findCanonicalSequencesUsingPOST
+      parameters:
+      - description: referenceGenome
+        explode: true
+        in: query
+        name: referenceGenome
+        required: true
+        schema:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        style: form
+      - description: sequenceType
+        explode: true
+        in: query
+        name: sequenceType
+        required: false
+        schema:
+          enum:
+          - CDNA
+          - PROTEIN
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: int32
+                type: integer
+              type: array
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Sequence'
+                type: array
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findCanonicalSequences
+      tags:
+      - sequence-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /api/add-transcript:
+    post:
+      operationId: addTranscriptUsingPOST
+      parameters:
+      - description: entrezGeneId
+        explode: true
+        in: query
+        name: entrezGeneId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: referenceGenome
+        explode: true
+        in: query
+        name: referenceGenome
+        required: true
+        schema:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        style: form
+      - description: ensemblTranscriptId
+        explode: true
+        in: query
+        name: ensemblTranscriptId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: isCanonical
+        explode: true
+        in: query
+        name: isCanonical
+        required: true
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TranscriptDTO'
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: addTranscript
+      tags:
+      - transcript-controller
+      x-accepts: '*/*'
+  /api/compare-transcript/{hugoSymbol}:
+    post:
+      operationId: compareTranscriptUsingPOST
+      parameters:
+      - description: hugoSymbol
+        explode: false
+        in: path
+        name: hugoSymbol
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TranscriptComparisonVM'
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TranscriptComparisonResultVM'
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: compareTranscript
+      tags:
+      - transcript-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /api/find-transcripts-by-ensembl-ids:
+    post:
+      operationId: findTranscriptsByEnsemblIdsUsingPOST
+      parameters:
+      - description: referenceGenome
+        explode: true
+        in: query
+        name: referenceGenome
+        required: true
+        schema:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/TranscriptDTO'
+                type: array
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findTranscriptsByEnsemblIds
+      tags:
+      - transcript-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /api/match-transcript/{hugoSymbol}:
+    post:
+      operationId: matchTranscriptUsingPOST
+      parameters:
+      - description: hugoSymbol
+        explode: false
+        in: path
+        name: hugoSymbol
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatchTranscriptVM'
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TranscriptMatchResultVM'
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: matchTranscript
+      tags:
+      - transcript-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /api/suggest-variant/{hugoSymbol}:
+    get:
+      operationId: suggestVariantUsingGET
+      parameters:
+      - description: hugoSymbol
+        explode: false
+        in: path
+        name: hugoSymbol
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: proteinPosition
+        explode: true
+        in: query
+        name: proteinPosition
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: curatedResidue
+        explode: true
+        in: query
+        name: curatedResidue
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: grch37Transcript
+        explode: true
+        in: query
+        name: grch37Transcript
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: grch38Transcript
+        explode: true
+        in: query
+        name: grch38Transcript
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AllReferenceTranscriptSuggestionVM'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: suggestVariant
+      tags:
+      - transcript-controller
+      x-accepts: '*/*'
+components:
+  schemas:
+    AllReferenceTranscriptSuggestionVM:
+      example:
+        grch37:
+          note: note
+          suggestions:
+          - suggestions
+          - suggestions
+          referenceGenome: GRCh37
+        grch38:
+          note: note
+          suggestions:
+          - suggestions
+          - suggestions
+          referenceGenome: GRCh37
+      properties:
+        grch37:
+          $ref: '#/components/schemas/TranscriptSuggestionVM'
+        grch38:
+          $ref: '#/components/schemas/TranscriptSuggestionVM'
+      title: AllReferenceTranscriptSuggestionVM
+      type: object
+    Drug:
+      example:
+        code: code
+        synonyms:
+        - name: name
+          id: 6
+        - name: name
+          id: 6
+        semanticType: semanticType
+        name: name
+        id: 0
+      properties:
+        code:
+          type: string
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        semanticType:
+          type: string
+        synonyms:
+          items:
+            $ref: '#/components/schemas/DrugSynonym'
+          type: array
+          uniqueItems: true
+      title: Drug
+      type: object
+    DrugSynonym:
+      example:
+        name: name
+        id: 6
+      properties:
+        drug:
+          $ref: '#/components/schemas/Drug'
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+      title: DrugSynonym
+      type: object
+    EnsemblGene:
+      example:
+        ensemblGeneId: ensemblGeneId
+        strand: 7
+        gene:
+          geneAliases:
+          - name: name
+            id: 1
+          - name: name
+            id: 1
+          entrezGeneId: 6
+          hugoSymbol: hugoSymbol
+          id: 5
+          ensemblGenes:
+          - null
+          - null
+        transcripts:
+        - ensemblProteinId: ensemblProteinId
+          ensemblTranscriptId: ensemblTranscriptId
+          description: description
+          fragments:
+          - strand: 4
+            chromosome: chromosome
+            start: 2
+            end: 9
+            id: 3
+            type: EXON
+          - strand: 4
+            chromosome: chromosome
+            start: 2
+            end: 9
+            id: 3
+            type: EXON
+          canonical: true
+          id: 7
+          referenceSequenceId: referenceSequenceId
+          sequences:
+          - sequence: sequence
+            id: 1
+            sequenceType: CDNA
+          - sequence: sequence
+            id: 1
+            sequenceType: CDNA
+        - ensemblProteinId: ensemblProteinId
+          ensemblTranscriptId: ensemblTranscriptId
+          description: description
+          fragments:
+          - strand: 4
+            chromosome: chromosome
+            start: 2
+            end: 9
+            id: 3
+            type: EXON
+          - strand: 4
+            chromosome: chromosome
+            start: 2
+            end: 9
+            id: 3
+            type: EXON
+          canonical: true
+          id: 7
+          referenceSequenceId: referenceSequenceId
+          sequences:
+          - sequence: sequence
+            id: 1
+            sequenceType: CDNA
+          - sequence: sequence
+            id: 1
+            sequenceType: CDNA
+        chromosome: chromosome
+        start: 2
+        end: 0
+        canonical: true
+        id: 5
+        referenceGenome: referenceGenome
+      properties:
+        canonical:
+          type: boolean
+        chromosome:
+          type: string
+        end:
+          format: int32
+          type: integer
+        ensemblGeneId:
+          type: string
+        gene:
+          $ref: '#/components/schemas/Gene'
+        id:
+          format: int64
+          type: integer
+        referenceGenome:
+          type: string
+        start:
+          format: int32
+          type: integer
+        strand:
+          format: int32
+          type: integer
+        transcripts:
+          items:
+            $ref: '#/components/schemas/Transcript'
+          type: array
+          uniqueItems: true
+      required:
+      - canonical
+      - chromosome
+      - end
+      - ensemblGeneId
+      - referenceGenome
+      - start
+      - strand
+      title: EnsemblGene
+      type: object
+    EnsemblTranscript:
+      example:
+        proteinLength: 9
+        refseqMrnaId: refseqMrnaId
+        pfamDomains:
+        - pfamDomainStart: 7
+          pfamDomainEnd: 2
+          pfamDomainId: pfamDomainId
+        - pfamDomainStart: 7
+          pfamDomainEnd: 2
+          pfamDomainId: pfamDomainId
+        proteinId: proteinId
+        hugoSymbols:
+        - hugoSymbols
+        - hugoSymbols
+        geneId: geneId
+        exons:
+        - exonEnd: 0
+          strand: 5
+          exonId: exonId
+          rank: 1
+          exonStart: 6
+          version: 5
+        - exonEnd: 0
+          strand: 5
+          exonId: exonId
+          rank: 1
+          exonStart: 6
+          version: 5
+        utrs:
+        - strand: 4
+          start: 2
+          end: 3
+          type: type
+        - strand: 4
+          start: 2
+          end: 3
+          type: type
+        transcriptId: transcriptId
+        ccdsId: ccdsId
+      properties:
+        ccdsId:
+          description: Consensus CDS (CCDS) ID
+          type: string
+        exons:
+          description: Exon information
+          items:
+            $ref: '#/components/schemas/Exon'
+          type: array
+        geneId:
+          description: Ensembl gene id
+          type: string
+        hugoSymbols:
+          description: Hugo symbols
+          items:
+            type: string
+          type: array
+        pfamDomains:
+          description: Pfam domains
+          items:
+            $ref: '#/components/schemas/PfamDomainRange'
+          type: array
+        proteinId:
+          description: Ensembl protein id
+          type: string
+        proteinLength:
+          description: Length of protein
+          format: int32
+          type: integer
+        refseqMrnaId:
+          description: RefSeq mRNA ID
+          type: string
+        transcriptId:
+          description: Ensembl transcript id
+          type: string
+        utrs:
+          description: UTR information
+          items:
+            $ref: '#/components/schemas/UntranslatedRegion'
+          type: array
+      required:
+      - geneId
+      - proteinId
+      - transcriptId
+      title: EnsemblTranscript
+      type: object
+    Exon:
+      example:
+        exonEnd: 0
+        strand: 5
+        exonId: exonId
+        rank: 1
+        exonStart: 6
+        version: 5
+      properties:
+        exonEnd:
+          description: End position of exon
+          format: int32
+          type: integer
+        exonId:
+          description: Exon id
+          type: string
+        exonStart:
+          description: Start position of exon
+          format: int32
+          type: integer
+        rank:
+          description: Number of exon in transcript
+          format: int32
+          type: integer
+        strand:
+          description: Strand exon is on, -1 for - and 1 for +
+          format: int32
+          type: integer
+        version:
+          description: Exon version
+          format: int32
+          type: integer
+      required:
+      - exonEnd
+      - exonId
+      - exonStart
+      - rank
+      - strand
+      - version
+      title: Exon
+      type: object
+    Gene:
+      example:
+        geneAliases:
+        - name: name
+          id: 1
+        - name: name
+          id: 1
+        entrezGeneId: 6
+        hugoSymbol: hugoSymbol
+        id: 5
+        ensemblGenes:
+        - null
+        - null
+      properties:
+        ensemblGenes:
+          items:
+            $ref: '#/components/schemas/EnsemblGene'
+          type: array
+          uniqueItems: true
+        entrezGeneId:
+          format: int32
+          type: integer
+        geneAliases:
+          items:
+            $ref: '#/components/schemas/GeneAlias'
+          type: array
+          uniqueItems: true
+        hugoSymbol:
+          type: string
+        id:
+          format: int64
+          type: integer
+      title: Gene
+      type: object
+    GeneAlias:
+      example:
+        name: name
+        id: 1
+      properties:
+        gene:
+          $ref: '#/components/schemas/Gene'
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+      title: GeneAlias
+      type: object
+    GenomeFragment:
+      example:
+        strand: 4
+        chromosome: chromosome
+        start: 2
+        end: 9
+        id: 3
+        type: EXON
+      properties:
+        chromosome:
+          type: string
+        end:
+          format: int32
+          type: integer
+        id:
+          format: int64
+          type: integer
+        start:
+          format: int32
+          type: integer
+        strand:
+          format: int32
+          type: integer
+        transcript:
+          $ref: '#/components/schemas/Transcript'
+        type:
+          enum:
+          - EXON
+          - FIVE_PRIME_UTR
+          - GENE
+          - THREE_PRIME_UTR
+          type: string
+      title: GenomeFragment
+      type: object
+    MatchTranscriptVM:
+      example:
+        targetReferenceGenome: GRCh37
+        transcript:
+          transcript: transcript
+          referenceGenome: GRCh37
+      properties:
+        targetReferenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        transcript:
+          $ref: '#/components/schemas/TranscriptPairVM'
+      title: MatchTranscriptVM
+      type: object
+    PfamDomainRange:
+      example:
+        pfamDomainStart: 7
+        pfamDomainEnd: 2
+        pfamDomainId: pfamDomainId
+      properties:
+        pfamDomainEnd:
+          description: Pfam domain end amino acid
+          format: int32
+          type: integer
+        pfamDomainId:
+          description: Pfam domain id
+          type: string
+        pfamDomainStart:
+          description: Pfam domain start amino acid
+          format: int32
+          type: integer
+      required:
+      - pfamDomainEnd
+      - pfamDomainId
+      - pfamDomainStart
+      title: PfamDomainRange
+      type: object
+    Sequence:
+      example:
+        sequence: sequence
+        id: 1
+        sequenceType: CDNA
+      properties:
+        id:
+          format: int64
+          type: integer
+        sequence:
+          type: string
+        sequenceType:
+          enum:
+          - CDNA
+          - PROTEIN
+          type: string
+        transcript:
+          $ref: '#/components/schemas/Transcript'
+      title: Sequence
+      type: object
+    Transcript:
+      example:
+        ensemblProteinId: ensemblProteinId
+        ensemblTranscriptId: ensemblTranscriptId
+        description: description
+        fragments:
+        - strand: 4
+          chromosome: chromosome
+          start: 2
+          end: 9
+          id: 3
+          type: EXON
+        - strand: 4
+          chromosome: chromosome
+          start: 2
+          end: 9
+          id: 3
+          type: EXON
+        canonical: true
+        id: 7
+        referenceSequenceId: referenceSequenceId
+        sequences:
+        - sequence: sequence
+          id: 1
+          sequenceType: CDNA
+        - sequence: sequence
+          id: 1
+          sequenceType: CDNA
+      properties:
+        canonical:
+          type: boolean
+        description:
+          type: string
+        ensemblGene:
+          $ref: '#/components/schemas/EnsemblGene'
+        ensemblProteinId:
+          type: string
+        ensemblTranscriptId:
+          type: string
+        fragments:
+          items:
+            $ref: '#/components/schemas/GenomeFragment'
+          type: array
+          uniqueItems: true
+        id:
+          format: int64
+          type: integer
+        referenceSequenceId:
+          type: string
+        sequences:
+          items:
+            $ref: '#/components/schemas/Sequence'
+          type: array
+          uniqueItems: true
+      required:
+      - canonical
+      title: Transcript
+      type: object
+    TranscriptComparisonResultVM:
+      example:
+        match: true
+        sequenceA: sequenceA
+        sequenceB: sequenceB
+      properties:
+        match:
+          type: boolean
+        sequenceA:
+          type: string
+        sequenceB:
+          type: string
+      title: TranscriptComparisonResultVM
+      type: object
+    TranscriptComparisonVM:
+      example:
+        transcriptA:
+          transcript: transcript
+          referenceGenome: GRCh37
+        transcriptB:
+          transcript: transcript
+          referenceGenome: GRCh37
+        align: true
+      properties:
+        align:
+          type: boolean
+        transcriptA:
+          $ref: '#/components/schemas/TranscriptPairVM'
+        transcriptB:
+          $ref: '#/components/schemas/TranscriptPairVM'
+      title: TranscriptComparisonVM
+      type: object
+    TranscriptDTO:
+      example:
+        ensemblProteinId: ensemblProteinId
+        ensemblGene:
+          ensemblGeneId: ensemblGeneId
+          strand: 7
+          gene:
+            geneAliases:
+            - name: name
+              id: 1
+            - name: name
+              id: 1
+            entrezGeneId: 6
+            hugoSymbol: hugoSymbol
+            id: 5
+            ensemblGenes:
+            - null
+            - null
+          transcripts:
+          - ensemblProteinId: ensemblProteinId
+            ensemblTranscriptId: ensemblTranscriptId
+            description: description
+            fragments:
+            - strand: 4
+              chromosome: chromosome
+              start: 2
+              end: 9
+              id: 3
+              type: EXON
+            - strand: 4
+              chromosome: chromosome
+              start: 2
+              end: 9
+              id: 3
+              type: EXON
+            canonical: true
+            id: 7
+            referenceSequenceId: referenceSequenceId
+            sequences:
+            - sequence: sequence
+              id: 1
+              sequenceType: CDNA
+            - sequence: sequence
+              id: 1
+              sequenceType: CDNA
+          - ensemblProteinId: ensemblProteinId
+            ensemblTranscriptId: ensemblTranscriptId
+            description: description
+            fragments:
+            - strand: 4
+              chromosome: chromosome
+              start: 2
+              end: 9
+              id: 3
+              type: EXON
+            - strand: 4
+              chromosome: chromosome
+              start: 2
+              end: 9
+              id: 3
+              type: EXON
+            canonical: true
+            id: 7
+            referenceSequenceId: referenceSequenceId
+            sequences:
+            - sequence: sequence
+              id: 1
+              sequenceType: CDNA
+            - sequence: sequence
+              id: 1
+              sequenceType: CDNA
+          chromosome: chromosome
+          start: 2
+          end: 0
+          canonical: true
+          id: 5
+          referenceGenome: referenceGenome
+        ensemblTranscriptId: ensemblTranscriptId
+        exons:
+        - strand: 4
+          chromosome: chromosome
+          start: 2
+          end: 9
+          id: 3
+          type: EXON
+        - strand: 4
+          chromosome: chromosome
+          start: 2
+          end: 9
+          id: 3
+          type: EXON
+        chromosome: chromosome
+        start: 1
+        description: description
+        canonical: true
+        strand: 5
+        utrs:
+        - strand: 4
+          chromosome: chromosome
+          start: 2
+          end: 9
+          id: 3
+          type: EXON
+        - strand: 4
+          chromosome: chromosome
+          start: 2
+          end: 9
+          id: 3
+          type: EXON
+        end: 0
+        id: 6
+        referenceSequenceId: referenceSequenceId
+      properties:
+        canonical:
+          type: boolean
+        chromosome:
+          type: string
+        description:
+          type: string
+        end:
+          format: int32
+          type: integer
+        ensemblGene:
+          $ref: '#/components/schemas/EnsemblGene'
+        ensemblProteinId:
+          type: string
+        ensemblTranscriptId:
+          type: string
+        exons:
+          items:
+            $ref: '#/components/schemas/GenomeFragment'
+          type: array
+        id:
+          format: int64
+          type: integer
+        referenceSequenceId:
+          type: string
+        start:
+          format: int32
+          type: integer
+        strand:
+          format: int32
+          type: integer
+        utrs:
+          items:
+            $ref: '#/components/schemas/GenomeFragment'
+          type: array
+      required:
+      - canonical
+      title: TranscriptDTO
+      type: object
+    TranscriptMatchResultVM:
+      example:
+        note: note
+        targetEnsemblTranscript:
+          proteinLength: 9
+          refseqMrnaId: refseqMrnaId
+          pfamDomains:
+          - pfamDomainStart: 7
+            pfamDomainEnd: 2
+            pfamDomainId: pfamDomainId
+          - pfamDomainStart: 7
+            pfamDomainEnd: 2
+            pfamDomainId: pfamDomainId
+          proteinId: proteinId
+          hugoSymbols:
+          - hugoSymbols
+          - hugoSymbols
+          geneId: geneId
+          exons:
+          - exonEnd: 0
+            strand: 5
+            exonId: exonId
+            rank: 1
+            exonStart: 6
+            version: 5
+          - exonEnd: 0
+            strand: 5
+            exonId: exonId
+            rank: 1
+            exonStart: 6
+            version: 5
+          utrs:
+          - strand: 4
+            start: 2
+            end: 3
+            type: type
+          - strand: 4
+            start: 2
+            end: 3
+            type: type
+          transcriptId: transcriptId
+          ccdsId: ccdsId
+        originalEnsemblTranscript:
+          proteinLength: 9
+          refseqMrnaId: refseqMrnaId
+          pfamDomains:
+          - pfamDomainStart: 7
+            pfamDomainEnd: 2
+            pfamDomainId: pfamDomainId
+          - pfamDomainStart: 7
+            pfamDomainEnd: 2
+            pfamDomainId: pfamDomainId
+          proteinId: proteinId
+          hugoSymbols:
+          - hugoSymbols
+          - hugoSymbols
+          geneId: geneId
+          exons:
+          - exonEnd: 0
+            strand: 5
+            exonId: exonId
+            rank: 1
+            exonStart: 6
+            version: 5
+          - exonEnd: 0
+            strand: 5
+            exonId: exonId
+            rank: 1
+            exonStart: 6
+            version: 5
+          utrs:
+          - strand: 4
+            start: 2
+            end: 3
+            type: type
+          - strand: 4
+            start: 2
+            end: 3
+            type: type
+          transcriptId: transcriptId
+          ccdsId: ccdsId
+      properties:
+        note:
+          type: string
+        originalEnsemblTranscript:
+          $ref: '#/components/schemas/EnsemblTranscript'
+        targetEnsemblTranscript:
+          $ref: '#/components/schemas/EnsemblTranscript'
+      title: TranscriptMatchResultVM
+      type: object
+    TranscriptPairVM:
+      example:
+        transcript: transcript
+        referenceGenome: GRCh37
+      properties:
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        transcript:
+          type: string
+      title: TranscriptPairVM
+      type: object
+    TranscriptSuggestionVM:
+      example:
+        note: note
+        suggestions:
+        - suggestions
+        - suggestions
+        referenceGenome: GRCh37
+      properties:
+        note:
+          type: string
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        suggestions:
+          items:
+            type: string
+          type: array
+      title: TranscriptSuggestionVM
+      type: object
+    UntranslatedRegion:
+      example:
+        strand: 4
+        start: 2
+        end: 3
+        type: type
+      properties:
+        end:
+          description: End position of UTR
+          format: int32
+          type: integer
+        start:
+          description: Start position of UTR
+          format: int32
+          type: integer
+        strand:
+          description: Strand UTR is on, -1 for - and 1 for +
+          format: int32
+          type: integer
+        type:
+          description: UTR Type
+          type: string
+      required:
+      - end
+      - start
+      - strand
+      - type
+      title: UntranslatedRegion
+      type: object
+    UserVM:
+      example:
+        login: login
+        authorities:
+        - authorities
+        - authorities
+        activated: true
+      properties:
+        activated:
+          type: boolean
+        authorities:
+          items:
+            type: string
+          type: array
+          uniqueItems: true
+        login:
+          type: string
+      title: UserVM
+      type: object
+  securitySchemes:
+    Authorization:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+

@@ -1,6 +1,10 @@
+
+
 # TranscriptDTO
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **canonical** | **Boolean** |  | 
@@ -16,3 +20,10 @@ Name | Type | Description | Notes
 **start** | **Integer** |  |  [optional]
 **strand** | **Integer** |  |  [optional]
 **utrs** | [**List&lt;GenomeFragment&gt;**](GenomeFragment.md) |  |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

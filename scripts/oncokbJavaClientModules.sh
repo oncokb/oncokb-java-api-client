@@ -6,6 +6,7 @@ ONCOKB_TRANSCRIPT_DOCS=${1:-https://transcript.oncokb.org/v3/api-docs}
 
 SWAGGER_CODEGEN_CLI_V2_JAR="swagger-codegen-cli-v2.jar"
 SWAGGER_CODEGEN_CLI_V3_JAR="swagger-codegen-cli-v3.jar"
+OPENAPI_GENERATOR_CLI_V5_JAR="openapi-generator-cli-5.3.1.jar"
 
 # switch to the script directory
 cd ${SCRIPT_DIR}
@@ -19,6 +20,10 @@ if [ ! -f ${SWAGGER_CODEGEN_CLI_V3_JAR} ]; then
     wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.30/swagger-codegen-cli-3.0.30.jar -O ${SWAGGER_CODEGEN_CLI_V3_JAR}
 fi
 
+if [ ! -f ${OPENAPI_GENERATOR_CLI_V5_JAR} ]; then
+    wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.3.1/openapi-generator-cli-5.3.1.jar -O ${OPENAPI_GENERATOR__CLI_V5_JAR}
+fi
+
 # remove the modules if available (otherwise some legacy methods in the test will not get removed)
 rm -rf ../oncokbPublicApiClient
 rm -rf ../oncokbPrivateApiClient
@@ -27,4 +32,4 @@ rm -rf ../oncokbTranscriptApiClient
 # generate java modules (see config json files for more details)
 java -jar ${SWAGGER_CODEGEN_CLI_V2_JAR} generate -i ${ONCOKB_PUBLIC_DOCS} -l java -c oncokbPublicApiClientConfig.json -o ../oncokbPublicApiClient
 java -jar ${SWAGGER_CODEGEN_CLI_V2_JAR} generate -i ${ONCOKB_PRIVATE_DOCS} -l java -c oncokbPrivateApiClientConfig.json -o ../oncokbPrivateApiClient
-java -jar ${SWAGGER_CODEGEN_CLI_V3_JAR} generate -i ${ONCOKB_TRANSCRIPT_DOCS} -l java -c oncokbTranscriptApiClientConfig.json -o ../oncokbTranscriptApiClient
+java -jar ${OPENAPI_GENERATOR_CLI_V5_JAR} generate -i ${ONCOKB_TRANSCRIPT_DOCS} -g java -c oncokbTranscriptApiClientConfig.json -o ../oncokbTranscriptApiClient
