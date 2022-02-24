@@ -14,6 +14,7 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.client.AddTranscriptBody;
 import org.oncokb.oncokb_transcript.client.AllReferenceTranscriptSuggestionVM;
 import org.oncokb.oncokb_transcript.client.MatchTranscriptVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonResultVM;
@@ -47,11 +48,8 @@ public class TranscriptControllerApiTest {
      */
     @Test
     public void addTranscriptUsingPOSTTest() throws ApiException {
-        Integer entrezGeneId = null;
-        String referenceGenome = null;
-        String ensemblTranscriptId = null;
-        Boolean isCanonical = null;
-                TranscriptDTO response = api.addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
+        AddTranscriptBody addTranscriptBody = null;
+                TranscriptDTO response = api.addTranscriptUsingPOST(addTranscriptBody);
         // TODO: test validations
     }
     

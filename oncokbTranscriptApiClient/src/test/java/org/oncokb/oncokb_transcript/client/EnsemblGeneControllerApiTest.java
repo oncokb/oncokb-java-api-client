@@ -14,6 +14,7 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.client.AddEnsemblGeneBody;
 import org.oncokb.oncokb_transcript.client.EnsemblGene;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -42,11 +43,8 @@ public class EnsemblGeneControllerApiTest {
      */
     @Test
     public void addEnsemblGeneUsingPOSTTest() throws ApiException {
-        String referenceGenome = null;
-        Integer entrezGeneId = null;
-        String ensemblGeneId = null;
-        Boolean isCanonical = null;
-                EnsemblGene response = api.addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
+        AddEnsemblGeneBody addEnsemblGeneBody = null;
+                EnsemblGene response = api.addEnsemblGeneUsingPOST(addEnsemblGeneBody);
         // TODO: test validations
     }
     

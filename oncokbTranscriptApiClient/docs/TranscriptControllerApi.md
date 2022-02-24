@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="addTranscriptUsingPOST"></a>
 # **addTranscriptUsingPOST**
-> TranscriptDTO addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical)
+> TranscriptDTO addTranscriptUsingPOST(addTranscriptBody)
 
 addTranscript
 
@@ -37,12 +37,9 @@ public class Example {
     Authorization.setBearerToken("BEARER TOKEN");
 
     TranscriptControllerApi apiInstance = new TranscriptControllerApi(defaultClient);
-    Integer entrezGeneId = 56; // Integer | entrezGeneId
-    String referenceGenome = "GRCh37"; // String | referenceGenome
-    String ensemblTranscriptId = "ensemblTranscriptId_example"; // String | ensemblTranscriptId
-    Boolean isCanonical = true; // Boolean | isCanonical
+    AddTranscriptBody addTranscriptBody = new AddTranscriptBody(); // AddTranscriptBody | 
     try {
-      TranscriptDTO result = apiInstance.addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
+      TranscriptDTO result = apiInstance.addTranscriptUsingPOST(addTranscriptBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TranscriptControllerApi#addTranscriptUsingPOST");
@@ -59,10 +56,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entrezGeneId** | **Integer**| entrezGeneId |
- **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
- **ensemblTranscriptId** | **String**| ensemblTranscriptId |
- **isCanonical** | **Boolean**| isCanonical |
+ **addTranscriptBody** | [**AddTranscriptBody**](AddTranscriptBody.md)|  | [optional]
 
 ### Return type
 
@@ -74,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 ### HTTP response details

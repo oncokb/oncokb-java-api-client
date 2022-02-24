@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="addEnsemblGeneUsingPOST"></a>
 # **addEnsemblGeneUsingPOST**
-> EnsemblGene addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical)
+> EnsemblGene addEnsemblGeneUsingPOST(addEnsemblGeneBody)
 
 addEnsemblGene
 
@@ -33,12 +33,9 @@ public class Example {
     Authorization.setBearerToken("BEARER TOKEN");
 
     EnsemblGeneControllerApi apiInstance = new EnsemblGeneControllerApi(defaultClient);
-    String referenceGenome = "GRCh37"; // String | referenceGenome
-    Integer entrezGeneId = 56; // Integer | entrezGeneId
-    String ensemblGeneId = "ensemblGeneId_example"; // String | ensemblGeneId
-    Boolean isCanonical = true; // Boolean | isCanonical
+    AddEnsemblGeneBody addEnsemblGeneBody = new AddEnsemblGeneBody(); // AddEnsemblGeneBody | 
     try {
-      EnsemblGene result = apiInstance.addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
+      EnsemblGene result = apiInstance.addEnsemblGeneUsingPOST(addEnsemblGeneBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnsemblGeneControllerApi#addEnsemblGeneUsingPOST");
@@ -55,10 +52,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
- **entrezGeneId** | **Integer**| entrezGeneId |
- **ensemblGeneId** | **String**| ensemblGeneId |
- **isCanonical** | **Boolean**| isCanonical |
+ **addEnsemblGeneBody** | [**AddEnsemblGeneBody**](AddEnsemblGeneBody.md)|  | [optional]
 
 ### Return type
 
@@ -70,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 ### HTTP response details

@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.oncokb.oncokb_transcript.client.AddTranscriptBody;
 import org.oncokb.oncokb_transcript.client.AllReferenceTranscriptSuggestionVM;
 import org.oncokb.oncokb_transcript.client.MatchTranscriptVM;
 import org.oncokb.oncokb_transcript.client.TranscriptComparisonResultVM;
@@ -79,10 +80,7 @@ public class TranscriptControllerApi {
 
     /**
      * Build call for addTranscriptUsingPOST
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addTranscriptBody  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -96,7 +94,7 @@ public class TranscriptControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTranscriptUsingPOSTCall(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addTranscriptUsingPOSTCall(AddTranscriptBody addTranscriptBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -111,7 +109,7 @@ public class TranscriptControllerApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = addTranscriptBody;
 
         // create path and map variables
         String localVarPath = "/api/add-transcript";
@@ -122,22 +120,6 @@ public class TranscriptControllerApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (entrezGeneId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("entrezGeneId", entrezGeneId));
-        }
-
-        if (referenceGenome != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("referenceGenome", referenceGenome));
-        }
-
-        if (ensemblTranscriptId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ensemblTranscriptId", ensemblTranscriptId));
-        }
-
-        if (isCanonical != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isCanonical", isCanonical));
-        }
-
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -147,7 +129,7 @@ public class TranscriptControllerApi {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarHeaderParams != null) {
@@ -159,30 +141,10 @@ public class TranscriptControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addTranscriptUsingPOSTValidateBeforeCall(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'entrezGeneId' is set
-        if (entrezGeneId == null) {
-            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling addTranscriptUsingPOST(Async)");
-        }
-        
-        // verify the required parameter 'referenceGenome' is set
-        if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling addTranscriptUsingPOST(Async)");
-        }
-        
-        // verify the required parameter 'ensemblTranscriptId' is set
-        if (ensemblTranscriptId == null) {
-            throw new ApiException("Missing the required parameter 'ensemblTranscriptId' when calling addTranscriptUsingPOST(Async)");
-        }
-        
-        // verify the required parameter 'isCanonical' is set
-        if (isCanonical == null) {
-            throw new ApiException("Missing the required parameter 'isCanonical' when calling addTranscriptUsingPOST(Async)");
-        }
+    private okhttp3.Call addTranscriptUsingPOSTValidateBeforeCall(AddTranscriptBody addTranscriptBody, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = addTranscriptUsingPOSTCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, _callback);
+        okhttp3.Call localVarCall = addTranscriptUsingPOSTCall(addTranscriptBody, _callback);
         return localVarCall;
 
     }
@@ -190,10 +152,7 @@ public class TranscriptControllerApi {
     /**
      * addTranscript
      * 
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addTranscriptBody  (optional)
      * @return TranscriptDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -206,18 +165,15 @@ public class TranscriptControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public TranscriptDTO addTranscriptUsingPOST(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
-        ApiResponse<TranscriptDTO> localVarResp = addTranscriptUsingPOSTWithHttpInfo(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
+    public TranscriptDTO addTranscriptUsingPOST(AddTranscriptBody addTranscriptBody) throws ApiException {
+        ApiResponse<TranscriptDTO> localVarResp = addTranscriptUsingPOSTWithHttpInfo(addTranscriptBody);
         return localVarResp.getData();
     }
 
     /**
      * addTranscript
      * 
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addTranscriptBody  (optional)
      * @return ApiResponse&lt;TranscriptDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -230,8 +186,8 @@ public class TranscriptControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TranscriptDTO> addTranscriptUsingPOSTWithHttpInfo(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical) throws ApiException {
-        okhttp3.Call localVarCall = addTranscriptUsingPOSTValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, null);
+    public ApiResponse<TranscriptDTO> addTranscriptUsingPOSTWithHttpInfo(AddTranscriptBody addTranscriptBody) throws ApiException {
+        okhttp3.Call localVarCall = addTranscriptUsingPOSTValidateBeforeCall(addTranscriptBody, null);
         Type localVarReturnType = new TypeToken<TranscriptDTO>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -239,10 +195,7 @@ public class TranscriptControllerApi {
     /**
      * addTranscript (asynchronously)
      * 
-     * @param entrezGeneId entrezGeneId (required)
-     * @param referenceGenome referenceGenome (required)
-     * @param ensemblTranscriptId ensemblTranscriptId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addTranscriptBody  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -256,9 +209,9 @@ public class TranscriptControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addTranscriptUsingPOSTAsync(Integer entrezGeneId, String referenceGenome, String ensemblTranscriptId, Boolean isCanonical, final ApiCallback<TranscriptDTO> _callback) throws ApiException {
+    public okhttp3.Call addTranscriptUsingPOSTAsync(AddTranscriptBody addTranscriptBody, final ApiCallback<TranscriptDTO> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addTranscriptUsingPOSTValidateBeforeCall(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical, _callback);
+        okhttp3.Call localVarCall = addTranscriptUsingPOSTValidateBeforeCall(addTranscriptBody, _callback);
         Type localVarReturnType = new TypeToken<TranscriptDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.oncokb.oncokb_transcript.client.AddEnsemblGeneBody;
 import org.oncokb.oncokb_transcript.client.EnsemblGene;
 
 import java.lang.reflect.Type;
@@ -74,10 +75,7 @@ public class EnsemblGeneControllerApi {
 
     /**
      * Build call for addEnsemblGeneUsingPOST
-     * @param referenceGenome referenceGenome (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param ensemblGeneId ensemblGeneId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addEnsemblGeneBody  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +89,7 @@ public class EnsemblGeneControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addEnsemblGeneUsingPOSTCall(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addEnsemblGeneUsingPOSTCall(AddEnsemblGeneBody addEnsemblGeneBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -106,7 +104,7 @@ public class EnsemblGeneControllerApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = addEnsemblGeneBody;
 
         // create path and map variables
         String localVarPath = "/api/add-ensembl-gene";
@@ -117,22 +115,6 @@ public class EnsemblGeneControllerApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (referenceGenome != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("referenceGenome", referenceGenome));
-        }
-
-        if (entrezGeneId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("entrezGeneId", entrezGeneId));
-        }
-
-        if (ensemblGeneId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ensemblGeneId", ensemblGeneId));
-        }
-
-        if (isCanonical != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isCanonical", isCanonical));
-        }
-
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -142,7 +124,7 @@ public class EnsemblGeneControllerApi {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarHeaderParams != null) {
@@ -154,30 +136,10 @@ public class EnsemblGeneControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addEnsemblGeneUsingPOSTValidateBeforeCall(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'referenceGenome' is set
-        if (referenceGenome == null) {
-            throw new ApiException("Missing the required parameter 'referenceGenome' when calling addEnsemblGeneUsingPOST(Async)");
-        }
-        
-        // verify the required parameter 'entrezGeneId' is set
-        if (entrezGeneId == null) {
-            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling addEnsemblGeneUsingPOST(Async)");
-        }
-        
-        // verify the required parameter 'ensemblGeneId' is set
-        if (ensemblGeneId == null) {
-            throw new ApiException("Missing the required parameter 'ensemblGeneId' when calling addEnsemblGeneUsingPOST(Async)");
-        }
-        
-        // verify the required parameter 'isCanonical' is set
-        if (isCanonical == null) {
-            throw new ApiException("Missing the required parameter 'isCanonical' when calling addEnsemblGeneUsingPOST(Async)");
-        }
+    private okhttp3.Call addEnsemblGeneUsingPOSTValidateBeforeCall(AddEnsemblGeneBody addEnsemblGeneBody, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = addEnsemblGeneUsingPOSTCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, _callback);
+        okhttp3.Call localVarCall = addEnsemblGeneUsingPOSTCall(addEnsemblGeneBody, _callback);
         return localVarCall;
 
     }
@@ -185,10 +147,7 @@ public class EnsemblGeneControllerApi {
     /**
      * addEnsemblGene
      * 
-     * @param referenceGenome referenceGenome (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param ensemblGeneId ensemblGeneId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addEnsemblGeneBody  (optional)
      * @return EnsemblGene
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -201,18 +160,15 @@ public class EnsemblGeneControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public EnsemblGene addEnsemblGeneUsingPOST(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical) throws ApiException {
-        ApiResponse<EnsemblGene> localVarResp = addEnsemblGeneUsingPOSTWithHttpInfo(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
+    public EnsemblGene addEnsemblGeneUsingPOST(AddEnsemblGeneBody addEnsemblGeneBody) throws ApiException {
+        ApiResponse<EnsemblGene> localVarResp = addEnsemblGeneUsingPOSTWithHttpInfo(addEnsemblGeneBody);
         return localVarResp.getData();
     }
 
     /**
      * addEnsemblGene
      * 
-     * @param referenceGenome referenceGenome (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param ensemblGeneId ensemblGeneId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addEnsemblGeneBody  (optional)
      * @return ApiResponse&lt;EnsemblGene&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -225,8 +181,8 @@ public class EnsemblGeneControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EnsemblGene> addEnsemblGeneUsingPOSTWithHttpInfo(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical) throws ApiException {
-        okhttp3.Call localVarCall = addEnsemblGeneUsingPOSTValidateBeforeCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, null);
+    public ApiResponse<EnsemblGene> addEnsemblGeneUsingPOSTWithHttpInfo(AddEnsemblGeneBody addEnsemblGeneBody) throws ApiException {
+        okhttp3.Call localVarCall = addEnsemblGeneUsingPOSTValidateBeforeCall(addEnsemblGeneBody, null);
         Type localVarReturnType = new TypeToken<EnsemblGene>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -234,10 +190,7 @@ public class EnsemblGeneControllerApi {
     /**
      * addEnsemblGene (asynchronously)
      * 
-     * @param referenceGenome referenceGenome (required)
-     * @param entrezGeneId entrezGeneId (required)
-     * @param ensemblGeneId ensemblGeneId (required)
-     * @param isCanonical isCanonical (required)
+     * @param addEnsemblGeneBody  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -251,9 +204,9 @@ public class EnsemblGeneControllerApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addEnsemblGeneUsingPOSTAsync(String referenceGenome, Integer entrezGeneId, String ensemblGeneId, Boolean isCanonical, final ApiCallback<EnsemblGene> _callback) throws ApiException {
+    public okhttp3.Call addEnsemblGeneUsingPOSTAsync(AddEnsemblGeneBody addEnsemblGeneBody, final ApiCallback<EnsemblGene> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addEnsemblGeneUsingPOSTValidateBeforeCall(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical, _callback);
+        okhttp3.Call localVarCall = addEnsemblGeneUsingPOSTValidateBeforeCall(addEnsemblGeneBody, _callback);
         Type localVarReturnType = new TypeToken<EnsemblGene>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
