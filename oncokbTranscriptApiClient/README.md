@@ -137,6 +137,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AddEnsemblGeneBody](docs/AddEnsemblGeneBody.md)
+ - [AddTranscriptBody](docs/AddTranscriptBody.md)
  - [AllReferenceTranscriptSuggestionVM](docs/AllReferenceTranscriptSuggestionVM.md)
  - [Drug](docs/Drug.md)
  - [DrugSynonym](docs/DrugSynonym.md)

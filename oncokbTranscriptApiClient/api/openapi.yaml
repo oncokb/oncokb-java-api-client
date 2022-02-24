@@ -140,43 +140,11 @@ paths:
   /api/add-ensembl-gene:
     post:
       operationId: addEnsemblGeneUsingPOST
-      parameters:
-      - description: referenceGenome
-        explode: true
-        in: query
-        name: referenceGenome
-        required: true
-        schema:
-          enum:
-          - GRCh37
-          - GRCh38
-          type: string
-        style: form
-      - description: entrezGeneId
-        explode: true
-        in: query
-        name: entrezGeneId
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - description: ensemblGeneId
-        explode: true
-        in: query
-        name: ensemblGeneId
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: isCanonical
-        explode: true
-        in: query
-        name: isCanonical
-        required: true
-        schema:
-          type: boolean
-        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddEnsemblGeneBody'
       responses:
         "200":
           content:
@@ -198,6 +166,7 @@ paths:
       summary: addEnsemblGene
       tags:
       - ensembl-gene-controller
+      x-contentType: application/json
       x-accepts: '*/*'
   /api/find-genes:
     get:
@@ -424,43 +393,11 @@ paths:
   /api/add-transcript:
     post:
       operationId: addTranscriptUsingPOST
-      parameters:
-      - description: entrezGeneId
-        explode: true
-        in: query
-        name: entrezGeneId
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - description: referenceGenome
-        explode: true
-        in: query
-        name: referenceGenome
-        required: true
-        schema:
-          enum:
-          - GRCh37
-          - GRCh38
-          type: string
-        style: form
-      - description: ensemblTranscriptId
-        explode: true
-        in: query
-        name: ensemblTranscriptId
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: isCanonical
-        explode: true
-        in: query
-        name: isCanonical
-        required: true
-        schema:
-          type: boolean
-        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddTranscriptBody'
       responses:
         "200":
           content:
@@ -482,6 +419,7 @@ paths:
       summary: addTranscript
       tags:
       - transcript-controller
+      x-contentType: application/json
       x-accepts: '*/*'
   /api/compare-transcript/{hugoSymbol}:
     post:
@@ -677,6 +615,50 @@ paths:
       x-accepts: '*/*'
 components:
   schemas:
+    AddEnsemblGeneBody:
+      example:
+        ensemblGeneId: ensemblGeneId
+        entrezGeneId: 0
+        canonical: true
+        referenceGenome: referenceGenome
+      properties:
+        canonical:
+          type: boolean
+        ensemblGeneId:
+          type: string
+        entrezGeneId:
+          format: int32
+          type: integer
+        referenceGenome:
+          type: string
+      required:
+      - ensemblGeneId
+      - entrezGeneId
+      - referenceGenome
+      title: AddEnsemblGeneBody
+      type: object
+    AddTranscriptBody:
+      example:
+        ensemblTranscriptId: ensemblTranscriptId
+        entrezGeneId: 0
+        canonical: true
+        referenceGenome: referenceGenome
+      properties:
+        canonical:
+          type: boolean
+        ensemblTranscriptId:
+          type: string
+        entrezGeneId:
+          format: int32
+          type: integer
+        referenceGenome:
+          type: string
+      required:
+      - ensemblTranscriptId
+      - entrezGeneId
+      - referenceGenome
+      title: AddTranscriptBody
+      type: object
     AllReferenceTranscriptSuggestionVM:
       example:
         grch37:

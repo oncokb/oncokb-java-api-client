@@ -6,6 +6,8 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/AccountResourceApi.md
+docs/AddEnsemblGeneBody.md
+docs/AddTranscriptBody.md
 docs/AllReferenceTranscriptSuggestionVM.md
 docs/Drug.md
 docs/DrugControllerApi.md
@@ -60,6 +62,8 @@ src/main/java/org/oncokb/oncokb_transcript/auth/Authentication.java
 src/main/java/org/oncokb/oncokb_transcript/auth/HttpBasicAuth.java
 src/main/java/org/oncokb/oncokb_transcript/auth/HttpBearerAuth.java
 src/main/java/org/oncokb/oncokb_transcript/client/AccountResourceApi.java
+src/main/java/org/oncokb/oncokb_transcript/client/AddEnsemblGeneBody.java
+src/main/java/org/oncokb/oncokb_transcript/client/AddTranscriptBody.java
 src/main/java/org/oncokb/oncokb_transcript/client/AllReferenceTranscriptSuggestionVM.java
 src/main/java/org/oncokb/oncokb_transcript/client/Drug.java
 src/main/java/org/oncokb/oncokb_transcript/client/DrugControllerApi.java
@@ -88,6 +92,8 @@ src/main/java/org/oncokb/oncokb_transcript/client/TranscriptSuggestionVM.java
 src/main/java/org/oncokb/oncokb_transcript/client/UntranslatedRegion.java
 src/main/java/org/oncokb/oncokb_transcript/client/UserVM.java
 src/test/java/org/oncokb/oncokb_transcript/client/AccountResourceApiTest.java
+src/test/java/org/oncokb/oncokb_transcript/client/AddEnsemblGeneBodyTest.java
+src/test/java/org/oncokb/oncokb_transcript/client/AddTranscriptBodyTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/AllReferenceTranscriptSuggestionVMTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/DrugControllerApiTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/DrugSynonymTest.java
