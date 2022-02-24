@@ -1,6 +1,10 @@
+
+
 # EnsemblGene
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **canonical** | **Boolean** |  | 
@@ -12,4 +16,11 @@ Name | Type | Description | Notes
 **referenceGenome** | **String** |  | 
 **start** | **Integer** |  | 
 **strand** | **Integer** |  | 
-**transcripts** | [**List&lt;Transcript&gt;**](Transcript.md) |  |  [optional]
+**transcripts** | [**Set&lt;Transcript&gt;**](Transcript.md) |  |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

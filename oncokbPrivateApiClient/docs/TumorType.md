@@ -1,7 +1,11 @@
 
+
 # TumorType
 
+OncoTree Detailed Cancer Type
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **children** | [**Map&lt;String, TumorType&gt;**](TumorType.md) |  |  [optional]
@@ -16,8 +20,9 @@ Name | Type | Description | Notes
 **tumorForm** | [**TumorFormEnum**](#TumorFormEnum) |  |  [optional]
 
 
-<a name="TumorFormEnum"></a>
+
 ## Enum: TumorFormEnum
+
 Name | Value
 ---- | -----
 SOLID | &quot;SOLID&quot;

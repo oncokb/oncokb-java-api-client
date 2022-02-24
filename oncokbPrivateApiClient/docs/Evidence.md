@@ -1,7 +1,10 @@
 
+
 # Evidence
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additionalInfo** | **String** |  |  [optional]
@@ -13,8 +16,8 @@ Name | Type | Description | Notes
 **gene** | [**Gene**](Gene.md) |  |  [optional]
 **id** | **Integer** |  |  [optional]
 **knownEffect** | **String** |  |  [optional]
-**lastEdit** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**lastReview** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**lastEdit** | **OffsetDateTime** |  |  [optional]
+**lastReview** | **OffsetDateTime** |  |  [optional]
 **levelOfEvidence** | [**LevelOfEvidenceEnum**](#LevelOfEvidenceEnum) |  |  [optional]
 **liquidPropagationLevel** | [**LiquidPropagationLevelEnum**](#LiquidPropagationLevelEnum) |  |  [optional]
 **relevantCancerTypes** | [**List&lt;TumorType&gt;**](TumorType.md) |  |  [optional]
@@ -23,8 +26,9 @@ Name | Type | Description | Notes
 **uuid** | **String** |  |  [optional]
 
 
-<a name="EvidenceTypeEnum"></a>
+
 ## Enum: EvidenceTypeEnum
+
 Name | Value
 ---- | -----
 GENE_SUMMARY | &quot;GENE_SUMMARY&quot;
@@ -45,8 +49,9 @@ INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY | &quot;INVESTIGATIONA
 INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE | &quot;INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE&quot;
 
 
-<a name="LevelOfEvidenceEnum"></a>
+
 ## Enum: LevelOfEvidenceEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
@@ -69,8 +74,9 @@ LEVEL_DX3 | &quot;LEVEL_Dx3&quot;
 NO | &quot;NO&quot;
 
 
-<a name="LiquidPropagationLevelEnum"></a>
+
 ## Enum: LiquidPropagationLevelEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
@@ -93,8 +99,9 @@ LEVEL_DX3 | &quot;LEVEL_Dx3&quot;
 NO | &quot;NO&quot;
 
 
-<a name="SolidPropagationLevelEnum"></a>
+
 ## Enum: SolidPropagationLevelEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;

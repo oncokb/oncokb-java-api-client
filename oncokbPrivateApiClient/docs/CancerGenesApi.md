@@ -1,6 +1,6 @@
 # CancerGenesApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,18 +25,30 @@ Get All Actionable Variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-try {
-    List<ActionableGene> result = apiInstance.utilsAllActionableVariantsGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsAllActionableVariantsGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      List<ActionableGene> result = apiInstance.utilsAllActionableVariantsGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsAllActionableVariantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -56,8 +68,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllActionableVariantsTxtGetUsingGET"></a>
 # **utilsAllActionableVariantsTxtGetUsingGET**
@@ -70,18 +89,30 @@ Get All Actionable Variants in text file.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-try {
-    String result = apiInstance.utilsAllActionableVariantsTxtGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsAllActionableVariantsTxtGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      String result = apiInstance.utilsAllActionableVariantsTxtGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsAllActionableVariantsTxtGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -101,8 +132,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllAnnotatedVariantsGetUsingGET"></a>
 # **utilsAllAnnotatedVariantsGetUsingGET**
@@ -115,18 +153,30 @@ Get All Annotated Variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-try {
-    List<AnnotatedVariant> result = apiInstance.utilsAllAnnotatedVariantsGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsAllAnnotatedVariantsGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      List<AnnotatedVariant> result = apiInstance.utilsAllAnnotatedVariantsGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsAllAnnotatedVariantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -146,8 +196,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllAnnotatedVariantsTxtGetUsingGET"></a>
 # **utilsAllAnnotatedVariantsTxtGetUsingGET**
@@ -160,18 +217,30 @@ Get All Annotated Variants in text file.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-try {
-    String result = apiInstance.utilsAllAnnotatedVariantsTxtGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsAllAnnotatedVariantsTxtGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      String result = apiInstance.utilsAllAnnotatedVariantsTxtGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsAllAnnotatedVariantsTxtGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -191,8 +260,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllCuratedGenesGetUsingGET"></a>
 # **utilsAllCuratedGenesGetUsingGET**
@@ -205,19 +281,31 @@ Get list of genes OncoKB curated
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-Boolean includeEvidence = true; // Boolean | Include gene summary and background
-try {
-    List<CuratedGene> result = apiInstance.utilsAllCuratedGenesGetUsingGET(version, includeEvidence);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    Boolean includeEvidence = true; // Boolean | Include gene summary and background
+    try {
+      List<CuratedGene> result = apiInstance.utilsAllCuratedGenesGetUsingGET(version, includeEvidence);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -238,8 +326,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsAllCuratedGenesTxtGetUsingGET"></a>
 # **utilsAllCuratedGenesTxtGetUsingGET**
@@ -252,19 +347,31 @@ Get list of genes OncoKB curated in text file.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-Boolean includeEvidence = true; // Boolean | Include gene summary and background
-try {
-    String result = apiInstance.utilsAllCuratedGenesTxtGetUsingGET(version, includeEvidence);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesTxtGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    Boolean includeEvidence = true; // Boolean | Include gene summary and background
+    try {
+      String result = apiInstance.utilsAllCuratedGenesTxtGetUsingGET(version, includeEvidence);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsAllCuratedGenesTxtGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -285,8 +392,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsCancerGeneListGetUsingGET"></a>
 # **utilsCancerGeneListGetUsingGET**
@@ -299,18 +413,30 @@ Get cancer gene list
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-try {
-    List<CancerGene> result = apiInstance.utilsCancerGeneListGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      List<CancerGene> result = apiInstance.utilsCancerGeneListGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -330,8 +456,15 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 
 <a name="utilsCancerGeneListTxtGetUsingGET"></a>
 # **utilsCancerGeneListTxtGetUsingGET**
@@ -344,18 +477,30 @@ Get cancer gene list in text file.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.CancerGenesApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.CancerGenesApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-CancerGenesApi apiInstance = new CancerGenesApi();
-String version = "version_example"; // String | The data version
-try {
-    String result = apiInstance.utilsCancerGeneListTxtGetUsingGET(version);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListTxtGetUsingGET");
-    e.printStackTrace();
+    CancerGenesApi apiInstance = new CancerGenesApi(defaultClient);
+    String version = "version_example"; // String | The data version
+    try {
+      String result = apiInstance.utilsCancerGeneListTxtGetUsingGET(version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CancerGenesApi#utilsCancerGeneListTxtGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -375,6 +520,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 

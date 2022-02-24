@@ -1,7 +1,10 @@
 
+
 # GeneEvidence
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **articles** | [**List&lt;Article&gt;**](Article.md) |  |  [optional]
@@ -10,13 +13,14 @@ Name | Type | Description | Notes
 **evidenceType** | [**EvidenceTypeEnum**](#EvidenceTypeEnum) |  | 
 **gene** | [**Gene**](Gene.md) |  |  [optional]
 **id** | **String** |  |  [optional]
-**lastEdit** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**lastEdit** | **OffsetDateTime** |  |  [optional]
 **shortDesc** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
 
 
-<a name="EvidenceTypeEnum"></a>
+
 ## Enum: EvidenceTypeEnum
+
 Name | Value
 ---- | -----
 GENE_SUMMARY | &quot;GENE_SUMMARY&quot;

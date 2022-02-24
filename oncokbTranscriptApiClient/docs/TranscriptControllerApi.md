@@ -10,35 +10,45 @@ Method | HTTP request | Description
 [**matchTranscriptUsingPOST**](TranscriptControllerApi.md#matchTranscriptUsingPOST) | **POST** /api/match-transcript/{hugoSymbol} | matchTranscript
 [**suggestVariantUsingGET**](TranscriptControllerApi.md#suggestVariantUsingGET) | **GET** /api/suggest-variant/{hugoSymbol} | suggestVariant
 
+
 <a name="addTranscriptUsingPOST"></a>
 # **addTranscriptUsingPOST**
-> TranscriptDTO addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical)
+> TranscriptDTO addTranscriptUsingPOST(addTranscriptBody)
 
 addTranscript
 
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
+import org.oncokb.oncokb_transcript.ApiClient;
+import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.Configuration;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.models.*;
+import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://transcript.oncokb.org:443");
+    
+    // Configure HTTP bearer authorization: Authorization
+    HttpBearerAuth Authorization = (HttpBearerAuth) defaultClient.getAuthentication("Authorization");
+    Authorization.setBearerToken("BEARER TOKEN");
 
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-Integer entrezGeneId = 56; // Integer | entrezGeneId
-String referenceGenome = "referenceGenome_example"; // String | referenceGenome
-String ensemblTranscriptId = "ensemblTranscriptId_example"; // String | ensemblTranscriptId
-Boolean isCanonical = true; // Boolean | isCanonical
-try {
-    TranscriptDTO result = apiInstance.addTranscriptUsingPOST(entrezGeneId, referenceGenome, ensemblTranscriptId, isCanonical);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#addTranscriptUsingPOST");
-    e.printStackTrace();
+    TranscriptControllerApi apiInstance = new TranscriptControllerApi(defaultClient);
+    AddTranscriptBody addTranscriptBody = new AddTranscriptBody(); // AddTranscriptBody | 
+    try {
+      TranscriptDTO result = apiInstance.addTranscriptUsingPOST(addTranscriptBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TranscriptControllerApi#addTranscriptUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -46,10 +56,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entrezGeneId** | **Integer**| entrezGeneId |
- **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
- **ensemblTranscriptId** | **String**| ensemblTranscriptId |
- **isCanonical** | **Boolean**| isCanonical |
+ **addTranscriptBody** | [**AddTranscriptBody**](AddTranscriptBody.md)|  | [optional]
 
 ### Return type
 
@@ -61,36 +68,57 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**201** | Created |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 
 <a name="compareTranscriptUsingPOST"></a>
 # **compareTranscriptUsingPOST**
-> TranscriptComparisonResultVM compareTranscriptUsingPOST(hugoSymbol, body)
+> TranscriptComparisonResultVM compareTranscriptUsingPOST(hugoSymbol, transcriptComparisonVM)
 
 compareTranscript
 
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
+import org.oncokb.oncokb_transcript.ApiClient;
+import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.Configuration;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.models.*;
+import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://transcript.oncokb.org:443");
+    
+    // Configure HTTP bearer authorization: Authorization
+    HttpBearerAuth Authorization = (HttpBearerAuth) defaultClient.getAuthentication("Authorization");
+    Authorization.setBearerToken("BEARER TOKEN");
 
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
-TranscriptComparisonVM body = new TranscriptComparisonVM(); // TranscriptComparisonVM | 
-try {
-    TranscriptComparisonResultVM result = apiInstance.compareTranscriptUsingPOST(hugoSymbol, body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#compareTranscriptUsingPOST");
-    e.printStackTrace();
+    TranscriptControllerApi apiInstance = new TranscriptControllerApi(defaultClient);
+    String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
+    TranscriptComparisonVM transcriptComparisonVM = new TranscriptComparisonVM(); // TranscriptComparisonVM | 
+    try {
+      TranscriptComparisonResultVM result = apiInstance.compareTranscriptUsingPOST(hugoSymbol, transcriptComparisonVM);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TranscriptControllerApi#compareTranscriptUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -99,7 +127,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hugoSymbol** | **String**| hugoSymbol |
- **body** | [**TranscriptComparisonVM**](TranscriptComparisonVM.md)|  | [optional]
+ **transcriptComparisonVM** | [**TranscriptComparisonVM**](TranscriptComparisonVM.md)|  | [optional]
 
 ### Return type
 
@@ -114,33 +142,54 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: */*
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**201** | Created |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 <a name="findTranscriptsByEnsemblIdsUsingPOST"></a>
 # **findTranscriptsByEnsemblIdsUsingPOST**
-> List&lt;TranscriptDTO&gt; findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body)
+> List&lt;TranscriptDTO&gt; findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, requestBody)
 
 findTranscriptsByEnsemblIds
 
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
+import org.oncokb.oncokb_transcript.ApiClient;
+import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.Configuration;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.models.*;
+import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://transcript.oncokb.org:443");
+    
+    // Configure HTTP bearer authorization: Authorization
+    HttpBearerAuth Authorization = (HttpBearerAuth) defaultClient.getAuthentication("Authorization");
+    Authorization.setBearerToken("BEARER TOKEN");
 
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String referenceGenome = "referenceGenome_example"; // String | referenceGenome
-List<String> body = Arrays.asList("body_example"); // List<String> | 
-try {
-    List<TranscriptDTO> result = apiInstance.findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#findTranscriptsByEnsemblIdsUsingPOST");
-    e.printStackTrace();
+    TranscriptControllerApi apiInstance = new TranscriptControllerApi(defaultClient);
+    String referenceGenome = "GRCh37"; // String | referenceGenome
+    List<String> requestBody = Arrays.asList(); // List<String> | 
+    try {
+      List<TranscriptDTO> result = apiInstance.findTranscriptsByEnsemblIdsUsingPOST(referenceGenome, requestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TranscriptControllerApi#findTranscriptsByEnsemblIdsUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -149,7 +198,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
- **body** | [**List&lt;String&gt;**](String.md)|  | [optional]
+ **requestBody** | [**List&lt;String&gt;**](String.md)|  | [optional]
 
 ### Return type
 
@@ -164,33 +213,54 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: */*
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**201** | Created |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 <a name="matchTranscriptUsingPOST"></a>
 # **matchTranscriptUsingPOST**
-> TranscriptMatchResultVM matchTranscriptUsingPOST(hugoSymbol, body)
+> TranscriptMatchResultVM matchTranscriptUsingPOST(hugoSymbol, matchTranscriptVM)
 
 matchTranscript
 
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
+import org.oncokb.oncokb_transcript.ApiClient;
+import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.Configuration;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.models.*;
+import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://transcript.oncokb.org:443");
+    
+    // Configure HTTP bearer authorization: Authorization
+    HttpBearerAuth Authorization = (HttpBearerAuth) defaultClient.getAuthentication("Authorization");
+    Authorization.setBearerToken("BEARER TOKEN");
 
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
-MatchTranscriptVM body = new MatchTranscriptVM(); // MatchTranscriptVM | 
-try {
-    TranscriptMatchResultVM result = apiInstance.matchTranscriptUsingPOST(hugoSymbol, body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#matchTranscriptUsingPOST");
-    e.printStackTrace();
+    TranscriptControllerApi apiInstance = new TranscriptControllerApi(defaultClient);
+    String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
+    MatchTranscriptVM matchTranscriptVM = new MatchTranscriptVM(); // MatchTranscriptVM | 
+    try {
+      TranscriptMatchResultVM result = apiInstance.matchTranscriptUsingPOST(hugoSymbol, matchTranscriptVM);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TranscriptControllerApi#matchTranscriptUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -199,7 +269,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hugoSymbol** | **String**| hugoSymbol |
- **body** | [**MatchTranscriptVM**](MatchTranscriptVM.md)|  | [optional]
+ **matchTranscriptVM** | [**MatchTranscriptVM**](MatchTranscriptVM.md)|  | [optional]
 
 ### Return type
 
@@ -214,6 +284,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: */*
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**201** | Created |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+
 <a name="suggestVariantUsingGET"></a>
 # **suggestVariantUsingGET**
 > AllReferenceTranscriptSuggestionVM suggestVariantUsingGET(hugoSymbol, proteinPosition, curatedResidue, grch37Transcript, grch38Transcript)
@@ -223,27 +302,39 @@ suggestVariant
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
+import org.oncokb.oncokb_transcript.ApiClient;
+import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.Configuration;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.models.*;
+import org.oncokb.oncokb_transcript.client.TranscriptControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://transcript.oncokb.org:443");
+    
+    // Configure HTTP bearer authorization: Authorization
+    HttpBearerAuth Authorization = (HttpBearerAuth) defaultClient.getAuthentication("Authorization");
+    Authorization.setBearerToken("BEARER TOKEN");
 
-
-TranscriptControllerApi apiInstance = new TranscriptControllerApi();
-String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
-Integer proteinPosition = 56; // Integer | proteinPosition
-String curatedResidue = "curatedResidue_example"; // String | curatedResidue
-String grch37Transcript = "grch37Transcript_example"; // String | grch37Transcript
-String grch38Transcript = "grch38Transcript_example"; // String | grch38Transcript
-try {
-    AllReferenceTranscriptSuggestionVM result = apiInstance.suggestVariantUsingGET(hugoSymbol, proteinPosition, curatedResidue, grch37Transcript, grch38Transcript);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TranscriptControllerApi#suggestVariantUsingGET");
-    e.printStackTrace();
+    TranscriptControllerApi apiInstance = new TranscriptControllerApi(defaultClient);
+    String hugoSymbol = "hugoSymbol_example"; // String | hugoSymbol
+    Integer proteinPosition = 56; // Integer | proteinPosition
+    String curatedResidue = "curatedResidue_example"; // String | curatedResidue
+    String grch37Transcript = "grch37Transcript_example"; // String | grch37Transcript
+    String grch38Transcript = "grch38Transcript_example"; // String | grch38Transcript
+    try {
+      AllReferenceTranscriptSuggestionVM result = apiInstance.suggestVariantUsingGET(hugoSymbol, proteinPosition, curatedResidue, grch37Transcript, grch38Transcript);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TranscriptControllerApi#suggestVariantUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -269,4 +360,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 

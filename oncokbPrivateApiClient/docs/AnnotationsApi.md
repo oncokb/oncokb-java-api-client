@@ -1,6 +1,6 @@
 # AnnotationsApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,23 +27,35 @@ Annotate copy number alteration.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-String copyNameAlterationType = "copyNameAlterationType_example"; // String | Copy number alteration type
-String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
-Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
-String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
-String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
-try {
-    IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, referenceGenome, tumorType, evidenceType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    String copyNameAlterationType = "AMPLIFICATION"; // String | Copy number alteration type
+    String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
+    String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+    String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+    String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
+    try {
+      IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET(copyNameAlterationType, hugoSymbol, entrezGeneId, referenceGenome, tumorType, evidenceType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -68,8 +80,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 
 <a name="annotateCopyNumberAlterationsPostUsingPOST"></a>
 # **annotateCopyNumberAlterationsPostUsingPOST**
@@ -82,18 +100,30 @@ Annotate copy number alterations.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-List<AnnotateCopyNumberAlterationQuery> body = Arrays.asList(new AnnotateCopyNumberAlterationQuery()); // List<AnnotateCopyNumberAlterationQuery> | List of queries. Please see swagger.json for request body format.
-try {
-    List<IndicatorQueryResp> result = apiInstance.annotateCopyNumberAlterationsPostUsingPOST(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsPostUsingPOST");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    List<AnnotateCopyNumberAlterationQuery> body = Arrays.asList(); // List<AnnotateCopyNumberAlterationQuery> | List of queries. Please see swagger.json for request body format.
+    try {
+      List<IndicatorQueryResp> result = apiInstance.annotateCopyNumberAlterationsPostUsingPOST(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateCopyNumberAlterationsPostUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -116,6 +146,12 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
+
 <a name="annotateMutationsByGenomicChangeGetUsingGET"></a>
 # **annotateMutationsByGenomicChangeGetUsingGET**
 > IndicatorQueryResp annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, referenceGenome, tumorType, evidenceType)
@@ -127,21 +163,33 @@ Annotate mutation by genomic change.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-String genomicLocation = "genomicLocation_example"; // String | Genomic location. Example: 7,140453136,140453136,A,T
-String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
-String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
-try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, referenceGenome, tumorType, evidenceType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangeGetUsingGET");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    String genomicLocation = "genomicLocation_example"; // String | Genomic location. Example: 7,140453136,140453136,A,T
+    String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+    String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+    String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
+    try {
+      IndicatorQueryResp result = apiInstance.annotateMutationsByGenomicChangeGetUsingGET(genomicLocation, referenceGenome, tumorType, evidenceType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangeGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -164,8 +212,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 
 <a name="annotateMutationsByGenomicChangePostUsingPOST"></a>
 # **annotateMutationsByGenomicChangePostUsingPOST**
@@ -178,18 +232,30 @@ Annotate mutations by genomic change.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-List<AnnotateMutationByGenomicChangeQuery> body = Arrays.asList(new AnnotateMutationByGenomicChangeQuery()); // List<AnnotateMutationByGenomicChangeQuery> | List of queries. Please see swagger.json for request body format.
-try {
-    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByGenomicChangePostUsingPOST(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangePostUsingPOST");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    List<AnnotateMutationByGenomicChangeQuery> body = Arrays.asList(); // List<AnnotateMutationByGenomicChangeQuery> | List of queries. Please see swagger.json for request body format.
+    try {
+      List<IndicatorQueryResp> result = apiInstance.annotateMutationsByGenomicChangePostUsingPOST(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateMutationsByGenomicChangePostUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -212,6 +278,12 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
+
 <a name="annotateMutationsByHGVSgGetUsingGET"></a>
 # **annotateMutationsByHGVSgGetUsingGET**
 > IndicatorQueryResp annotateMutationsByHGVSgGetUsingGET(hgvsg, referenceGenome, tumorType, evidenceType)
@@ -223,21 +295,33 @@ Annotate mutation by HGVSg.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-String hgvsg = "hgvsg_example"; // String | HGVS genomic format. Example: 7:g.140453136A>T
-String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
-String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
-try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByHGVSgGetUsingGET(hgvsg, referenceGenome, tumorType, evidenceType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgGetUsingGET");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    String hgvsg = "hgvsg_example"; // String | HGVS genomic format. Example: 7:g.140453136A>T
+    String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+    String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+    String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
+    try {
+      IndicatorQueryResp result = apiInstance.annotateMutationsByHGVSgGetUsingGET(hgvsg, referenceGenome, tumorType, evidenceType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -260,8 +344,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 
 <a name="annotateMutationsByHGVSgPostUsingPOST"></a>
 # **annotateMutationsByHGVSgPostUsingPOST**
@@ -274,18 +364,30 @@ Annotate mutations by genomic change.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-List<AnnotateMutationByHGVSgQuery> body = Arrays.asList(new AnnotateMutationByHGVSgQuery()); // List<AnnotateMutationByHGVSgQuery> | List of queries. Please see swagger.json for request body format.
-try {
-    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByHGVSgPostUsingPOST(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgPostUsingPOST");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    List<AnnotateMutationByHGVSgQuery> body = Arrays.asList(); // List<AnnotateMutationByHGVSgQuery> | List of queries. Please see swagger.json for request body format.
+    try {
+      List<IndicatorQueryResp> result = apiInstance.annotateMutationsByHGVSgPostUsingPOST(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateMutationsByHGVSgPostUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -308,6 +410,12 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
+
 <a name="annotateMutationsByProteinChangeGetUsingGET"></a>
 # **annotateMutationsByProteinChangeGetUsingGET**
 > IndicatorQueryResp annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, referenceGenome, consequence, proteinStart, proteinEnd, tumorType, evidenceType)
@@ -319,26 +427,38 @@ Annotate mutation by protein change.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
-Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
-String alteration = "alteration_example"; // String | Protein Change. Example: V600E
-String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
-String consequence = "consequence_example"; // String | Consequence. Exacmple: missense_variant
-Integer proteinStart = 56; // Integer | Protein Start. Example: 600
-Integer proteinEnd = 56; // Integer | Protein End. Example: 600
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
-String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
-try {
-    IndicatorQueryResp result = apiInstance.annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, referenceGenome, consequence, proteinStart, proteinEnd, tumorType, evidenceType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangeGetUsingGET");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
+    String alteration = "alteration_example"; // String | Protein Change. Example: V600E
+    String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+    String consequence = "feature_truncation"; // String | Consequence. Exacmple: missense_variant
+    Integer proteinStart = 56; // Integer | Protein Start. Example: 600
+    Integer proteinEnd = 56; // Integer | Protein End. Example: 600
+    String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+    String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
+    try {
+      IndicatorQueryResp result = apiInstance.annotateMutationsByProteinChangeGetUsingGET(hugoSymbol, entrezGeneId, alteration, referenceGenome, consequence, proteinStart, proteinEnd, tumorType, evidenceType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangeGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -366,8 +486,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 
 <a name="annotateMutationsByProteinChangePostUsingPOST"></a>
 # **annotateMutationsByProteinChangePostUsingPOST**
@@ -380,18 +506,30 @@ Annotate mutations by protein change.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-List<AnnotateMutationByProteinChangeQuery> body = Arrays.asList(new AnnotateMutationByProteinChangeQuery()); // List<AnnotateMutationByProteinChangeQuery> | List of queries. Please see swagger.json for request body format.
-try {
-    List<IndicatorQueryResp> result = apiInstance.annotateMutationsByProteinChangePostUsingPOST(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangePostUsingPOST");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    List<AnnotateMutationByProteinChangeQuery> body = Arrays.asList(); // List<AnnotateMutationByProteinChangeQuery> | List of queries. Please see swagger.json for request body format.
+    try {
+      List<IndicatorQueryResp> result = apiInstance.annotateMutationsByProteinChangePostUsingPOST(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateMutationsByProteinChangePostUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -414,6 +552,12 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
+
 <a name="annotateStructuralVariantsGetUsingGET"></a>
 # **annotateStructuralVariantsGetUsingGET**
 > IndicatorQueryResp annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, referenceGenome, tumorType, evidenceType)
@@ -425,26 +569,38 @@ Annotate structural variant.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-String structuralVariantType = "structuralVariantType_example"; // String | Structural variant type
-Boolean isFunctionalFusion = false; // Boolean | Whether is functional fusion
-String hugoSymbolA = "hugoSymbolA_example"; // String | The gene symbol A used in Human Genome Organisation. Example: ABL1
-Integer entrezGeneIdA = 56; // Integer | The entrez gene ID A. (Higher priority than hugoSymbolA) Example: 25
-String hugoSymbolB = "hugoSymbolB_example"; // String | The gene symbol B used in Human Genome Organisation.Example: BCR 
-Integer entrezGeneIdB = 56; // Integer | The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613
-String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
-String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
-String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
-try {
-    IndicatorQueryResp result = apiInstance.annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, referenceGenome, tumorType, evidenceType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsGetUsingGET");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    String structuralVariantType = "DELETION"; // String | Structural variant type
+    Boolean isFunctionalFusion = false; // Boolean | Whether is functional fusion
+    String hugoSymbolA = "hugoSymbolA_example"; // String | The gene symbol A used in Human Genome Organisation. Example: ABL1
+    Integer entrezGeneIdA = 56; // Integer | The entrez gene ID A. (Higher priority than hugoSymbolA) Example: 25
+    String hugoSymbolB = "hugoSymbolB_example"; // String | The gene symbol B used in Human Genome Organisation.Example: BCR 
+    Integer entrezGeneIdB = 56; // Integer | The entrez gene ID B. (Higher priority than hugoSymbolB) Example: 613
+    String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+    String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
+    String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
+    try {
+      IndicatorQueryResp result = apiInstance.annotateStructuralVariantsGetUsingGET(structuralVariantType, isFunctionalFusion, hugoSymbolA, entrezGeneIdA, hugoSymbolB, entrezGeneIdB, referenceGenome, tumorType, evidenceType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -472,8 +628,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 
 <a name="annotateStructuralVariantsPostUsingPOST"></a>
 # **annotateStructuralVariantsPostUsingPOST**
@@ -486,18 +648,30 @@ Annotate structural variants.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.AnnotationsApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.AnnotationsApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-AnnotationsApi apiInstance = new AnnotationsApi();
-List<AnnotateStructuralVariantQuery> body = Arrays.asList(new AnnotateStructuralVariantQuery()); // List<AnnotateStructuralVariantQuery> | List of queries. Please see swagger.json for request body format.
-try {
-    List<IndicatorQueryResp> result = apiInstance.annotateStructuralVariantsPostUsingPOST(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsPostUsingPOST");
-    e.printStackTrace();
+    AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
+    List<AnnotateStructuralVariantQuery> body = Arrays.asList(); // List<AnnotateStructuralVariantQuery> | List of queries. Please see swagger.json for request body format.
+    try {
+      List<IndicatorQueryResp> result = apiInstance.annotateStructuralVariantsPostUsingPOST(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnnotationsApi#annotateStructuralVariantsPostUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -519,4 +693,10 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 

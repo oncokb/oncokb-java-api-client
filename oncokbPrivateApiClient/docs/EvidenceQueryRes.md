@@ -1,7 +1,10 @@
 
+
 # EvidenceQueryRes
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alleles** | [**List&lt;Alteration&gt;**](Alteration.md) |  |  [optional]
@@ -16,8 +19,9 @@ Name | Type | Description | Notes
 **query** | [**Query**](Query.md) |  |  [optional]
 
 
-<a name="List<LevelOfEvidencesEnum>"></a>
+
 ## Enum: List&lt;LevelOfEvidencesEnum&gt;
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;

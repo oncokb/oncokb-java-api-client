@@ -1,7 +1,10 @@
 
+
 # Query
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alteration** | **String** |  |  [optional]
@@ -19,16 +22,18 @@ Name | Type | Description | Notes
 **type** | **String** |  |  [optional]
 
 
-<a name="ReferenceGenomeEnum"></a>
+
 ## Enum: ReferenceGenomeEnum
+
 Name | Value
 ---- | -----
 GRCH37 | &quot;GRCh37&quot;
 GRCH38 | &quot;GRCh38&quot;
 
 
-<a name="SvTypeEnum"></a>
+
 ## Enum: SvTypeEnum
+
 Name | Value
 ---- | -----
 DELETION | &quot;DELETION&quot;

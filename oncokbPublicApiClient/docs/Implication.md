@@ -1,7 +1,10 @@
 
+
 # Implication
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abstracts** | [**List&lt;ArticleAbstract&gt;**](ArticleAbstract.md) |  |  [optional]
@@ -12,8 +15,9 @@ Name | Type | Description | Notes
 **tumorType** | [**TumorType**](TumorType.md) |  |  [optional]
 
 
-<a name="LevelOfEvidenceEnum"></a>
+
 ## Enum: LevelOfEvidenceEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;

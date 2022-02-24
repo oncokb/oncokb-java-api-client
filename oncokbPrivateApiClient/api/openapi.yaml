@@ -1,0 +1,4679 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: contact@oncokb.org
+    name: OncoKB
+    url: https://www.oncokb.org
+  description: These endpoints are for private use only.
+  license:
+    name: Terms of Use
+    url: https://www.oncokb.org/terms
+  termsOfService: https://www.oncokb.org/terms
+  title: OncoKB Private APIs
+  version: v1.2.2
+servers:
+- url: //oncokb-core:8888/api/v1
+tags:
+- description: OncoKB Classification
+  name: Classification
+- description: OncoKB Drugs
+  name: Drugs
+- description: Clinical Trials Matching
+  name: Trials
+- description: Providing annotation services
+  name: Annotations
+- description: Cancer Genes
+  name: Cancer Genes
+- description: OncoKB Genes
+  name: Genes
+- description: Genesets Api Controller
+  name: Genesets
+- description: OncoKB General Information
+  name: Info
+- description: OncoKB Levels
+  name: Levels
+- description: The search endpoints
+  name: Search
+- description: Endpoints related to OncoKB variants
+  name: Variants
+- description: OncoKB Evidence
+  name: Evidences
+paths:
+  /annotate/copyNumberAlterations:
+    get:
+      description: Annotate copy number alteration.
+      operationId: annotateCopyNumberAlterationsGetUsingGET
+      parameters:
+      - description: 'The gene symbol used in Human Genome Organisation. Example:
+          BRAF'
+        in: query
+        name: hugoSymbol
+        schema:
+          type: string
+      - description: 'The entrez gene ID. (Higher priority than hugoSymbol). Example:
+          673'
+        in: query
+        name: entrezGeneId
+        schema:
+          format: int32
+          type: integer
+      - description: Copy number alteration type
+        in: query
+        name: copyNameAlterationType
+        required: true
+        schema:
+          enum:
+          - AMPLIFICATION
+          - DELETION
+          - GAIN
+          - LOSS
+          type: string
+      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        in: query
+        name: referenceGenome
+        schema:
+          default: GRCh37
+          type: string
+      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
+          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+        in: query
+        name: tumorType
+        schema:
+          type: string
+      - description: 'Evidence type to compute. This could help to improve the performance
+          if you only look for sub-content. Example: ONCOGENIC. All available evidence
+          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
+          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
+          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
+          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
+          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
+          types query, use '','' as separator.'
+        in: query
+        name: evidenceType
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateCopyNumberAlterationsGet
+      tags:
+      - Annotations
+      x-accepts: application/json
+    post:
+      description: Annotate copy number alterations.
+      operationId: annotateCopyNumberAlterationsPostUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/AnnotateCopyNumberAlterationQuery'
+              type: array
+        description: List of queries. Please see swagger.json for request body format.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IndicatorQueryResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateCopyNumberAlterationsPost
+      tags:
+      - Annotations
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /annotate/mutations/byGenomicChange:
+    get:
+      description: Annotate mutation by genomic change.
+      operationId: annotateMutationsByGenomicChangeGetUsingGET
+      parameters:
+      - description: 'Genomic location. Example: 7,140453136,140453136,A,T'
+        in: query
+        name: genomicLocation
+        required: true
+        schema:
+          type: string
+      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        in: query
+        name: referenceGenome
+        schema:
+          default: GRCh37
+          type: string
+      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
+          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+        in: query
+        name: tumorType
+        schema:
+          type: string
+      - description: 'Evidence type to compute. This could help to improve the performance
+          if you only look for sub-content. Example: ONCOGENIC. All available evidence
+          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
+          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
+          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
+          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
+          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
+          types query, use '','' as separator.'
+        in: query
+        name: evidenceType
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateMutationsByGenomicChangeGet
+      tags:
+      - Annotations
+      x-accepts: application/json
+    post:
+      description: Annotate mutations by genomic change.
+      operationId: annotateMutationsByGenomicChangePostUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/AnnotateMutationByGenomicChangeQuery'
+              type: array
+        description: List of queries. Please see swagger.json for request body format.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IndicatorQueryResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateMutationsByGenomicChangePost
+      tags:
+      - Annotations
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /annotate/mutations/byHGVSg:
+    get:
+      description: Annotate mutation by HGVSg.
+      operationId: annotateMutationsByHGVSgGetUsingGET
+      parameters:
+      - description: 'HGVS genomic format. Example: 7:g.140453136A>T'
+        in: query
+        name: hgvsg
+        required: true
+        schema:
+          type: string
+      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        in: query
+        name: referenceGenome
+        schema:
+          default: GRCh37
+          type: string
+      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
+          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+        in: query
+        name: tumorType
+        schema:
+          type: string
+      - description: 'Evidence type to compute. This could help to improve the performance
+          if you only look for sub-content. Example: ONCOGENIC. All available evidence
+          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
+          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
+          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
+          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
+          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
+          types query, use '','' as separator.'
+        in: query
+        name: evidenceType
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateMutationsByHGVSgGet
+      tags:
+      - Annotations
+      x-accepts: application/json
+    post:
+      description: Annotate mutations by genomic change.
+      operationId: annotateMutationsByHGVSgPostUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/AnnotateMutationByHGVSgQuery'
+              type: array
+        description: List of queries. Please see swagger.json for request body format.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IndicatorQueryResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateMutationsByHGVSgPost
+      tags:
+      - Annotations
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /annotate/mutations/byProteinChange:
+    get:
+      description: Annotate mutation by protein change.
+      operationId: annotateMutationsByProteinChangeGetUsingGET
+      parameters:
+      - description: 'The gene symbol used in Human Genome Organisation. Example:
+          BRAF'
+        in: query
+        name: hugoSymbol
+        schema:
+          type: string
+      - description: 'The entrez gene ID. (Higher priority than hugoSymbol). Example:
+          673'
+        in: query
+        name: entrezGeneId
+        schema:
+          format: int32
+          type: integer
+      - description: 'Protein Change. Example: V600E'
+        in: query
+        name: alteration
+        schema:
+          type: string
+      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        in: query
+        name: referenceGenome
+        schema:
+          default: GRCh37
+          type: string
+      - description: 'Consequence. Exacmple: missense_variant'
+        in: query
+        name: consequence
+        schema:
+          enum:
+          - feature_truncation
+          - frameshift_variant
+          - inframe_deletion
+          - inframe_insertion
+          - start_lost
+          - missense_variant
+          - splice_region_variant
+          - stop_gained
+          - synonymous_variant
+          - intron_variant
+          type: string
+      - description: 'Protein Start. Example: 600'
+        in: query
+        name: proteinStart
+        schema:
+          format: int32
+          type: integer
+      - description: 'Protein End. Example: 600'
+        in: query
+        name: proteinEnd
+        schema:
+          format: int32
+          type: integer
+      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
+          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+        in: query
+        name: tumorType
+        schema:
+          type: string
+      - description: 'Evidence type to compute. This could help to improve the performance
+          if you only look for sub-content. Example: ONCOGENIC. All available evidence
+          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
+          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
+          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
+          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
+          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
+          types query, use '','' as separator.'
+        in: query
+        name: evidenceType
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateMutationsByProteinChangeGet
+      tags:
+      - Annotations
+      x-accepts: application/json
+    post:
+      description: Annotate mutations by protein change.
+      operationId: annotateMutationsByProteinChangePostUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/AnnotateMutationByProteinChangeQuery'
+              type: array
+        description: List of queries. Please see swagger.json for request body format.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IndicatorQueryResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateMutationsByProteinChangePost
+      tags:
+      - Annotations
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /annotate/structuralVariants:
+    get:
+      description: Annotate structural variant.
+      operationId: annotateStructuralVariantsGetUsingGET
+      parameters:
+      - description: 'The gene symbol A used in Human Genome Organisation. Example:
+          ABL1'
+        in: query
+        name: hugoSymbolA
+        schema:
+          type: string
+      - description: 'The entrez gene ID A. (Higher priority than hugoSymbolA) Example:
+          25'
+        in: query
+        name: entrezGeneIdA
+        schema:
+          format: int32
+          type: integer
+      - description: 'The gene symbol B used in Human Genome Organisation.Example:
+          BCR '
+        in: query
+        name: hugoSymbolB
+        schema:
+          type: string
+      - description: 'The entrez gene ID B. (Higher priority than hugoSymbolB) Example:
+          613'
+        in: query
+        name: entrezGeneIdB
+        schema:
+          format: int32
+          type: integer
+      - description: Structural variant type
+        in: query
+        name: structuralVariantType
+        required: true
+        schema:
+          enum:
+          - DELETION
+          - TRANSLOCATION
+          - DUPLICATION
+          - INSERTION
+          - INVERSION
+          - FUSION
+          - UNKNOWN
+          type: string
+      - description: Whether is functional fusion
+        in: query
+        name: isFunctionalFusion
+        required: true
+        schema:
+          default: false
+          type: boolean
+      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        in: query
+        name: referenceGenome
+        schema:
+          default: GRCh37
+          type: string
+      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
+          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+        in: query
+        name: tumorType
+        schema:
+          type: string
+      - description: 'Evidence type to compute. This could help to improve the performance
+          if you only look for sub-content. Example: ONCOGENIC. All available evidence
+          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
+          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
+          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
+          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
+          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
+          types query, use '','' as separator.'
+        in: query
+        name: evidenceType
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateStructuralVariantsGet
+      tags:
+      - Annotations
+      x-accepts: application/json
+    post:
+      description: Annotate structural variants.
+      operationId: annotateStructuralVariantsPostUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/AnnotateStructuralVariantQuery'
+              type: array
+        description: List of queries. Please see swagger.json for request body format.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IndicatorQueryResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error, error message will be given.
+      summary: annotateStructuralVariantsPost
+      tags:
+      - Annotations
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /classification/variants:
+    get:
+      description: Get All OncoKB Variant Classification.
+      operationId: classificationVariantsGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: OK
+      summary: classificationVariantsGet
+      tags:
+      - Classification
+      x-accepts: application/json
+  /drugs:
+    get:
+      operationId: drugsGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Drug'
+                type: array
+          description: OK
+      summary: Get all curated drugs.
+      tags:
+      - Drugs
+      x-accepts: application/json
+  /drugs/lookup:
+    get:
+      operationId: drugsLookupGetUsingGET
+      parameters:
+      - description: Drug Name
+        in: query
+        name: name
+        schema:
+          type: string
+      - description: NCI Thesaurus Code
+        in: query
+        name: ncitCode
+        schema:
+          type: string
+      - description: Drug Synonyms
+        in: query
+        name: synonym
+        schema:
+          type: string
+      - description: Exactly Match
+        in: query
+        name: exactMatch
+        required: true
+        schema:
+          default: true
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Drug'
+                type: array
+          description: OK
+      summary: Search drugs.
+      tags:
+      - Drugs
+      x-accepts: application/json
+  /evidences:
+    post:
+      description: Get specific evidences.
+      operationId: evidencesUUIDsGetUsingPOST
+      parameters:
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        description: Unique identifier list.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: Error, error message will be given.
+      summary: evidencesUUIDsGet
+      tags:
+      - Evidences
+      x-codegen-request-body-name: uuids
+      x-contentType: application/json
+      x-accepts: application/json
+  /evidences/lookup:
+    get:
+      description: Search evidences. Multi-queries are supported.
+      operationId: evidencesLookupGetUsingGET
+      parameters:
+      - description: The entrez gene ID.
+        in: query
+        name: entrezGeneId
+        schema:
+          format: int32
+          type: integer
+      - description: The gene symbol used in Human Genome Organisation.
+        in: query
+        name: hugoSymbol
+        schema:
+          type: string
+      - description: Variant name.
+        in: query
+        name: variant
+        schema:
+          type: string
+      - description: Tumor type name. OncoTree code is supported.
+        in: query
+        name: tumorType
+        schema:
+          type: string
+      - description: 'Consequence. Possible value: feature_truncation, frameshift_variant,
+          inframe_deletion, inframe_insertion, start_lost, missense_variant, splice_region_variant,
+          stop_gained, synonymous_variant'
+        in: query
+        name: consequence
+        schema:
+          type: string
+      - description: Protein Start.
+        in: query
+        name: proteinStart
+        schema:
+          type: string
+      - description: Protein End.
+        in: query
+        name: proteinEnd
+        schema:
+          type: string
+      - description: Only show highest level evidences
+        in: query
+        name: highestLevelOnly
+        schema:
+          default: false
+          type: boolean
+      - description: Separate by comma. LEVEL_1, LEVEL_2A, LEVEL_2B, LEVEL_3A, LEVEL_3B,
+          LEVEL_4, LEVEL_R1, LEVEL_R2, LEVEL_R3
+        in: query
+        name: levelOfEvidence
+        schema:
+          type: string
+      - description: Separate by comma. Evidence type includes GENE_SUMMARY, GENE_BACKGROUND,
+          MUTATION_SUMMARY, ONCOGENIC, MUTATION_EFFECT, VUS, PROGNOSTIC_IMPLICATION,
+          DIAGNOSTIC_IMPLICATION, TUMOR_TYPE_SUMMARY, DIAGNOSTIC_SUMMARY, PROGNOSTIC_SUMMARY,
+          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE,
+          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+        in: query
+        name: evidenceTypes
+        schema:
+          type: string
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Evidence'
+                type: array
+          description: OK
+      summary: evidencesLookupGet
+      tags:
+      - Evidences
+      x-accepts: application/json
+    post:
+      description: Search evidences.
+      operationId: evidencesLookupPostUsingPOST
+      parameters:
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvidenceQueries'
+        description: List of queries. Please see swagger.json for request body format.
+          Please use JSON string.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EvidenceQueryRes'
+                type: array
+          description: OK
+      summary: evidencesLookupPost
+      tags:
+      - Evidences
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /evidences/{uuid}:
+    get:
+      description: Get specific evidence.
+      operationId: evidencesUUIDGetUsingGET
+      parameters:
+      - description: Unique identifier.
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: Error, error message will be given.
+      summary: evidencesUUIDGet
+      tags:
+      - Evidences
+      x-accepts: application/json
+  /genes:
+    get:
+      description: Get list of currently curated genes.
+      operationId: genesGetUsingGET
+      parameters:
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Gene'
+                type: array
+          description: OK
+      summary: genesGet
+      tags:
+      - Genes
+      x-accepts: application/json
+  /genes/lookup:
+    get:
+      description: Search gene.
+      operationId: genesLookupGetUsingGET
+      parameters:
+      - description: The gene symbol used in Human Genome Organisation. (Deprecated,
+          use query instead)
+        in: query
+        name: hugoSymbol
+        schema:
+          type: string
+      - description: The entrez gene ID. (Deprecated, use query instead)
+        in: query
+        name: entrezGeneId
+        schema:
+          format: int32
+          type: integer
+      - description: The search query, it could be hugoSymbol or entrezGeneId.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Gene'
+                type: array
+          description: OK
+      summary: genesLookupGet
+      tags:
+      - Genes
+      x-accepts: application/json
+  /genes/{entrezGeneId}:
+    get:
+      description: Get specific gene information.
+      operationId: genesEntrezGeneIdGetUsingGET
+      parameters:
+      - description: The entrez gene ID.
+        in: path
+        name: entrezGeneId
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gene'
+          description: OK
+      summary: genesEntrezGeneIdGet
+      tags:
+      - Genes
+      x-accepts: application/json
+  /genes/{entrezGeneId}/evidences:
+    get:
+      description: Get list of evidences for specific gene.
+      operationId: genesEntrezGeneIdEvidencesGetUsingGET
+      parameters:
+      - description: The entrez gene ID.
+        in: path
+        name: entrezGeneId
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: Separate by comma. Evidence type includes GENE_SUMMARY, GENE_BACKGROUND
+        in: query
+        name: evidenceTypes
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GeneEvidence'
+                type: array
+          description: OK
+      summary: genesEntrezGeneIdEvidencesGet
+      tags:
+      - Genes
+      x-accepts: application/json
+  /genes/{entrezGeneId}/variants:
+    get:
+      description: Get list of variants for specific gene.
+      operationId: genesEntrezGeneIdVariantsGetUsingGET
+      parameters:
+      - description: The entrez gene ID.
+        in: path
+        name: entrezGeneId
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Alteration'
+                type: array
+          description: OK
+      summary: genesEntrezGeneIdVariantsGet
+      tags:
+      - Genes
+      x-accepts: application/json
+  /genesets:
+    get:
+      description: Get list of currently curated genesets.
+      operationId: genesetsGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Geneset'
+                type: array
+          description: OK
+      summary: genesetsGet
+      tags:
+      - Genesets
+      x-accepts: application/json
+  /genesets/{uuid}:
+    get:
+      description: Find geneset by uuid
+      operationId: genesetsUuidGetUsingGET
+      parameters:
+      - description: Geneset UUID
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Geneset'
+          description: OK
+      summary: genesetsUuidGet
+      tags:
+      - Genesets
+      x-accepts: application/json
+  /info:
+    get:
+      operationId: infoGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OncoKBInfo'
+          description: OK
+      summary: infoGet
+      tags:
+      - Info
+      x-accepts: application/json
+  /levels:
+    get:
+      description: Get all levels.
+      operationId: levelsGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+      summary: levelsGet
+      tags:
+      - Levels
+      x-accepts: application/json
+  /levels/resistance:
+    get:
+      description: Get all resistance levels.
+      operationId: levelsResistanceGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+      summary: levelsResistanceGet
+      tags:
+      - Levels
+      x-accepts: application/json
+  /levels/sensitive:
+    get:
+      description: Get all sensitive levels.
+      operationId: levelsSensitiveGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+      summary: levelsSensitiveGet
+      tags:
+      - Levels
+      x-accepts: application/json
+  /search:
+    get:
+      description: General search for possible combinations.
+      operationId: searchGetUsingGET
+      parameters:
+      - description: The query ID
+        in: query
+        name: id
+        schema:
+          type: string
+      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        in: query
+        name: referenceGenome
+        schema:
+          default: GRCh37
+          type: string
+      - description: The gene symbol used in Human Genome Organisation.
+        in: query
+        name: hugoSymbol
+        schema:
+          type: string
+      - description: The entrez gene ID.
+        in: query
+        name: entrezGeneId
+        schema:
+          format: int32
+          type: integer
+      - description: Variant name.
+        in: query
+        name: variant
+        schema:
+          type: string
+      - description: Variant type.
+        in: query
+        name: variantType
+        schema:
+          type: string
+      - description: Structural Variant Type.
+        in: query
+        name: svType
+        schema:
+          enum:
+          - DELETION
+          - TRANSLOCATION
+          - DUPLICATION
+          - INSERTION
+          - INVERSION
+          - FUSION
+          - UNKNOWN
+          type: string
+      - description: Consequence
+        in: query
+        name: consequence
+        schema:
+          type: string
+      - description: Protein Start
+        in: query
+        name: proteinStart
+        schema:
+          format: int32
+          type: integer
+      - description: Protein End
+        in: query
+        name: proteinEnd
+        schema:
+          format: int32
+          type: integer
+      - description: Tumor type name. OncoTree code is supported.
+        in: query
+        name: tumorType
+        schema:
+          type: string
+      - description: Level of evidences.
+        in: query
+        name: levels
+        schema:
+          type: string
+      - description: Only show treatments of highest level
+        in: query
+        name: highestLevelOnly
+        schema:
+          default: false
+          type: boolean
+      - description: Query type. There maybe slight differences between different
+          query types. Currently support web or regular.
+        in: query
+        name: queryType
+        schema:
+          default: regular
+          type: string
+      - description: Evidence type.
+        in: query
+        name: evidenceType
+        schema:
+          type: string
+      - description: HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol
+          + variant combination
+        in: query
+        name: hgvs
+        schema:
+          type: string
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: Error, error message will be given.
+      summary: searchGet
+      tags:
+      - Search
+      x-accepts: application/json
+    post:
+      description: General search for possible combinations.
+      operationId: searchPostUsingPOST
+      parameters:
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvidenceQueries'
+        description: List of queries. Please see swagger.json for request body format.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IndicatorQueryResp'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndicatorQueryResp'
+          description: Error, error message will be given.
+      summary: searchPost
+      tags:
+      - Search
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /trials:
+    get:
+      operationId: trialsMatchingGetUsingGET
+      parameters:
+      - description: oncoTreeCode
+        in: query
+        name: oncoTreeCode
+        required: true
+        schema:
+          type: string
+      - description: treatment
+        in: query
+        name: treatment
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Trial'
+                type: array
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error
+      summary: Return a list of trials using OncoTree Code and/or treatment
+      tags:
+      - Trials
+      x-accepts: application/json
+  /trials/cancerTypes:
+    post:
+      operationId: trialsGetByCancerTypesUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CancerTypesQuery'
+        description: body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/List'
+                type: object
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Error
+      summary: Return a list of trials using cancer types
+      tags:
+      - Trials
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /utils/allActionableVariants:
+    get:
+      description: Get All Actionable Variants.
+      operationId: utilsAllActionableVariantsGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ActionableGene'
+                type: array
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsAllActionableVariantsGet
+      tags:
+      - Variants
+      - Cancer Genes
+      x-accepts: application/json
+  /utils/allActionableVariants.txt:
+    get:
+      description: Get All Actionable Variants in text file.
+      operationId: utilsAllActionableVariantsTxtGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsAllActionableVariantsTxtGet
+      tags:
+      - Variants
+      - Cancer Genes
+      x-accepts: text/plain
+  /utils/allAnnotatedVariants:
+    get:
+      description: Get All Annotated Variants.
+      operationId: utilsAllAnnotatedVariantsGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AnnotatedVariant'
+                type: array
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsAllAnnotatedVariantsGet
+      tags:
+      - Variants
+      - Cancer Genes
+      x-accepts: application/json
+  /utils/allAnnotatedVariants.txt:
+    get:
+      description: Get All Annotated Variants in text file.
+      operationId: utilsAllAnnotatedVariantsTxtGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsAllAnnotatedVariantsTxtGet
+      tags:
+      - Variants
+      - Cancer Genes
+      x-accepts: text/plain
+  /utils/allCuratedGenes:
+    get:
+      description: Get list of genes OncoKB curated
+      operationId: utilsAllCuratedGenesGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      - description: Include gene summary and background
+        in: query
+        name: includeEvidence
+        schema:
+          default: true
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CuratedGene'
+                type: array
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsAllCuratedGenesGet
+      tags:
+      - Cancer Genes
+      x-accepts: application/json
+  /utils/allCuratedGenes.txt:
+    get:
+      description: Get list of genes OncoKB curated in text file.
+      operationId: utilsAllCuratedGenesTxtGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      - description: Include gene summary and background
+        in: query
+        name: includeEvidence
+        schema:
+          default: true
+          type: boolean
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsAllCuratedGenesTxtGet
+      tags:
+      - Cancer Genes
+      x-accepts: text/plain
+  /utils/cancerGeneList:
+    get:
+      description: Get cancer gene list
+      operationId: utilsCancerGeneListGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CancerGene'
+                type: array
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsCancerGeneListGet
+      tags:
+      - Cancer Genes
+      x-accepts: application/json
+  /utils/cancerGeneList.txt:
+    get:
+      description: Get cancer gene list in text file.
+      operationId: utilsCancerGeneListTxtGetUsingGET
+      parameters:
+      - description: The data version
+        in: query
+        name: version
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: OK
+        "404":
+          content: {}
+          description: Not Found
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: utilsCancerGeneListTxtGet
+      tags:
+      - Cancer Genes
+      x-accepts: text/plain
+  /variants:
+    get:
+      description: Get all annotated variants.
+      operationId: variantsGetUsingGET
+      parameters:
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Alteration'
+                type: array
+          description: OK
+      summary: variantsGet
+      tags:
+      - Variants
+      x-accepts: application/json
+  /variants/lookup:
+    get:
+      description: Search for variants.
+      operationId: variantsLookupGetUsingGET
+      parameters:
+      - description: The entrez gene ID. entrezGeneId is prioritize than hugoSymbol
+          if both parameters have been defined
+        in: query
+        name: entrezGeneId
+        schema:
+          format: int32
+          type: integer
+      - description: The gene symbol used in Human Genome Organisation.
+        in: query
+        name: hugoSymbol
+        schema:
+          type: string
+      - description: variant name.
+        in: query
+        name: variant
+        schema:
+          type: string
+      - description: variantType
+        in: query
+        name: variantType
+        schema:
+          type: string
+      - description: consequence
+        in: query
+        name: consequence
+        schema:
+          type: string
+      - description: proteinStart
+        in: query
+        name: proteinStart
+        schema:
+          format: int32
+          type: integer
+      - description: proteinEnd
+        in: query
+        name: proteinEnd
+        schema:
+          format: int32
+          type: integer
+      - description: HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol
+          + variant combination
+        in: query
+        name: hgvs
+        schema:
+          type: string
+      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+        in: query
+        name: referenceGenome
+        schema:
+          default: GRCh37
+          type: string
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Alteration'
+                type: array
+          description: OK
+      summary: variantsLookupGet
+      tags:
+      - Variants
+      x-accepts: application/json
+    post:
+      description: Search for variants.
+      operationId: variantsLookupPostUsingPOST
+      parameters:
+      - description: The fields to be returned.
+        in: query
+        name: fields
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/VariantSearchQuery'
+              type: array
+        description: List of queries.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  items:
+                    properties: {}
+                    type: object
+                  type: array
+                type: array
+          description: OK
+      summary: variantsLookupPost
+      tags:
+      - Variants
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    AnnotateMutationByGenomicChangeQuery:
+      example:
+        genomicLocation: genomicLocation
+        tumorType: tumorType
+        id: id
+        referenceGenome: GRCh37
+        evidenceTypes:
+        - GENE_SUMMARY
+        - GENE_SUMMARY
+      properties:
+        evidenceTypes:
+          items:
+            enum:
+            - GENE_SUMMARY
+            - MUTATION_SUMMARY
+            - TUMOR_TYPE_SUMMARY
+            - GENE_TUMOR_TYPE_SUMMARY
+            - PROGNOSTIC_SUMMARY
+            - DIAGNOSTIC_SUMMARY
+            - GENE_BACKGROUND
+            - ONCOGENIC
+            - MUTATION_EFFECT
+            - VUS
+            - PROGNOSTIC_IMPLICATION
+            - DIAGNOSTIC_IMPLICATION
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+            type: string
+          type: array
+        genomicLocation:
+          type: string
+        id:
+          type: string
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        tumorType:
+          type: string
+      type: object
+    TreatmentDrug:
+      example:
+        treatmentDrugId:
+          drug:
+            ncitCode: ncitCode
+            drugName: drugName
+        priority: 2
+      properties:
+        priority:
+          format: int32
+          type: integer
+        treatmentDrugId:
+          $ref: '#/components/schemas/TreatmentDrugId'
+      type: object
+    Query:
+      example:
+        consequence: consequence
+        tumorType: tumorType
+        hugoSymbol: hugoSymbol
+        hgvs: hgvs
+        referenceGenome: GRCh37
+        type: type
+        proteinStart: 2
+        alteration: alteration
+        entrezGeneId: 5
+        svType: DELETION
+        alterationType: alterationType
+        id: id
+        proteinEnd: 5
+      properties:
+        alteration:
+          type: string
+        alterationType:
+          type: string
+        consequence:
+          type: string
+        entrezGeneId:
+          format: int32
+          type: integer
+        hgvs:
+          type: string
+        hugoSymbol:
+          type: string
+        id:
+          type: string
+        proteinEnd:
+          format: int32
+          type: integer
+        proteinStart:
+          format: int32
+          type: integer
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        svType:
+          enum:
+          - DELETION
+          - TRANSLOCATION
+          - DUPLICATION
+          - INSERTION
+          - INVERSION
+          - FUSION
+          - UNKNOWN
+          type: string
+        tumorType:
+          type: string
+        type:
+          type: string
+      type: object
+    Article:
+      example:
+        reference: reference
+        volume: volume
+        journal: journal
+        pages: pages
+        elocationId: elocationId
+        issue: issue
+        link: link
+        abstract: abstract
+        pmid: pmid
+        title: title
+        pubDate: pubDate
+        authors: authors
+      properties:
+        abstract:
+          type: string
+        authors:
+          type: string
+        elocationId:
+          type: string
+        issue:
+          type: string
+        journal:
+          type: string
+        link:
+          type: string
+        pages:
+          type: string
+        pmid:
+          type: string
+        pubDate:
+          type: string
+        reference:
+          type: string
+        title:
+          type: string
+        volume:
+          type: string
+      type: object
+    Alteration:
+      example:
+        consequence:
+          isGenerallyTruncating: true
+          description: description
+          term: term
+        proteinStart: 5
+        refResidues: refResidues
+        gene:
+          grch37RefSeq: grch37RefSeq
+          geneAliases:
+          - geneAliases
+          - geneAliases
+          grch37Isoform: grch37Isoform
+          entrezGeneId: 0
+          tsg: true
+          grch38Isoform: grch38Isoform
+          hugoSymbol: hugoSymbol
+          grch38RefSeq: grch38RefSeq
+          oncogene: true
+          genesets:
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+        name: name
+        alteration: alteration
+        variantResidues: variantResidues
+        proteinEnd: 1
+        referenceGenomes:
+        - GRCh37
+        - GRCh37
+      properties:
+        alteration:
+          type: string
+        consequence:
+          $ref: '#/components/schemas/VariantConsequence'
+        gene:
+          $ref: '#/components/schemas/Gene'
+        name:
+          type: string
+        proteinEnd:
+          format: int32
+          type: integer
+        proteinStart:
+          format: int32
+          type: integer
+        refResidues:
+          type: string
+        referenceGenomes:
+          items:
+            enum:
+            - GRCh37
+            - GRCh38
+            type: string
+          type: array
+        variantResidues:
+          type: string
+      type: object
+    AnnotatedVariant:
+      example:
+        grch37RefSeq: grch37RefSeq
+        gene: gene
+        grch38RefSeq: grch38RefSeq
+        referenceGenome: referenceGenome
+        proteinChange: proteinChange
+        mutationEffect: mutationEffect
+        mutationEffectPmids: mutationEffectPmids
+        oncogenicity: oncogenicity
+        grch37Isoform: grch37Isoform
+        variant: variant
+        entrezGeneId: 0
+        grch38Isoform: grch38Isoform
+        mutationEffectAbstracts: mutationEffectAbstracts
+      properties:
+        entrezGeneId:
+          format: int32
+          type: integer
+        gene:
+          type: string
+        grch37Isoform:
+          type: string
+        grch37RefSeq:
+          type: string
+        grch38Isoform:
+          type: string
+        grch38RefSeq:
+          type: string
+        mutationEffect:
+          type: string
+        mutationEffectAbstracts:
+          type: string
+        mutationEffectPmids:
+          type: string
+        oncogenicity:
+          type: string
+        proteinChange:
+          type: string
+        referenceGenome:
+          type: string
+        variant:
+          type: string
+      type: object
+    Implication:
+      example:
+        tumorType:
+          parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        abstracts:
+        - link: link
+          abstract: abstract
+        - link: link
+          abstract: abstract
+        levelOfEvidence: LEVEL_0
+        pmids:
+        - pmids
+        - pmids
+        alterations:
+        - alterations
+        - alterations
+        description: description
+      properties:
+        abstracts:
+          items:
+            $ref: '#/components/schemas/ArticleAbstract'
+          type: array
+        alterations:
+          items:
+            type: string
+          type: array
+        description:
+          type: string
+        levelOfEvidence:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        pmids:
+          items:
+            type: string
+          type: array
+        tumorType:
+          $ref: '#/components/schemas/TumorType'
+      type: object
+    TumorType:
+      description: OncoTree Detailed Cancer Type
+      example:
+        parent: parent
+        code: code
+        color: color
+        children: {}
+        level: 6
+        tumorForm: SOLID
+        name: name
+        tissue: tissue
+        id: 0
+        mainType:
+          tumorForm: SOLID
+          name: name
+          id: 1
+      properties:
+        children:
+          additionalProperties:
+            $ref: '#/components/schemas/TumorType'
+          type: object
+        code:
+          type: string
+        color:
+          type: string
+        id:
+          format: int32
+          type: integer
+        level:
+          format: int32
+          type: integer
+        mainType:
+          $ref: '#/components/schemas/MainType'
+        name:
+          type: string
+        parent:
+          type: string
+        tissue:
+          type: string
+        tumorForm:
+          enum:
+          - SOLID
+          - LIQUID
+          - MIXED
+          type: string
+      type: object
+    Gene:
+      example:
+        grch37RefSeq: grch37RefSeq
+        geneAliases:
+        - geneAliases
+        - geneAliases
+        grch37Isoform: grch37Isoform
+        entrezGeneId: 0
+        tsg: true
+        grch38Isoform: grch38Isoform
+        hugoSymbol: hugoSymbol
+        grch38RefSeq: grch38RefSeq
+        oncogene: true
+        genesets:
+        - genes:
+          - null
+          - null
+          name: name
+          id: 6
+          uuid: uuid
+        - genes:
+          - null
+          - null
+          name: name
+          id: 6
+          uuid: uuid
+      properties:
+        entrezGeneId:
+          format: int32
+          type: integer
+        geneAliases:
+          items:
+            type: string
+          type: array
+        genesets:
+          items:
+            $ref: '#/components/schemas/Geneset'
+          type: array
+        grch37Isoform:
+          type: string
+        grch37RefSeq:
+          type: string
+        grch38Isoform:
+          type: string
+        grch38RefSeq:
+          type: string
+        hugoSymbol:
+          type: string
+        oncogene:
+          type: boolean
+        tsg:
+          type: boolean
+      type: object
+    Version:
+      example:
+        date: date
+        version: version
+      properties:
+        date:
+          type: string
+        version:
+          type: string
+      type: object
+    TreatmentDrugId:
+      example:
+        drug:
+          ncitCode: ncitCode
+          drugName: drugName
+      properties:
+        drug:
+          $ref: '#/components/schemas/Drug'
+      type: object
+    GeneEvidence:
+      example:
+        gene:
+          grch37RefSeq: grch37RefSeq
+          geneAliases:
+          - geneAliases
+          - geneAliases
+          grch37Isoform: grch37Isoform
+          entrezGeneId: 0
+          tsg: true
+          grch38Isoform: grch38Isoform
+          hugoSymbol: hugoSymbol
+          grch38RefSeq: grch38RefSeq
+          oncogene: true
+          genesets:
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+        evidenceId: 0
+        evidenceType: GENE_SUMMARY
+        shortDesc: shortDesc
+        id: id
+        lastEdit: 2000-01-23T04:56:07.000+00:00
+        articles:
+        - reference: reference
+          volume: volume
+          journal: journal
+          pages: pages
+          elocationId: elocationId
+          issue: issue
+          link: link
+          abstract: abstract
+          pmid: pmid
+          title: title
+          pubDate: pubDate
+          authors: authors
+        - reference: reference
+          volume: volume
+          journal: journal
+          pages: pages
+          elocationId: elocationId
+          issue: issue
+          link: link
+          abstract: abstract
+          pmid: pmid
+          title: title
+          pubDate: pubDate
+          authors: authors
+        desc: desc
+        status: status
+      properties:
+        articles:
+          items:
+            $ref: '#/components/schemas/Article'
+          type: array
+        desc:
+          type: string
+        evidenceId:
+          format: int32
+          type: integer
+        evidenceType:
+          enum:
+          - GENE_SUMMARY
+          - MUTATION_SUMMARY
+          - TUMOR_TYPE_SUMMARY
+          - GENE_TUMOR_TYPE_SUMMARY
+          - PROGNOSTIC_SUMMARY
+          - DIAGNOSTIC_SUMMARY
+          - GENE_BACKGROUND
+          - ONCOGENIC
+          - MUTATION_EFFECT
+          - VUS
+          - PROGNOSTIC_IMPLICATION
+          - DIAGNOSTIC_IMPLICATION
+          - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY
+          - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE
+          - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
+          - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+          type: string
+        gene:
+          $ref: '#/components/schemas/Gene'
+        id:
+          type: string
+        lastEdit:
+          format: date-time
+          type: string
+        shortDesc:
+          type: string
+        status:
+          type: string
+      required:
+      - evidenceId
+      - evidenceType
+      type: object
+    Evidence:
+      example:
+        relevantCancerTypes:
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        knownEffect: knownEffect
+        gene:
+          grch37RefSeq: grch37RefSeq
+          geneAliases:
+          - geneAliases
+          - geneAliases
+          grch37Isoform: grch37Isoform
+          entrezGeneId: 0
+          tsg: true
+          grch38Isoform: grch38Isoform
+          hugoSymbol: hugoSymbol
+          grch38RefSeq: grch38RefSeq
+          oncogene: true
+          genesets:
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+        alterations:
+        - consequence:
+            isGenerallyTruncating: true
+            description: description
+            term: term
+          proteinStart: 5
+          refResidues: refResidues
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          name: name
+          alteration: alteration
+          variantResidues: variantResidues
+          proteinEnd: 1
+          referenceGenomes:
+          - GRCh37
+          - GRCh37
+        - consequence:
+            isGenerallyTruncating: true
+            description: description
+            term: term
+          proteinStart: 5
+          refResidues: refResidues
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          name: name
+          alteration: alteration
+          variantResidues: variantResidues
+          proteinEnd: 1
+          referenceGenomes:
+          - GRCh37
+          - GRCh37
+        description: description
+        solidPropagationLevel: LEVEL_0
+        uuid: uuid
+        cancerTypes:
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        liquidPropagationLevel: LEVEL_0
+        treatments:
+        - drugs:
+          - treatmentDrugId:
+              drug:
+                ncitCode: ncitCode
+                drugName: drugName
+            priority: 2
+          - treatmentDrugId:
+              drug:
+                ncitCode: ncitCode
+                drugName: drugName
+            priority: 2
+          approvedIndications:
+          - approvedIndications
+          - approvedIndications
+          priority: 7
+        - drugs:
+          - treatmentDrugId:
+              drug:
+                ncitCode: ncitCode
+                drugName: drugName
+            priority: 2
+          - treatmentDrugId:
+              drug:
+                ncitCode: ncitCode
+                drugName: drugName
+            priority: 2
+          approvedIndications:
+          - approvedIndications
+          - approvedIndications
+          priority: 7
+        levelOfEvidence: LEVEL_0
+        evidenceType: GENE_SUMMARY
+        additionalInfo: additionalInfo
+        lastReview: 2000-01-23T04:56:07.000+00:00
+        id: 5
+        lastEdit: 2000-01-23T04:56:07.000+00:00
+        articles:
+        - reference: reference
+          volume: volume
+          journal: journal
+          pages: pages
+          elocationId: elocationId
+          issue: issue
+          link: link
+          abstract: abstract
+          pmid: pmid
+          title: title
+          pubDate: pubDate
+          authors: authors
+        - reference: reference
+          volume: volume
+          journal: journal
+          pages: pages
+          elocationId: elocationId
+          issue: issue
+          link: link
+          abstract: abstract
+          pmid: pmid
+          title: title
+          pubDate: pubDate
+          authors: authors
+      properties:
+        additionalInfo:
+          type: string
+        alterations:
+          items:
+            $ref: '#/components/schemas/Alteration'
+          type: array
+        articles:
+          items:
+            $ref: '#/components/schemas/Article'
+          type: array
+        cancerTypes:
+          items:
+            $ref: '#/components/schemas/TumorType'
+          type: array
+        description:
+          type: string
+        evidenceType:
+          enum:
+          - GENE_SUMMARY
+          - MUTATION_SUMMARY
+          - TUMOR_TYPE_SUMMARY
+          - GENE_TUMOR_TYPE_SUMMARY
+          - PROGNOSTIC_SUMMARY
+          - DIAGNOSTIC_SUMMARY
+          - GENE_BACKGROUND
+          - ONCOGENIC
+          - MUTATION_EFFECT
+          - VUS
+          - PROGNOSTIC_IMPLICATION
+          - DIAGNOSTIC_IMPLICATION
+          - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY
+          - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE
+          - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
+          - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+          type: string
+        gene:
+          $ref: '#/components/schemas/Gene'
+        id:
+          format: int32
+          type: integer
+        knownEffect:
+          type: string
+        lastEdit:
+          format: date-time
+          type: string
+        lastReview:
+          format: date-time
+          type: string
+        levelOfEvidence:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        liquidPropagationLevel:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        relevantCancerTypes:
+          items:
+            $ref: '#/components/schemas/TumorType'
+          type: array
+        solidPropagationLevel:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        treatments:
+          items:
+            $ref: '#/components/schemas/Treatment'
+          type: array
+        uuid:
+          type: string
+      type: object
+    AnnotateStructuralVariantQuery:
+      example:
+        functionalFusion: true
+        tumorType: tumorType
+        geneB:
+          entrezGeneId: 0
+          hugoSymbol: hugoSymbol
+        geneA:
+          entrezGeneId: 0
+          hugoSymbol: hugoSymbol
+        id: id
+        referenceGenome: GRCh37
+        structuralVariantType: DELETION
+        evidenceTypes:
+        - GENE_SUMMARY
+        - GENE_SUMMARY
+      properties:
+        evidenceTypes:
+          items:
+            enum:
+            - GENE_SUMMARY
+            - MUTATION_SUMMARY
+            - TUMOR_TYPE_SUMMARY
+            - GENE_TUMOR_TYPE_SUMMARY
+            - PROGNOSTIC_SUMMARY
+            - DIAGNOSTIC_SUMMARY
+            - GENE_BACKGROUND
+            - ONCOGENIC
+            - MUTATION_EFFECT
+            - VUS
+            - PROGNOSTIC_IMPLICATION
+            - DIAGNOSTIC_IMPLICATION
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+            type: string
+          type: array
+        functionalFusion:
+          type: boolean
+        geneA:
+          $ref: '#/components/schemas/QueryGene'
+        geneB:
+          $ref: '#/components/schemas/QueryGene'
+        id:
+          type: string
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        structuralVariantType:
+          enum:
+          - DELETION
+          - TRANSLOCATION
+          - DUPLICATION
+          - INSERTION
+          - INVERSION
+          - FUSION
+          - UNKNOWN
+          type: string
+        tumorType:
+          type: string
+      type: object
+    IndicatorQueryResp:
+      example:
+        highestPrognosticImplicationLevel: LEVEL_0
+        otherSignificantResistanceLevels:
+        - LEVEL_0
+        - LEVEL_0
+        oncogenic: oncogenic
+        dataVersion: dataVersion
+        hotspot: true
+        prognosticImplications:
+        - tumorType:
+            parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          abstracts:
+          - link: link
+            abstract: abstract
+          - link: link
+            abstract: abstract
+          levelOfEvidence: LEVEL_0
+          pmids:
+          - pmids
+          - pmids
+          alterations:
+          - alterations
+          - alterations
+          description: description
+        - tumorType:
+            parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          abstracts:
+          - link: link
+            abstract: abstract
+          - link: link
+            abstract: abstract
+          levelOfEvidence: LEVEL_0
+          pmids:
+          - pmids
+          - pmids
+          alterations:
+          - alterations
+          - alterations
+          description: description
+        query:
+          consequence: consequence
+          tumorType: tumorType
+          hugoSymbol: hugoSymbol
+          hgvs: hgvs
+          referenceGenome: GRCh37
+          type: type
+          proteinStart: 2
+          alteration: alteration
+          entrezGeneId: 5
+          svType: DELETION
+          alterationType: alterationType
+          id: id
+          proteinEnd: 5
+        geneExist: true
+        geneSummary: geneSummary
+        alleleExist: true
+        variantSummary: variantSummary
+        treatments:
+        - abstracts:
+          - link: link
+            abstract: abstract
+          - link: link
+            abstract: abstract
+          drugs:
+          - ncitCode: ncitCode
+            drugName: drugName
+          - ncitCode: ncitCode
+            drugName: drugName
+          level: LEVEL_0
+          pmids:
+          - pmids
+          - pmids
+          alterations:
+          - alterations
+          - alterations
+          description: description
+          approvedIndications:
+          - approvedIndications
+          - approvedIndications
+          levelAssociatedCancerType:
+            parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+        - abstracts:
+          - link: link
+            abstract: abstract
+          - link: link
+            abstract: abstract
+          drugs:
+          - ncitCode: ncitCode
+            drugName: drugName
+          - ncitCode: ncitCode
+            drugName: drugName
+          level: LEVEL_0
+          pmids:
+          - pmids
+          - pmids
+          alterations:
+          - alterations
+          - alterations
+          description: description
+          approvedIndications:
+          - approvedIndications
+          - approvedIndications
+          levelAssociatedCancerType:
+            parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+        mutationEffect:
+          knownEffect: knownEffect
+          citations:
+            abstracts:
+            - link: link
+              abstract: abstract
+            - link: link
+              abstract: abstract
+            pmids:
+            - pmids
+            - pmids
+          description: description
+        prognosticSummary: prognosticSummary
+        otherSignificantSensitiveLevels:
+        - LEVEL_0
+        - LEVEL_0
+        diagnosticImplications:
+        - tumorType:
+            parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          abstracts:
+          - link: link
+            abstract: abstract
+          - link: link
+            abstract: abstract
+          levelOfEvidence: LEVEL_0
+          pmids:
+          - pmids
+          - pmids
+          alterations:
+          - alterations
+          - alterations
+          description: description
+        - tumorType:
+            parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          abstracts:
+          - link: link
+            abstract: abstract
+          - link: link
+            abstract: abstract
+          levelOfEvidence: LEVEL_0
+          pmids:
+          - pmids
+          - pmids
+          alterations:
+          - alterations
+          - alterations
+          description: description
+        diagnosticSummary: diagnosticSummary
+        vus: true
+        highestResistanceLevel: LEVEL_0
+        lastUpdate: lastUpdate
+        variantExist: true
+        highestDiagnosticImplicationLevel: LEVEL_0
+        highestSensitiveLevel: LEVEL_0
+        tumorTypeSummary: tumorTypeSummary
+      properties:
+        alleleExist:
+          type: boolean
+        dataVersion:
+          type: string
+        diagnosticImplications:
+          items:
+            $ref: '#/components/schemas/Implication'
+          type: array
+        diagnosticSummary:
+          type: string
+        geneExist:
+          type: boolean
+        geneSummary:
+          type: string
+        highestDiagnosticImplicationLevel:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        highestPrognosticImplicationLevel:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        highestResistanceLevel:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        highestSensitiveLevel:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        hotspot:
+          type: boolean
+        lastUpdate:
+          type: string
+        mutationEffect:
+          $ref: '#/components/schemas/MutationEffectResp'
+        oncogenic:
+          type: string
+        otherSignificantResistanceLevels:
+          items:
+            enum:
+            - LEVEL_0
+            - LEVEL_1
+            - LEVEL_2
+            - LEVEL_2A
+            - LEVEL_2B
+            - LEVEL_3A
+            - LEVEL_3B
+            - LEVEL_4
+            - LEVEL_R1
+            - LEVEL_R2
+            - LEVEL_R3
+            - LEVEL_Px1
+            - LEVEL_Px2
+            - LEVEL_Px3
+            - LEVEL_Dx1
+            - LEVEL_Dx2
+            - LEVEL_Dx3
+            - "NO"
+            type: string
+          type: array
+        otherSignificantSensitiveLevels:
+          items:
+            enum:
+            - LEVEL_0
+            - LEVEL_1
+            - LEVEL_2
+            - LEVEL_2A
+            - LEVEL_2B
+            - LEVEL_3A
+            - LEVEL_3B
+            - LEVEL_4
+            - LEVEL_R1
+            - LEVEL_R2
+            - LEVEL_R3
+            - LEVEL_Px1
+            - LEVEL_Px2
+            - LEVEL_Px3
+            - LEVEL_Dx1
+            - LEVEL_Dx2
+            - LEVEL_Dx3
+            - "NO"
+            type: string
+          type: array
+        prognosticImplications:
+          items:
+            $ref: '#/components/schemas/Implication'
+          type: array
+        prognosticSummary:
+          type: string
+        query:
+          $ref: '#/components/schemas/Query'
+        treatments:
+          items:
+            $ref: '#/components/schemas/IndicatorQueryTreatment'
+          type: array
+        tumorTypeSummary:
+          type: string
+        variantExist:
+          type: boolean
+        variantSummary:
+          type: string
+        vus:
+          type: boolean
+      type: object
+    ActionableGene:
+      example:
+        grch37RefSeq: grch37RefSeq
+        abstracts: abstracts
+        drugs: drugs
+        gene: gene
+        level: level
+        pmids: pmids
+        grch38RefSeq: grch38RefSeq
+        referenceGenome: referenceGenome
+        proteinChange: proteinChange
+        grch37Isoform: grch37Isoform
+        variant: variant
+        entrezGeneId: 0
+        grch38Isoform: grch38Isoform
+        cancerType: cancerType
+      properties:
+        abstracts:
+          type: string
+        cancerType:
+          type: string
+        drugs:
+          type: string
+        entrezGeneId:
+          format: int32
+          type: integer
+        gene:
+          type: string
+        grch37Isoform:
+          type: string
+        grch37RefSeq:
+          type: string
+        grch38Isoform:
+          type: string
+        grch38RefSeq:
+          type: string
+        level:
+          type: string
+        pmids:
+          type: string
+        proteinChange:
+          type: string
+        referenceGenome:
+          type: string
+        variant:
+          type: string
+      type: object
+    ArticleAbstract:
+      example:
+        link: link
+        abstract: abstract
+      properties:
+        abstract:
+          type: string
+        link:
+          type: string
+      type: object
+    InfoLevel:
+      example:
+        levelOfEvidence: LEVEL_0
+        description: description
+        colorHex: colorHex
+        htmlDescription: htmlDescription
+      properties:
+        colorHex:
+          type: string
+        description:
+          type: string
+        htmlDescription:
+          type: string
+        levelOfEvidence:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+      type: object
+    Drug:
+      example:
+        ncitCode: ncitCode
+        drugName: drugName
+      properties:
+        drugName:
+          type: string
+        ncitCode:
+          type: string
+      type: object
+    CuratedGene:
+      example:
+        summary: summary
+        grch37RefSeq: grch37RefSeq
+        tsg: true
+        hugoSymbol: hugoSymbol
+        grch38RefSeq: grch38RefSeq
+        oncogene: true
+        highestResistancLevel: highestResistancLevel
+        background: background
+        highestResistanceLevel: highestResistanceLevel
+        grch37Isoform: grch37Isoform
+        entrezGeneId: 0
+        grch38Isoform: grch38Isoform
+        highestSensitiveLevel: highestSensitiveLevel
+      properties:
+        background:
+          type: string
+        entrezGeneId:
+          format: int32
+          type: integer
+        grch37Isoform:
+          type: string
+        grch37RefSeq:
+          type: string
+        grch38Isoform:
+          type: string
+        grch38RefSeq:
+          type: string
+        highestResistancLevel:
+          type: string
+        highestResistanceLevel:
+          type: string
+        highestSensitiveLevel:
+          type: string
+        hugoSymbol:
+          type: string
+        oncogene:
+          type: boolean
+        summary:
+          type: string
+        tsg:
+          type: boolean
+      type: object
+    EvidenceQueryRes:
+      example:
+        levelOfEvidences:
+        - LEVEL_0
+        - LEVEL_0
+        gene:
+          grch37RefSeq: grch37RefSeq
+          geneAliases:
+          - geneAliases
+          - geneAliases
+          grch37Isoform: grch37Isoform
+          entrezGeneId: 0
+          tsg: true
+          grch38Isoform: grch38Isoform
+          hugoSymbol: hugoSymbol
+          grch38RefSeq: grch38RefSeq
+          oncogene: true
+          genesets:
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+          - genes:
+            - null
+            - null
+            name: name
+            id: 6
+            uuid: uuid
+        exactMatchedAlteration:
+          consequence:
+            isGenerallyTruncating: true
+            description: description
+            term: term
+          proteinStart: 5
+          refResidues: refResidues
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          name: name
+          alteration: alteration
+          variantResidues: variantResidues
+          proteinEnd: 1
+          referenceGenomes:
+          - GRCh37
+          - GRCh37
+        query:
+          consequence: consequence
+          tumorType: tumorType
+          hugoSymbol: hugoSymbol
+          hgvs: hgvs
+          referenceGenome: GRCh37
+          type: type
+          proteinStart: 2
+          alteration: alteration
+          entrezGeneId: 5
+          svType: DELETION
+          alterationType: alterationType
+          id: id
+          proteinEnd: 5
+        alterations:
+        - consequence:
+            isGenerallyTruncating: true
+            description: description
+            term: term
+          proteinStart: 5
+          refResidues: refResidues
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          name: name
+          alteration: alteration
+          variantResidues: variantResidues
+          proteinEnd: 1
+          referenceGenomes:
+          - GRCh37
+          - GRCh37
+        - consequence:
+            isGenerallyTruncating: true
+            description: description
+            term: term
+          proteinStart: 5
+          refResidues: refResidues
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          name: name
+          alteration: alteration
+          variantResidues: variantResidues
+          proteinEnd: 1
+          referenceGenomes:
+          - GRCh37
+          - GRCh37
+        id: id
+        evidences:
+        - relevantCancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          knownEffect: knownEffect
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          alterations:
+          - consequence:
+              isGenerallyTruncating: true
+              description: description
+              term: term
+            proteinStart: 5
+            refResidues: refResidues
+            gene:
+              grch37RefSeq: grch37RefSeq
+              geneAliases:
+              - geneAliases
+              - geneAliases
+              grch37Isoform: grch37Isoform
+              entrezGeneId: 0
+              tsg: true
+              grch38Isoform: grch38Isoform
+              hugoSymbol: hugoSymbol
+              grch38RefSeq: grch38RefSeq
+              oncogene: true
+              genesets:
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+            name: name
+            alteration: alteration
+            variantResidues: variantResidues
+            proteinEnd: 1
+            referenceGenomes:
+            - GRCh37
+            - GRCh37
+          - consequence:
+              isGenerallyTruncating: true
+              description: description
+              term: term
+            proteinStart: 5
+            refResidues: refResidues
+            gene:
+              grch37RefSeq: grch37RefSeq
+              geneAliases:
+              - geneAliases
+              - geneAliases
+              grch37Isoform: grch37Isoform
+              entrezGeneId: 0
+              tsg: true
+              grch38Isoform: grch38Isoform
+              hugoSymbol: hugoSymbol
+              grch38RefSeq: grch38RefSeq
+              oncogene: true
+              genesets:
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+            name: name
+            alteration: alteration
+            variantResidues: variantResidues
+            proteinEnd: 1
+            referenceGenomes:
+            - GRCh37
+            - GRCh37
+          description: description
+          solidPropagationLevel: LEVEL_0
+          uuid: uuid
+          cancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          liquidPropagationLevel: LEVEL_0
+          treatments:
+          - drugs:
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            approvedIndications:
+            - approvedIndications
+            - approvedIndications
+            priority: 7
+          - drugs:
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            approvedIndications:
+            - approvedIndications
+            - approvedIndications
+            priority: 7
+          levelOfEvidence: LEVEL_0
+          evidenceType: GENE_SUMMARY
+          additionalInfo: additionalInfo
+          lastReview: 2000-01-23T04:56:07.000+00:00
+          id: 5
+          lastEdit: 2000-01-23T04:56:07.000+00:00
+          articles:
+          - reference: reference
+            volume: volume
+            journal: journal
+            pages: pages
+            elocationId: elocationId
+            issue: issue
+            link: link
+            abstract: abstract
+            pmid: pmid
+            title: title
+            pubDate: pubDate
+            authors: authors
+          - reference: reference
+            volume: volume
+            journal: journal
+            pages: pages
+            elocationId: elocationId
+            issue: issue
+            link: link
+            abstract: abstract
+            pmid: pmid
+            title: title
+            pubDate: pubDate
+            authors: authors
+        - relevantCancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          knownEffect: knownEffect
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          alterations:
+          - consequence:
+              isGenerallyTruncating: true
+              description: description
+              term: term
+            proteinStart: 5
+            refResidues: refResidues
+            gene:
+              grch37RefSeq: grch37RefSeq
+              geneAliases:
+              - geneAliases
+              - geneAliases
+              grch37Isoform: grch37Isoform
+              entrezGeneId: 0
+              tsg: true
+              grch38Isoform: grch38Isoform
+              hugoSymbol: hugoSymbol
+              grch38RefSeq: grch38RefSeq
+              oncogene: true
+              genesets:
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+            name: name
+            alteration: alteration
+            variantResidues: variantResidues
+            proteinEnd: 1
+            referenceGenomes:
+            - GRCh37
+            - GRCh37
+          - consequence:
+              isGenerallyTruncating: true
+              description: description
+              term: term
+            proteinStart: 5
+            refResidues: refResidues
+            gene:
+              grch37RefSeq: grch37RefSeq
+              geneAliases:
+              - geneAliases
+              - geneAliases
+              grch37Isoform: grch37Isoform
+              entrezGeneId: 0
+              tsg: true
+              grch38Isoform: grch38Isoform
+              hugoSymbol: hugoSymbol
+              grch38RefSeq: grch38RefSeq
+              oncogene: true
+              genesets:
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+              - genes:
+                - null
+                - null
+                name: name
+                id: 6
+                uuid: uuid
+            name: name
+            alteration: alteration
+            variantResidues: variantResidues
+            proteinEnd: 1
+            referenceGenomes:
+            - GRCh37
+            - GRCh37
+          description: description
+          solidPropagationLevel: LEVEL_0
+          uuid: uuid
+          cancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          liquidPropagationLevel: LEVEL_0
+          treatments:
+          - drugs:
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            approvedIndications:
+            - approvedIndications
+            - approvedIndications
+            priority: 7
+          - drugs:
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            - treatmentDrugId:
+                drug:
+                  ncitCode: ncitCode
+                  drugName: drugName
+              priority: 2
+            approvedIndications:
+            - approvedIndications
+            - approvedIndications
+            priority: 7
+          levelOfEvidence: LEVEL_0
+          evidenceType: GENE_SUMMARY
+          additionalInfo: additionalInfo
+          lastReview: 2000-01-23T04:56:07.000+00:00
+          id: 5
+          lastEdit: 2000-01-23T04:56:07.000+00:00
+          articles:
+          - reference: reference
+            volume: volume
+            journal: journal
+            pages: pages
+            elocationId: elocationId
+            issue: issue
+            link: link
+            abstract: abstract
+            pmid: pmid
+            title: title
+            pubDate: pubDate
+            authors: authors
+          - reference: reference
+            volume: volume
+            journal: journal
+            pages: pages
+            elocationId: elocationId
+            issue: issue
+            link: link
+            abstract: abstract
+            pmid: pmid
+            title: title
+            pubDate: pubDate
+            authors: authors
+        exactMatchedTumorType:
+          parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        alleles:
+        - consequence:
+            isGenerallyTruncating: true
+            description: description
+            term: term
+          proteinStart: 5
+          refResidues: refResidues
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          name: name
+          alteration: alteration
+          variantResidues: variantResidues
+          proteinEnd: 1
+          referenceGenomes:
+          - GRCh37
+          - GRCh37
+        - consequence:
+            isGenerallyTruncating: true
+            description: description
+            term: term
+          proteinStart: 5
+          refResidues: refResidues
+          gene:
+            grch37RefSeq: grch37RefSeq
+            geneAliases:
+            - geneAliases
+            - geneAliases
+            grch37Isoform: grch37Isoform
+            entrezGeneId: 0
+            tsg: true
+            grch38Isoform: grch38Isoform
+            hugoSymbol: hugoSymbol
+            grch38RefSeq: grch38RefSeq
+            oncogene: true
+            genesets:
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+            - genes:
+              - null
+              - null
+              name: name
+              id: 6
+              uuid: uuid
+          name: name
+          alteration: alteration
+          variantResidues: variantResidues
+          proteinEnd: 1
+          referenceGenomes:
+          - GRCh37
+          - GRCh37
+        oncoTreeTypes:
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+      properties:
+        alleles:
+          items:
+            $ref: '#/components/schemas/Alteration'
+          type: array
+        alterations:
+          items:
+            $ref: '#/components/schemas/Alteration'
+          type: array
+        evidences:
+          items:
+            $ref: '#/components/schemas/Evidence'
+          type: array
+        exactMatchedAlteration:
+          $ref: '#/components/schemas/Alteration'
+        exactMatchedTumorType:
+          $ref: '#/components/schemas/TumorType'
+        gene:
+          $ref: '#/components/schemas/Gene'
+        id:
+          type: string
+        levelOfEvidences:
+          items:
+            enum:
+            - LEVEL_0
+            - LEVEL_1
+            - LEVEL_2
+            - LEVEL_2A
+            - LEVEL_2B
+            - LEVEL_3A
+            - LEVEL_3B
+            - LEVEL_4
+            - LEVEL_R1
+            - LEVEL_R2
+            - LEVEL_R3
+            - LEVEL_Px1
+            - LEVEL_Px2
+            - LEVEL_Px3
+            - LEVEL_Dx1
+            - LEVEL_Dx2
+            - LEVEL_Dx3
+            - "NO"
+            type: string
+          type: array
+        oncoTreeTypes:
+          items:
+            $ref: '#/components/schemas/TumorType'
+          type: array
+        query:
+          $ref: '#/components/schemas/Query'
+      type: object
+    Trial:
+      example:
+        currentTrialStatus: currentTrialStatus
+        nctId: nctId
+        briefTitle: briefTitle
+        arms:
+        - armDescription: armDescription
+          drugs:
+          - ncitCode: ncitCode
+            drugName: drugName
+          - ncitCode: ncitCode
+            drugName: drugName
+        - armDescription: armDescription
+          drugs:
+          - ncitCode: ncitCode
+            drugName: drugName
+          - ncitCode: ncitCode
+            drugName: drugName
+        isUSTrial: true
+        principalInvestigator: principalInvestigator
+      properties:
+        arms:
+          items:
+            $ref: '#/components/schemas/Arms'
+          type: array
+        briefTitle:
+          type: string
+        currentTrialStatus:
+          type: string
+        isUSTrial:
+          type: boolean
+        nctId:
+          type: string
+        principalInvestigator:
+          type: string
+      type: object
+    QueryGene:
+      example:
+        entrezGeneId: 0
+        hugoSymbol: hugoSymbol
+      properties:
+        entrezGeneId:
+          format: int32
+          type: integer
+        hugoSymbol:
+          type: string
+      type: object
+    CancerTypesQuery:
+      example:
+        cancerTypes:
+        - cancerTypes
+        - cancerTypes
+      properties:
+        cancerTypes:
+          items:
+            type: string
+          type: array
+      type: object
+    CancerGene:
+      example:
+        grch37RefSeq: grch37RefSeq
+        occurrenceCount: 6
+        oncokbAnnotated: true
+        tsg: true
+        hugoSymbol: hugoSymbol
+        foundation: true
+        grch38RefSeq: grch38RefSeq
+        oncogene: true
+        sangerCGC: true
+        mSKImpact: true
+        mSKHeme: true
+        geneAliases:
+        - geneAliases
+        - geneAliases
+        grch37Isoform: grch37Isoform
+        entrezGeneId: 0
+        foundationHeme: true
+        grch38Isoform: grch38Isoform
+        vogelstein: true
+      properties:
+        entrezGeneId:
+          format: int32
+          type: integer
+        foundation:
+          type: boolean
+        foundationHeme:
+          type: boolean
+        geneAliases:
+          items:
+            type: string
+          type: array
+        grch37Isoform:
+          type: string
+        grch37RefSeq:
+          type: string
+        grch38Isoform:
+          type: string
+        grch38RefSeq:
+          type: string
+        hugoSymbol:
+          type: string
+        mSKHeme:
+          type: boolean
+        mSKImpact:
+          type: boolean
+        occurrenceCount:
+          format: int32
+          type: integer
+        oncogene:
+          type: boolean
+        oncokbAnnotated:
+          type: boolean
+        sangerCGC:
+          type: boolean
+        tsg:
+          type: boolean
+        vogelstein:
+          type: boolean
+      type: object
+    Arms:
+      example:
+        armDescription: armDescription
+        drugs:
+        - ncitCode: ncitCode
+          drugName: drugName
+        - ncitCode: ncitCode
+          drugName: drugName
+      properties:
+        armDescription:
+          type: string
+        drugs:
+          items:
+            $ref: '#/components/schemas/Drug'
+          type: array
+      type: object
+    MainType:
+      description: OncoTree Cancer Type
+      example:
+        tumorForm: SOLID
+        name: name
+        id: 1
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        tumorForm:
+          enum:
+          - SOLID
+          - LIQUID
+          - MIXED
+          type: string
+      type: object
+    OncoKBInfo:
+      example:
+        publicInstance: true
+        apiVersion: apiVersion
+        dataVersion:
+          date: date
+          version: version
+        oncoTreeVersion: oncoTreeVersion
+        ncitVersion: ncitVersion
+        levels:
+        - levelOfEvidence: LEVEL_0
+          description: description
+          colorHex: colorHex
+          htmlDescription: htmlDescription
+        - levelOfEvidence: LEVEL_0
+          description: description
+          colorHex: colorHex
+          htmlDescription: htmlDescription
+      properties:
+        apiVersion:
+          type: string
+        dataVersion:
+          $ref: '#/components/schemas/Version'
+        levels:
+          items:
+            $ref: '#/components/schemas/InfoLevel'
+          type: array
+        ncitVersion:
+          type: string
+        oncoTreeVersion:
+          type: string
+        publicInstance:
+          type: boolean
+      type: object
+    VariantConsequence:
+      example:
+        isGenerallyTruncating: true
+        description: description
+        term: term
+      properties:
+        description:
+          type: string
+        isGenerallyTruncating:
+          type: boolean
+        term:
+          type: string
+      type: object
+    AnnotateMutationByProteinChangeQuery:
+      example:
+        consequence: consequence
+        tumorType: tumorType
+        proteinStart: 6
+        gene:
+          entrezGeneId: 0
+          hugoSymbol: hugoSymbol
+        alteration: alteration
+        id: id
+        proteinEnd: 0
+        referenceGenome: GRCh37
+        evidenceTypes:
+        - GENE_SUMMARY
+        - GENE_SUMMARY
+      properties:
+        alteration:
+          type: string
+        consequence:
+          type: string
+        evidenceTypes:
+          items:
+            enum:
+            - GENE_SUMMARY
+            - MUTATION_SUMMARY
+            - TUMOR_TYPE_SUMMARY
+            - GENE_TUMOR_TYPE_SUMMARY
+            - PROGNOSTIC_SUMMARY
+            - DIAGNOSTIC_SUMMARY
+            - GENE_BACKGROUND
+            - ONCOGENIC
+            - MUTATION_EFFECT
+            - VUS
+            - PROGNOSTIC_IMPLICATION
+            - DIAGNOSTIC_IMPLICATION
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+            type: string
+          type: array
+        gene:
+          $ref: '#/components/schemas/QueryGene'
+        id:
+          type: string
+        proteinEnd:
+          format: int32
+          type: integer
+        proteinStart:
+          format: int32
+          type: integer
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        tumorType:
+          type: string
+      type: object
+    IndicatorQueryTreatment:
+      example:
+        abstracts:
+        - link: link
+          abstract: abstract
+        - link: link
+          abstract: abstract
+        drugs:
+        - ncitCode: ncitCode
+          drugName: drugName
+        - ncitCode: ncitCode
+          drugName: drugName
+        level: LEVEL_0
+        pmids:
+        - pmids
+        - pmids
+        alterations:
+        - alterations
+        - alterations
+        description: description
+        approvedIndications:
+        - approvedIndications
+        - approvedIndications
+        levelAssociatedCancerType:
+          parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+      properties:
+        abstracts:
+          items:
+            $ref: '#/components/schemas/ArticleAbstract'
+          type: array
+        alterations:
+          items:
+            type: string
+          type: array
+        approvedIndications:
+          items:
+            type: string
+          type: array
+        description:
+          type: string
+        drugs:
+          items:
+            $ref: '#/components/schemas/Drug'
+          type: array
+        level:
+          enum:
+          - LEVEL_0
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_2A
+          - LEVEL_2B
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_R3
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - "NO"
+          type: string
+        levelAssociatedCancerType:
+          $ref: '#/components/schemas/TumorType'
+        pmids:
+          items:
+            type: string
+          type: array
+      type: object
+    ResponseEntity:
+      properties:
+        body:
+          properties: {}
+          type: object
+        statusCode:
+          enum:
+          - "100"
+          - "101"
+          - "102"
+          - "103"
+          - "200"
+          - "201"
+          - "202"
+          - "203"
+          - "204"
+          - "205"
+          - "206"
+          - "207"
+          - "208"
+          - "226"
+          - "300"
+          - "301"
+          - "302"
+          - "302"
+          - "303"
+          - "304"
+          - "305"
+          - "307"
+          - "308"
+          - "400"
+          - "401"
+          - "402"
+          - "403"
+          - "404"
+          - "405"
+          - "406"
+          - "407"
+          - "408"
+          - "409"
+          - "410"
+          - "411"
+          - "412"
+          - "413"
+          - "413"
+          - "414"
+          - "414"
+          - "415"
+          - "416"
+          - "417"
+          - "418"
+          - "419"
+          - "420"
+          - "421"
+          - "422"
+          - "423"
+          - "424"
+          - "426"
+          - "428"
+          - "429"
+          - "431"
+          - "500"
+          - "501"
+          - "502"
+          - "503"
+          - "504"
+          - "505"
+          - "506"
+          - "507"
+          - "508"
+          - "509"
+          - "510"
+          - "511"
+          type: string
+      type: object
+    Treatment:
+      example:
+        drugs:
+        - treatmentDrugId:
+            drug:
+              ncitCode: ncitCode
+              drugName: drugName
+          priority: 2
+        - treatmentDrugId:
+            drug:
+              ncitCode: ncitCode
+              drugName: drugName
+          priority: 2
+        approvedIndications:
+        - approvedIndications
+        - approvedIndications
+        priority: 7
+      properties:
+        approvedIndications:
+          items:
+            type: string
+          type: array
+        drugs:
+          items:
+            $ref: '#/components/schemas/TreatmentDrug'
+          type: array
+        priority:
+          format: int32
+          type: integer
+      type: object
+    EvidenceQueries:
+      example:
+        highestLevelOnly: true
+        queries:
+        - consequence: consequence
+          tumorType: tumorType
+          hugoSymbol: hugoSymbol
+          hgvs: hgvs
+          referenceGenome: GRCh37
+          type: type
+          proteinStart: 2
+          alteration: alteration
+          entrezGeneId: 5
+          svType: DELETION
+          alterationType: alterationType
+          id: id
+          proteinEnd: 5
+        - consequence: consequence
+          tumorType: tumorType
+          hugoSymbol: hugoSymbol
+          hgvs: hgvs
+          referenceGenome: GRCh37
+          type: type
+          proteinStart: 2
+          alteration: alteration
+          entrezGeneId: 5
+          svType: DELETION
+          alterationType: alterationType
+          id: id
+          proteinEnd: 5
+        levels:
+        - LEVEL_0
+        - LEVEL_0
+        evidenceTypes: evidenceTypes
+      properties:
+        evidenceTypes:
+          type: string
+        highestLevelOnly:
+          type: boolean
+        levels:
+          items:
+            enum:
+            - LEVEL_0
+            - LEVEL_1
+            - LEVEL_2
+            - LEVEL_2A
+            - LEVEL_2B
+            - LEVEL_3A
+            - LEVEL_3B
+            - LEVEL_4
+            - LEVEL_R1
+            - LEVEL_R2
+            - LEVEL_R3
+            - LEVEL_Px1
+            - LEVEL_Px2
+            - LEVEL_Px3
+            - LEVEL_Dx1
+            - LEVEL_Dx2
+            - LEVEL_Dx3
+            - "NO"
+            type: string
+          type: array
+        queries:
+          items:
+            $ref: '#/components/schemas/Query'
+          type: array
+      type: object
+    VariantSearchQuery:
+      example:
+        variantType: variantType
+        consequence: consequence
+        proteinStart: 1
+        variant: variant
+        entrezGeneId: 0
+        hugoSymbol: hugoSymbol
+        hgvs: hgvs
+        proteinEnd: 6
+        referenceGenome: GRCh37
+      properties:
+        consequence:
+          type: string
+        entrezGeneId:
+          format: int32
+          type: integer
+        hgvs:
+          type: string
+        hugoSymbol:
+          type: string
+        proteinEnd:
+          format: int32
+          type: integer
+        proteinStart:
+          format: int32
+          type: integer
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        variant:
+          type: string
+        variantType:
+          type: string
+      type: object
+    MutationEffectResp:
+      example:
+        knownEffect: knownEffect
+        citations:
+          abstracts:
+          - link: link
+            abstract: abstract
+          - link: link
+            abstract: abstract
+          pmids:
+          - pmids
+          - pmids
+        description: description
+      properties:
+        citations:
+          $ref: '#/components/schemas/Citations'
+        description:
+          type: string
+        knownEffect:
+          type: string
+      type: object
+    AnnotateCopyNumberAlterationQuery:
+      example:
+        tumorType: tumorType
+        gene:
+          entrezGeneId: 0
+          hugoSymbol: hugoSymbol
+        id: id
+        copyNameAlterationType: AMPLIFICATION
+        referenceGenome: GRCh37
+        evidenceTypes:
+        - GENE_SUMMARY
+        - GENE_SUMMARY
+      properties:
+        copyNameAlterationType:
+          enum:
+          - AMPLIFICATION
+          - DELETION
+          - GAIN
+          - LOSS
+          type: string
+        evidenceTypes:
+          items:
+            enum:
+            - GENE_SUMMARY
+            - MUTATION_SUMMARY
+            - TUMOR_TYPE_SUMMARY
+            - GENE_TUMOR_TYPE_SUMMARY
+            - PROGNOSTIC_SUMMARY
+            - DIAGNOSTIC_SUMMARY
+            - GENE_BACKGROUND
+            - ONCOGENIC
+            - MUTATION_EFFECT
+            - VUS
+            - PROGNOSTIC_IMPLICATION
+            - DIAGNOSTIC_IMPLICATION
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+            type: string
+          type: array
+        gene:
+          $ref: '#/components/schemas/QueryGene'
+        id:
+          type: string
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        tumorType:
+          type: string
+      type: object
+    AnnotateMutationByHGVSgQuery:
+      example:
+        hgvsg: hgvsg
+        tumorType: tumorType
+        id: id
+        referenceGenome: GRCh37
+        evidenceTypes:
+        - GENE_SUMMARY
+        - GENE_SUMMARY
+      properties:
+        evidenceTypes:
+          items:
+            enum:
+            - GENE_SUMMARY
+            - MUTATION_SUMMARY
+            - TUMOR_TYPE_SUMMARY
+            - GENE_TUMOR_TYPE_SUMMARY
+            - PROGNOSTIC_SUMMARY
+            - DIAGNOSTIC_SUMMARY
+            - GENE_BACKGROUND
+            - ONCOGENIC
+            - MUTATION_EFFECT
+            - VUS
+            - PROGNOSTIC_IMPLICATION
+            - DIAGNOSTIC_IMPLICATION
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY
+            - STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
+            - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
+            type: string
+          type: array
+        hgvsg:
+          type: string
+        id:
+          type: string
+        referenceGenome:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        tumorType:
+          type: string
+      type: object
+    Geneset:
+      example:
+        genes:
+        - null
+        - null
+        name: name
+        id: 6
+        uuid: uuid
+      properties:
+        genes:
+          items:
+            $ref: '#/components/schemas/Gene'
+          type: array
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        uuid:
+          type: string
+      type: object
+    Citations:
+      example:
+        abstracts:
+        - link: link
+          abstract: abstract
+        - link: link
+          abstract: abstract
+        pmids:
+        - pmids
+        - pmids
+      properties:
+        abstracts:
+          items:
+            $ref: '#/components/schemas/ArticleAbstract'
+          type: array
+        pmids:
+          items:
+            type: string
+          type: array
+      type: object
+x-original-swagger-version: "2.0"
+

@@ -1,7 +1,10 @@
 
+
 # Trial
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arms** | [**List&lt;Arms&gt;**](Arms.md) |  |  [optional]

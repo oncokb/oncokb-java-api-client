@@ -1,7 +1,10 @@
 
+
 # VariantSearchQuery
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **consequence** | **String** |  |  [optional]
@@ -15,8 +18,9 @@ Name | Type | Description | Notes
 **variantType** | **String** |  |  [optional]
 
 
-<a name="ReferenceGenomeEnum"></a>
+
 ## Enum: ReferenceGenomeEnum
+
 Name | Value
 ---- | -----
 GRCH37 | &quot;GRCh37&quot;

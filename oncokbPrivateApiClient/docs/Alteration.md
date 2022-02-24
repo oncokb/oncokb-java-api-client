@@ -1,7 +1,10 @@
 
+
 # Alteration
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alteration** | **String** |  |  [optional]
@@ -15,8 +18,9 @@ Name | Type | Description | Notes
 **variantResidues** | **String** |  |  [optional]
 
 
-<a name="List<ReferenceGenomesEnum>"></a>
+
 ## Enum: List&lt;ReferenceGenomesEnum&gt;
+
 Name | Value
 ---- | -----
 GRCH37 | &quot;GRCh37&quot;

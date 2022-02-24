@@ -1,7 +1,10 @@
 
+
 # CuratedGene
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **background** | **String** |  |  [optional]

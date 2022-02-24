@@ -1,6 +1,6 @@
 # SearchApi
 
-All URIs are relative to *https://oncokb-core:8888/api/v1*
+All URIs are relative to *http://oncokb-core:8888/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,34 +19,46 @@ General search for possible combinations.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.SearchApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.SearchApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-SearchApi apiInstance = new SearchApi();
-String id = "id_example"; // String | The query ID
-String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
-String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation.
-Integer entrezGeneId = 56; // Integer | The entrez gene ID.
-String variant = "variant_example"; // String | Variant name.
-String variantType = "variantType_example"; // String | Variant type.
-String svType = "svType_example"; // String | Structural Variant Type.
-String consequence = "consequence_example"; // String | Consequence
-Integer proteinStart = 56; // Integer | Protein Start
-Integer proteinEnd = 56; // Integer | Protein End
-String tumorType = "tumorType_example"; // String | Tumor type name. OncoTree code is supported.
-String levels = "levels_example"; // String | Level of evidences.
-Boolean highestLevelOnly = false; // Boolean | Only show treatments of highest level
-String queryType = "regular"; // String | Query type. There maybe slight differences between different query types. Currently support web or regular.
-String evidenceType = "evidenceType_example"; // String | Evidence type.
-String hgvs = "hgvs_example"; // String | HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    IndicatorQueryResp result = apiInstance.searchGetUsingGET(id, referenceGenome, hugoSymbol, entrezGeneId, variant, variantType, svType, consequence, proteinStart, proteinEnd, tumorType, levels, highestLevelOnly, queryType, evidenceType, hgvs, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SearchApi#searchGetUsingGET");
-    e.printStackTrace();
+    SearchApi apiInstance = new SearchApi(defaultClient);
+    String id = "id_example"; // String | The query ID
+    String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+    String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation.
+    Integer entrezGeneId = 56; // Integer | The entrez gene ID.
+    String variant = "variant_example"; // String | Variant name.
+    String variantType = "variantType_example"; // String | Variant type.
+    String svType = "DELETION"; // String | Structural Variant Type.
+    String consequence = "consequence_example"; // String | Consequence
+    Integer proteinStart = 56; // Integer | Protein Start
+    Integer proteinEnd = 56; // Integer | Protein End
+    String tumorType = "tumorType_example"; // String | Tumor type name. OncoTree code is supported.
+    String levels = "levels_example"; // String | Level of evidences.
+    Boolean highestLevelOnly = false; // Boolean | Only show treatments of highest level
+    String queryType = "regular"; // String | Query type. There maybe slight differences between different query types. Currently support web or regular.
+    String evidenceType = "evidenceType_example"; // String | Evidence type.
+    String hgvs = "hgvs_example"; // String | HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      IndicatorQueryResp result = apiInstance.searchGetUsingGET(id, referenceGenome, hugoSymbol, entrezGeneId, variant, variantType, svType, consequence, proteinStart, proteinEnd, tumorType, levels, highestLevelOnly, queryType, evidenceType, hgvs, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SearchApi#searchGetUsingGET");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -82,8 +94,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 
 <a name="searchPostUsingPOST"></a>
 # **searchPostUsingPOST**
@@ -96,19 +114,31 @@ General search for possible combinations.
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.ApiException;
-//import org.oncokb.client.SearchApi;
+import org.oncokb.ApiClient;
+import org.oncokb.ApiException;
+import org.oncokb.Configuration;
+import org.oncokb.models.*;
+import org.oncokb.client.SearchApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
 
-SearchApi apiInstance = new SearchApi();
-EvidenceQueries body = new EvidenceQueries(); // EvidenceQueries | List of queries. Please see swagger.json for request body format.
-String fields = "fields_example"; // String | The fields to be returned.
-try {
-    List<IndicatorQueryResp> result = apiInstance.searchPostUsingPOST(body, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling SearchApi#searchPostUsingPOST");
-    e.printStackTrace();
+    SearchApi apiInstance = new SearchApi(defaultClient);
+    EvidenceQueries body = new EvidenceQueries(); // EvidenceQueries | List of queries. Please see swagger.json for request body format.
+    String fields = "fields_example"; // String | The fields to be returned.
+    try {
+      List<IndicatorQueryResp> result = apiInstance.searchPostUsingPOST(body, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SearchApi#searchPostUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -131,4 +161,10 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Error, error message will be given. |  -  |
 

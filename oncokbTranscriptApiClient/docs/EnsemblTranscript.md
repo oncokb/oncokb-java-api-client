@@ -1,6 +1,10 @@
+
+
 # EnsemblTranscript
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ccdsId** | **String** | Consensus CDS (CCDS) ID |  [optional]
@@ -13,3 +17,10 @@ Name | Type | Description | Notes
 **refseqMrnaId** | **String** | RefSeq mRNA ID |  [optional]
 **transcriptId** | **String** | Ensembl transcript id | 
 **utrs** | [**List&lt;UntranslatedRegion&gt;**](UntranslatedRegion.md) | UTR information |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

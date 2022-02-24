@@ -1,7 +1,10 @@
 
+
 # AnnotateStructuralVariantQuery
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **evidenceTypes** | [**List&lt;EvidenceTypesEnum&gt;**](#List&lt;EvidenceTypesEnum&gt;) |  |  [optional]
@@ -14,8 +17,9 @@ Name | Type | Description | Notes
 **tumorType** | **String** |  |  [optional]
 
 
-<a name="List<EvidenceTypesEnum>"></a>
+
 ## Enum: List&lt;EvidenceTypesEnum&gt;
+
 Name | Value
 ---- | -----
 GENE_SUMMARY | &quot;GENE_SUMMARY&quot;
@@ -36,16 +40,18 @@ INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY | &quot;INVESTIGATIONA
 INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE | &quot;INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE&quot;
 
 
-<a name="ReferenceGenomeEnum"></a>
+
 ## Enum: ReferenceGenomeEnum
+
 Name | Value
 ---- | -----
 GRCH37 | &quot;GRCh37&quot;
 GRCH38 | &quot;GRCh38&quot;
 
 
-<a name="StructuralVariantTypeEnum"></a>
+
 ## Enum: StructuralVariantTypeEnum
+
 Name | Value
 ---- | -----
 DELETION | &quot;DELETION&quot;

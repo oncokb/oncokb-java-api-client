@@ -1,7 +1,10 @@
 
+
 # Treatment
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **approvedIndications** | **List&lt;String&gt;** |  |  [optional]

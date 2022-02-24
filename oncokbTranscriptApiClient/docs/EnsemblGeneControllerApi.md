@@ -6,35 +6,45 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addEnsemblGeneUsingPOST**](EnsemblGeneControllerApi.md#addEnsemblGeneUsingPOST) | **POST** /api/add-ensembl-gene | addEnsemblGene
 
+
 <a name="addEnsemblGeneUsingPOST"></a>
 # **addEnsemblGeneUsingPOST**
-> EnsemblGene addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical)
+> EnsemblGene addEnsemblGeneUsingPOST(addEnsemblGeneBody)
 
 addEnsemblGene
 
 ### Example
 ```java
 // Import classes:
-//import org.oncokb.oncokb_transcript.ApiClient;
-//import org.oncokb.oncokb_transcript.ApiException;
-//import org.oncokb.oncokb_transcript.Configuration;
-//import org.oncokb.oncokb_transcript.auth.*;
-//import org.oncokb.oncokb_transcript.client.EnsemblGeneControllerApi;
+import org.oncokb.oncokb_transcript.ApiClient;
+import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.Configuration;
+import org.oncokb.oncokb_transcript.auth.*;
+import org.oncokb.oncokb_transcript.models.*;
+import org.oncokb.oncokb_transcript.client.EnsemblGeneControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://transcript.oncokb.org:443");
+    
+    // Configure HTTP bearer authorization: Authorization
+    HttpBearerAuth Authorization = (HttpBearerAuth) defaultClient.getAuthentication("Authorization");
+    Authorization.setBearerToken("BEARER TOKEN");
 
-
-EnsemblGeneControllerApi apiInstance = new EnsemblGeneControllerApi();
-String referenceGenome = "referenceGenome_example"; // String | referenceGenome
-Integer entrezGeneId = 56; // Integer | entrezGeneId
-String ensemblGeneId = "ensemblGeneId_example"; // String | ensemblGeneId
-Boolean isCanonical = true; // Boolean | isCanonical
-try {
-    EnsemblGene result = apiInstance.addEnsemblGeneUsingPOST(referenceGenome, entrezGeneId, ensemblGeneId, isCanonical);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EnsemblGeneControllerApi#addEnsemblGeneUsingPOST");
-    e.printStackTrace();
+    EnsemblGeneControllerApi apiInstance = new EnsemblGeneControllerApi(defaultClient);
+    AddEnsemblGeneBody addEnsemblGeneBody = new AddEnsemblGeneBody(); // AddEnsemblGeneBody | 
+    try {
+      EnsemblGene result = apiInstance.addEnsemblGeneUsingPOST(addEnsemblGeneBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EnsemblGeneControllerApi#addEnsemblGeneUsingPOST");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -42,10 +52,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **referenceGenome** | **String**| referenceGenome | [enum: GRCh37, GRCh38]
- **entrezGeneId** | **Integer**| entrezGeneId |
- **ensemblGeneId** | **String**| ensemblGeneId |
- **isCanonical** | **Boolean**| isCanonical |
+ **addEnsemblGeneBody** | [**AddEnsemblGeneBody**](AddEnsemblGeneBody.md)|  | [optional]
 
 ### Return type
 
@@ -57,6 +64,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**201** | Created |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 

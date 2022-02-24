@@ -1,7 +1,10 @@
 
+
 # InfoLevel
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **colorHex** | **String** |  |  [optional]
@@ -10,8 +13,9 @@ Name | Type | Description | Notes
 **levelOfEvidence** | [**LevelOfEvidenceEnum**](#LevelOfEvidenceEnum) |  |  [optional]
 
 
-<a name="LevelOfEvidenceEnum"></a>
+
 ## Enum: LevelOfEvidenceEnum
+
 Name | Value
 ---- | -----
 LEVEL_0 | &quot;LEVEL_0&quot;
