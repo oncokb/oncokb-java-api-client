@@ -1,7 +1,7 @@
 # oncokbPrivateApiClient
 
 OncoKB Private APIs
-- API version: v1.2.2
+- API version: v1.4.0
 
 These endpoints are for private use only.
 
@@ -152,7 +152,9 @@ Class | Method | HTTP request | Description
 *GenesetsApi* | [**genesetsGetUsingGET**](docs/GenesetsApi.md#genesetsGetUsingGET) | **GET** /genesets | genesetsGet
 *GenesetsApi* | [**genesetsUuidGetUsingGET**](docs/GenesetsApi.md#genesetsUuidGetUsingGET) | **GET** /genesets/{uuid} | genesetsUuidGet
 *InfoApi* | [**infoGetUsingGET**](docs/InfoApi.md#infoGetUsingGET) | **GET** /info | infoGet
+*LevelsApi* | [**levelsDiagnosticGetUsingGET**](docs/LevelsApi.md#levelsDiagnosticGetUsingGET) | **GET** /levels/diagnostic | levelsDiagnosticGet
 *LevelsApi* | [**levelsGetUsingGET**](docs/LevelsApi.md#levelsGetUsingGET) | **GET** /levels | levelsGet
+*LevelsApi* | [**levelsPrognosticGetUsingGET**](docs/LevelsApi.md#levelsPrognosticGetUsingGET) | **GET** /levels/prognostic | levelsPrognosticGet
 *LevelsApi* | [**levelsResistanceGetUsingGET**](docs/LevelsApi.md#levelsResistanceGetUsingGET) | **GET** /levels/resistance | levelsResistanceGet
 *LevelsApi* | [**levelsSensitiveGetUsingGET**](docs/LevelsApi.md#levelsSensitiveGetUsingGET) | **GET** /levels/sensitive | levelsSensitiveGet
 *SearchApi* | [**searchGetUsingGET**](docs/SearchApi.md#searchGetUsingGET) | **GET** /search | searchGet
@@ -163,7 +165,6 @@ Class | Method | HTTP request | Description
 *VariantsApi* | [**utilsAllActionableVariantsTxtGetUsingGET**](docs/VariantsApi.md#utilsAllActionableVariantsTxtGetUsingGET) | **GET** /utils/allActionableVariants.txt | utilsAllActionableVariantsTxtGet
 *VariantsApi* | [**utilsAllAnnotatedVariantsGetUsingGET**](docs/VariantsApi.md#utilsAllAnnotatedVariantsGetUsingGET) | **GET** /utils/allAnnotatedVariants | utilsAllAnnotatedVariantsGet
 *VariantsApi* | [**utilsAllAnnotatedVariantsTxtGetUsingGET**](docs/VariantsApi.md#utilsAllAnnotatedVariantsTxtGetUsingGET) | **GET** /utils/allAnnotatedVariants.txt | utilsAllAnnotatedVariantsTxtGet
-*VariantsApi* | [**variantsGetUsingGET**](docs/VariantsApi.md#variantsGetUsingGET) | **GET** /variants | variantsGet
 *VariantsApi* | [**variantsLookupGetUsingGET**](docs/VariantsApi.md#variantsLookupGetUsingGET) | **GET** /variants/lookup | variantsLookupGet
 *VariantsApi* | [**variantsLookupPostUsingPOST**](docs/VariantsApi.md#variantsLookupPostUsingPOST) | **POST** /variants/lookup | variantsLookupPost
 
@@ -202,6 +203,7 @@ Class | Method | HTTP request | Description
  - [Query](docs/Query.md)
  - [QueryGene](docs/QueryGene.md)
  - [ResponseEntity](docs/ResponseEntity.md)
+ - [SemVer](docs/SemVer.md)
  - [Treatment](docs/Treatment.md)
  - [TreatmentDrug](docs/TreatmentDrug.md)
  - [TreatmentDrugId](docs/TreatmentDrugId.md)

@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **referenceGenome** | [**ReferenceGenomeEnum**](#ReferenceGenomeEnum) |  |  [optional]
 **svType** | [**SvTypeEnum**](#SvTypeEnum) |  |  [optional]
 **tumorType** | **String** |  |  [optional]
-**type** | **String** |  |  [optional]
 
 
 
