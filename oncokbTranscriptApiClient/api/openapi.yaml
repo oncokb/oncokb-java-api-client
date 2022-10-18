@@ -18,6 +18,8 @@ tags:
   name: ensembl-gene-controller
 - description: Gene Controller
   name: gene-controller
+- description: Gene Resource
+  name: gene-resource
 - description: Pipeline Controller
   name: pipeline-controller
 - description: Sequence Controller
@@ -234,6 +236,31 @@ paths:
       tags:
       - gene-controller
       x-contentType: application/json
+      x-accepts: '*/*'
+  /api/genes:
+    get:
+      operationId: getAllGenesUsingGET
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Gene'
+                type: array
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: getAllGenes
+      tags:
+      - gene-resource
       x-accepts: '*/*'
   /api/pipeline/update-gene:
     post:
