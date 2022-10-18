@@ -28,6 +28,7 @@ docs/MutationEffectResp.md
 docs/OncoKBInfo.md
 docs/Query.md
 docs/QueryGene.md
+docs/SemVer.md
 docs/TumorType.md
 docs/Version.md
 git_push.sh
@@ -79,6 +80,7 @@ src/main/java/org/oncokb/client/MutationEffectResp.java
 src/main/java/org/oncokb/client/OncoKBInfo.java
 src/main/java/org/oncokb/client/Query.java
 src/main/java/org/oncokb/client/QueryGene.java
+src/main/java/org/oncokb/client/SemVer.java
 src/main/java/org/oncokb/client/TumorType.java
 src/main/java/org/oncokb/client/Version.java
 src/test/java/org/oncokb/client/AnnotateCopyNumberAlterationQueryTest.java
@@ -104,5 +106,6 @@ src/test/java/org/oncokb/client/MutationEffectRespTest.java
 src/test/java/org/oncokb/client/OncoKBInfoTest.java
 src/test/java/org/oncokb/client/QueryGeneTest.java
 src/test/java/org/oncokb/client/QueryTest.java
+src/test/java/org/oncokb/client/SemVerTest.java
 src/test/java/org/oncokb/client/TumorTypeTest.java
 src/test/java/org/oncokb/client/VersionTest.java

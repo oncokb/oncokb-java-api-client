@@ -1,7 +1,7 @@
 # oncokbPublicApiClient
 
 OncoKB APIs
-- API version: v1.2.2
+- API version: v1.4.0
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 
@@ -134,7 +134,9 @@ Class | Method | HTTP request | Description
 *CancerGenesApi* | [**utilsCancerGeneListGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListGetUsingGET1) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
 *CancerGenesApi* | [**utilsCancerGeneListTxtGetUsingGET1**](docs/CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET1) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
 *InfoApi* | [**infoGetUsingGET1**](docs/InfoApi.md#infoGetUsingGET1) | **GET** /info | infoGet
+*LevelsApi* | [**levelsDiagnosticGetUsingGET1**](docs/LevelsApi.md#levelsDiagnosticGetUsingGET1) | **GET** /levels/diagnostic | levelsDiagnosticGet
 *LevelsApi* | [**levelsGetUsingGET1**](docs/LevelsApi.md#levelsGetUsingGET1) | **GET** /levels | levelsGet
+*LevelsApi* | [**levelsPrognosticGetUsingGET1**](docs/LevelsApi.md#levelsPrognosticGetUsingGET1) | **GET** /levels/prognostic | levelsPrognosticGet
 *LevelsApi* | [**levelsResistanceGetUsingGET1**](docs/LevelsApi.md#levelsResistanceGetUsingGET1) | **GET** /levels/resistance | levelsResistanceGet
 *LevelsApi* | [**levelsSensitiveGetUsingGET1**](docs/LevelsApi.md#levelsSensitiveGetUsingGET1) | **GET** /levels/sensitive | levelsSensitiveGet
 
@@ -160,6 +162,7 @@ Class | Method | HTTP request | Description
  - [OncoKBInfo](docs/OncoKBInfo.md)
  - [Query](docs/Query.md)
  - [QueryGene](docs/QueryGene.md)
+ - [SemVer](docs/SemVer.md)
  - [TumorType](docs/TumorType.md)
  - [Version](docs/Version.md)
 

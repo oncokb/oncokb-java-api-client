@@ -47,6 +47,7 @@ docs/Query.md
 docs/QueryGene.md
 docs/ResponseEntity.md
 docs/SearchApi.md
+docs/SemVer.md
 docs/Treatment.md
 docs/TreatmentDrug.md
 docs/TreatmentDrugId.md
@@ -125,6 +126,7 @@ src/main/java/org/oncokb/client/Query.java
 src/main/java/org/oncokb/client/QueryGene.java
 src/main/java/org/oncokb/client/ResponseEntity.java
 src/main/java/org/oncokb/client/SearchApi.java
+src/main/java/org/oncokb/client/SemVer.java
 src/main/java/org/oncokb/client/Treatment.java
 src/main/java/org/oncokb/client/TreatmentDrug.java
 src/main/java/org/oncokb/client/TreatmentDrugId.java
@@ -177,6 +179,7 @@ src/test/java/org/oncokb/client/QueryGeneTest.java
 src/test/java/org/oncokb/client/QueryTest.java
 src/test/java/org/oncokb/client/ResponseEntityTest.java
 src/test/java/org/oncokb/client/SearchApiTest.java
+src/test/java/org/oncokb/client/SemVerTest.java
 src/test/java/org/oncokb/client/TreatmentDrugIdTest.java
 src/test/java/org/oncokb/client/TreatmentDrugTest.java
 src/test/java/org/oncokb/client/TreatmentTest.java

@@ -7,7 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apiVersion** | **String** |  |  [optional]
+**apiVersion** | [**SemVer**](SemVer.md) |  |  [optional]
+**appVersion** | [**SemVer**](SemVer.md) |  |  [optional]
 **dataVersion** | [**Version**](Version.md) |  |  [optional]
 **levels** | [**List&lt;InfoLevel&gt;**](InfoLevel.md) |  |  [optional]
 **ncitVersion** | **String** |  |  [optional]

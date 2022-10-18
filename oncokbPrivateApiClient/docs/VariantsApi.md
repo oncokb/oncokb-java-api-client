@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**utilsAllActionableVariantsTxtGetUsingGET**](VariantsApi.md#utilsAllActionableVariantsTxtGetUsingGET) | **GET** /utils/allActionableVariants.txt | utilsAllActionableVariantsTxtGet
 [**utilsAllAnnotatedVariantsGetUsingGET**](VariantsApi.md#utilsAllAnnotatedVariantsGetUsingGET) | **GET** /utils/allAnnotatedVariants | utilsAllAnnotatedVariantsGet
 [**utilsAllAnnotatedVariantsTxtGetUsingGET**](VariantsApi.md#utilsAllAnnotatedVariantsTxtGetUsingGET) | **GET** /utils/allAnnotatedVariants.txt | utilsAllAnnotatedVariantsTxtGet
-[**variantsGetUsingGET**](VariantsApi.md#variantsGetUsingGET) | **GET** /variants | variantsGet
 [**variantsLookupGetUsingGET**](VariantsApi.md#variantsLookupGetUsingGET) | **GET** /variants/lookup | variantsLookupGet
 [**variantsLookupPostUsingPOST**](VariantsApi.md#variantsLookupPostUsingPOST) | **POST** /variants/lookup | variantsLookupPost
 
@@ -269,75 +268,13 @@ No authorization required
 **404** | Not Found |  -  |
 **503** | Service Unavailable |  -  |
 
-<a name="variantsGetUsingGET"></a>
-# **variantsGetUsingGET**
-> List&lt;Alteration&gt; variantsGetUsingGET(fields)
-
-variantsGet
-
-Get all annotated variants.
-
-### Example
-```java
-// Import classes:
-import org.oncokb.ApiClient;
-import org.oncokb.ApiException;
-import org.oncokb.Configuration;
-import org.oncokb.models.*;
-import org.oncokb.client.VariantsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
-
-    VariantsApi apiInstance = new VariantsApi(defaultClient);
-    String fields = "fields_example"; // String | The fields to be returned.
-    try {
-      List<Alteration> result = apiInstance.variantsGetUsingGET(fields);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling VariantsApi#variantsGetUsingGET");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fields** | **String**| The fields to be returned. | [optional]
-
-### Return type
-
-[**List&lt;Alteration&gt;**](Alteration.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
 <a name="variantsLookupGetUsingGET"></a>
 # **variantsLookupGetUsingGET**
-> List&lt;Alteration&gt; variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, referenceGenome, fields)
+> List&lt;Alteration&gt; variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, referenceGenome, fields)
 
 variantsLookupGet
 
-Search for variants.
+Search for matched variants.
 
 ### Example
 ```java
@@ -357,15 +294,10 @@ public class Example {
     Integer entrezGeneId = 56; // Integer | The entrez gene ID. entrezGeneId is prioritize than hugoSymbol if both parameters have been defined
     String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation.
     String variant = "variant_example"; // String | variant name.
-    String variantType = "variantType_example"; // String | variantType
-    String consequence = "consequence_example"; // String | consequence
-    Integer proteinStart = 56; // Integer | proteinStart
-    Integer proteinEnd = 56; // Integer | proteinEnd
-    String hgvs = "hgvs_example"; // String | HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination
     String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
     String fields = "fields_example"; // String | The fields to be returned.
     try {
-      List<Alteration> result = apiInstance.variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, variantType, consequence, proteinStart, proteinEnd, hgvs, referenceGenome, fields);
+      List<Alteration> result = apiInstance.variantsLookupGetUsingGET(entrezGeneId, hugoSymbol, variant, referenceGenome, fields);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VariantsApi#variantsLookupGetUsingGET");
@@ -385,11 +317,6 @@ Name | Type | Description  | Notes
  **entrezGeneId** | **Integer**| The entrez gene ID. entrezGeneId is prioritize than hugoSymbol if both parameters have been defined | [optional]
  **hugoSymbol** | **String**| The gene symbol used in Human Genome Organisation. | [optional]
  **variant** | **String**| variant name. | [optional]
- **variantType** | **String**| variantType | [optional]
- **consequence** | **String**| consequence | [optional]
- **proteinStart** | **Integer**| proteinStart | [optional]
- **proteinEnd** | **Integer**| proteinEnd | [optional]
- **hgvs** | **String**| HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol + variant combination | [optional]
  **referenceGenome** | **String**| Reference genome, either GRCh37 or GRCh38. The default is GRCh37 | [optional] [default to GRCh37]
  **fields** | **String**| The fields to be returned. | [optional]
 

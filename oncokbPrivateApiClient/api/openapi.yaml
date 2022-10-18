@@ -10,7 +10,7 @@ info:
     url: https://www.oncokb.org/terms
   termsOfService: https://www.oncokb.org/terms
   title: OncoKB Private APIs
-  version: v1.2.2
+  version: v1.4.0
 servers:
 - url: //oncokb-core:8888/api/v1
 tags:
@@ -1039,6 +1039,36 @@ paths:
       tags:
       - Levels
       x-accepts: application/json
+  /levels/diagnostic:
+    get:
+      description: Get all diagnostic levels.
+      operationId: levelsDiagnosticGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+      summary: levelsDiagnosticGet
+      tags:
+      - Levels
+      x-accepts: application/json
+  /levels/prognostic:
+    get:
+      description: Get all prognostic levels.
+      operationId: levelsPrognosticGetUsingGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+      summary: levelsPrognosticGet
+      tags:
+      - Levels
+      x-accepts: application/json
   /levels/resistance:
     get:
       description: Get all resistance levels.
@@ -1152,13 +1182,6 @@ paths:
         schema:
           default: false
           type: boolean
-      - description: Query type. There maybe slight differences between different
-          query types. Currently support web or regular.
-        in: query
-        name: queryType
-        schema:
-          default: regular
-          type: string
       - description: Evidence type.
         in: query
         name: evidenceType
@@ -1534,32 +1557,9 @@ paths:
       tags:
       - Cancer Genes
       x-accepts: text/plain
-  /variants:
-    get:
-      description: Get all annotated variants.
-      operationId: variantsGetUsingGET
-      parameters:
-      - description: The fields to be returned.
-        in: query
-        name: fields
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/Alteration'
-                type: array
-          description: OK
-      summary: variantsGet
-      tags:
-      - Variants
-      x-accepts: application/json
   /variants/lookup:
     get:
-      description: Search for variants.
+      description: Search for matched variants.
       operationId: variantsLookupGetUsingGET
       parameters:
       - description: The entrez gene ID. entrezGeneId is prioritize than hugoSymbol
@@ -1577,34 +1577,6 @@ paths:
       - description: variant name.
         in: query
         name: variant
-        schema:
-          type: string
-      - description: variantType
-        in: query
-        name: variantType
-        schema:
-          type: string
-      - description: consequence
-        in: query
-        name: consequence
-        schema:
-          type: string
-      - description: proteinStart
-        in: query
-        name: proteinStart
-        schema:
-          format: int32
-          type: integer
-      - description: proteinEnd
-        in: query
-        name: proteinEnd
-        schema:
-          format: int32
-          type: integer
-      - description: HGVS varaint. Its priority is higher than entrezGeneId/hugoSymbol
-          + variant combination
-        in: query
-        name: hgvs
         schema:
           type: string
       - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
@@ -1730,17 +1702,16 @@ components:
       example:
         consequence: consequence
         tumorType: tumorType
-        hugoSymbol: hugoSymbol
-        hgvs: hgvs
-        referenceGenome: GRCh37
-        type: type
         proteinStart: 2
         alteration: alteration
         entrezGeneId: 5
         svType: DELETION
+        hugoSymbol: hugoSymbol
         alterationType: alterationType
         id: id
+        hgvs: hgvs
         proteinEnd: 5
+        referenceGenome: GRCh37
       properties:
         alteration:
           type: string
@@ -1779,8 +1750,6 @@ components:
           - UNKNOWN
           type: string
         tumorType:
-          type: string
-        type:
           type: string
       type: object
     Article:
@@ -1934,6 +1903,35 @@ components:
         variant:
           type: string
       type: object
+    SemVer:
+      example:
+        patch: 1
+        major: 0
+        minor: 6
+        stable: true
+        suffixTokens:
+        - suffixTokens
+        - suffixTokens
+        version: version
+      properties:
+        major:
+          format: int32
+          type: integer
+        minor:
+          format: int32
+          type: integer
+        patch:
+          format: int32
+          type: integer
+        stable:
+          type: boolean
+        suffixTokens:
+          items:
+            type: string
+          type: array
+        version:
+          type: string
+      type: object
     Implication:
       example:
         tumorType:
@@ -1955,7 +1953,7 @@ components:
           abstract: abstract
         - link: link
           abstract: abstract
-        levelOfEvidence: LEVEL_0
+        levelOfEvidence: LEVEL_1
         pmids:
         - pmids
         - pmids
@@ -1976,23 +1974,22 @@ components:
           type: string
         levelOfEvidence:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         pmids:
@@ -2356,7 +2353,8 @@ components:
           - GRCh37
           - GRCh37
         description: description
-        solidPropagationLevel: LEVEL_0
+        fdaLevel: LEVEL_1
+        solidPropagationLevel: LEVEL_1
         uuid: uuid
         cancerTypes:
         - parent: parent
@@ -2385,7 +2383,7 @@ components:
             tumorForm: SOLID
             name: name
             id: 1
-        liquidPropagationLevel: LEVEL_0
+        liquidPropagationLevel: LEVEL_1
         treatments:
         - drugs:
           - treatmentDrugId:
@@ -2417,9 +2415,36 @@ components:
           - approvedIndications
           - approvedIndications
           priority: 7
-        levelOfEvidence: LEVEL_0
+        levelOfEvidence: LEVEL_1
         evidenceType: GENE_SUMMARY
         additionalInfo: additionalInfo
+        excludedCancerTypes:
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
         lastReview: 2000-01-23T04:56:07.000+00:00
         id: 5
         lastEdit: 2000-01-23T04:56:07.000+00:00
@@ -2484,6 +2509,30 @@ components:
           - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY
           - INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE
           type: string
+        excludedCancerTypes:
+          items:
+            $ref: '#/components/schemas/TumorType'
+          type: array
+        fdaLevel:
+          enum:
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
+          - "NO"
+          type: string
         gene:
           $ref: '#/components/schemas/Gene'
         id:
@@ -2499,44 +2548,42 @@ components:
           type: string
         levelOfEvidence:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         liquidPropagationLevel:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         relevantCancerTypes:
@@ -2545,23 +2592,22 @@ components:
           type: array
         solidPropagationLevel:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         treatments:
@@ -2637,12 +2683,7 @@ components:
       type: object
     IndicatorQueryResp:
       example:
-        highestPrognosticImplicationLevel: LEVEL_0
-        otherSignificantResistanceLevels:
-        - LEVEL_0
-        - LEVEL_0
         oncogenic: oncogenic
-        dataVersion: dataVersion
         hotspot: true
         prognosticImplications:
         - tumorType:
@@ -2664,7 +2705,7 @@ components:
             abstract: abstract
           - link: link
             abstract: abstract
-          levelOfEvidence: LEVEL_0
+          levelOfEvidence: LEVEL_1
           pmids:
           - pmids
           - pmids
@@ -2691,7 +2732,7 @@ components:
             abstract: abstract
           - link: link
             abstract: abstract
-          levelOfEvidence: LEVEL_0
+          levelOfEvidence: LEVEL_1
           pmids:
           - pmids
           - pmids
@@ -2699,24 +2740,8 @@ components:
           - alterations
           - alterations
           description: description
-        query:
-          consequence: consequence
-          tumorType: tumorType
-          hugoSymbol: hugoSymbol
-          hgvs: hgvs
-          referenceGenome: GRCh37
-          type: type
-          proteinStart: 2
-          alteration: alteration
-          entrezGeneId: 5
-          svType: DELETION
-          alterationType: alterationType
-          id: id
-          proteinEnd: 5
         geneExist: true
-        geneSummary: geneSummary
         alleleExist: true
-        variantSummary: variantSummary
         treatments:
         - abstracts:
           - link: link
@@ -2728,7 +2753,7 @@ components:
             drugName: drugName
           - ncitCode: ncitCode
             drugName: drugName
-          level: LEVEL_0
+          level: LEVEL_1
           pmids:
           - pmids
           - pmids
@@ -2736,9 +2761,37 @@ components:
           - alterations
           - alterations
           description: description
+          fdaLevel: LEVEL_1
           approvedIndications:
           - approvedIndications
           - approvedIndications
+          levelExcludedCancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
           levelAssociatedCancerType:
             parent: parent
             code: code
@@ -2763,7 +2816,7 @@ components:
             drugName: drugName
           - ncitCode: ncitCode
             drugName: drugName
-          level: LEVEL_0
+          level: LEVEL_1
           pmids:
           - pmids
           - pmids
@@ -2771,9 +2824,37 @@ components:
           - alterations
           - alterations
           description: description
+          fdaLevel: LEVEL_1
           approvedIndications:
           - approvedIndications
           - approvedIndications
+          levelExcludedCancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
           levelAssociatedCancerType:
             parent: parent
             code: code
@@ -2788,22 +2869,7 @@ components:
               tumorForm: SOLID
               name: name
               id: 1
-        mutationEffect:
-          knownEffect: knownEffect
-          citations:
-            abstracts:
-            - link: link
-              abstract: abstract
-            - link: link
-              abstract: abstract
-            pmids:
-            - pmids
-            - pmids
-          description: description
         prognosticSummary: prognosticSummary
-        otherSignificantSensitiveLevels:
-        - LEVEL_0
-        - LEVEL_0
         diagnosticImplications:
         - tumorType:
             parent: parent
@@ -2824,7 +2890,7 @@ components:
             abstract: abstract
           - link: link
             abstract: abstract
-          levelOfEvidence: LEVEL_0
+          levelOfEvidence: LEVEL_1
           pmids:
           - pmids
           - pmids
@@ -2851,7 +2917,7 @@ components:
             abstract: abstract
           - link: link
             abstract: abstract
-          levelOfEvidence: LEVEL_0
+          levelOfEvidence: LEVEL_1
           pmids:
           - pmids
           - pmids
@@ -2859,14 +2925,50 @@ components:
           - alterations
           - alterations
           description: description
-        diagnosticSummary: diagnosticSummary
         vus: true
-        highestResistanceLevel: LEVEL_0
+        highestResistanceLevel: LEVEL_1
+        highestSensitiveLevel: LEVEL_1
+        tumorTypeSummary: tumorTypeSummary
+        highestPrognosticImplicationLevel: LEVEL_1
+        otherSignificantResistanceLevels:
+        - LEVEL_1
+        - LEVEL_1
+        dataVersion: dataVersion
+        query:
+          consequence: consequence
+          tumorType: tumorType
+          proteinStart: 2
+          alteration: alteration
+          entrezGeneId: 5
+          svType: DELETION
+          hugoSymbol: hugoSymbol
+          alterationType: alterationType
+          id: id
+          hgvs: hgvs
+          proteinEnd: 5
+          referenceGenome: GRCh37
+        geneSummary: geneSummary
+        variantSummary: variantSummary
+        mutationEffect:
+          knownEffect: knownEffect
+          citations:
+            abstracts:
+            - link: link
+              abstract: abstract
+            - link: link
+              abstract: abstract
+            pmids:
+            - pmids
+            - pmids
+          description: description
+        otherSignificantSensitiveLevels:
+        - LEVEL_1
+        - LEVEL_1
+        diagnosticSummary: diagnosticSummary
         lastUpdate: lastUpdate
         variantExist: true
-        highestDiagnosticImplicationLevel: LEVEL_0
-        highestSensitiveLevel: LEVEL_0
-        tumorTypeSummary: tumorTypeSummary
+        highestFdaLevel: LEVEL_1
+        highestDiagnosticImplicationLevel: LEVEL_1
       properties:
         alleleExist:
           type: boolean
@@ -2884,86 +2986,102 @@ components:
           type: string
         highestDiagnosticImplicationLevel:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
+          - "NO"
+          type: string
+        highestFdaLevel:
+          enum:
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         highestPrognosticImplicationLevel:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         highestResistanceLevel:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         highestSensitiveLevel:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         hotspot:
@@ -2977,46 +3095,44 @@ components:
         otherSignificantResistanceLevels:
           items:
             enum:
-            - LEVEL_0
             - LEVEL_1
             - LEVEL_2
-            - LEVEL_2A
-            - LEVEL_2B
             - LEVEL_3A
             - LEVEL_3B
             - LEVEL_4
             - LEVEL_R1
             - LEVEL_R2
-            - LEVEL_R3
             - LEVEL_Px1
             - LEVEL_Px2
             - LEVEL_Px3
             - LEVEL_Dx1
             - LEVEL_Dx2
             - LEVEL_Dx3
+            - LEVEL_Fda1
+            - LEVEL_Fda2
+            - LEVEL_Fda3
             - "NO"
             type: string
           type: array
         otherSignificantSensitiveLevels:
           items:
             enum:
-            - LEVEL_0
             - LEVEL_1
             - LEVEL_2
-            - LEVEL_2A
-            - LEVEL_2B
             - LEVEL_3A
             - LEVEL_3B
             - LEVEL_4
             - LEVEL_R1
             - LEVEL_R2
-            - LEVEL_R3
             - LEVEL_Px1
             - LEVEL_Px2
             - LEVEL_Px3
             - LEVEL_Dx1
             - LEVEL_Dx2
             - LEVEL_Dx3
+            - LEVEL_Fda1
+            - LEVEL_Fda2
+            - LEVEL_Fda3
             - "NO"
             type: string
           type: array
@@ -3100,7 +3216,7 @@ components:
       type: object
     InfoLevel:
       example:
-        levelOfEvidence: LEVEL_0
+        levelOfEvidence: LEVEL_1
         description: description
         colorHex: colorHex
         htmlDescription: htmlDescription
@@ -3113,23 +3229,22 @@ components:
           type: string
         levelOfEvidence:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
       type: object
@@ -3190,8 +3305,8 @@ components:
     EvidenceQueryRes:
       example:
         levelOfEvidences:
-        - LEVEL_0
-        - LEVEL_0
+        - LEVEL_1
+        - LEVEL_1
         gene:
           grch37RefSeq: grch37RefSeq
           geneAliases:
@@ -3259,17 +3374,16 @@ components:
         query:
           consequence: consequence
           tumorType: tumorType
-          hugoSymbol: hugoSymbol
-          hgvs: hgvs
-          referenceGenome: GRCh37
-          type: type
           proteinStart: 2
           alteration: alteration
           entrezGeneId: 5
           svType: DELETION
+          hugoSymbol: hugoSymbol
           alterationType: alterationType
           id: id
+          hgvs: hgvs
           proteinEnd: 5
+          referenceGenome: GRCh37
         alterations:
         - consequence:
             isGenerallyTruncating: true
@@ -3480,7 +3594,8 @@ components:
             - GRCh37
             - GRCh37
           description: description
-          solidPropagationLevel: LEVEL_0
+          fdaLevel: LEVEL_1
+          solidPropagationLevel: LEVEL_1
           uuid: uuid
           cancerTypes:
           - parent: parent
@@ -3509,7 +3624,7 @@ components:
               tumorForm: SOLID
               name: name
               id: 1
-          liquidPropagationLevel: LEVEL_0
+          liquidPropagationLevel: LEVEL_1
           treatments:
           - drugs:
             - treatmentDrugId:
@@ -3541,9 +3656,36 @@ components:
             - approvedIndications
             - approvedIndications
             priority: 7
-          levelOfEvidence: LEVEL_0
+          levelOfEvidence: LEVEL_1
           evidenceType: GENE_SUMMARY
           additionalInfo: additionalInfo
+          excludedCancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
           lastReview: 2000-01-23T04:56:07.000+00:00
           id: 5
           lastEdit: 2000-01-23T04:56:07.000+00:00
@@ -3703,7 +3845,8 @@ components:
             - GRCh37
             - GRCh37
           description: description
-          solidPropagationLevel: LEVEL_0
+          fdaLevel: LEVEL_1
+          solidPropagationLevel: LEVEL_1
           uuid: uuid
           cancerTypes:
           - parent: parent
@@ -3732,7 +3875,7 @@ components:
               tumorForm: SOLID
               name: name
               id: 1
-          liquidPropagationLevel: LEVEL_0
+          liquidPropagationLevel: LEVEL_1
           treatments:
           - drugs:
             - treatmentDrugId:
@@ -3764,9 +3907,36 @@ components:
             - approvedIndications
             - approvedIndications
             priority: 7
-          levelOfEvidence: LEVEL_0
+          levelOfEvidence: LEVEL_1
           evidenceType: GENE_SUMMARY
           additionalInfo: additionalInfo
+          excludedCancerTypes:
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
+          - parent: parent
+            code: code
+            color: color
+            children: {}
+            level: 6
+            tumorForm: SOLID
+            name: name
+            tissue: tissue
+            id: 0
+            mainType:
+              tumorForm: SOLID
+              name: name
+              id: 1
           lastReview: 2000-01-23T04:56:07.000+00:00
           id: 5
           lastEdit: 2000-01-23T04:56:07.000+00:00
@@ -3937,23 +4107,22 @@ components:
         levelOfEvidences:
           items:
             enum:
-            - LEVEL_0
             - LEVEL_1
             - LEVEL_2
-            - LEVEL_2A
-            - LEVEL_2B
             - LEVEL_3A
             - LEVEL_3B
             - LEVEL_4
             - LEVEL_R1
             - LEVEL_R2
-            - LEVEL_R3
             - LEVEL_Px1
             - LEVEL_Px2
             - LEVEL_Px3
             - LEVEL_Dx1
             - LEVEL_Dx2
             - LEVEL_Dx3
+            - LEVEL_Fda1
+            - LEVEL_Fda2
+            - LEVEL_Fda3
             - "NO"
             type: string
           type: array
@@ -4121,24 +4290,43 @@ components:
     OncoKBInfo:
       example:
         publicInstance: true
-        apiVersion: apiVersion
+        appVersion:
+          patch: 1
+          major: 0
+          minor: 6
+          stable: true
+          suffixTokens:
+          - suffixTokens
+          - suffixTokens
+          version: version
+        apiVersion:
+          patch: 1
+          major: 0
+          minor: 6
+          stable: true
+          suffixTokens:
+          - suffixTokens
+          - suffixTokens
+          version: version
         dataVersion:
           date: date
           version: version
         oncoTreeVersion: oncoTreeVersion
         ncitVersion: ncitVersion
         levels:
-        - levelOfEvidence: LEVEL_0
+        - levelOfEvidence: LEVEL_1
           description: description
           colorHex: colorHex
           htmlDescription: htmlDescription
-        - levelOfEvidence: LEVEL_0
+        - levelOfEvidence: LEVEL_1
           description: description
           colorHex: colorHex
           htmlDescription: htmlDescription
       properties:
         apiVersion:
-          type: string
+          $ref: '#/components/schemas/SemVer'
+        appVersion:
+          $ref: '#/components/schemas/SemVer'
         dataVersion:
           $ref: '#/components/schemas/Version'
         levels:
@@ -4236,7 +4424,7 @@ components:
           drugName: drugName
         - ncitCode: ncitCode
           drugName: drugName
-        level: LEVEL_0
+        level: LEVEL_1
         pmids:
         - pmids
         - pmids
@@ -4244,9 +4432,37 @@ components:
         - alterations
         - alterations
         description: description
+        fdaLevel: LEVEL_1
         approvedIndications:
         - approvedIndications
         - approvedIndications
+        levelExcludedCancerTypes:
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
+        - parent: parent
+          code: code
+          color: color
+          children: {}
+          level: 6
+          tumorForm: SOLID
+          name: name
+          tissue: tissue
+          id: 0
+          mainType:
+            tumorForm: SOLID
+            name: name
+            id: 1
         levelAssociatedCancerType:
           parent: parent
           code: code
@@ -4280,29 +4496,52 @@ components:
           items:
             $ref: '#/components/schemas/Drug'
           type: array
-        level:
+        fdaLevel:
           enum:
-          - LEVEL_0
           - LEVEL_1
           - LEVEL_2
-          - LEVEL_2A
-          - LEVEL_2B
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_R3
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
           - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
+          - "NO"
+          type: string
+        level:
+          enum:
+          - LEVEL_1
+          - LEVEL_2
+          - LEVEL_3A
+          - LEVEL_3B
+          - LEVEL_4
+          - LEVEL_R1
+          - LEVEL_R2
+          - LEVEL_Px1
+          - LEVEL_Px2
+          - LEVEL_Px3
+          - LEVEL_Dx1
+          - LEVEL_Dx2
+          - LEVEL_Dx3
+          - LEVEL_Fda1
+          - LEVEL_Fda2
+          - LEVEL_Fda3
           - "NO"
           type: string
         levelAssociatedCancerType:
           $ref: '#/components/schemas/TumorType'
+        levelExcludedCancerTypes:
+          items:
+            $ref: '#/components/schemas/TumorType'
+          type: array
         pmids:
           items:
             type: string
@@ -4419,33 +4658,31 @@ components:
         queries:
         - consequence: consequence
           tumorType: tumorType
-          hugoSymbol: hugoSymbol
-          hgvs: hgvs
-          referenceGenome: GRCh37
-          type: type
           proteinStart: 2
           alteration: alteration
           entrezGeneId: 5
           svType: DELETION
+          hugoSymbol: hugoSymbol
           alterationType: alterationType
           id: id
+          hgvs: hgvs
           proteinEnd: 5
+          referenceGenome: GRCh37
         - consequence: consequence
           tumorType: tumorType
-          hugoSymbol: hugoSymbol
-          hgvs: hgvs
-          referenceGenome: GRCh37
-          type: type
           proteinStart: 2
           alteration: alteration
           entrezGeneId: 5
           svType: DELETION
+          hugoSymbol: hugoSymbol
           alterationType: alterationType
           id: id
+          hgvs: hgvs
           proteinEnd: 5
+          referenceGenome: GRCh37
         levels:
-        - LEVEL_0
-        - LEVEL_0
+        - LEVEL_1
+        - LEVEL_1
         evidenceTypes: evidenceTypes
       properties:
         evidenceTypes:
@@ -4455,23 +4692,22 @@ components:
         levels:
           items:
             enum:
-            - LEVEL_0
             - LEVEL_1
             - LEVEL_2
-            - LEVEL_2A
-            - LEVEL_2B
             - LEVEL_3A
             - LEVEL_3B
             - LEVEL_4
             - LEVEL_R1
             - LEVEL_R2
-            - LEVEL_R3
             - LEVEL_Px1
             - LEVEL_Px2
             - LEVEL_Px3
             - LEVEL_Dx1
             - LEVEL_Dx2
             - LEVEL_Dx3
+            - LEVEL_Fda1
+            - LEVEL_Fda2
+            - LEVEL_Fda3
             - "NO"
             type: string
           type: array
