@@ -19,6 +19,7 @@ docs/Exon.md
 docs/Gene.md
 docs/GeneAlias.md
 docs/GeneControllerApi.md
+docs/GeneResourceApi.md
 docs/GenomeFragment.md
 docs/MatchTranscriptVM.md
 docs/PfamDomainRange.md
@@ -75,6 +76,7 @@ src/main/java/org/oncokb/oncokb_transcript/client/Exon.java
 src/main/java/org/oncokb/oncokb_transcript/client/Gene.java
 src/main/java/org/oncokb/oncokb_transcript/client/GeneAlias.java
 src/main/java/org/oncokb/oncokb_transcript/client/GeneControllerApi.java
+src/main/java/org/oncokb/oncokb_transcript/client/GeneResourceApi.java
 src/main/java/org/oncokb/oncokb_transcript/client/GenomeFragment.java
 src/main/java/org/oncokb/oncokb_transcript/client/MatchTranscriptVM.java
 src/main/java/org/oncokb/oncokb_transcript/client/PfamDomainRange.java
@@ -104,6 +106,7 @@ src/test/java/org/oncokb/oncokb_transcript/client/EnsemblTranscriptTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/ExonTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/GeneAliasTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/GeneControllerApiTest.java
+src/test/java/org/oncokb/oncokb_transcript/client/GeneResourceApiTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/GeneTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/GenomeFragmentTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/MatchTranscriptVMTest.java

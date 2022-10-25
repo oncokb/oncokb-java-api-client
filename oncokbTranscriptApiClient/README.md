@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
 *EnsemblGeneControllerApi* | [**addEnsemblGeneUsingPOST**](docs/EnsemblGeneControllerApi.md#addEnsemblGeneUsingPOST) | **POST** /api/add-ensembl-gene | addEnsemblGene
 *GeneControllerApi* | [**findGeneBySymbolUsingGET**](docs/GeneControllerApi.md#findGeneBySymbolUsingGET) | **GET** /api/find-genes | findGeneBySymbol
 *GeneControllerApi* | [**findGenesBySymbolsUsingPOST**](docs/GeneControllerApi.md#findGenesBySymbolsUsingPOST) | **POST** /api/find-genes | findGenesBySymbols
+*GeneResourceApi* | [**getAllGenesUsingGET**](docs/GeneResourceApi.md#getAllGenesUsingGET) | **GET** /api/genes | getAllGenes
 *PipelineControllerApi* | [**updateNcitUsingPOST**](docs/PipelineControllerApi.md#updateNcitUsingPOST) | **POST** /api/pipeline/update-ncit | updateNcit
 *PipelineControllerApi* | [**updatePortalGeneUsingPOST**](docs/PipelineControllerApi.md#updatePortalGeneUsingPOST) | **POST** /api/pipeline/update-gene | updatePortalGene
 *SequenceControllerApi* | [**findCanonicalSequenceUsingGET**](docs/SequenceControllerApi.md#findCanonicalSequenceUsingGET) | **GET** /api/find-canonical-sequences | findCanonicalSequence
