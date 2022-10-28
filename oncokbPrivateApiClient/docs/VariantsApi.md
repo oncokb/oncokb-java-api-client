@@ -1,6 +1,6 @@
 # VariantsApi
 
-All URIs are relative to *http://oncokb-core:8888/api/v1*
+All URIs are relative to *https://www.oncokb.org/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ import org.oncokb.client.VariantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     VariantsApi apiInstance = new VariantsApi(defaultClient);
     String version = "version_example"; // String | The data version
@@ -96,7 +96,7 @@ import org.oncokb.client.VariantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     VariantsApi apiInstance = new VariantsApi(defaultClient);
     String version = "version_example"; // String | The data version
@@ -160,7 +160,7 @@ import org.oncokb.client.VariantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     VariantsApi apiInstance = new VariantsApi(defaultClient);
     String version = "version_example"; // String | The data version
@@ -224,7 +224,7 @@ import org.oncokb.client.VariantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     VariantsApi apiInstance = new VariantsApi(defaultClient);
     String version = "version_example"; // String | The data version
@@ -288,7 +288,7 @@ import org.oncokb.client.VariantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     VariantsApi apiInstance = new VariantsApi(defaultClient);
     Integer entrezGeneId = 56; // Integer | The entrez gene ID. entrezGeneId is prioritize than hugoSymbol if both parameters have been defined
@@ -358,7 +358,7 @@ import org.oncokb.client.VariantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     VariantsApi apiInstance = new VariantsApi(defaultClient);
     List<VariantSearchQuery> body = Arrays.asList(); // List<VariantSearchQuery> | List of queries.

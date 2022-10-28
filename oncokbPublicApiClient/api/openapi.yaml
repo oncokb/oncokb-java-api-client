@@ -15,7 +15,7 @@ info:
   title: OncoKB APIs
   version: v1.4.0
 servers:
-- url: //oncokb-core:8888/api/v1
+- url: https://www.oncokb.org/api/v1
 tags:
 - description: Providing annotation services
   name: Annotations

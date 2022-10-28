@@ -1,6 +1,6 @@
 # ClassificationApi
 
-All URIs are relative to *http://oncokb-core:8888/api/v1*
+All URIs are relative to *https://www.oncokb.org/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ import org.oncokb.client.ClassificationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     ClassificationApi apiInstance = new ClassificationApi(defaultClient);
     try {

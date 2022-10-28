@@ -1,6 +1,6 @@
 # GenesApi
 
-All URIs are relative to *http://oncokb-core:8888/api/v1*
+All URIs are relative to *https://www.oncokb.org/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ import org.oncokb.client.GenesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     GenesApi apiInstance = new GenesApi(defaultClient);
     Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -95,7 +95,7 @@ import org.oncokb.client.GenesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     GenesApi apiInstance = new GenesApi(defaultClient);
     Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -159,7 +159,7 @@ import org.oncokb.client.GenesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     GenesApi apiInstance = new GenesApi(defaultClient);
     Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -223,7 +223,7 @@ import org.oncokb.client.GenesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     GenesApi apiInstance = new GenesApi(defaultClient);
     String fields = "fields_example"; // String | The fields to be returned.
@@ -285,7 +285,7 @@ import org.oncokb.client.GenesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     GenesApi apiInstance = new GenesApi(defaultClient);
     String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. (Deprecated, use query instead)

@@ -1,6 +1,6 @@
 # AnnotationsApi
 
-All URIs are relative to *http://oncokb-core:8888/api/v1*
+All URIs are relative to *https://www.oncokb.org/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     String copyNameAlterationType = "AMPLIFICATION"; // String | Copy number alteration type
@@ -109,7 +109,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     List<AnnotateCopyNumberAlterationQuery> body = Arrays.asList(); // List<AnnotateCopyNumberAlterationQuery> | List of queries. Please see swagger.json for request body format.
@@ -172,7 +172,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     String genomicLocation = "genomicLocation_example"; // String | Genomic location. Example: 7,140453136,140453136,A,T
@@ -241,7 +241,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     List<AnnotateMutationByGenomicChangeQuery> body = Arrays.asList(); // List<AnnotateMutationByGenomicChangeQuery> | List of queries. Please see swagger.json for request body format.
@@ -304,7 +304,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     String hgvsg = "hgvsg_example"; // String | HGVS genomic format. Example: 7:g.140453136A>T
@@ -373,7 +373,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     List<AnnotateMutationByHGVSgQuery> body = Arrays.asList(); // List<AnnotateMutationByHGVSgQuery> | List of queries. Please see swagger.json for request body format.
@@ -436,7 +436,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     String hugoSymbol = "hugoSymbol_example"; // String | The gene symbol used in Human Genome Organisation. Example: BRAF
@@ -515,7 +515,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     List<AnnotateMutationByProteinChangeQuery> body = Arrays.asList(); // List<AnnotateMutationByProteinChangeQuery> | List of queries. Please see swagger.json for request body format.
@@ -578,7 +578,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     String structuralVariantType = "DELETION"; // String | Structural variant type
@@ -657,7 +657,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     List<AnnotateStructuralVariantQuery> body = Arrays.asList(); // List<AnnotateStructuralVariantQuery> | List of queries. Please see swagger.json for request body format.

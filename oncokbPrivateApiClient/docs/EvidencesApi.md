@@ -1,6 +1,6 @@
 # EvidencesApi
 
-All URIs are relative to *http://oncokb-core:8888/api/v1*
+All URIs are relative to *https://www.oncokb.org/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ import org.oncokb.client.EvidencesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     EvidencesApi apiInstance = new EvidencesApi(defaultClient);
     Integer entrezGeneId = 56; // Integer | The entrez gene ID.
@@ -112,7 +112,7 @@ import org.oncokb.client.EvidencesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     EvidencesApi apiInstance = new EvidencesApi(defaultClient);
     EvidenceQueries body = new EvidenceQueries(); // EvidenceQueries | List of queries. Please see swagger.json for request body format. Please use JSON string.
@@ -176,7 +176,7 @@ import org.oncokb.client.EvidencesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     EvidencesApi apiInstance = new EvidencesApi(defaultClient);
     String uuid = "uuid_example"; // String | Unique identifier.
@@ -241,7 +241,7 @@ import org.oncokb.client.EvidencesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     EvidencesApi apiInstance = new EvidencesApi(defaultClient);
     List<String> uuids = Arrays.asList(); // List<String> | Unique identifier list.

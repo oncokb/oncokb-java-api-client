@@ -89,7 +89,7 @@ import org.oncokb.client.AnnotationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://oncokb-core:8888/api/v1");
+    defaultClient.setBasePath("https://www.oncokb.org/api/v1");
 
     AnnotationsApi apiInstance = new AnnotationsApi(defaultClient);
     String copyNameAlterationType = "AMPLIFICATION"; // String | Copy number alteration type
@@ -115,7 +115,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://oncokb-core:8888/api/v1*
+All URIs are relative to *https://www.oncokb.org/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
