@@ -1,0 +1,10 @@
+{
+  "apiPackage": "org.oncokb.oncokb-curation.client",
+  "modelPackage": "org.oncokb.oncokb-curation.client",
+  "groupId": "org.oncokb.oncokb-curation.client",
+  "artifactId": "oncokbCurationApiClient",
+  "artifactName": "OncoKB Curation API Client",
+  "artifactVersion": "1.0.0-SNAPSHOT",
+  "hideGenerationTimestamp": "true",
+  "serializableModel": true
+}
