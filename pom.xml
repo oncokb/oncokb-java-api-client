@@ -12,7 +12,7 @@
   <modules>
     <module>oncokbPublicApiClient</module>
     <module>oncokbPrivateApiClient</module>
-    <module>oncokbTranscriptApiClient</module>
+    <module>oncokbCurationApiClient</module>
   </modules>
 
   <properties>
