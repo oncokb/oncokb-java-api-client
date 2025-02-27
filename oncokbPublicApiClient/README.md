@@ -1,7 +1,9 @@
-# oncokbPublicApiClient
+# openapi-java-client
 
 OncoKB APIs
-- API version: v1.4.0
+- API version: v1.5.0
+  - Build date: 2025-02-27T16:00:42.192711-05:00[America/New_York]
+  - Generator version: 7.11.0
 
 OncoKB, a comprehensive and curated precision oncology knowledge base, offers oncologists detailed, evidence-based information about individual somatic mutations and structural alterations present in patient tumors with the goal of supporting optimal treatment decisions.
 
@@ -13,7 +15,7 @@ OncoKB, a comprehensive and curated precision oncology knowledge base, offers on
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.7+
+1. Java 1.8+
 2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation
@@ -38,9 +40,9 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.oncokb.client</groupId>
-  <artifactId>oncokbPublicApiClient</artifactId>
-  <version>1.2.1-SNAPSHOT</version>
+  <groupId>org.openapitools</groupId>
+  <artifactId>openapi-java-client</artifactId>
+  <version>v1.5.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,12 +53,12 @@ Add this dependency to your project's build file:
 
 ```groovy
   repositories {
-    mavenCentral()     // Needed if the 'oncokbPublicApiClient' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'oncokbPublicApiClient' jar has been published to the local maven repo.
+    mavenCentral()     // Needed if the 'openapi-java-client' jar has been published to maven central.
+    mavenLocal()       // Needed if the 'openapi-java-client' jar has been published to the local maven repo.
   }
 
   dependencies {
-     implementation "org.oncokb.client:oncokbPublicApiClient:1.2.1-SNAPSHOT"
+     implementation "org.openapitools:openapi-java-client:v1.5.0"
   }
 ```
 
@@ -70,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/oncokbPublicApiClient-1.2.1-SNAPSHOT.jar`
+* `target/openapi-java-client-v1.5.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -80,11 +82,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import org.oncokb.ApiClient;
-import org.oncokb.ApiException;
-import org.oncokb.Configuration;
-import org.oncokb.models.*;
-import org.oncokb.client.AnnotationsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.AnnotationsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -97,7 +99,7 @@ public class Example {
     Integer entrezGeneId = 56; // Integer | The entrez gene ID. (Higher priority than hugoSymbol). Example: 673
     String referenceGenome = "GRCh37"; // String | Reference genome, either GRCh37 or GRCh38. The default is GRCh37
     String tumorType = "tumorType_example"; // String | OncoTree(http://oncotree.info) tumor type name. The field supports OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma
-    String evidenceType = "evidenceType_example"; // String | Evidence type to compute. This could help to improve the performance if you only look for sub-content. Example: ONCOGENIC. All available evidence type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY, DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION, DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence types query, use ',' as separator.
+    String evidenceType = "evidenceType_example"; // String | DEPRECATED. We do not recommend using this parameter and it will eventually be removed.
     try {
       IndicatorQueryResp result = apiInstance.annotateCopyNumberAlterationsGetUsingGET1(copyNameAlterationType, hugoSymbol, entrezGeneId, referenceGenome, tumorType, evidenceType);
       System.out.println(result);
@@ -148,6 +150,7 @@ Class | Method | HTTP request | Description
  - [AnnotateMutationByHGVSgQuery](docs/AnnotateMutationByHGVSgQuery.md)
  - [AnnotateMutationByProteinChangeQuery](docs/AnnotateMutationByProteinChangeQuery.md)
  - [AnnotateStructuralVariantQuery](docs/AnnotateStructuralVariantQuery.md)
+ - [ApiHttpError](docs/ApiHttpError.md)
  - [ArticleAbstract](docs/ArticleAbstract.md)
  - [CancerGene](docs/CancerGene.md)
  - [Citations](docs/Citations.md)
@@ -167,10 +170,11 @@ Class | Method | HTTP request | Description
  - [Version](docs/Version.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
-Authentication schemes defined for the API:
+Endpoints do not require authorization.
+
 
 ## Recommendation
 

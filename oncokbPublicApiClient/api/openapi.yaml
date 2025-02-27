@@ -4,16 +4,16 @@ info:
     email: contact@oncokb.org
     name: OncoKB
     url: https://www.oncokb.org
-  description: OncoKB, a comprehensive and curated precision oncology knowledge base,
-    offers oncologists detailed, evidence-based information about individual somatic
-    mutations and structural alterations present in patient tumors with the goal of
-    supporting optimal treatment decisions.
+  description: "OncoKB, a comprehensive and curated precision oncology knowledge base,\
+    \ offers oncologists detailed, evidence-based information about individual somatic\
+    \ mutations and structural alterations present in patient tumors with the goal\
+    \ of supporting optimal treatment decisions."
   license:
     name: Terms of Use
     url: https://www.oncokb.org/terms
   termsOfService: https://www.oncokb.org/terms
   title: OncoKB APIs
-  version: v1.4.0
+  version: v1.5.0
 servers:
 - url: https://www.oncokb.org/api/v1
 tags:
@@ -31,14 +31,14 @@ paths:
       description: Annotate copy number alteration.
       operationId: annotateCopyNumberAlterationsGetUsingGET_1
       parameters:
-      - description: 'The gene symbol used in Human Genome Organisation. Example:
-          BRAF'
+      - description: "The gene symbol used in Human Genome Organisation. Example:\
+          \ BRAF"
         in: query
         name: hugoSymbol
         schema:
           type: string
-      - description: 'The entrez gene ID. (Higher priority than hugoSymbol). Example:
-          673'
+      - description: "The entrez gene ID. (Higher priority than hugoSymbol). Example:\
+          \ 673"
         in: query
         name: entrezGeneId
         schema:
@@ -55,26 +55,20 @@ paths:
           - GAIN
           - LOSS
           type: string
-      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+      - description: "Reference genome, either GRCh37 or GRCh38. The default is GRCh37"
         in: query
         name: referenceGenome
         schema:
           default: GRCh37
           type: string
-      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
-          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+      - description: "OncoTree(http://oncotree.info) tumor type name. The field supports\
+          \ OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma"
         in: query
         name: tumorType
         schema:
           type: string
-      - description: 'Evidence type to compute. This could help to improve the performance
-          if you only look for sub-content. Example: ONCOGENIC. All available evidence
-          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
-          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
-          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
-          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
-          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
-          types query, use '','' as separator.'
+      - description: DEPRECATED. We do not recommend using this parameter and it will
+          eventually be removed.
         in: query
         name: evidenceType
         schema:
@@ -90,12 +84,13 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateCopyNumberAlterationsGet
       tags:
       - Annotations
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     post:
       description: Annotate copy number alterations.
       operationId: annotateCopyNumberAlterationsPostUsingPOST_1
@@ -121,45 +116,40 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateCopyNumberAlterationsPost
       tags:
       - Annotations
       x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /annotate/mutations/byGenomicChange:
     get:
       description: Annotate mutation by genomic change.
       operationId: annotateMutationsByGenomicChangeGetUsingGET_1
       parameters:
-      - description: 'Genomic location. Example: 7,140453136,140453136,A,T'
+      - description: "Genomic location following TCGA MAF format. Example: 7,140453136,140453136,A,T"
         in: query
         name: genomicLocation
         required: true
         schema:
           type: string
-      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+      - description: "Reference genome, either GRCh37 or GRCh38. The default is GRCh37"
         in: query
         name: referenceGenome
         schema:
           default: GRCh37
           type: string
-      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
-          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+      - description: "OncoTree(http://oncotree.info) tumor type name. The field supports\
+          \ OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma"
         in: query
         name: tumorType
         schema:
           type: string
-      - description: 'Evidence type to compute. This could help to improve the performance
-          if you only look for sub-content. Example: ONCOGENIC. All available evidence
-          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
-          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
-          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
-          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
-          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
-          types query, use '','' as separator.'
+      - description: DEPRECATED. We do not recommend using this parameter and it will
+          eventually be removed.
         in: query
         name: evidenceType
         schema:
@@ -175,12 +165,13 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateMutationsByGenomicChangeGet
       tags:
       - Annotations
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     post:
       description: Annotate mutations by genomic change.
       operationId: annotateMutationsByGenomicChangePostUsingPOST_1
@@ -206,45 +197,40 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateMutationsByGenomicChangePost
       tags:
       - Annotations
       x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /annotate/mutations/byHGVSg:
     get:
       description: Annotate mutation by HGVSg.
       operationId: annotateMutationsByHGVSgGetUsingGET_1
       parameters:
-      - description: 'HGVS genomic format. Example: 7:g.140453136A>T'
+      - description: "HGVS genomic format following HGVS nomenclature. Example: 7:g.140453136A>T"
         in: query
         name: hgvsg
         required: true
         schema:
           type: string
-      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+      - description: "Reference genome, either GRCh37 or GRCh38. The default is GRCh37"
         in: query
         name: referenceGenome
         schema:
           default: GRCh37
           type: string
-      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
-          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+      - description: "OncoTree(http://oncotree.info) tumor type name. The field supports\
+          \ OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma"
         in: query
         name: tumorType
         schema:
           type: string
-      - description: 'Evidence type to compute. This could help to improve the performance
-          if you only look for sub-content. Example: ONCOGENIC. All available evidence
-          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
-          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
-          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
-          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
-          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
-          types query, use '','' as separator.'
+      - description: DEPRECATED. We do not recommend using this parameter and it will
+          eventually be removed.
         in: query
         name: evidenceType
         schema:
@@ -260,14 +246,15 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateMutationsByHGVSgGet
       tags:
       - Annotations
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     post:
-      description: Annotate mutations by genomic change.
+      description: Annotate mutations by HGVSg.
       operationId: annotateMutationsByHGVSgPostUsingPOST_1
       requestBody:
         content:
@@ -291,44 +278,45 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateMutationsByHGVSgPost
       tags:
       - Annotations
       x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /annotate/mutations/byProteinChange:
     get:
       description: Annotate mutation by protein change.
       operationId: annotateMutationsByProteinChangeGetUsingGET_1
       parameters:
-      - description: 'The gene symbol used in Human Genome Organisation. Example:
-          BRAF'
+      - description: "The gene symbol used in Human Genome Organisation. Example:\
+          \ BRAF"
         in: query
         name: hugoSymbol
         schema:
           type: string
-      - description: 'The entrez gene ID. (Higher priority than hugoSymbol). Example:
-          673'
+      - description: "The entrez gene ID. (Higher priority than hugoSymbol). Example:\
+          \ 673"
         in: query
         name: entrezGeneId
         schema:
           format: int32
           type: integer
-      - description: 'Protein Change. Example: V600E'
+      - description: "Protein Change. Example: V600E"
         in: query
         name: alteration
         schema:
           type: string
-      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+      - description: "Reference genome, either GRCh37 or GRCh38. The default is GRCh37"
         in: query
         name: referenceGenome
         schema:
           default: GRCh37
           type: string
-      - description: 'Consequence. Exacmple: missense_variant'
+      - description: "Consequence. Example: missense_variant"
         in: query
         name: consequence
         schema:
@@ -344,32 +332,26 @@ paths:
           - synonymous_variant
           - intron_variant
           type: string
-      - description: 'Protein Start. Example: 600'
+      - description: "Protein Start. Example: 600"
         in: query
         name: proteinStart
         schema:
           format: int32
           type: integer
-      - description: 'Protein End. Example: 600'
+      - description: "Protein End. Example: 600"
         in: query
         name: proteinEnd
         schema:
           format: int32
           type: integer
-      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
-          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+      - description: "OncoTree(http://oncotree.info) tumor type name. The field supports\
+          \ OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma"
         in: query
         name: tumorType
         schema:
           type: string
-      - description: 'Evidence type to compute. This could help to improve the performance
-          if you only look for sub-content. Example: ONCOGENIC. All available evidence
-          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
-          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
-          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
-          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
-          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
-          types query, use '','' as separator.'
+      - description: DEPRECATED. We do not recommend using this parameter and it will
+          eventually be removed.
         in: query
         name: evidenceType
         schema:
@@ -385,12 +367,13 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateMutationsByProteinChangeGet
       tags:
       - Annotations
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     post:
       description: Annotate mutations by protein change.
       operationId: annotateMutationsByProteinChangePostUsingPOST_1
@@ -416,40 +399,41 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateMutationsByProteinChangePost
       tags:
       - Annotations
       x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /annotate/structuralVariants:
     get:
       description: Annotate structural variant.
       operationId: annotateStructuralVariantsGetUsingGET_1
       parameters:
-      - description: 'The gene symbol A used in Human Genome Organisation. Example:
-          ABL1'
+      - description: "The gene symbol A used in Human Genome Organisation. Example:\
+          \ ABL1"
         in: query
         name: hugoSymbolA
         schema:
           type: string
-      - description: 'The entrez gene ID A. (Higher priority than hugoSymbolA) Example:
-          25'
+      - description: "The entrez gene ID A. (Higher priority than hugoSymbolA) Example:\
+          \ 25"
         in: query
         name: entrezGeneIdA
         schema:
           format: int32
           type: integer
-      - description: 'The gene symbol B used in Human Genome Organisation.Example:
-          BCR '
+      - description: "The gene symbol B used in Human Genome Organisation.Example:\
+          \ BCR "
         in: query
         name: hugoSymbolB
         schema:
           type: string
-      - description: 'The entrez gene ID B. (Higher priority than hugoSymbolB) Example:
-          613'
+      - description: "The entrez gene ID B. (Higher priority than hugoSymbolB) Example:\
+          \ 613"
         in: query
         name: entrezGeneIdB
         schema:
@@ -476,26 +460,20 @@ paths:
         schema:
           default: false
           type: boolean
-      - description: Reference genome, either GRCh37 or GRCh38. The default is GRCh37
+      - description: "Reference genome, either GRCh37 or GRCh38. The default is GRCh37"
         in: query
         name: referenceGenome
         schema:
           default: GRCh37
           type: string
-      - description: 'OncoTree(http://oncotree.info) tumor type name. The field supports
-          OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma'
+      - description: "OncoTree(http://oncotree.info) tumor type name. The field supports\
+          \ OncoTree Code, OncoTree Name and OncoTree Main type. Example: Melanoma"
         in: query
         name: tumorType
         schema:
           type: string
-      - description: 'Evidence type to compute. This could help to improve the performance
-          if you only look for sub-content. Example: ONCOGENIC. All available evidence
-          type are GENE_SUMMARY, MUTATION_SUMMARY, TUMOR_TYPE_SUMMARY, PROGNOSTIC_SUMMARY,
-          DIAGNOSTIC_SUMMARY, ONCOGENIC, MUTATION_EFFECT, PROGNOSTIC_IMPLICATION,
-          DIAGNOSTIC_IMPLICATION, STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
-          STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE, INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
-          INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE. For multiple evidence
-          types query, use '','' as separator.'
+      - description: DEPRECATED. We do not recommend using this parameter and it will
+          eventually be removed.
         in: query
         name: evidenceType
         schema:
@@ -511,12 +489,13 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateStructuralVariantsGet
       tags:
       - Annotations
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     post:
       description: Annotate structural variants.
       operationId: annotateStructuralVariantsPostUsingPOST_1
@@ -542,14 +521,15 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-          description: Error, error message will be given.
+                $ref: '#/components/schemas/ApiHttpError'
+          description: "Error, error message will be given."
       summary: annotateStructuralVariantsPost
       tags:
       - Annotations
       x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /info:
     get:
       operationId: infoGetUsingGET_1
@@ -563,7 +543,8 @@ paths:
       summary: infoGet
       tags:
       - Info
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /levels:
     get:
       description: Get all levels.
@@ -578,7 +559,8 @@ paths:
       summary: levelsGet
       tags:
       - Levels
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /levels/diagnostic:
     get:
       description: Get all diagnostic levels.
@@ -593,7 +575,8 @@ paths:
       summary: levelsDiagnosticGet
       tags:
       - Levels
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /levels/prognostic:
     get:
       description: Get all prognostic levels.
@@ -608,7 +591,8 @@ paths:
       summary: levelsPrognosticGet
       tags:
       - Levels
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /levels/resistance:
     get:
       description: Get all resistance levels.
@@ -623,7 +607,8 @@ paths:
       summary: levelsResistanceGet
       tags:
       - Levels
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /levels/sensitive:
     get:
       description: Get all sensitive levels.
@@ -638,7 +623,8 @@ paths:
       summary: levelsSensitiveGet
       tags:
       - Levels
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /utils/allCuratedGenes:
     get:
       description: Get list of genes OncoKB curated
@@ -673,7 +659,8 @@ paths:
       summary: utilsAllCuratedGenesGet
       tags:
       - Cancer Genes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /utils/allCuratedGenes.txt:
     get:
       description: Get list of genes OncoKB curated in text file.
@@ -693,7 +680,7 @@ paths:
       responses:
         "200":
           content:
-            text/plain:
+            text/plain;charset=UTF-8:
               schema:
                 type: string
           description: OK
@@ -706,7 +693,8 @@ paths:
       summary: utilsAllCuratedGenesTxtGet
       tags:
       - Cancer Genes
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain;charset=UTF-8
   /utils/cancerGeneList:
     get:
       description: Get cancer gene list
@@ -735,7 +723,8 @@ paths:
       summary: utilsCancerGeneListGet
       tags:
       - Cancer Genes
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /utils/cancerGeneList.txt:
     get:
       description: Get cancer gene list in text file.
@@ -749,7 +738,7 @@ paths:
       responses:
         "200":
           content:
-            text/plain:
+            text/plain;charset=UTF-8:
               schema:
                 type: string
           description: OK
@@ -762,27 +751,18 @@ paths:
       summary: utilsCancerGeneListTxtGet
       tags:
       - Cancer Genes
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain;charset=UTF-8
 components:
   schemas:
     Drug:
       example:
         ncitCode: ncitCode
-        synonyms:
-        - synonyms
-        - synonyms
         drugName: drugName
-        uuid: uuid
       properties:
         drugName:
           type: string
         ncitCode:
-          type: string
-        synonyms:
-          items:
-            type: string
-          type: array
-        uuid:
           type: string
       type: object
     AnnotateMutationByGenomicChangeQuery:
@@ -873,47 +853,75 @@ components:
           type: boolean
       type: object
     Query:
+      description: Enriched user annotation query
       example:
         consequence: consequence
         tumorType: tumorType
+        hgvsInfo: hgvsInfo
+        hugoSymbol: hugoSymbol
+        hgvs: hgvs
+        referenceGenome: GRCh37
         proteinStart: 2
         alteration: alteration
         entrezGeneId: 5
         svType: DELETION
-        hugoSymbol: hugoSymbol
-        alterationType: alterationType
+        alterationType: MUTATION
         id: id
-        hgvs: hgvs
         proteinEnd: 5
-        referenceGenome: GRCh37
+        canonicalTranscript: canonicalTranscript
       properties:
         alteration:
+          description: (Nullable) Alteration from original query or the resolved alteration
+            from HGVS variant
           type: string
         alterationType:
+          description: (Nullable) Alteration type
+          enum:
+          - MUTATION
+          - COPY_NUMBER_ALTERATION
+          - STRUCTURAL_VARIANT
+          type: string
+        canonicalTranscript:
+          description: (Nullable) The OncoKB canonical transcript. See https://www.oncokb.org/cancer-genes
           type: string
         consequence:
+          description: (Nullable) Variant consequence term from Ensembl. See https://useast.ensembl.org/info/genome/variation/prediction/predicted_data.html
           type: string
         entrezGeneId:
+          description: "(Nullable) Unique gene identifiers from NCBI. May be null\
+            \ if omitted from original query, otherwise filled in by OncoKB"
           format: int32
           type: integer
         hgvs:
+          description: (Nullable) The hgvsg or genomic location from original query
+          type: string
+        hgvsInfo:
+          description: (Nullable) Additional message for "hgvs" field. May indicate
+            reason for failed hgvs annotation.
           type: string
         hugoSymbol:
+          description: (Nullable) The gene symbol used in Human Genome Organisation
           type: string
         id:
+          description: (Nullable) The id passed in request for the user to distinguish
+            the query.
           type: string
         proteinEnd:
+          description: (Nullable) Protein end position
           format: int32
           type: integer
         proteinStart:
+          description: (Nullable) Protein start position
           format: int32
           type: integer
         referenceGenome:
+          description: Reference genome build version. Defaulted to GRCh37
           enum:
           - GRCh37
           - GRCh38
           type: string
         svType:
+          description: (Nullable) Structural variant type
           enum:
           - DELETION
           - TRANSLOCATION
@@ -924,6 +932,7 @@ components:
           - UNKNOWN
           type: string
         tumorType:
+          description: "(Nullable) Oncotree tumor type name, code, or main type."
           type: string
       type: object
     QueryGene:
@@ -935,6 +944,26 @@ components:
           format: int32
           type: integer
         hugoSymbol:
+          type: string
+      type: object
+    ApiHttpError:
+      example:
+        path: path
+        detail: detail
+        message: message
+        title: title
+        status: 7
+      properties:
+        detail:
+          type: string
+        message:
+          type: string
+        path:
+          type: string
+        status:
+          format: int32
+          type: integer
+        title:
           type: string
       type: object
     CancerGene:
@@ -1105,7 +1134,8 @@ components:
           parent: parent
           code: code
           color: color
-          children: {}
+          children:
+            key: null
           level: 6
           tumorForm: SOLID
           name: name
@@ -1130,16 +1160,21 @@ components:
         description: description
       properties:
         abstracts:
+          description: List of abstracts cited to support the level of evidence. Defaulted
+            to empty list
           items:
             $ref: '#/components/schemas/ArticleAbstract'
           type: array
         alterations:
+          description: List of alterations associated with implication
           items:
             type: string
           type: array
         description:
+          description: DEPRECATED
           type: string
         levelOfEvidence:
+          description: Level associated with implication
           enum:
           - LEVEL_1
           - LEVEL_2
@@ -1160,6 +1195,8 @@ components:
           - "NO"
           type: string
         pmids:
+          description: List of PubMed IDs cited to support the level of evidence.
+            Defaulted to empty list
           items:
             type: string
           type: array
@@ -1234,17 +1271,9 @@ components:
           abstract: abstract
         drugs:
         - ncitCode: ncitCode
-          synonyms:
-          - synonyms
-          - synonyms
           drugName: drugName
-          uuid: uuid
         - ncitCode: ncitCode
-          synonyms:
-          - synonyms
-          - synonyms
           drugName: drugName
-          uuid: uuid
         level: LEVEL_1
         pmids:
         - pmids
@@ -1261,7 +1290,8 @@ components:
         - parent: parent
           code: code
           color: color
-          children: {}
+          children:
+            key: null
           level: 6
           tumorForm: SOLID
           name: name
@@ -1274,7 +1304,8 @@ components:
         - parent: parent
           code: code
           color: color
-          children: {}
+          children:
+            key: null
           level: 6
           tumorForm: SOLID
           name: name
@@ -1288,7 +1319,8 @@ components:
           parent: parent
           code: code
           color: color
-          children: {}
+          children:
+            key: null
           level: 6
           tumorForm: SOLID
           name: name
@@ -1300,24 +1332,31 @@ components:
             id: 1
       properties:
         abstracts:
+          description: List of abstracts cited in the treatment description. Defaulted
+            to empty list
           items:
             $ref: '#/components/schemas/ArticleAbstract'
           type: array
         alterations:
+          description: List of alterations associated with therapeutic implication
           items:
             type: string
           type: array
         approvedIndications:
+          description: DEPRECATED
           items:
             type: string
           type: array
         description:
+          description: Treatment description. Defaulted to ""
           type: string
         drugs:
+          description: List of drugs associated with therapeutic implication
           items:
             $ref: '#/components/schemas/Drug'
           type: array
         fdaLevel:
+          description: FDA level associated with implication
           enum:
           - LEVEL_1
           - LEVEL_2
@@ -1338,6 +1377,7 @@ components:
           - "NO"
           type: string
         level:
+          description: Therapeutic level associated with implication
           enum:
           - LEVEL_1
           - LEVEL_2
@@ -1360,21 +1400,25 @@ components:
         levelAssociatedCancerType:
           $ref: '#/components/schemas/TumorType'
         levelExcludedCancerTypes:
+          description: Excluded cancer types. Defaulted to empty list
           items:
             $ref: '#/components/schemas/TumorType'
           type: array
         pmids:
+          description: List of PubMed IDs cited in the treatment description. Defaulted
+            to empty list
           items:
             type: string
           type: array
       type: object
     TumorType:
-      description: OncoTree Detailed Cancer Type
+      description: OncoTree Detailed Cancer Type. See https://oncotree.mskcc.org/?version=oncotree_2019_12_01
       example:
         parent: parent
         code: code
         color: color
-        children: {}
+        children:
+          key: null
         level: 6
         tumorForm: SOLID
         name: name
@@ -1388,26 +1432,36 @@ components:
         children:
           additionalProperties:
             $ref: '#/components/schemas/TumorType'
+          description: Map from parent tumor type to children tumor types
           type: object
         code:
+          description: Oncotree code
           type: string
         color:
+          description: (Nullable) Color of tumor
           type: string
         id:
+          description: Database TumorType ID
           format: int32
           type: integer
         level:
+          description: Oncotree tumor type level. -1 indicates special tumor types
+            (See SpecialTumorTypes.java)
           format: int32
           type: integer
         mainType:
           $ref: '#/components/schemas/MainType'
         name:
+          description: (Nullable) Oncotree sub type
           type: string
         parent:
+          description: (Nullable) Parent tumor name
           type: string
         tissue:
+          description: (Nullable) Oncotree tumor tissue
           type: string
         tumorForm:
+          description: Tumor form
           enum:
           - SOLID
           - LIQUID
@@ -1416,7 +1470,7 @@ components:
       type: object
     MutationEffectResp:
       example:
-        knownEffect: knownEffect
+        knownEffect: Gain-of-function
         citations:
           abstracts:
           - link: link
@@ -1431,8 +1485,23 @@ components:
         citations:
           $ref: '#/components/schemas/Citations'
         description:
+          description: A brief overview of the biological and oncogenic effect of
+            the variant. Defaulted to ""
           type: string
         knownEffect:
+          description: Indicates the effect of the mutation on the gene. Defaulted
+            to ""
+          enum:
+          - Gain-of-function
+          - Inconclusive
+          - Loss-of-function
+          - Likely Loss-of-function
+          - Likely Gain-of-function
+          - Neutral
+          - Unknown
+          - Likely Switch-of-function
+          - Switch-of-function
+          - Likely Neutral
           type: string
       type: object
     AnnotateCopyNumberAlterationQuery:
@@ -1607,14 +1676,15 @@ components:
       type: object
     IndicatorQueryResp:
       example:
-        oncogenic: oncogenic
-        hotspot: true
+        oncogenic: Oncogenic
+        hotspot: false
         prognosticImplications:
         - tumorType:
             parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1641,7 +1711,8 @@ components:
             parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1664,8 +1735,8 @@ components:
           - alterations
           - alterations
           description: description
-        geneExist: true
-        alleleExist: true
+        geneExist: false
+        alleleExist: false
         treatments:
         - abstracts:
           - link: link
@@ -1674,17 +1745,9 @@ components:
             abstract: abstract
           drugs:
           - ncitCode: ncitCode
-            synonyms:
-            - synonyms
-            - synonyms
             drugName: drugName
-            uuid: uuid
           - ncitCode: ncitCode
-            synonyms:
-            - synonyms
-            - synonyms
             drugName: drugName
-            uuid: uuid
           level: LEVEL_1
           pmids:
           - pmids
@@ -1701,7 +1764,8 @@ components:
           - parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1714,7 +1778,8 @@ components:
           - parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1728,7 +1793,8 @@ components:
             parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1745,17 +1811,9 @@ components:
             abstract: abstract
           drugs:
           - ncitCode: ncitCode
-            synonyms:
-            - synonyms
-            - synonyms
             drugName: drugName
-            uuid: uuid
           - ncitCode: ncitCode
-            synonyms:
-            - synonyms
-            - synonyms
             drugName: drugName
-            uuid: uuid
           level: LEVEL_1
           pmids:
           - pmids
@@ -1772,7 +1830,8 @@ components:
           - parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1785,7 +1844,8 @@ components:
           - parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1799,7 +1859,8 @@ components:
             parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1815,7 +1876,8 @@ components:
             parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1842,7 +1904,8 @@ components:
             parent: parent
             code: code
             color: color
-            children: {}
+            children:
+              key: null
             level: 6
             tumorForm: SOLID
             name: name
@@ -1866,31 +1929,33 @@ components:
           - alterations
           description: description
         vus: true
-        highestResistanceLevel: LEVEL_1
+        highestResistanceLevel: LEVEL_R1
         highestSensitiveLevel: LEVEL_1
         tumorTypeSummary: tumorTypeSummary
-        highestPrognosticImplicationLevel: LEVEL_1
+        highestPrognosticImplicationLevel: LEVEL_Px1
         otherSignificantResistanceLevels:
         - LEVEL_1
         - LEVEL_1
-        dataVersion: dataVersion
+        dataVersion: v4.25
         query:
           consequence: consequence
           tumorType: tumorType
+          hgvsInfo: hgvsInfo
+          hugoSymbol: hugoSymbol
+          hgvs: hgvs
+          referenceGenome: GRCh37
           proteinStart: 2
           alteration: alteration
           entrezGeneId: 5
           svType: DELETION
-          hugoSymbol: hugoSymbol
-          alterationType: alterationType
+          alterationType: MUTATION
           id: id
-          hgvs: hgvs
           proteinEnd: 5
-          referenceGenome: GRCh37
+          canonicalTranscript: canonicalTranscript
         geneSummary: geneSummary
         variantSummary: variantSummary
         mutationEffect:
-          knownEffect: knownEffect
+          knownEffect: Gain-of-function
           citations:
             abstracts:
             - link: link
@@ -1905,134 +1970,99 @@ components:
         - LEVEL_1
         - LEVEL_1
         diagnosticSummary: diagnosticSummary
-        lastUpdate: lastUpdate
-        variantExist: true
-        highestFdaLevel: LEVEL_1
-        highestDiagnosticImplicationLevel: LEVEL_1
+        lastUpdate: 01/30/2025
+        variantExist: false
+        highestFdaLevel: LEVEL_Fda1
+        highestDiagnosticImplicationLevel: LEVEL_Dx1
       properties:
         alleleExist:
+          description: Indicates whether the alternate allele has been curated. See
+            SOP Protocol 9.1
+          example: false
           type: boolean
         dataVersion:
+          description: OncoKB data version. See www.oncokb.org/news
+          example: v4.25
           type: string
         diagnosticImplications:
+          description: List of diagnostic implications. Defaulted to empty list
           items:
             $ref: '#/components/schemas/Implication'
           type: array
         diagnosticSummary:
+          description: Diagnostic summary. Defaulted to ""
           type: string
         geneExist:
+          description: Indicates whether the gene is curated by OncoKB
+          example: false
           type: boolean
         geneSummary:
+          description: Gene summary. Defaulted to ""
           type: string
         highestDiagnosticImplicationLevel:
+          description: (Nullable) The highest diagnostic level from a list of diagnostic
+            evidences.
           enum:
-          - LEVEL_1
-          - LEVEL_2
-          - LEVEL_3A
-          - LEVEL_3B
-          - LEVEL_4
-          - LEVEL_R1
-          - LEVEL_R2
-          - LEVEL_Px1
-          - LEVEL_Px2
-          - LEVEL_Px3
           - LEVEL_Dx1
           - LEVEL_Dx2
-          - LEVEL_Dx3
-          - LEVEL_Fda1
-          - LEVEL_Fda2
-          - LEVEL_Fda3
-          - "NO"
+          - LEVEL_Dx3.
           type: string
         highestFdaLevel:
+          description: (Nullable) The highest FDA level from a list of therapeutic
+            evidences.
           enum:
-          - LEVEL_1
-          - LEVEL_2
-          - LEVEL_3A
-          - LEVEL_3B
-          - LEVEL_4
-          - LEVEL_R1
-          - LEVEL_R2
-          - LEVEL_Px1
-          - LEVEL_Px2
-          - LEVEL_Px3
-          - LEVEL_Dx1
-          - LEVEL_Dx2
-          - LEVEL_Dx3
           - LEVEL_Fda1
           - LEVEL_Fda2
           - LEVEL_Fda3
-          - "NO"
           type: string
         highestPrognosticImplicationLevel:
+          description: (Nullable) The highest prognostic level from a list of prognostic
+            evidences.
           enum:
-          - LEVEL_1
-          - LEVEL_2
-          - LEVEL_3A
-          - LEVEL_3B
-          - LEVEL_4
-          - LEVEL_R1
-          - LEVEL_R2
           - LEVEL_Px1
           - LEVEL_Px2
           - LEVEL_Px3
-          - LEVEL_Dx1
-          - LEVEL_Dx2
-          - LEVEL_Dx3
-          - LEVEL_Fda1
-          - LEVEL_Fda2
-          - LEVEL_Fda3
-          - "NO"
           type: string
         highestResistanceLevel:
+          description: (Nullable) The highest resistance level from a list of therapeutic
+            evidences.
           enum:
-          - LEVEL_1
-          - LEVEL_2
-          - LEVEL_3A
-          - LEVEL_3B
-          - LEVEL_4
           - LEVEL_R1
           - LEVEL_R2
-          - LEVEL_Px1
-          - LEVEL_Px2
-          - LEVEL_Px3
-          - LEVEL_Dx1
-          - LEVEL_Dx2
-          - LEVEL_Dx3
-          - LEVEL_Fda1
-          - LEVEL_Fda2
-          - LEVEL_Fda3
-          - "NO"
           type: string
         highestSensitiveLevel:
+          description: (Nullable) The highest sensitivity level from a list of therapeutic
+            evidences.
           enum:
           - LEVEL_1
           - LEVEL_2
           - LEVEL_3A
           - LEVEL_3B
           - LEVEL_4
-          - LEVEL_R1
-          - LEVEL_R2
-          - LEVEL_Px1
-          - LEVEL_Px2
-          - LEVEL_Px3
-          - LEVEL_Dx1
-          - LEVEL_Dx2
-          - LEVEL_Dx3
-          - LEVEL_Fda1
-          - LEVEL_Fda2
-          - LEVEL_Fda3
-          - "NO"
           type: string
         hotspot:
+          description: "Whether variant is recurrently found in cancer with statistical\
+            \ significance, as defined in Chang et al. (2017). See SOP Protocol 9.2"
+          example: false
           type: boolean
         lastUpdate:
+          description: OncoKB data release date. Formatted as MM/DD/YYYY
+          example: 01/30/2025
           type: string
         mutationEffect:
           $ref: '#/components/schemas/MutationEffectResp'
         oncogenic:
+          description: The oncogenicity status of the variant. Defaulted to "Unknown".
+          enum:
+          - Oncogenic
+          - Likely Oncogenic
+          - Likely Neutral
+          - Inconclusive
+          - Resistance
+          - Unknown
           type: string
         otherSignificantResistanceLevels:
+          description: DEPRECATED
           items:
             enum:
             - LEVEL_1
@@ -2055,6 +2085,7 @@ components:
             type: string
           type: array
         otherSignificantSensitiveLevels:
+          description: DEPRECATED
           items:
             enum:
             - LEVEL_1
@@ -2077,22 +2108,31 @@ components:
             type: string
           type: array
         prognosticImplications:
+          description: List of prognostic implications. Defaulted to empty list
           items:
             $ref: '#/components/schemas/Implication'
           type: array
         prognosticSummary:
+          description: Prognostic summary. Defaulted to ""
           type: string
         query:
           $ref: '#/components/schemas/Query'
         treatments:
+          description: List of therapeutic implications implications. Defaulted to
+            empty list
           items:
             $ref: '#/components/schemas/IndicatorQueryTreatment'
           type: array
         tumorTypeSummary:
+          description: Tumor type summary. Defaulted to ""
           type: string
         variantExist:
+          description: Indicates whether an exact match for the queried variant is
+            curated
+          example: false
           type: boolean
         variantSummary:
+          description: Variant summary. Defaulted to ""
           type: string
         vus:
           type: boolean
@@ -2109,10 +2149,12 @@ components:
         - pmids
       properties:
         abstracts:
+          description: Set of Abstract sources
           items:
             $ref: '#/components/schemas/ArticleAbstract'
           type: array
         pmids:
+          description: Set of PubMed article ids
           items:
             type: string
           type: array

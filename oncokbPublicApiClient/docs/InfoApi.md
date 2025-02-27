@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://www.oncokb.org/api/v1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**infoGetUsingGET1**](InfoApi.md#infoGetUsingGET1) | **GET** /info | infoGet
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**infoGetUsingGET1**](InfoApi.md#infoGetUsingGET1) | **GET** /info | infoGet |
 
 
-<a name="infoGetUsingGET1"></a>
+<a id="infoGetUsingGET1"></a>
 # **infoGetUsingGET1**
 > OncoKBInfo infoGetUsingGET1()
 
@@ -16,11 +16,11 @@ infoGet
 ### Example
 ```java
 // Import classes:
-import org.oncokb.ApiClient;
-import org.oncokb.ApiException;
-import org.oncokb.Configuration;
-import org.oncokb.models.*;
-import org.oncokb.client.InfoApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InfoApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -61,5 +61,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 

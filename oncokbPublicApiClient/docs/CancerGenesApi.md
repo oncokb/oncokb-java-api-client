@@ -2,15 +2,15 @@
 
 All URIs are relative to *https://www.oncokb.org/api/v1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**utilsAllCuratedGenesGetUsingGET1**](CancerGenesApi.md#utilsAllCuratedGenesGetUsingGET1) | **GET** /utils/allCuratedGenes | utilsAllCuratedGenesGet
-[**utilsAllCuratedGenesTxtGetUsingGET1**](CancerGenesApi.md#utilsAllCuratedGenesTxtGetUsingGET1) | **GET** /utils/allCuratedGenes.txt | utilsAllCuratedGenesTxtGet
-[**utilsCancerGeneListGetUsingGET1**](CancerGenesApi.md#utilsCancerGeneListGetUsingGET1) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet
-[**utilsCancerGeneListTxtGetUsingGET1**](CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET1) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**utilsAllCuratedGenesGetUsingGET1**](CancerGenesApi.md#utilsAllCuratedGenesGetUsingGET1) | **GET** /utils/allCuratedGenes | utilsAllCuratedGenesGet |
+| [**utilsAllCuratedGenesTxtGetUsingGET1**](CancerGenesApi.md#utilsAllCuratedGenesTxtGetUsingGET1) | **GET** /utils/allCuratedGenes.txt | utilsAllCuratedGenesTxtGet |
+| [**utilsCancerGeneListGetUsingGET1**](CancerGenesApi.md#utilsCancerGeneListGetUsingGET1) | **GET** /utils/cancerGeneList | utilsCancerGeneListGet |
+| [**utilsCancerGeneListTxtGetUsingGET1**](CancerGenesApi.md#utilsCancerGeneListTxtGetUsingGET1) | **GET** /utils/cancerGeneList.txt | utilsCancerGeneListTxtGet |
 
 
-<a name="utilsAllCuratedGenesGetUsingGET1"></a>
+<a id="utilsAllCuratedGenesGetUsingGET1"></a>
 # **utilsAllCuratedGenesGetUsingGET1**
 > List&lt;CuratedGene&gt; utilsAllCuratedGenesGetUsingGET1(version, includeEvidence)
 
@@ -21,11 +21,11 @@ Get list of genes OncoKB curated
 ### Example
 ```java
 // Import classes:
-import org.oncokb.ApiClient;
-import org.oncokb.ApiException;
-import org.oncokb.Configuration;
-import org.oncokb.models.*;
-import org.oncokb.client.CancerGenesApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CancerGenesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -51,10 +51,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| The data version | [optional]
- **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **version** | **String**| The data version | [optional] |
+| **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true] |
 
 ### Return type
 
@@ -72,11 +72,11 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Not Found |  -  |
-**503** | Service Unavailable |  -  |
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **503** | Service Unavailable |  -  |
 
-<a name="utilsAllCuratedGenesTxtGetUsingGET1"></a>
+<a id="utilsAllCuratedGenesTxtGetUsingGET1"></a>
 # **utilsAllCuratedGenesTxtGetUsingGET1**
 > String utilsAllCuratedGenesTxtGetUsingGET1(version, includeEvidence)
 
@@ -87,11 +87,11 @@ Get list of genes OncoKB curated in text file.
 ### Example
 ```java
 // Import classes:
-import org.oncokb.ApiClient;
-import org.oncokb.ApiException;
-import org.oncokb.Configuration;
-import org.oncokb.models.*;
-import org.oncokb.client.CancerGenesApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CancerGenesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -117,10 +117,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| The data version | [optional]
- **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **version** | **String**| The data version | [optional] |
+| **includeEvidence** | **Boolean**| Include gene summary and background | [optional] [default to true] |
 
 ### Return type
 
@@ -133,16 +133,16 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain
+ - **Accept**: text/plain;charset=UTF-8
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Not Found |  -  |
-**503** | Service Unavailable |  -  |
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **503** | Service Unavailable |  -  |
 
-<a name="utilsCancerGeneListGetUsingGET1"></a>
+<a id="utilsCancerGeneListGetUsingGET1"></a>
 # **utilsCancerGeneListGetUsingGET1**
 > List&lt;CancerGene&gt; utilsCancerGeneListGetUsingGET1(version)
 
@@ -153,11 +153,11 @@ Get cancer gene list
 ### Example
 ```java
 // Import classes:
-import org.oncokb.ApiClient;
-import org.oncokb.ApiException;
-import org.oncokb.Configuration;
-import org.oncokb.models.*;
-import org.oncokb.client.CancerGenesApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CancerGenesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -182,9 +182,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| The data version | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **version** | **String**| The data version | [optional] |
 
 ### Return type
 
@@ -202,11 +202,11 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Not Found |  -  |
-**503** | Service Unavailable |  -  |
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **503** | Service Unavailable |  -  |
 
-<a name="utilsCancerGeneListTxtGetUsingGET1"></a>
+<a id="utilsCancerGeneListTxtGetUsingGET1"></a>
 # **utilsCancerGeneListTxtGetUsingGET1**
 > String utilsCancerGeneListTxtGetUsingGET1(version)
 
@@ -217,11 +217,11 @@ Get cancer gene list in text file.
 ### Example
 ```java
 // Import classes:
-import org.oncokb.ApiClient;
-import org.oncokb.ApiException;
-import org.oncokb.Configuration;
-import org.oncokb.models.*;
-import org.oncokb.client.CancerGenesApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CancerGenesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -246,9 +246,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| The data version | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **version** | **String**| The data version | [optional] |
 
 ### Return type
 
@@ -261,12 +261,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain
+ - **Accept**: text/plain;charset=UTF-8
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | Not Found |  -  |
-**503** | Service Unavailable |  -  |
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **503** | Service Unavailable |  -  |
 
