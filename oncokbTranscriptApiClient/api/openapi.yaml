@@ -304,6 +304,97 @@ paths:
       tags:
       - pipeline-controller
       x-accepts: application/json
+  /api/find-canonical-protein-sequences:
+    get:
+      operationId: findCanonicalProteinSequenceUsingGET
+      parameters:
+      - description: referenceGenome
+        explode: true
+        in: query
+        name: referenceGenome
+        required: true
+        schema:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        style: form
+      - description: entrezGeneId
+        explode: true
+        in: query
+        name: entrezGeneId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CanonicalProteinSequenceVM'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findCanonicalProteinSequence
+      tags:
+      - sequence-controller
+      x-accepts: '*/*'
+    post:
+      operationId: findCanonicalProteinSequencesUsingPOST
+      parameters:
+      - description: referenceGenome
+        explode: true
+        in: query
+        name: referenceGenome
+        required: true
+        schema:
+          enum:
+          - GRCh37
+          - GRCh38
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: int32
+                type: integer
+              type: array
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/CanonicalProteinSequenceVM'
+                type: array
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      summary: findCanonicalProteinSequences
+      tags:
+      - sequence-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
   /api/find-canonical-sequences:
     get:
       operationId: findCanonicalSequenceUsingGET
@@ -706,6 +797,21 @@ components:
         grch38:
           $ref: '#/components/schemas/TranscriptSuggestionVM'
       title: AllReferenceTranscriptSuggestionVM
+      type: object
+    CanonicalProteinSequenceVM:
+      example:
+        sequence: sequence
+        ensemblTranscriptId: ensemblTranscriptId
+        entrezGeneId: 0
+      properties:
+        ensemblTranscriptId:
+          type: string
+        entrezGeneId:
+          format: int32
+          type: integer
+        sequence:
+          type: string
+      title: CanonicalProteinSequenceVM
       type: object
     Drug:
       example:

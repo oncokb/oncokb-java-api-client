@@ -9,6 +9,7 @@ docs/AccountResourceApi.md
 docs/AddEnsemblGeneBody.md
 docs/AddTranscriptBody.md
 docs/AllReferenceTranscriptSuggestionVM.md
+docs/CanonicalProteinSequenceVM.md
 docs/Drug.md
 docs/DrugControllerApi.md
 docs/DrugSynonym.md
@@ -66,6 +67,7 @@ src/main/java/org/oncokb/oncokb_transcript/client/AccountResourceApi.java
 src/main/java/org/oncokb/oncokb_transcript/client/AddEnsemblGeneBody.java
 src/main/java/org/oncokb/oncokb_transcript/client/AddTranscriptBody.java
 src/main/java/org/oncokb/oncokb_transcript/client/AllReferenceTranscriptSuggestionVM.java
+src/main/java/org/oncokb/oncokb_transcript/client/CanonicalProteinSequenceVM.java
 src/main/java/org/oncokb/oncokb_transcript/client/Drug.java
 src/main/java/org/oncokb/oncokb_transcript/client/DrugControllerApi.java
 src/main/java/org/oncokb/oncokb_transcript/client/DrugSynonym.java
@@ -97,6 +99,7 @@ src/test/java/org/oncokb/oncokb_transcript/client/AccountResourceApiTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/AddEnsemblGeneBodyTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/AddTranscriptBodyTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/AllReferenceTranscriptSuggestionVMTest.java
+src/test/java/org/oncokb/oncokb_transcript/client/CanonicalProteinSequenceVMTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/DrugControllerApiTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/DrugSynonymTest.java
 src/test/java/org/oncokb/oncokb_transcript/client/DrugTest.java

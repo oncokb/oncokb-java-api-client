@@ -14,6 +14,7 @@
 package org.oncokb.oncokb_transcript.client;
 
 import org.oncokb.oncokb_transcript.ApiException;
+import org.oncokb.oncokb_transcript.client.CanonicalProteinSequenceVM;
 import org.oncokb.oncokb_transcript.client.Sequence;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -31,6 +32,38 @@ public class SequenceControllerApiTest {
 
     private final SequenceControllerApi api = new SequenceControllerApi();
 
+    
+    /**
+     * findCanonicalProteinSequence
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findCanonicalProteinSequenceUsingGETTest() throws ApiException {
+        String referenceGenome = null;
+        Integer entrezGeneId = null;
+                CanonicalProteinSequenceVM response = api.findCanonicalProteinSequenceUsingGET(referenceGenome, entrezGeneId);
+        // TODO: test validations
+    }
+    
+    /**
+     * findCanonicalProteinSequences
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findCanonicalProteinSequencesUsingPOSTTest() throws ApiException {
+        String referenceGenome = null;
+        List<Integer> requestBody = null;
+                List<CanonicalProteinSequenceVM> response = api.findCanonicalProteinSequencesUsingPOST(referenceGenome, requestBody);
+        // TODO: test validations
+    }
     
     /**
      * findCanonicalSequence
