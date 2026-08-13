@@ -127,6 +127,8 @@ Class | Method | HTTP request | Description
 *GeneResourceApi* | [**getAllGenesUsingGET**](docs/GeneResourceApi.md#getAllGenesUsingGET) | **GET** /api/genes | getAllGenes
 *PipelineControllerApi* | [**updateNcitUsingPOST**](docs/PipelineControllerApi.md#updateNcitUsingPOST) | **POST** /api/pipeline/update-ncit | updateNcit
 *PipelineControllerApi* | [**updatePortalGeneUsingPOST**](docs/PipelineControllerApi.md#updatePortalGeneUsingPOST) | **POST** /api/pipeline/update-gene | updatePortalGene
+*SequenceControllerApi* | [**findCanonicalProteinSequenceUsingGET**](docs/SequenceControllerApi.md#findCanonicalProteinSequenceUsingGET) | **GET** /api/find-canonical-protein-sequences | findCanonicalProteinSequence
+*SequenceControllerApi* | [**findCanonicalProteinSequencesUsingPOST**](docs/SequenceControllerApi.md#findCanonicalProteinSequencesUsingPOST) | **POST** /api/find-canonical-protein-sequences | findCanonicalProteinSequences
 *SequenceControllerApi* | [**findCanonicalSequenceUsingGET**](docs/SequenceControllerApi.md#findCanonicalSequenceUsingGET) | **GET** /api/find-canonical-sequences | findCanonicalSequence
 *SequenceControllerApi* | [**findCanonicalSequencesUsingPOST**](docs/SequenceControllerApi.md#findCanonicalSequencesUsingPOST) | **POST** /api/find-canonical-sequences | findCanonicalSequences
 *TranscriptControllerApi* | [**addTranscriptUsingPOST**](docs/TranscriptControllerApi.md#addTranscriptUsingPOST) | **POST** /api/add-transcript | addTranscript
@@ -141,6 +143,7 @@ Class | Method | HTTP request | Description
  - [AddEnsemblGeneBody](docs/AddEnsemblGeneBody.md)
  - [AddTranscriptBody](docs/AddTranscriptBody.md)
  - [AllReferenceTranscriptSuggestionVM](docs/AllReferenceTranscriptSuggestionVM.md)
+ - [CanonicalProteinSequenceVM](docs/CanonicalProteinSequenceVM.md)
  - [Drug](docs/Drug.md)
  - [DrugSynonym](docs/DrugSynonym.md)
  - [EnsemblGene](docs/EnsemblGene.md)

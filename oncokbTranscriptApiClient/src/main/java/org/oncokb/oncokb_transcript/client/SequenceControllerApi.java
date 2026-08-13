@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.oncokb.oncokb_transcript.client.CanonicalProteinSequenceVM;
 import org.oncokb.oncokb_transcript.client.Sequence;
 
 import java.lang.reflect.Type;
@@ -72,6 +73,313 @@ public class SequenceControllerApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for findCanonicalProteinSequenceUsingGET
+     * @param referenceGenome referenceGenome (required)
+     * @param entrezGeneId entrezGeneId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call findCanonicalProteinSequenceUsingGETCall(String referenceGenome, Integer entrezGeneId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/find-canonical-protein-sequences";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (referenceGenome != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("referenceGenome", referenceGenome));
+        }
+
+        if (entrezGeneId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("entrezGeneId", entrezGeneId));
+        }
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarHeaderParams != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Authorization" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call findCanonicalProteinSequenceUsingGETValidateBeforeCall(String referenceGenome, Integer entrezGeneId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'referenceGenome' is set
+        if (referenceGenome == null) {
+            throw new ApiException("Missing the required parameter 'referenceGenome' when calling findCanonicalProteinSequenceUsingGET(Async)");
+        }
+        
+        // verify the required parameter 'entrezGeneId' is set
+        if (entrezGeneId == null) {
+            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling findCanonicalProteinSequenceUsingGET(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = findCanonicalProteinSequenceUsingGETCall(referenceGenome, entrezGeneId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * findCanonicalProteinSequence
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param entrezGeneId entrezGeneId (required)
+     * @return CanonicalProteinSequenceVM
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public CanonicalProteinSequenceVM findCanonicalProteinSequenceUsingGET(String referenceGenome, Integer entrezGeneId) throws ApiException {
+        ApiResponse<CanonicalProteinSequenceVM> localVarResp = findCanonicalProteinSequenceUsingGETWithHttpInfo(referenceGenome, entrezGeneId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * findCanonicalProteinSequence
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param entrezGeneId entrezGeneId (required)
+     * @return ApiResponse&lt;CanonicalProteinSequenceVM&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CanonicalProteinSequenceVM> findCanonicalProteinSequenceUsingGETWithHttpInfo(String referenceGenome, Integer entrezGeneId) throws ApiException {
+        okhttp3.Call localVarCall = findCanonicalProteinSequenceUsingGETValidateBeforeCall(referenceGenome, entrezGeneId, null);
+        Type localVarReturnType = new TypeToken<CanonicalProteinSequenceVM>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * findCanonicalProteinSequence (asynchronously)
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param entrezGeneId entrezGeneId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call findCanonicalProteinSequenceUsingGETAsync(String referenceGenome, Integer entrezGeneId, final ApiCallback<CanonicalProteinSequenceVM> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = findCanonicalProteinSequenceUsingGETValidateBeforeCall(referenceGenome, entrezGeneId, _callback);
+        Type localVarReturnType = new TypeToken<CanonicalProteinSequenceVM>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for findCanonicalProteinSequencesUsingPOST
+     * @param referenceGenome referenceGenome (required)
+     * @param requestBody  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call findCanonicalProteinSequencesUsingPOSTCall(String referenceGenome, List<Integer> requestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = requestBody;
+
+        // create path and map variables
+        String localVarPath = "/api/find-canonical-protein-sequences";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (referenceGenome != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("referenceGenome", referenceGenome));
+        }
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarHeaderParams != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Authorization" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call findCanonicalProteinSequencesUsingPOSTValidateBeforeCall(String referenceGenome, List<Integer> requestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'referenceGenome' is set
+        if (referenceGenome == null) {
+            throw new ApiException("Missing the required parameter 'referenceGenome' when calling findCanonicalProteinSequencesUsingPOST(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = findCanonicalProteinSequencesUsingPOSTCall(referenceGenome, requestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * findCanonicalProteinSequences
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param requestBody  (optional)
+     * @return List&lt;CanonicalProteinSequenceVM&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<CanonicalProteinSequenceVM> findCanonicalProteinSequencesUsingPOST(String referenceGenome, List<Integer> requestBody) throws ApiException {
+        ApiResponse<List<CanonicalProteinSequenceVM>> localVarResp = findCanonicalProteinSequencesUsingPOSTWithHttpInfo(referenceGenome, requestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * findCanonicalProteinSequences
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param requestBody  (optional)
+     * @return ApiResponse&lt;List&lt;CanonicalProteinSequenceVM&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<CanonicalProteinSequenceVM>> findCanonicalProteinSequencesUsingPOSTWithHttpInfo(String referenceGenome, List<Integer> requestBody) throws ApiException {
+        okhttp3.Call localVarCall = findCanonicalProteinSequencesUsingPOSTValidateBeforeCall(referenceGenome, requestBody, null);
+        Type localVarReturnType = new TypeToken<List<CanonicalProteinSequenceVM>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * findCanonicalProteinSequences (asynchronously)
+     * 
+     * @param referenceGenome referenceGenome (required)
+     * @param requestBody  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call findCanonicalProteinSequencesUsingPOSTAsync(String referenceGenome, List<Integer> requestBody, final ApiCallback<List<CanonicalProteinSequenceVM>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = findCanonicalProteinSequencesUsingPOSTValidateBeforeCall(referenceGenome, requestBody, _callback);
+        Type localVarReturnType = new TypeToken<List<CanonicalProteinSequenceVM>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for findCanonicalSequenceUsingGET
      * @param referenceGenome referenceGenome (required)
